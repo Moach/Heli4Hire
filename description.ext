@@ -52,21 +52,21 @@ class CfgRadio
 	{
 		name = "";
 		sound[] = {"\sound\check report.ogg", db-100, 1.0};
-		title = "Able Units, Check and Report!";
+		title = "Able Units, Map Check, Acknowledge!";
 	};
 	
 	class HW_Radio_MapCheck
 	{
 		name = "";
 		sound[] = {"\sound\map check.ogg", db-100, 1.0};
-		title = "Able Units, Map Check, Report!";
+		title = "Able Units, Map Check!";
 	};
 	
 	class HW_Radio_UpdateReport
 	{
 		name = "";
 		sound[] = {"\sound\update report.ogg", db-100, 1.0};
-		title = "Able Units, Update, Please Report...";
+		title = "Able Units, Update, Check and Acknowledge!";
 	};
 	
 	class HW_Radio_CheckIn
@@ -80,7 +80,7 @@ class CfgRadio
 	{
 		name = "";
 		sound[] = {"\sound\report.ogg", db-100, 1.0};
-		title = "Able Units, Report!";
+		title = "Able Units, Acknowledge!";
 	};
 	
 	
@@ -95,7 +95,7 @@ class CfgRadio
 	{
 		name = "";
 		sound[] = {"\sound\update info.ogg", db-100, 1.0};
-		title = "Able Units, Update, Report back for more info...";
+		title = "Able Units, Update, Call back for more info...";
 	};
 	
 	

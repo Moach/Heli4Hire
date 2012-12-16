@@ -73,7 +73,7 @@ HW_Dispatch_Taxi =
 	
 	gig setVariable ["p1", _p1];
 	gig setVariable ["p2", _p2];
-	gig setVariable ["exp", time + 30 + random(120)];
+	gig setVariable ["exp", time + 45 + random(320)];
 	gig setVariable ["mkr", _mkID];
 	gig setVariable ["tsk", _tsk];
 	
