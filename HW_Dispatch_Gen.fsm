@@ -1,0 +1,317 @@
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"standby",2,250,-117.438797,1759.431274,-27.438690,1809.431274,0.000000,"standby"};
+item1[] = {"time_for_new_gig",4,218,2.444563,1835.864624,92.444534,1925.507080,0.000000,"time for" \n "new gig"};
+item2[] = {"gig_generator",2,4346,3.111046,1963.672729,93.111023,2013.672607,0.000000,"gig" \n "generator"};
+item3[] = {"call_in",4,218,59.375641,1688.938477,149.375580,1738.938477,0.000000,"call-in"};
+item4[] = {"call_out",4,218,-271.522644,1759.345703,-181.522644,1809.345703,0.000000,"call-out"};
+item5[] = {"off_duty_",0,250,-114.060707,1349.722900,-9.171867,1426.865112,0.000000,"off duty" \n ""};
+item6[] = {"check_for__expired",4,218,-228.512650,1828.015625,-139.555847,1919.744629,0.000000,"check for " \n "expired gigs"};
+item7[] = {"bottomless_hole",2,250,-227.069778,1963.677002,-137.069763,2013.677124,0.000000,"bottomless" \n "hole of lost" \n "opportunities"};
+item8[] = {"able",4,218,-97.360878,1887.771118,-46.201416,1926.527832,0.000000,"able"};
+item9[] = {"commit__proper_",4,218,-171.406509,1659.891235,-81.406509,1709.891113,0.000000,"commit" \n "-proper-"};
+item10[] = {"",7,210,99.546310,1385.755127,107.546310,1393.755127,0.000000,""};
+item11[] = {"",7,210,-230.805588,1385.755127,-222.805557,1393.755127,0.000000,""};
+item12[] = {"enable__commit",4,218,-19.503918,1504.632324,70.496063,1554.632324,0.000000,"enable " \n "commit"};
+item13[] = {"busy",2,250,-171.238861,1578.919434,-81.238823,1628.919067,0.000000,"busy"};
+item14[] = {"",7,210,-307.594482,1599.578125,-299.594482,1607.578125,0.000000,""};
+item15[] = {"",7,210,-308.360901,1870.392700,-300.360901,1878.392700,0.000000,""};
+item16[] = {"",7,210,158.312576,1601.290894,166.312546,1609.290894,0.000000,""};
+item17[] = {"",7,210,158.526794,1827.389282,166.526794,1835.389282,0.000000,""};
+item18[] = {"assigned",4,218,-104.333313,2031.424072,-14.333290,2081.423584,0.000000,"assigned"};
+item19[] = {"",7,210,-339.709106,2052.329834,-331.709106,2060.329834,0.000000,""};
+item20[] = {"",7,210,-339.440399,1528.360474,-331.440399,1536.360474,0.000000,""};
+item21[] = {"",7,210,-130.522614,1528.114136,-122.522621,1536.114136,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,4};
+link2[] = {0,6};
+link3[] = {0,9};
+link4[] = {0,12};
+link5[] = {1,2};
+link6[] = {2,8};
+link7[] = {2,18};
+link8[] = {3,0};
+link9[] = {4,11};
+link10[] = {5,10};
+link11[] = {6,7};
+link12[] = {7,8};
+link13[] = {7,18};
+link14[] = {8,0};
+link15[] = {9,13};
+link16[] = {10,3};
+link17[] = {11,5};
+link18[] = {12,0};
+link19[] = {13,3};
+link20[] = {13,14};
+link21[] = {13,16};
+link22[] = {14,15};
+link23[] = {15,6};
+link24[] = {16,17};
+link25[] = {17,1};
+link26[] = {18,19};
+link27[] = {19,20};
+link28[] = {20,21};
+link29[] = {21,13};
+globals[] = {0.000000,0,0,0,0,640,480,3,35,6316128,1,-440.514038,240.529327,2191.784180,1284.878296,591,787,1};
+window[] = {0,-1,-1,-32000,-32000,970,124,1542,69,1,609};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "HW_Dispatch_Gen";
+  class States
+  {
+    /*%FSM<STATE "standby">*/
+    class standby
+    {
+      name = "standby";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "call_out">*/
+        class call_out
+        {
+          priority = 0.000000;
+          to="off_duty_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
+           "			" \n
+           "central sideRadio ""HW_Radio_Unavailable_Idle"";" \n
+           "1 setRadioMsg ""Call back in"";" \n
+           "2 setRadioMsg ""NULL"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "check_for__expired">*/
+        class check_for__expired
+        {
+          priority = 0.000000;
+          to="bottomless_hole";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "commit__proper_">*/
+        class commit__proper_
+        {
+          priority = 0.000000;
+          to="busy";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_B && (currentTask player != TaskNull);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"RadioCall_B = false;" \n
+           "" \n
+           "call HW_Pilot_Task_Commit;" \n
+           "_able = false;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "enable__commit">*/
+        class enable__commit
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!isNull currentTask player && _able;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"2 setRadioMsg ""Rqst. Current Task"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_for_new_gig">*/
+        class time_for_new_gig
+        {
+          priority = 0.000000;
+          to="gig_generator";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "gig_generator">*/
+    class gig_generator
+    {
+      name = "gig_generator";
+      init = /*%FSM<STATEINIT""">*/"call HW_Dispatch_Taxi;" \n
+       "call HW_Disptach_Radio_Update;" \n
+       "" \n
+       "_tNew = time + 30 + random 250; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "assigned">*/
+        class assigned
+        {
+          priority = 0.000000;
+          to="busy";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_able;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "able">*/
+        class able
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_able;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "off_duty_">*/
+    class off_duty_
+    {
+      name = "off_duty_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "call_in">*/
+        class call_in
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
+           "" \n
+           "1 setRadioMsg ""Call out of duty"";" \n
+           "" \n
+           "" \n
+           "_tNew = time + 3 + random 15; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
+           "_tExp = time + 5; // time to check for expired ones" \n
+           "_able = true;" \n
+           "" \n
+           "" \n
+           "central sideRadio ([""HW_Radio_RogerStby"", ""HW_Radio_ReceivedStby"", ""HW_Radio_CopyStby""] call bis_fnc_selectRandom);" \n
+           ""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "bottomless_hole">*/
+    class bottomless_hole
+    {
+      name = "bottomless_hole";
+      init = /*%FSM<STATEINIT""">*/"_GigCycleCheck = GigLineup;" \n
+       "GigLineup = [];" \n
+       "" \n
+       "_down = false;" \n
+       "{" \n
+       "	if (time < (_x getVariable ""exp"")) then" \n
+       "	{" \n
+       "		// still good - keep it!" \n
+       "		GigLineup set [count GigLineup, _x];" \n
+       "" \n
+       "	} else" \n
+       "	{" \n
+       "		// if not... well, then we kill them" \n
+       "						" \n
+       "		player RemoveSimpleTask (_x getVariable ""tsk"");" \n
+       "		deleteMarker (_x getVariable ""mkr"");" \n
+       "		deleteGroup _x;" \n
+       "" \n
+       "		_down = true;" \n
+       "	};" \n
+       "" \n
+       "} foreach _GigCycleCheck;" \n
+       "" \n
+       "_GigCycleCheck = nil;" \n
+       "_tExp = time + 5; // time to next check for expired gigs" \n
+       "" \n
+       "if _down then" \n
+       "{" \n
+       "	call HW_Disptach_Radio_Update;" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "assigned">*/
+        class assigned
+        {
+          priority = 0.000000;
+          to="busy";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_able;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "able">*/
+        class able
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_able;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "busy">*/
+    class busy
+    {
+      name = "busy";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "check_for__expired">*/
+        class check_for__expired
+        {
+          priority = 0.000000;
+          to="bottomless_hole";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_for_new_gig">*/
+        class time_for_new_gig
+        {
+          priority = 0.000000;
+          to="gig_generator";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "call_in">*/
+        class call_in
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
+           "" \n
+           "1 setRadioMsg ""Call out of duty"";" \n
+           "" \n
+           "" \n
+           "_tNew = time + 3 + random 15; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
+           "_tExp = time + 5; // time to check for expired ones" \n
+           "_able = true;" \n
+           "" \n
+           "" \n
+           "central sideRadio ([""HW_Radio_RogerStby"", ""HW_Radio_ReceivedStby"", ""HW_Radio_CopyStby""] call bis_fnc_selectRandom);" \n
+           ""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="off_duty_";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

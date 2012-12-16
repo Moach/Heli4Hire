@@ -1,0 +1,218 @@
+showGPS = 0;
+showCompass = 0;
+
+
+class CfgIdentities
+{
+	class HW_Ident_Dispatch
+	{
+		name = "Central Dispatch";
+		face = "Face20";
+        glasses = "None";
+        speaker = "Dan";
+        pitch = 1.1;
+	};
+};
+
+class CfgRadio
+{
+	sounds[] = {};
+		
+	class HW_Radio_ReceivedStby
+	{
+		name = "";
+		sound[] = {"\sound\received.ogg", db-100, 1.0};
+		title = "Received, Standby...";
+	};
+	
+	class HW_Radio_RogerStby
+	{
+		name = "";
+		sound[] = {"\sound\roger.ogg", db-100, 1.0};
+		title = "Roger That, Standby...";
+	};
+	
+	class HW_Radio_CopyStby
+	{
+		name = "";
+		sound[] = {"\sound\copy.ogg", db-100, 1.0};
+		title = "Copy That, Stay on just a sec...";
+	};
+	
+	
+	
+	class HW_Radio_Update
+	{
+		name = "";
+		sound[] = {"\sound\update.ogg", db-100, 1.0};
+		title = "Able Units, Update!";
+	};
+	
+	class HW_Radio_CheckReport
+	{
+		name = "";
+		sound[] = {"\sound\check report.ogg", db-100, 1.0};
+		title = "Able Units, Check and Report!";
+	};
+	
+	class HW_Radio_MapCheck
+	{
+		name = "";
+		sound[] = {"\sound\map check.ogg", db-100, 1.0};
+		title = "Able Units, Map Check, Report!";
+	};
+	
+	class HW_Radio_UpdateReport
+	{
+		name = "";
+		sound[] = {"\sound\update report.ogg", db-100, 1.0};
+		title = "Able Units, Update, Please Report...";
+	};
+	
+	class HW_Radio_CheckIn
+	{
+		name = "";
+		sound[] = {"\sound\check in.ogg", db-100, 1.0};
+		title = "Able Units, Check In!";
+	};
+	
+	class HW_Radio_Report
+	{
+		name = "";
+		sound[] = {"\sound\report.ogg", db-100, 1.0};
+		title = "Able Units, Report!";
+	};
+	
+	
+	class HW_Radio_Dispatch
+	{
+		name = "";
+		sound[] = {"\sound\dispatch update.ogg", db-100, 1.0};
+		title = "Able units, Dispatch, Update!";
+	};
+	
+	class HW_Radio_Update_Info
+	{
+		name = "";
+		sound[] = {"\sound\update info.ogg", db-100, 1.0};
+		title = "Able Units, Update, Report back for more info...";
+	};
+	
+	
+	
+	
+	
+	class HW_Radio_Unavailable_Idle
+	{
+		name = "";
+		sound[] = {"\sound\copy unable.ogg", db-100, 1.0};
+		title = "We copy you unavailable. Call us back when you're up and able again.";
+	};
+	
+	class HW_Radio_Taxi_Commit
+	{
+		name = "";
+		sound[] = {"\sound\copy enroute.ogg", db-100, 1.0};
+		title = "Confirmed! Passengers should be out at departure by the time you get there...";
+	};
+	
+	class HW_Radio_Taxi_Abort
+	{
+		name = "";
+		sound[] = {"\sound\abort before pax.ogg", db-100, 1.0};
+		title = "We copy you unable enroute to pickup! Ok, sending someone else! Give us a call when ready to proceed...";
+	};
+	
+	class HW_Radio_Taxi_Enroute_Abort
+	{
+		name = "";
+		sound[] = {"\sound\abort with pax.ogg", db-100, 1.0};
+		title = "Understand aborting enroute and dropping passengers! Copy that! Advise when landed!";
+	};
+	
+	class HW_Radio_Taxi_Abort_Landed
+	{
+		name = "";
+		sound[] = {"\sound\abort pax landed.ogg", db-100, 1.0};
+		title = "Well, Good call ... Send out another bird for your passengers... Let us know then you're good to go again!";
+	};
+	
+	class HW_Radio_Taxi_Little_Late
+	{
+		name = "";
+		sound[] = {"\sound\a little late.ogg", db-100, 1.0};
+		title = "Dispatch to Larkin - What's taking you so long?? Good thing you're almost there, or we'd have sent someone else by now!";
+	};
+	
+	class HW_Radio_Taxi_Too_Late
+	{
+		name = "";
+		sound[] = {"\sound\a whole lot late.ogg", db-100, 1.0};
+		title = "Dispatch to Larkin - Where the hell are you?! ... You are dismissed from this assignment! ... We've sent out another chopper!";
+	};
+	
+};
+
+
+
+
+class CfgLoadingTexts
+{
+	//--- Delay between texts are swapped (by default same as delay for images)
+	refreshDelay = 10;
+
+	//--- Loading text container
+	class Heli4Hire_1
+	{
+		//--- Hint title
+		title = "Heli-4-Hire";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Your Helicopter is the one out on the pad in front of the hangar"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 1;
+	};
+	class Heli4Hire_2
+	{
+		//--- Hint title
+		title = "Heli-4-Hire";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Good Pilots will always inspect their gear before takoff, so make sure to check if your bird is proper for flight"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 1;
+	};
+	class Heli4Hire_3
+	{
+		//--- Hint title
+		title = "Heli-4-Hire";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"If you need your bird serviced or refueled, go talk to the hangar maintenance crew"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 1;
+	};
+	class Heli4Hire_4
+	{
+		//--- Hint title
+		title = "Heli-4-Hire";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Give dispatch a call by radio (0-0-1) to let them know you're up and able"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 1;
+	};
+};
+
