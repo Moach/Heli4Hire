@@ -126,11 +126,16 @@ if(OSMO_INT_obstructions && isServer) then
     _mp = "Inspect_Obstruction" + (str _i);
     _obstruction = _cfgObstructions select (_i - 1);
 
-    // if ((random 1) < 0.1) then
-    if ((random 10) < 1) then
-    {
-      private ["_visual", "_cond", "_id"];
-      _visual = ((getArray (_obstruction >> "visuals")) call BIS_fnc_selectRandom) createVehicle [100, 100, 100];
+  
+   // if ((random 20) < 1) then
+    if (true) then
+	{
+      Heli_Has_Obstruction = true;
+	  
+	  private ["_visual", "_cond", "_id"];
+	  // _visual = ((getArray (_obstruction >> "visuals")) call BIS_fnc_selectRandom) createVehicle [100, 100, 100];
+	  
+	  _visual = (["Nest_H", "Hammer_H", "Wrench_H", "Pliers_H", "Gloves_H", "DustMask_H", "LightStick_H"] call BIS_fnc_selectRandom) createVehicle [100, 100, 100];
       _visual setDir (random 360);
       _visual attachTo [_heli, _heli selectionPosition _mp];
 
@@ -167,7 +172,7 @@ if(OSMO_INT_obstructions && isServer) then
 };
 
 // Set event handler to check if there are obstructions, cause damage to engine if yes
- _this setHitPointDamage ["HitEngine", (_this getHitPointDamage "HitEngine") + 0.2];
+// _this setHitPointDamage ["HitEngine", (_this getHitPointDamage "HitEngine") + 0.2];
 
 
 // Functions

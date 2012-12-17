@@ -84,8 +84,11 @@ _reliability_factor = 100; //
 _reliability_cutoff = .55; // 
 _hps = chopper call BIS_fnc_helicopterGetHitpoints;
 {
-	chopper setHitPointDamage [_x, ( (1 / (random(1) * _reliability_factor)) - _reliability_cutoff ) max 0];
+	chopper setHitPointDamage [_x, ( (1 / (.0001 + (random(1) * _reliability_factor))) - _reliability_cutoff ) max 0];
 } foreach _hps;
+
+
+Heli_Has_Obstruction = false; // or is it?
 
 chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
 [service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
@@ -96,26 +99,35 @@ chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false;
 chopper enableAutoTrimRTD false;
 
-chopper setBatteryChargeRTD .5 + random(.5);
 
 Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
 
 Cabin_needs_action = false;
 chopper addAction ["Inspect Cabin", "HW_Cabin_Check.sqf", nil, 0, false, true, "", 
-	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
+	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 2];
+
 chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
-	"Cabin_needs_action && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", "", -1,-1, 0, 1+2];
+	"Cabin_needs_action && !((chopper turretUnit [0]) == player || driver chopper == player) && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", 
+	"", -1,-1, 0, 2];
 
 
-
-
-
-
+sleep 1;	
+	
+// chopper setBatteryChargeRTD (.6 + random .4);
+	
+//
 sleep 1;
 
 
 //
 //
 player execVM "HW_Dispatch.sqf";
+
+
+
+chopper execVM "HW_AdvFailureModel.sqf";
+
+
+
 
 

@@ -30,7 +30,8 @@ class Mission
 		"hsim_air_h_aircraft_e_h",
 		"hsim_air_h_aircraft_a",
 		"hsim_air_h_aircraft_c",
-		"hsim_air_h_airliner_a"
+		"hsim_air_h_airliner_a",
+		"hsim_misc_h_props"
 	};
 	addOnsAuto[]=
 	{
@@ -58,6 +59,7 @@ class Mission
 		"hsim_air_h_aircraft_a",
 		"hsim_air_h_aircraft_c",
 		"hsim_air_h_airliner_a",
+		"hsim_misc_h_props",
 		"united_states_h"
 	};
 	randomSeed=3723377;
@@ -66,16 +68,16 @@ class Mission
 		briefingName="Heli-4-Hire";
 		briefingDescription="SimCopter Revival Dynamic Sandbox";
 		resistanceEast=1;
-		startWeather=0.32305586;
+		startWeather=0.34845835;
 		startFog=0.023791086;
-		startWind=0.15334383;
-		forecastWeather=0.8514272;
-		forecastFog=0.10284829;
+		startWind=0.16858508;
+		forecastWeather=0.69901228;
+		forecastFog=0.067284867;
 		forecastWind=0.13841195;
 		year=2013;
 		day=8;
 		hour=13;
-		minute=15;
+		minute=10;
 	};
 	class Groups
 	{
@@ -2539,7 +2541,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=843;
+		items=844;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -12351,6 +12353,15 @@ class Mission
 			id=980;
 			side="EMPTY";
 			vehicle="Aircraft_D_H";
+			skill=0.60000002;
+		};
+		class Item843
+		{
+			position[]={27979.82,-3.3238258,29760.271};
+			azimut=583.38599;
+			id=981;
+			side="EMPTY";
+			vehicle="Cloth_H";
 			skill=0.60000002;
 		};
 	};

@@ -4,14 +4,16 @@ _id = _this select 2;
 _params = _this select 3;
 _index = _params select 0;
 
-//Remove the action
-//_heli removeAction ((_heli getVariable "HSim_obstructionIDs") select (_index - 1));
+// Remove the action
+// _heli removeAction ((_heli getVariable "HSim_obstructionIDs") select (_index - 1));
 _heli removeAction _id;
 
-//Remove the visual
+// Remove the visual
 deleteVehicle (_params select 2);
 
-//Remove the stored Code to execute
-//(_heli getVariable "HSim_obstructionIDs") set [_index - 1, {}, true];
+Heli_Has_Obstruction = false;
+
+// Remove the stored Code to execute
+// (_heli getVariable "HSim_obstructionIDs") set [_index - 1, {}, true];
 
 true
