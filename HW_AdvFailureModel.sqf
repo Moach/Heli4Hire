@@ -1,9 +1,11 @@
 
+// chopper setHitPointDamage ["HitHRotor", .3]; // for testing purposes! 
+
 while {true} do
 {
-	sleep 5;
+	sleep 1;
 	
-	if (isEngineOn chopper)
+	if (isEngineOn chopper) then
 	{
 		// chance of damage from flying with a less-than-perfect bird
 		//  this adds a cascading effect where minor damage may lead to further complications snowballing up to a severely destructive outcome
@@ -11,40 +13,59 @@ while {true} do
 		
 		// flying with a sub-optimal rotor is mighty dangerous!
 		//
-		if (random 250 < ((10 * chopper getHitPointDamage "HitHRotor") + (10 * getHitPointDamage "HitVRotor"))) then
+		if ( random 50 < ((10 * (chopper getHitPointDamage "HitHRotor")) + (10 * (chopper getHitPointDamage "HitVRotor"))) ) then
 		{
-			_rtrDmg = (chopper getHitPointDamage "HitHRotor" * .25) + (chopper getHitPointDamage "HitVRotor" * .75);
+			// hintSilent "damaged rotors affect transmission!";
+			
+			_rtrDmg = ((chopper getHitPointDamage "HitHRotor") * .75) + ((chopper getHitPointDamage "HitVRotor") * .25);
 			
 			// it just may cause damage to the transmission!
-			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .6 * _rtrDmg];
+			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg) * .6 * _rtrDmg];
 		};
 		
-		
+		sleep 1;
 		
 		
 		// flying with a busted transmission increases risk of engine/hydraulics damage!
-		if (random 200 < (10 * chopper getHitPointDamage "HitTransmission")) then
+		if (random 50 < (10 * (chopper getHitPointDamage "HitTransmission"))) then
 		{
-			_dmg = chopper getHitPointDamage "HitTransmission"; // potential for damage is proportional to severity of the cause!
-			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * chopper getHitPointDamage "HitTransmission"];
+			// hintSilent "damaged transmission affects engine and hydraulics";
 			
-			_dmg = (chopper getHitPointDamage "HitEngine" * .5) + (chopper getHitPointDamage "HitTransmission" * .5);
-			chopper setHitPointDamage ["HitHydraulics", _dmg + random (1-_dmg) * chopper getHitPointDamage "HitHydraulics"];
+			_dmg = chopper getHitPointDamage "HitEngine"; // potential for damage is proportional to severity of the cause!
+			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitTransmission")];
+			
+			_dmg = ((chopper getHitPointDamage "HitEngine") * .5) + ((chopper getHitPointDamage "HitTransmission") * .5);
+			chopper setHitPointDamage ["HitHydraulics", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitHydraulics")];
+			
+			// it also may further damage the rotors!
+			_dmg = (chopper getHitPointDamage "HitHRotor");
+			chopper setHitPointDamage ["HitHRotor", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitTransmission") * .2];
+			_dmg = (chopper getHitPointDamage "HitVRotor");
+			chopper setHitPointDamage ["HitVRotor", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitTransmission") * .4];
+			
+			hintSilent "The helicopter feels like it's getting increasingly rough...";
 		};
 		
+		sleep 1;
 		
 		// flying with a busted fuel tank may also damage the engine!
-		if (random 200 < (10 * chopper getHitPointDamage "HitTransmission")) then
+		if (random 50 < (10 * (chopper getHitPointDamage "HitFuel"))) then
 		{
-			_dmg = chopper getHitPointDamage "HitEngine"; // potential for damage is proportional to severity of the cause!
-			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * chopper getHitPointDamage "HitFuel"];	
+			// hintSilent "damaged fuel tank affects engine";
+			
+			_dmg = chopper getHitPointDamage "HitFuel"; // potential for damage is proportional to severity of the cause!
+			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitFuel")];	
 		};
 		
 		
-		if (random 200 < (20 * chopper getHitPointDamage "HitEngine")) then
+		sleep 1;
+		
+		if (random 80 < (20 * (chopper getHitPointDamage "HitEngine"))) then
 		{
 			// minor damage to other components brought on by engine fault 
 			// this includes the engine itself... damage is exponential!
+			
+			hintSilent "The helicopter feels like it's getting worse as it goes....\ndid you properly inspect it?!";
 			
 			_dmg = chopper getHitPointDamage "HitEngine";       chopper setHitPointDamage ["HitEngine",       _dmg + random (1-_dmg) * .1 * _dmg];
 			_engDmg = chopper getHitPointDamage "HitEngine"; // engine damage drives further problems proportionally
@@ -53,8 +74,9 @@ while {true} do
 			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];
 		};
 		
+		sleep 1;
 		//
-		if (random 500 < (20 * chopper getHitPointDamage "HitEngine")) then
+		if (random 200 < (20 * (chopper getHitPointDamage "HitEngine"))) then
 		{
 			// these are things that can be taken down in the mayhem in case of MAJOR engine failure.... (i.e. it blows up!)
 			
@@ -68,9 +90,10 @@ while {true} do
 			_dmg = chopper getHitPointDamage "HitAvionics";     chopper setHitPointDamage ["HitAvionics",     _dmg + random (1-_dmg)* _engDmg];
 			
 			sleep 3;
-			hint "Something's seriously wrong with the helicopter!!";
+			hint "OMG! Something's really, really wrong with this helicopter!!!";
 		};
 		
+		sleep 1;
 		
 		// obstruction caused damage! - this is mighty serious!
 		//
@@ -86,7 +109,7 @@ while {true} do
 			_dmg = chopper getHitPointDamage "HitAvionics";     chopper setHitPointDamage ["HitAvionics",     _dmg + random (1-_dmg)];
 			
 			sleep 3;
-			hint "Something's wrong with the engine!!!\n Did you remember to inspect it??!";
+			hint "WHat Da?!!! Something's wrong with the engine!!!\n Did you remember to check it before takeoff??!";
 		};
 	};
 };

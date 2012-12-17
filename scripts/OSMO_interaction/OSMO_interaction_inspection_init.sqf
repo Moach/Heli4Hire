@@ -126,9 +126,8 @@ if(OSMO_INT_obstructions && isServer) then
     _mp = "Inspect_Obstruction" + (str _i);
     _obstruction = _cfgObstructions select (_i - 1);
 
-  
-   // if ((random 20) < 1) then
-    if (true) then
+    // if (true) then
+    if ((random 20) < 1) then
 	{
       Heli_Has_Obstruction = true;
 	  
