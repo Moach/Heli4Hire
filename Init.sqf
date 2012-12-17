@@ -15,6 +15,8 @@ chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false;
 chopper enableAutoTrimRTD false;
 
+Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
+
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 

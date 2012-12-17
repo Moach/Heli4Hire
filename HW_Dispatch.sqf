@@ -6,7 +6,6 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 
 
 
-
 //
 // functions...
 
