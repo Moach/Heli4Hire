@@ -151,6 +151,20 @@ class CfgRadio
 		title = "Dispatch to Larkin - Where the hell are you?! ... You are dismissed from this assignment! ... We've sent out another chopper!";
 	};
 	
+	class HW_Radio_Taxi_Epic_Fail
+	{
+		name = "";
+		sound[] = {"\sound\epic fail.ogg", db-100, 1.0};
+		title = " ** RANT ** ";
+	};
+	
+	class HW_Radio_See_You_Later
+	{
+		name = "";
+		sound[] = {"\sound\later.ogg", db-100, 1.0};
+		title = "Copy that! See you later!";
+	};
+	
 };
 
 

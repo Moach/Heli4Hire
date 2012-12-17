@@ -188,9 +188,9 @@ OSMO_INS_DamageToText =
   switch true do
   {
     case(_this == 0): {_damageDesc = "looks good!"; _color = "00FF00";};
-    case(_this > 0 && _this <= 0.33): {_damageDesc = "looks kinda off!"; _color = "FFFF00";};
-    case((_this > 0.33 && _this < 0.66)): {_damageDesc = "has seen better days!"; _color = "FF8800";};
-    case(_this > 0.66): {_damageDesc = "is busted!!"; _color = "FF0000";};
+    case(_this > 0 && _this <= 0.33): {_damageDesc = "ain't quite perfect!"; _color = "88FF00";};
+    case((_this > 0.33 && _this < 0.66)): {_damageDesc = "could use some attention!"; _color = "FF8800";};
+    case(_this > 0.66): {_damageDesc = "has seen better days!"; _color = "FF0000";};
   };
   _returnval = [_damageDesc, _color];
   _returnval;

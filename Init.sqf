@@ -7,27 +7,6 @@ _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 
 
 
-chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
-[service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
-
-chopper enableCoPilot true;
-chopper setFuel .2 + random .65;
-chopper enableAutoStartUpRTD false;
-chopper enableAutoTrimRTD false;
-
-
-
-
-Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
-
-Cabin_needs_action = false;
-chopper addAction ["Inspect Cabin", "HW_Cabin_Check.sqf", nil, 0, false, true, "", 
-	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
-chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
-	"Cabin_needs_action && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", "", -1,-1, 0, 1+2];
-
-
-
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 
 titleText["", "BLACK FADED"];
@@ -89,49 +68,54 @@ enableEndDialog;
 
 sleep 1;
 
-deleteVehicle nearestObject [(getPos start_here), "air"];
+
+
+
+deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter in the hangar that comes with the object composition...
+
 
 player setPos (getPos start_here);
 player setDir 60;
 
-_reliability_factor = 150;
-_reliability_minimal = .55;
+
+
+
+_reliability_factor = 100; //
+_reliability_cutoff = .55; // 
 _hps = chopper call BIS_fnc_helicopterGetHitpoints;
 {
-	_dmg = random(1);
-	chopper setHitPointDamage [_x, (-_reliability_minimal + (1 / (_dmg * _reliability_factor)) max 0)];
+	chopper setHitPointDamage [_x, ( (1 / (random(1) * _reliability_factor)) - _reliability_cutoff ) max 0];
 } foreach _hps;
 
-sleep 1;
-/*
-hsim_copilot assignAsTurret [chopper, [0]];
-[hsim_copilot] orderGetIn true;
-*/
+chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
+[service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
 
+
+chopper enableCoPilot true;
+chopper setFuel .2 + random .65;
+chopper enableAutoStartUpRTD false;
+chopper enableAutoTrimRTD false;
+
+chopper setBatteryChargeRTD .5 + random(.5);
+
+Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
+
+Cabin_needs_action = false;
+chopper addAction ["Inspect Cabin", "HW_Cabin_Check.sqf", nil, 0, false, true, "", 
+	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
+chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
+	"Cabin_needs_action && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", "", -1,-1, 0, 1+2];
+
+
+
+
+
+
+sleep 1;
+
+
+//
+//
 player execVM "HW_Dispatch.sqf";
 
-
-/*
-while {true} do
-{
-	waitUntil { sleep 2; RadioCall_A };
-	
-	RadioCall_A = false;
-	1 setRadioMsg "NULL";
-	
-	_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
-	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-	
-	_near = nearestLocations [_p1, LocDefs_taxi, 25000];
-	
-	_size = count _near;
-	_dmin = round(_size * .1); // remove the nearest 10% locations found - this culls out unreasonably close legs and the same-pad bug
-	for "_i" from 0 to _size do { _near set [_i, _near select _i+_dmin]; };
-	_near resize (_size - _dmin);
-	
-	_p2 = locationPosition (_near call BIS_fnc_selectRandom);
-	
-	OnDuty = [_p1, _p2] execFSM "HeliWorks_Commute.fsm"; // when this ends, it should re-enable the alpha call option
-};
-*/
 

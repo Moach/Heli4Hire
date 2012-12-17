@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Commute">*/
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Survey">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"START",0,250,-154.354126,1151.648315,-64.354385,1201.648438,0.000000,"START"};
@@ -50,12 +50,12 @@ link22[] = {19,20};
 link23[] = {20,4};
 link24[] = {20,12};
 link25[] = {21,22};
-globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-596.364319,366.448273,2519.671875,1151.207520,591,859,1};
-window[] = {0,-1,-1,-32000,-32000,1022,187,1605,68,1,609};
+globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-560.199585,477.818542,2561.369141,1052.640503,591,859,1};
+window[] = {0,-1,-1,-1,-1,1022,187,1605,68,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
-  fsmName = "HeliWorks_Commute";
+  fsmName = "HeliWorks_Survey";
   class States
   {
     /*%FSM<STATE "START">*/
@@ -180,8 +180,7 @@ class FSM
     {
       name = "deboard";
       init = /*%FSM<STATEINIT""">*/"" \n
-       "Heli_Cabin_Condition = Heli_Cabin_Condition - (random .12); // passengers will eventually mess up the cabin as they go...." \n
-       "" \n
+       "Heli_Cabin_Condition = Heli_Cabin_Condition - random .1; // passengers will eventually mess up the cabin as they  go...." \n
        "" \n
        "if (PilotFail) then  " \n
        "{ " \n
@@ -197,12 +196,6 @@ class FSM
        "		[] spawn {" \n
        "			sleep 5;" \n
        "			hint ""Do you smell that? \nSeems your little stunt caused a passenger to foul up the cabin... \nyep, you got some urgent cleaning to do!\nHead back to base and grab a bucket!"";" \n
-       "		};" \n
-       "	} else" \n
-       "	{" \n
-       "		[] spawn {" \n
-       "			sleep 5+random(10);" \n
-       "			central sideRadio ""HW_Radio_Taxi_Epic_Fail"";" \n
        "		};" \n
        "	};" \n
        "" \n
@@ -231,13 +224,13 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
+       "" \n
        "_grp leaveVehicle (vehicle player);  // everyone out" \n
        "doGetOut units _grp;                       // i mean it!" \n
        "units _grp allowGetIn false;             // OUT! NOW!! - beat it!" \n
        "" \n
        "" \n
        "1 setRadioMsg ""Rpt. Clear of Assignment"";" \n
-       "2 setRadioMsg ""Rpt. Clear Going Unavaliable"";" \n
        "" \n
        "" \n
        "" \n
@@ -531,7 +524,7 @@ class FSM
        "RadioCall_B = false; " \n
        "" \n
        "_steady = [" \n
-       "	 player,_pos, nil, [10,1.0,35], 15, " \n
+       "	 player,_pos, nil, [20,1.2,42], 15, " \n
        "	{ PilotFail = true; }" \n
        "] spawn BIS_fnc_wpSteady;" \n
        "" \n

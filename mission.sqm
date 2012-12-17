@@ -24,7 +24,13 @@ class Mission
 		"hsim_misc_h_antena",
 		"shed_wooden",
 		"hsim_misc_h_wheeled_whiteboard",
-		"hsim_misc_h_doghouse"
+		"hsim_misc_h_doghouse",
+		"hsim_air_h_airliner_b",
+		"hsim_air_h_aircraft_d",
+		"hsim_air_h_aircraft_e_h",
+		"hsim_air_h_aircraft_a",
+		"hsim_air_h_aircraft_c",
+		"hsim_air_h_airliner_a"
 	};
 	addOnsAuto[]=
 	{
@@ -46,6 +52,12 @@ class Mission
 		"shed_wooden",
 		"hsim_misc_h_wheeled_whiteboard",
 		"hsim_misc_h_doghouse",
+		"hsim_air_h_airliner_b",
+		"hsim_air_h_aircraft_d",
+		"hsim_air_h_aircraft_e_h",
+		"hsim_air_h_aircraft_a",
+		"hsim_air_h_aircraft_c",
+		"hsim_air_h_airliner_a",
 		"united_states_h"
 	};
 	randomSeed=3723377;
@@ -130,7 +142,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27881.873,10.928291,29767.473};
+					position[]={27881.025,10.89872,29766.979};
 					id=6;
 					side="LOGIC";
 					vehicle="Logic";
@@ -2527,7 +2539,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=757;
+		items=843;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -11566,6 +11578,780 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item757
+		{
+			position[]={33171.52,10,23641.252};
+			azimut=-123.78432;
+			id=895;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item758
+		{
+			position[]={33207.375,10,23578.684};
+			azimut=-123.78432;
+			id=896;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item759
+		{
+			position[]={33295.762,10,23408.137};
+			azimut=-123.78432;
+			id=897;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item760
+		{
+			position[]={32902.438,11,23850.691};
+			azimut=3.17466;
+			id=898;
+			side="EMPTY";
+			vehicle="Aircraft_D_H";
+			skill=0.60000002;
+		};
+		class Item761
+		{
+			position[]={33701.879,12,23620.355};
+			azimut=146.08176;
+			id=899;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item762
+		{
+			position[]={33715.266,12,23627.043};
+			azimut=146.08176;
+			id=900;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item763
+		{
+			position[]={33748.387,12,23605.568};
+			azimut=322.70212;
+			id=901;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item764
+		{
+			position[]={33606.043,12,23815.381};
+			azimut=146.08176;
+			id=902;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item765
+		{
+			position[]={33634.934,12,23784.4};
+			azimut=278.12888;
+			id=903;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item766
+		{
+			position[]={33646.211,12,23769.967};
+			azimut=216.74333;
+			id=904;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item767
+		{
+			position[]={33707.363,12,23668.457};
+			azimut=146.082;
+			id=905;
+			side="EMPTY";
+			vehicle="Aircraft_A_H";
+			skill=0.60000002;
+		};
+		class Item768
+		{
+			position[]={33133.484,10,23707.955};
+			azimut=-123.78432;
+			id=906;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item769
+		{
+			position[]={33002.156,11,23870.375};
+			azimut=1.3008182;
+			id=907;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item770
+		{
+			position[]={40723.41,12,18295.4};
+			azimut=-95.341797;
+			id=908;
+			side="EMPTY";
+			vehicle="Aircraft_D_H";
+			skill=0.60000002;
+		};
+		class Item771
+		{
+			position[]={40714.969,12,18230.76};
+			azimut=-5.2777133;
+			id=909;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item772
+		{
+			position[]={40732.844,12,18230.76};
+			azimut=-5.2777133;
+			id=910;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item773
+		{
+			position[]={40732.844,12,18255.766};
+			azimut=-96.260551;
+			id=911;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item774
+		{
+			position[]={40748.73,12.019361,18153.361};
+			azimut=-142.16663;
+			id=912;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item775
+		{
+			position[]={40735.625,13,18081.518};
+			azimut=-7.5511098;
+			id=913;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item776
+		{
+			position[]={40751.91,13,18083.508};
+			azimut=-5.2777133;
+			id=914;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item777
+		{
+			position[]={40731.652,12.912971,18131.531};
+			azimut=-82.610962;
+			id=915;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item778
+		{
+			position[]={40745.945,12,18183.131};
+			azimut=-5.2777133;
+			id=916;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item779
+		{
+			position[]={40308.242,13.27607,19074.832};
+			azimut=529.38849;
+			id=917;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item780
+		{
+			position[]={40318.988,13.350675,19124.053};
+			azimut=87.392601;
+			id=918;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item781
+		{
+			position[]={40325.707,13.060608,19077.066};
+			azimut=1234.001;
+			id=919;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item782
+		{
+			position[]={40720.355,12,18389.064};
+			azimut=559.65222;
+			id=920;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item783
+		{
+			position[]={40700.156,12,18388.059};
+			azimut=355.74661;
+			id=921;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item784
+		{
+			position[]={40709.246,12,18427.414};
+			azimut=598.41748;
+			id=922;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item785
+		{
+			position[]={33868.109,125.11807,13269.459};
+			azimut=759.49237;
+			id=923;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item786
+		{
+			position[]={33891.234,127,13510.213};
+			azimut=542.71252;
+			id=924;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item787
+		{
+			position[]={34194.516,124.07792,13471.132};
+			azimut=494.27219;
+			id=925;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item788
+		{
+			position[]={34245.801,124,13508.791};
+			azimut=542.34924;
+			id=926;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item789
+		{
+			position[]={33900.191,124.86369,13040.057};
+			azimut=491.41299;
+			id=927;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item790
+		{
+			position[]={33874.461,121.48629,12793.527};
+			azimut=449.71884;
+			id=928;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item791
+		{
+			position[]={33978.16,123.26649,12826.91};
+			azimut=685.6394;
+			id=929;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item792
+		{
+			position[]={34007.648,116.8774,12339.645};
+			azimut=539.72888;
+			id=930;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item793
+		{
+			position[]={34233.637,118,12362.104};
+			azimut=493.57932;
+			id=931;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item794
+		{
+			position[]={33964.602,128.26526,13658.925};
+			azimut=403.3605;
+			id=932;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item795
+		{
+			position[]={34292.262,123,13496.651};
+			azimut=590.50726;
+			id=933;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item796
+		{
+			position[]={34149.672,127.99577,13613.645};
+			azimut=307.55838;
+			id=934;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item797
+		{
+			position[]={34176.172,121.88245,12635.924};
+			azimut=616.98724;
+			id=935;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item798
+		{
+			position[]={34043.918,120.86221,12534.575};
+			azimut=341.4437;
+			id=936;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item799
+		{
+			position[]={33862.047,124.13847,12972.748};
+			azimut=491.23828;
+			id=937;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item800
+		{
+			position[]={34118.848,126.60059,12895.767};
+			azimut=404.36972;
+			id=938;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item801
+		{
+			position[]={34154.805,123,12859.212};
+			azimut=404.36972;
+			id=939;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item802
+		{
+			position[]={34184.973,126.6009,12830.977};
+			azimut=404.36972;
+			id=940;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item803
+		{
+			position[]={34337.52,122.99702,12698.013};
+			azimut=405.27545;
+			id=941;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item804
+		{
+			position[]={34295.863,123,12736.841};
+			azimut=764.40521;
+			id=942;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item805
+		{
+			position[]={34349.637,122,12614.759};
+			azimut=449.44385;
+			id=943;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item806
+		{
+			position[]={34114.805,121.10311,12557.234};
+			azimut=349.37723;
+			id=944;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item807
+		{
+			position[]={34370.195,121.16329,12534.693};
+			azimut=403.85147;
+			id=945;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item808
+		{
+			position[]={34042.082,121.54176,12665.218};
+			azimut=522.47723;
+			id=946;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item809
+		{
+			position[]={33957.238,122.62788,12646.044};
+			azimut=524.55048;
+			id=947;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item810
+		{
+			position[]={34233.508,116.22466,12273.593};
+			azimut=361.01944;
+			id=948;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item811
+		{
+			position[]={34079.977,118,12398.232};
+			azimut=540.55585;
+			id=949;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item812
+		{
+			position[]={34119.867,118.11983,12399.243};
+			azimut=540.55585;
+			id=950;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item813
+		{
+			position[]={33936.527,133.88329,14045.92};
+			azimut=542.40924;
+			id=951;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item814
+		{
+			position[]={34151.043,123.31018,13400.606};
+			azimut=488.37289;
+			id=952;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item815
+		{
+			position[]={33978.688,131.0107,13765.381};
+			azimut=497.35471;
+			id=953;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item816
+		{
+			position[]={34027.238,128.33286,13611.141};
+			azimut=403.3605;
+			id=954;
+			side="EMPTY";
+			vehicle="Airliner_A_H";
+			skill=0.60000002;
+		};
+		class Item817
+		{
+			position[]={33992.609,145.02437,14556.966};
+			azimut=180.49554;
+			id=955;
+			side="EMPTY";
+			vehicle="Aircraft_C_H";
+			skill=0.60000002;
+		};
+		class Item818
+		{
+			position[]={34034.938,145.99908,14623.55};
+			azimut=628.59839;
+			id=956;
+			side="EMPTY";
+			vehicle="Aircraft_D_H";
+			skill=0.60000002;
+		};
+		class Item819
+		{
+			position[]={33970.418,144.4778,14622.532};
+			azimut=572.55933;
+			id=957;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item820
+		{
+			position[]={33959.793,143.99835,14622.84};
+			azimut=572.55933;
+			id=958;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item821
+		{
+			position[]={33940.734,143.43196,14624.403};
+			azimut=572.55933;
+			id=959;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item822
+		{
+			position[]={33929.797,142.29834,14626.271};
+			azimut=489.08557;
+			id=960;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item823
+		{
+			position[]={33970.105,144.6671,14598.179};
+			azimut=572.55933;
+			id=961;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item824
+		{
+			position[]={33961.672,144.11046,14597.549};
+			azimut=572.55933;
+			id=962;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item825
+		{
+			position[]={33928.23,142.47794,14599.739};
+			azimut=572.55933;
+			id=963;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item826
+		{
+			position[]={33974.484,144.95616,14588.812};
+			azimut=572.55933;
+			id=964;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item827
+		{
+			position[]={33963.234,144.21367,14588.5};
+			azimut=572.55933;
+			id=965;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item828
+		{
+			position[]={33949.484,143.90837,14589.749};
+			azimut=572.55933;
+			id=966;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item829
+		{
+			position[]={33931.043,142.95659,14589.119};
+			azimut=572.55933;
+			id=967;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item830
+		{
+			position[]={33931.668,143.9563,14560.397};
+			azimut=674.41296;
+			id=968;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item831
+		{
+			position[]={33943.539,143.86514,14561.331};
+			azimut=719.69556;
+			id=969;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item832
+		{
+			position[]={34005.414,145.02115,14604.107};
+			azimut=626.22614;
+			id=970;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item833
+		{
+			position[]={33964.164,144.18059,14632.831};
+			azimut=674.41296;
+			id=971;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item834
+		{
+			position[]={33946.578,144.97801,14965.28};
+			azimut=674.41296;
+			id=972;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item835
+		{
+			position[]={33929.109,144.40015,14965.727};
+			azimut=719.48413;
+			id=973;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item836
+		{
+			position[]={33942.543,145.56952,15014.06};
+			azimut=583.38599;
+			id=974;
+			side="EMPTY";
+			vehicle="Aircraft_A_H";
+			skill=0.60000002;
+		};
+		class Item837
+		{
+			position[]={33907.609,144.43851,15018.981};
+			azimut=899.20526;
+			id=975;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item838
+		{
+			position[]={33903.582,144.50461,14534.308};
+			azimut=720.63611;
+			id=976;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item839
+		{
+			position[]={33949.316,143.90054,14534.308};
+			azimut=626.74927;
+			id=977;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item840
+		{
+			position[]={34105.516,128,13577.13};
+			azimut=499.02502;
+			id=978;
+			side="EMPTY";
+			vehicle="Airliner_B_H";
+			skill=0.60000002;
+		};
+		class Item841
+		{
+			position[]={33911.633,143.96228,14936.042};
+			azimut=681.63434;
+			id=979;
+			side="EMPTY";
+			vehicle="Aircraft_E_H";
+			skill=0.60000002;
+		};
+		class Item842
+		{
+			position[]={33935.895,137.33688,14185.559};
+			azimut=628.59839;
+			id=980;
+			side="EMPTY";
+			vehicle="Aircraft_D_H";
+			skill=0.60000002;
 		};
 	};
 	class Markers
