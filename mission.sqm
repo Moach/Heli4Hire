@@ -7,7 +7,6 @@ class Mission
 		"hsim_characters_h",
 		"hsim_functions_h",
 		"hsim_misc_h_helipads",
-		"missions_jedra",
 		"hsim_wheeled_us_h_military_truck",
 		"camisc3",
 		"hsim_structures_h_industrial_rooftop_objects",
