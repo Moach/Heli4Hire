@@ -4,6 +4,7 @@ skipTime .32;
 
 Heli_Cabin_Condition = 1;
 
-sleep 5;
+sleep 4;
 
-titleText["Ok, That's more like it!", "BLACK IN"];
+Cabin_needs_action = false;
+titleText["", "BLACK IN"];

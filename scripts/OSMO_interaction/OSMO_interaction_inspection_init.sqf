@@ -44,8 +44,8 @@ for "_i" from 0 to ((count _hps) - 1) do
       TEST_inspectable set [count TEST_inspectable, _displayName];    
     };
 
-    //Add inspection actions for all components
-    //Some components have more than 1 inspection point
+    // Add inspection actions for all components
+    // Some components have more than 1 inspection point
     private ["_j"];
     _j = 1;
     while {true} do
@@ -58,7 +58,7 @@ for "_i" from 0 to ((count _hps) - 1) do
       private ["_text", "_cond", "_id"];
       _text = "Inspect " + _displayName;
 
-      //Test compartment conditions if necessary
+      // Test compartment conditions if necessary
       _cond = "";
       if (_compartment != 0) then
       {
@@ -75,7 +75,7 @@ for "_i" from 0 to ((count _hps) - 1) do
         _text
       ];
 
-      //We need to store the IDs for detection later on
+      // We need to store the IDs for detection later on
       _ids set [count _ids, _id];
       _idHPs set [count _idHPs, _hp];
 
@@ -127,7 +127,7 @@ if(OSMO_INT_obstructions && isServer) then
     _obstruction = _cfgObstructions select (_i - 1);
 
     // if ((random 1) < 0.1) then
-    if ((random 1) < 1) then
+    if ((random 10) < 1) then
     {
       private ["_visual", "_cond", "_id"];
       _visual = ((getArray (_obstruction >> "visuals")) call BIS_fnc_selectRandom) createVehicle [100, 100, 100];

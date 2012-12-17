@@ -15,10 +15,16 @@ chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false;
 chopper enableAutoTrimRTD false;
 
+
+
+
 Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
 
+Cabin_needs_action = false;
+chopper addAction ["Inspect Cabin", "HW_Cabin_Check.sqf", nil, 0, false, true, "", 
+	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
 chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
-	"Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
+	"Cabin_needs_action && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", "", -1,-1, 0, 1+2];
 
 
 
@@ -88,7 +94,13 @@ deleteVehicle nearestObject [(getPos start_here), "air"];
 player setPos (getPos start_here);
 player setDir 60;
 
-
+_reliability_factor = 150;
+_reliability_minimal = .55;
+_hps = chopper call BIS_fnc_helicopterGetHitpoints;
+{
+	_dmg = random(1);
+	chopper setHitPointDamage [_x, (-_reliability_minimal + (1 / (_dmg * _reliability_factor)) max 0)];
+} foreach _hps;
 
 sleep 1;
 /*
