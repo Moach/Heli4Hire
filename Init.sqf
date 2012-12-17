@@ -17,6 +17,10 @@ chopper enableAutoTrimRTD false;
 
 Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
 
+chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
+	"Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper;", "", -1,-1, 0, 1+2];
+
+
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 
@@ -81,7 +85,6 @@ sleep 1;
 
 deleteVehicle nearestObject [(getPos start_here), "air"];
 
-moveOut player;
 player setPos (getPos start_here);
 player setDir 60;
 

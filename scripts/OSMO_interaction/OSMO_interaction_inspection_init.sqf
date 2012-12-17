@@ -112,10 +112,10 @@ _heli setVariable ["HSim_hitpoints", _hps];
 
 
 // TODO: Add obstructions
-/*
+
 if(OSMO_INT_obstructions && isServer) then
 {
-  //Randomly trigger obstructions defined in config
+  // Randomly trigger obstructions defined in config
   private ["_cfgObstructions", "_obstructIDs"];
   _cfgObstructions = _cfgInspection >> "Obstructions";
   _obstructIDs = [];
@@ -126,7 +126,7 @@ if(OSMO_INT_obstructions && isServer) then
     _mp = "Inspect_Obstruction" + (str _i);
     _obstruction = _cfgObstructions select (_i - 1);
 
-    //if ((random 1) < 0.1) then
+    // if ((random 1) < 0.1) then
     if ((random 1) < 1) then
     {
       private ["_visual", "_cond", "_id"];
@@ -148,7 +148,7 @@ if(OSMO_INT_obstructions && isServer) then
         _cond = format ["(_target getVariable 'HSim_compartments') select %1", _compartment];
       };
       
-      //Add inspection action
+      // Add inspection action
       _id = _heli addAction
       [
         "Remove obstruction", "scripts\OSMO_interaction\OSMO_interaction_remove_obstuction.sqf", [_i, _obstruction, _visual], 15, true, false, "", _cond, "",
@@ -165,9 +165,9 @@ if(OSMO_INT_obstructions && isServer) then
   };
   _heli setVariable ["HSim_obstructionIDs", _obstructIDs, true];
 };
-*/
+
 // Set event handler to check if there are obstructions, cause damage to engine if yes
-// _this setHitPointDamage ["HitEngine", (_this getHitPointDamage "HitEngine") + 0.2];
+ _this setHitPointDamage ["HitEngine", (_this getHitPointDamage "HitEngine") + 0.2];
 
 
 // Functions

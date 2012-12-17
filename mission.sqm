@@ -9109,12 +9109,12 @@ class Mission
 		};
 		class Item552
 		{
-			position[]={30661.93,7.2246766,31455.963};
-			azimut=629.07678;
+			position[]={30677.561,8.8390627,31456.799};
+			azimut=629.07703;
 			special="NONE";
 			id=690;
 			side="EMPTY";
-			vehicle="Land_Rooftop_landing_2_H";
+			vehicle="Helipad_Invisible_H";
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
