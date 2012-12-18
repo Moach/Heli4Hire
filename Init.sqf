@@ -38,12 +38,15 @@ RadioCall_J = false;
 
 
 
-LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "SummerCamp"];
+LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
 PaxDefs_taxi = [
 	"Woman01_Random_H",
 	"Woman02_Random_H",
 	"Woman03_Random_H",
+	"Hooker1",
+	"Hooker4",
+	"Hooker2",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
@@ -53,15 +56,6 @@ PaxDefs_taxi = [
 	"SeattleMan_Random_H"
 ];
 
-PaxDefs_tour = [
-	"Woman01_Random_H",
-	"Woman02_Random_H",
-	"Woman03_Random_H",
-	"Citizen_Random_H",
-	"Citizen_Random_H",
-	"Rocker_H",
-	"SeattleMan_Random_H"
-];
 
 enableEndDialog;
 
