@@ -80,7 +80,7 @@ player setDir 60;
 
 
 
-_reliability_factor = 100; //
+_reliability_factor = 80; //
 _reliability_cutoff = .55; // 
 _hps = chopper call BIS_fnc_helicopterGetHitpoints;
 {

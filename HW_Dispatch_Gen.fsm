@@ -1,9 +1,9 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"standby",2,250,-117.438797,1759.431274,-27.438690,1809.431274,0.000000,"standby"};
-item1[] = {"time_for_new_gig",4,218,3.584877,1805.042969,93.584869,1894.685425,0.000000,"time for" \n "new gig"};
-item2[] = {"gig_generator",2,250,4.376812,1965.279541,94.376785,2015.279419,0.000000,"gig" \n "generator"};
+item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
+item1[] = {"time_for_new_gig",4,218,2.773048,1822.903198,92.773041,1912.545654,0.000000,"time for" \n "new gig"};
+item2[] = {"gig_generator",2,250,2.753155,1964.467773,92.753128,2014.467651,0.000000,"gig" \n "generator"};
 item3[] = {"call_in",4,218,-15.056475,1580.879883,74.943489,1630.879883,1.000000,"call-in"};
 item4[] = {"call_out",4,218,-261.682007,1751.779419,-193.426971,1818.407715,0.000000,"call-out"};
 item5[] = {"off_duty_",2,250,-108.009804,1334.885376,-18.009850,1384.885376,0.000000,"off duty" \n ""};
@@ -13,11 +13,11 @@ item8[] = {"able",4,218,-98.594193,1880.405518,-47.434723,1919.162231,0.000000,"
 item9[] = {"commit__proper_",4,218,-220.220001,1654.043579,-130.219986,1704.043457,0.000000,"commit" \n "-proper-"};
 item10[] = {"",7,210,26.274055,1355.922485,34.274055,1363.922485,0.000000,""};
 item11[] = {"clear_all_tasks",2,250,-272.027344,1442.053589,-182.027267,1492.053589,0.000000,"clear" \n "all tasks"};
-item12[] = {"enable__commit",4,218,-111.882263,1666.491455,-32.879646,1708.493408,0.000000,"enable " \n "commit"};
+item12[] = {"enable__commit",4,218,-115.078110,1655.731934,-31.204521,1710.723145,0.000000,"enable " \n "commit"};
 item13[] = {"busy_ish_",2,250,-171.238815,1580.154053,-81.238800,1630.153687,0.000000,"busy(ish)"};
 item14[] = {"",7,210,-287.156494,1601.005615,-279.156494,1609.005615,0.000000,""};
 item15[] = {"",7,210,-286.616150,1771.990601,-278.616119,1779.990601,0.000000,""};
-item16[] = {"",7,210,44.675076,1693.906494,52.675068,1701.906494,0.000000,""};
+item16[] = {"",7,210,44.214588,1713.803101,52.214581,1721.803101,0.000000,""};
 item17[] = {"assigned",4,218,-117.221046,2031.471191,-27.221020,2081.470703,0.000000,"assigned"};
 item18[] = {"",7,210,-308.841980,2052.329834,-300.841980,2060.329834,0.000000,""};
 item19[] = {"",7,210,-308.643005,1676.538452,-300.643005,1684.538452,0.000000,""};
@@ -27,44 +27,53 @@ item22[] = {"epic_un_fail",4,218,-108.542030,1416.260498,-18.542152,1466.260498,
 item23[] = {"go__",0,250,-251.875198,1252.271973,-161.875137,1302.271973,0.000000,"go!" \n ""};
 item24[] = {"_",8,218,-171.012238,1345.669556,-156.367966,1374.085083,0.000000,""};
 item25[] = {"",7,210,-76.511559,1985.183838,-68.511559,1993.183838,0.000000,""};
+item26[] = {"atc_off__",4,218,75.181892,1336.408203,146.503571,1383.159912,3.000000,"atc off!?"};
+item27[] = {"atc_off__",4,218,-210.939194,1515.577881,-139.617508,1562.329590,3.000000,"atc off!?"};
+item28[] = {"atc_off__",4,218,74.999306,1762.716797,146.320953,1809.468506,3.000000,"atc off!?"};
 link0[] = {0,1};
 link1[] = {0,4};
 link2[] = {0,6};
 link3[] = {0,9};
 link4[] = {0,12};
-link5[] = {1,2};
-link6[] = {2,25};
-link7[] = {3,0};
-link8[] = {4,11};
-link9[] = {5,10};
-link10[] = {5,22};
-link11[] = {6,7};
-link12[] = {7,25};
-link13[] = {8,0};
-link14[] = {9,13};
-link15[] = {10,3};
-link16[] = {10,20};
-link17[] = {11,24};
-link18[] = {12,0};
-link19[] = {13,3};
-link20[] = {13,14};
-link21[] = {13,16};
-link22[] = {13,21};
-link23[] = {14,15};
-link24[] = {15,6};
-link25[] = {16,1};
-link26[] = {17,18};
-link27[] = {18,19};
-link28[] = {19,13};
-link29[] = {20,5};
-link30[] = {21,11};
-link31[] = {22,5};
-link32[] = {23,24};
-link33[] = {24,5};
-link34[] = {25,8};
-link35[] = {25,17};
-globals[] = {0.000000,0,0,0,0,640,480,3,54,6316128,1,-328.282318,191.853348,1914.510864,1221.876831,591,787,1};
-window[] = {0,-1,-1,-1,-1,955,71,1489,54,1,609};
+link5[] = {0,28};
+link6[] = {1,2};
+link7[] = {2,25};
+link8[] = {3,0};
+link9[] = {4,11};
+link10[] = {5,10};
+link11[] = {5,22};
+link12[] = {6,7};
+link13[] = {7,25};
+link14[] = {8,0};
+link15[] = {9,13};
+link16[] = {10,3};
+link17[] = {10,20};
+link18[] = {10,26};
+link19[] = {11,24};
+link20[] = {12,0};
+link21[] = {13,3};
+link22[] = {13,14};
+link23[] = {13,16};
+link24[] = {13,21};
+link25[] = {13,27};
+link26[] = {14,15};
+link27[] = {15,6};
+link28[] = {16,1};
+link29[] = {17,18};
+link30[] = {18,19};
+link31[] = {19,13};
+link32[] = {20,5};
+link33[] = {21,11};
+link34[] = {22,5};
+link35[] = {23,24};
+link36[] = {24,5};
+link37[] = {25,8};
+link38[] = {25,17};
+link39[] = {26,5};
+link40[] = {27,13};
+link41[] = {28,0};
+globals[] = {0.000000,0,0,0,0,640,480,3,59,6316128,1,-186.465790,262.907593,1668.236694,1069.833374,591,787,1};
+window[] = {0,-1,-1,-1,-1,932,137,1555,31,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -79,21 +88,16 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "call_out">*/
-        class call_out
+        /*%FSM<LINK "atc_off__">*/
+        class atc_off__
         {
-          priority = 0.000000;
-          to="clear_all_tasks";
+          priority = 3.000000;
+          to="standby";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RadioCall_A;" \n
-           ""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
-           "			" \n
-           "central sideRadio ""HW_Radio_See_You_Later"";" \n
-           "" \n
-           "" \n
-           "1 setRadioMsg ""Call back in"";" \n
-           "2 setRadioMsg ""NULL"";"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "RadioCall_A = false;" \n
+           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "clear_expired_gi">*/
@@ -127,6 +131,23 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"!isNull currentTask player && !Pilot_Commited;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"2 setRadioMsg ""Rqst. Current Task"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "call_out">*/
+        class call_out
+        {
+          priority = 0.000000;
+          to="clear_all_tasks";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
+           "			" \n
+           "central sideRadio ""HW_Radio_See_You_Later"";" \n
+           "" \n
+           "" \n
+           "1 setRadioMsg ""Call back in"";" \n
+           "2 setRadioMsg ""NULL"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "time_for_new_gig">*/
@@ -193,6 +214,18 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "atc_off__">*/
+        class atc_off__
+        {
+          priority = 3.000000;
+          to="off_duty_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "RadioCall_A = false;" \n
+           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "call_in">*/
         class call_in
         {
@@ -336,6 +369,18 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "atc_off__">*/
+        class atc_off__
+        {
+          priority = 3.000000;
+          to="busy_ish_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "RadioCall_A = false;" \n
+           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "unfit_fail">*/
         class unfit_fail
         {

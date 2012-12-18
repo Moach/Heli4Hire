@@ -27,15 +27,15 @@ while {true} do
 		
 		
 		// flying with a busted transmission increases risk of engine/hydraulics damage!
-		if (random 50 < (10 * (chopper getHitPointDamage "HitTransmission"))) then
+		if (random 40 < (10 * (chopper getHitPointDamage "HitTransmission"))) then
 		{
 			// hintSilent "damaged transmission affects engine and hydraulics";
 			
 			_dmg = chopper getHitPointDamage "HitEngine"; // potential for damage is proportional to severity of the cause!
-			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitTransmission")];
+			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitTransmission") * .6];
 			
 			_dmg = ((chopper getHitPointDamage "HitEngine") * .5) + ((chopper getHitPointDamage "HitTransmission") * .5);
-			chopper setHitPointDamage ["HitHydraulics", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitHydraulics")];
+			chopper setHitPointDamage ["HitHydraulics", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitHydraulics") * .2];
 			
 			// it also may further damage the rotors!
 			_dmg = (chopper getHitPointDamage "HitHRotor");
@@ -54,7 +54,7 @@ while {true} do
 			// hintSilent "damaged fuel tank affects engine";
 			
 			_dmg = chopper getHitPointDamage "HitFuel"; // potential for damage is proportional to severity of the cause!
-			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitFuel")];	
+			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitFuel") * .15];	
 		};
 		
 		
@@ -72,6 +72,7 @@ while {true} do
 			
 			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .2 * _engDmg];		
 			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];
+			_dmg = chopper getHitPointDamage "HitBattery";      chopper setHitPointDamage ["HitBattery",      _dmg + random (1-_dmg)* .5 * _engDmg];		
 		};
 		
 		sleep 1;

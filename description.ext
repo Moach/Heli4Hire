@@ -167,7 +167,27 @@ class CfgRadio
 	
 };
 
-
+class CfgSounds
+{
+	sounds[] = {};
+	class FX_Pump_Fuel
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_pump_fuel";
+		// filename, volume, pitch
+		sound[] = {"sound\fx_pump_fuel", 1, 1};
+		titles[] = {};
+	};
+	class FX_Draw_Fuel_Line
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_draw_fuel_line";
+		// filename, volume, pitch
+		sound[] = {"sound\fx_draw_fuel_line", 1, 1};
+		titles[] = {};
+	};
+	
+};
 
 
 class CfgLoadingTexts
