@@ -93,7 +93,7 @@ HW_Dispatch_Survey =
 	};
 	
 	
-	AreaCenter = [[[_p1, 35000], survey_safe_zone], ["water","out"]] call BIS_fnc_randomPos;
+	AreaCenter = [[[_p1, 10000], survey_safe_zone], ["water","out"]] call BIS_fnc_randomPos;
 	_surveyPoints = [];
 	_num = 1+random(6);
 	AreaLimit = (3+random(4)) * 1000;
