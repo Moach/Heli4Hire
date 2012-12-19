@@ -1,36 +1,40 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Survey">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-154.354126,1151.648315,-64.354385,1201.648438,0.000000,"START"};
+item0[] = {"START",0,250,-308.167175,1227.046875,-218.167419,1277.046997,0.000000,"START"};
 item1[] = {"avail",4,218,-153.806915,1227.377930,-63.807053,1277.377930,0.000000,"avail"};
 item2[] = {"land",4,218,-153.762665,1538.161011,-63.762154,1588.161011,1.000000,"land"};
 item3[] = {"pickup",2,250,-154.019196,1323.003540,-64.019272,1373.003540,0.000000,"pickup"};
-item4[] = {"land_",4,4314,-74.034592,1741.897461,15.965557,1791.897461,1.000000,"land" \n ""};
+item4[] = {"land_",4,218,-148.725342,1761.713379,-58.725174,1811.713379,1.000000,"land" \n ""};
 item5[] = {"deboard",2,250,-76.981743,2032.227051,13.018228,2082.227295,0.000000,"deboard"};
 item6[] = {"away",4,218,-77.823822,2118.767090,12.176426,2168.767578,0.000000,"away"};
-item7[] = {"now_boarding___",2,250,-341.422546,1538.873413,-239.575897,1587.688721,0.000000,"now boarding..."};
+item7[] = {"now_boarding___",2,250,-348.725983,1538.873413,-246.879333,1587.688721,0.000000,"now boarding..."};
 item8[] = {"clear",1,250,-78.757111,2263.419189,11.243042,2313.419189,0.000000,"clear"};
-item9[] = {"timeout",4,218,-303.251709,1646.920898,-213.251511,1696.920898,0.000000,"timeout"};
+item9[] = {"timeout",4,218,-257.842285,1651.504883,-167.841980,1701.504883,1.000000,"timeout"};
 item10[] = {"done",4,218,-76.305161,1935.412354,13.695011,1985.412354,0.000000,"done"};
-item11[] = {"wait_for_it___",2,250,-85.246552,1837.713989,23.993065,1893.726318,0.000000,"wait for it..."};
-item12[] = {"fail___abort",4,218,-341.529968,2024.847900,-251.529968,2074.846680,2.000000,"fail / abort"};
+item11[] = {"wait_for_it___",2,250,-86.725578,1834.755981,22.514038,1890.768311,0.000000,"wait for it..."};
+item12[] = {"fail___abort",4,218,-342.815765,2024.847900,-252.815765,2074.846680,2.000000,"fail / abort"};
 item13[] = {"just_put_it_down",2,250,-364.726227,2113.830566,-229.426544,2161.671875,0.000000,"just put it down"};
-item14[] = {"land_ASAP",4,218,-230.972733,2031.543457,-140.972916,2081.544678,0.000000,"land ASAP"};
+item14[] = {"land_ASAP",4,218,-197.542465,2066.259521,-107.542648,2116.260742,0.000000,"land ASAP"};
 item15[] = {"running_late",4,218,-17.601326,1321.526855,72.398682,1371.526855,1.000000,"running late"};
 item16[] = {"you_re_late",2,250,-10.363567,1390.758057,65.494629,1439.603027,0.000000,"you're late"};
 item17[] = {"too_late",4,218,116.329941,1390.925049,206.329941,1440.925049,2.000000,"too late"};
 item18[] = {"you_fucked_it",1,250,117.298737,1482.596680,207.298767,1532.596680,0.000000,"you fucked it"};
-item19[] = {"all_aboard__live",4,218,-372.379242,1678.746948,-282.378632,1728.746948,0.000000,"all aboard" \n "(live)"};
-item20[] = {"go_fly____first",2,250,-340.355438,1771.423218,-250.355408,1821.423218,0.000000,"go fly! - first of" \n " N locations"};
+item19[] = {"all_aboard__live",4,218,-432.847382,1648.905518,-342.846771,1698.905518,0.000000,"all aboard" \n "(live)"};
+item20[] = {"go_fly_",2,250,-342.126587,1775.221313,-252.126556,1825.221313,0.000000,"go fly!"};
 item21[] = {"abort_pickup",4,218,-281.435181,1390.746094,-191.435379,1440.746094,2.000000,"abort pickup"};
 item22[] = {"quit",1,250,-430.955780,1390.794800,-340.955536,1440.794800,0.000000,"quit"};
-item23[] = {"approach_locatio",4,218,-470.834625,1771.164917,-380.834625,1821.164917,0.000000,"approach" \n "location"};
-item24[] = {"flyaround",2,250,-469.664856,1857.720093,-379.664917,1907.720093,0.000000,"flyaround"};
-item25[] = {"ok",4,218,-594.804443,1857.930420,-504.803528,1907.930420,0.000000,"ok"};
-item26[] = {"moar_",2,250,-594.910767,1772.092163,-504.910522,1822.092163,0.000000,"moar!"};
-item27[] = {"",7,210,-184.580643,1866.419434,-176.580643,1874.419434,0.000000,""};
-item28[] = {"that_s_all",4,218,-470.802643,1938.384766,-380.802765,1988.384766,1.000000,"that's all"};
-item29[] = {"fly_back",2,250,-226.479309,1937.893799,-136.479370,1987.893799,0.000000,"fly back"};
+item23[] = {"approach_locatio",4,218,-552.103455,1771.194702,-462.102844,1821.194702,1.000000,"approach" \n "location"};
+item24[] = {"flyaround",2,250,-551.737854,1872.394897,-461.737976,1922.394897,0.000000,"flyaround"};
+item25[] = {"good",4,218,-710.277954,1966.089600,-620.277954,2016.089600,0.000000,"good"};
+item26[] = {"on_the_way",2,250,-709.429871,1770.909790,-619.429626,1820.909790,0.000000,"on the way"};
+item27[] = {"_",8,218,-655.200256,1705.087646,-595.286011,1742.759155,0.000000,""};
+item28[] = {"that_s_all",4,218,-411.406464,1872.814941,-321.406647,1922.812622,1.000000,"that's all"};
+item29[] = {"fly_back",2,250,-232.204071,1870.026855,-142.204132,1920.026855,0.000000,"fly back"};
+item30[] = {"away",4,218,-789.346985,1871.994751,-696.914490,1923.210815,0.000000,"away"};
+item31[] = {"",7,210,-403.718506,1796.266479,-395.718506,1804.266479,0.000000,""};
+item32[] = {"",7,210,-467.062286,1718.734863,-459.062317,1726.734863,0.000000,""};
+item33[] = {"",7,210,-511.002258,2045.846680,-503.002258,2053.847168,0.000000,""};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -55,20 +59,26 @@ link20[] = {16,21};
 link21[] = {17,18};
 link22[] = {19,20};
 link23[] = {20,12};
-link24[] = {20,23};
+link24[] = {20,31};
 link25[] = {21,22};
 link26[] = {23,24};
-link27[] = {24,12};
-link28[] = {24,25};
-link29[] = {24,28};
-link30[] = {25,26};
-link31[] = {26,23};
-link32[] = {27,4};
-link33[] = {28,29};
-link34[] = {29,12};
-link35[] = {29,27};
-globals[] = {0.000000,0,0,0,0,640,480,1,83,6316128,1,-749.142944,91.084137,2510.508789,1316.277588,591,840,1};
-window[] = {0,-1,-1,-1,-1,985,137,1555,31,1,609};
+link27[] = {24,25};
+link28[] = {24,28};
+link29[] = {24,30};
+link30[] = {24,33};
+link31[] = {25,26};
+link32[] = {26,23};
+link33[] = {26,33};
+link34[] = {27,26};
+link35[] = {28,29};
+link36[] = {29,4};
+link37[] = {29,12};
+link38[] = {30,26};
+link39[] = {31,32};
+link40[] = {32,27};
+link41[] = {33,12};
+globals[] = {0.000000,0,0,0,0,640,480,1,107,6316128,1,-773.479797,94.930305,2387.892822,1151.512329,590,840,1};
+window[] = {0,-1,-1,-32000,-32000,985,139,1555,31,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -81,8 +91,9 @@ class FSM
       name = "START";
       init = /*%FSM<STATEINIT""">*/"" \n
        "_go = false;" \n
+       "PilotFail = false;" \n
        "" \n
-       "central sideRadio ""HW_Radio_Taxi_Commit"";" \n
+       "//central sideRadio ""HW_Radio_Taxi_Commit"";" \n
        "" \n
        "_t = time + 3 + (random 5);" \n
        ""/*%FSM</STATEINIT""">*/;
@@ -107,7 +118,6 @@ class FSM
     {
       name = "pickup";
       init = /*%FSM<STATEINIT""">*/"hintSilent ""stand by..."";" \n
-       "//_locDefs = _locDefs_lineup call bis_fnc_selectrandom;" \n
        "" \n
        "" \n
        "_pos = _this select 0;" \n
@@ -116,29 +126,15 @@ class FSM
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
        "" \n
-       "if (chopper call bis_fnc_helicopterType > 0) then // larger than lite choppah -- we can easily handle some more load" \n
-       "{" \n
-       "	_pax resize 8; _pps resize 8;" \n
-       "	_pax set [3, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [3, [8,-6,0]];" \n
-       "	_pax set [4, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [4, [5,-6,0]]; " \n
-       "	_pax set [5, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [5, [7 -7,0]];" \n
-       "	_pax set [6, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [6, [8,-7,0]];" \n
-       "	_pax set [7, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [7, [8,-5,0]];" \n
-       "};" \n
-       "" \n
-       "" \n
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
-       "" \n
-       "{ _x doTarget (vehicle player); } foreach units _grp; " \n
-       "" \n
        "" \n
        "_tsk = player createSimpleTask [""Current Assignment""];" \n
        "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
-       "_mkr = createMarker [""Departure"", _pos];" \n
+       "_mkr = createMarker [""DP/AR"", _pos];" \n
        "_mkr setMarkerType ""hd_pickup"";" \n
-       "_mkr setmarkerText ""Departure"";" \n
+       "_mkr setmarkerText ""Departure / Arrival"";" \n
        "" \n
        "" \n
        "_range = player distance _pos;" \n
@@ -175,7 +171,7 @@ class FSM
           priority = 1.000000;
           to="you_re_late";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(time > _t) && (player distance _pos > 400);"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time > _t) && ((player distance _pos) > 400);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -305,8 +301,8 @@ class FSM
        "	// put everyone aboard by telling them to like normal people..." \n
        "	" \n
        "	units _grp select 0 assignAsTurret [(vehicle player),[0]];" \n
-       "	if (count units _grp > 1) then { units _grp select 1 assignAsCargo (vehicle player); } ;" \n
-       "	if (count units _grp > 2) then { units _grp select 2 assignAsCargo (vehicle player); } ;	" \n
+       "	if (count units _grp > 1) then { units _grp select 1 assignAsCargo (vehicle player); };" \n
+       "	if (count units _grp > 2) then { units _grp select 2 assignAsCargo (vehicle player); };	" \n
        "	 " \n
        "	units _grp orderGetIn true;" \n
        "" \n
@@ -318,7 +314,7 @@ class FSM
        "		};" \n
        "	 }];" \n
        "" \n
-       "	_t = time + 30; // if pax aren't aboard in 30 seconds, that's usually due to some problem, so we force them in" \n
+       "	_t = time + 2; // if pax aren't aboard in 30 seconds, that's usually due to some problem, so we force them in" \n
        "};" \n
        "" \n
        "" \n
@@ -329,26 +325,26 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "timeout">*/
+        class timeout
+        {
+          priority = 1.000000;
+          to="go_fly_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"(units _grp select 0) moveInTurret [(vehicle player), [0]];" \n
+           "if (count units _grp > 1) then { units _grp select 1 moveInCargo (vehicle player); };" \n
+           "if (count units _grp > 2) then { units _grp select 2 moveInCargo (vehicle player); };"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "all_aboard__live">*/
         class all_aboard__live
         {
           priority = 0.000000;
-          to="go_fly____first";
+          to="go_fly_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"PaxBoarded == count units _grp;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "timeout">*/
-        class timeout
-        {
-          priority = 0.000000;
-          to="go_fly____first";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"units _grp select 0 moveInTurret [(vehicle player),[0]];" \n
-           "if (count units _grp > 1) then { units _grp select 1 moveInCargo (vehicle player); };" \n
-           "if (count units _grp > 2) then { units _grp select 2 moveInCargo (vehicle player); };"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -403,8 +399,10 @@ class FSM
     class just_put_it_down
     {
       name = "just_put_it_down";
-      init = /*%FSM<STATEINIT""">*/"terminate _steady;" \n
-       "terminate _chatter;" \n
+      init = /*%FSM<STATEINIT""">*/"terminate _chatter;" \n
+       "terminate _steady;" \n
+       "" \n
+       "" \n
        "2 setRadioMsg ""NULL"";" \n
        "" \n
        "PilotFailFurther = false; // yep - you CAN still make it worse!" \n
@@ -444,10 +442,10 @@ class FSM
     class you_re_late
     {
       name = "you_re_late";
-      init = /*%FSM<STATEINIT""">*/"if (player distance _pos < _range * .2 && _late==0) then" \n
+      init = /*%FSM<STATEINIT""">*/"if ((player distance _pos) < _range * .2 && _late==0) then" \n
        "{" \n
        "	_late = 1;" \n
-       "	_range = player distance _pos;" \n
+       "	_range = (player distance _pos);" \n
        "	_t = time + 35 + (_range * .01); " \n
        "" \n
        "	central sideRadio ""HW_Radio_Taxi_Little_Late"";" \n
@@ -516,48 +514,36 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "go_fly____first">*/
-    class go_fly____first
+    /*%FSM<STATE "go_fly_">*/
+    class go_fly_
     {
-      name = "go_fly____first";
+      name = "go_fly_";
       init = /*%FSM<STATEINIT""">*/"" \n
-       "deleteMarker _mkr;" \n
-       "" \n
        "playSound ""Doors"";" \n
        "" \n
        "_surveyLocations = _this select 1;" \n
        "_numLocations = count _surveyLocations;" \n
        "_current = 0;" \n
        "" \n
-       "_markers = [];" \n
-       "_markers resize _numLocations;" \n
+       "_locMarkers = [];" \n
        "" \n
-       "_pos = _surveyLocation select 0; // let's check for which is closest to our current position" \n
-       "" \n
-       "for ""_i"" from 0 to _numLocations do" \n
+       "for ""_i"" from 0 to (_numLocations-1) do" \n
        "{" \n
-       "	_m = createMarker [""Fly Over"", _surveyLocations select _i];" \n
+       "	_m = createMarker [""PoI-"" + str(_i),  (_surveyLocations select _i)];" \n
        "	_m setMarkerType ""hd_objective"";" \n
-       "" \n
-       "	_markers set [_i, _m];" \n
-       "	" \n
-       "	if ((_surveyLocations select _i) distance player < _pos distance player) then" \n
-       "	{" \n
-       "		_pos = (_surveyLocations select _i); // closest!" \n
-       "	}; " \n
+       "	_m setMarkerText ""Fly Over"";" \n
+       "	_locMarkers set [_i, _m];" \n
        "};" \n
+       "_approach_tgt = _locMarkers select 0;" \n
+       "_approaching = false;" \n
        "" \n
        "" \n
-       "_go = true;" \n
-       "" \n
-       "" \n
-       "PilotFail = false;" \n
        "" \n
        "2 setRadioMsg ""Decl. Unable and Drop"";" \n
        "RadioCall_B = false; " \n
        "" \n
        "_steady = [" \n
-       "	 player,_pos, nil, [20,1.2,42], 15, " \n
+       "	 player, [0,0,0], nil, [20, 1.2, 42], 15, " \n
        "	{ PilotFail = true; }" \n
        "] spawn BIS_fnc_wpSteady;" \n
        "" \n
@@ -567,7 +553,7 @@ class FSM
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
        "" \n
-       "_chatter = [ (leader _grp), _pos ] spawn " \n
+       "_chatter = [ (leader _grp) ] spawn " \n
        "{" \n
        "	sleep 6;" \n
        "" \n
@@ -603,11 +589,11 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "approach_locatio">*/
-        class approach_locatio
+        /*%FSM<LINK "_">*/
+        class _
         {
           priority = 0.000000;
-          to="flyaround";
+          to="on_the_way";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -647,24 +633,7 @@ class FSM
     class flyaround
     {
       name = "flyaround";
-      init = /*%FSM<STATEINIT""">*/"HoverOK = true;" \n
-       "" \n
-       "titleText [""Ok, now hold it steady and orbit around"", ""PLAIN DOWN""];" \n
-       "" \n
-       "" \n
-       "_hover =  [" \n
-       "	 player,_pos, nil, [10, .5 , 20], 15, " \n
-       "	{}, {  HoverOK = false; titleText [""Quit tossing about, man!"", ""PLAIN DOWN""]; }, {  HoverOK = true; titleText [""Ok, Steady!"", ""PLAIN DOWN""]; }" \n
-       "] spawn BIS_fnc_wpSteady;" \n
-       "" \n
-       "_t = 10 + random(30);" \n
-       "_circleWP = [_t, .85, 0, { ((getPosATL chopper) select 2)  < 150 && HoverOK; }, ""Accuracy: %1%2""] spawn BIS_fnc_wpAngle;" \n
-       "" \n
-       "" \n
-       "_current = _current + 1;" \n
-       "" \n
-       "" \n
-       ""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -684,41 +653,96 @@ class FSM
           priority = 1.000000;
           to="fly_back";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"scriptDone _circleWP && _current >= _numLocations;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t && (_current+1) >= _numLocations;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"deleteMarker _approach_tgt;" \n
+           "" \n
+           "hint ""Ok, I think we're done for today - let's head back, shall we?"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "ok">*/
-        class ok
+        /*%FSM<LINK "away">*/
+        class away
         {
           priority = 0.000000;
-          to="moar_";
+          to="on_the_way";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"scriptDone _circleWP;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) > 600;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "good">*/
+        class good
+        {
+          priority = 0.000000;
+          to="on_the_way";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Ok, now we're good here! Take us over the next area"";" \n
+           "_current = _current+1;" \n
+           "" \n
+           "_resetMarkers = [];" \n
+           "{" \n
+           "	if (_x != _approach_tgt) then { _resetMarkers set [count _resetMarkers, _x]  }" \n
+           "" \n
+           "} foreach _locMarkers;" \n
+           "" \n
+           "deleteMarker _approach_tgt;" \n
+           "" \n
+           "_locMarkers = _resetMarkers;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "moar_">*/
-    class moar_
+    /*%FSM<STATE "on_the_way">*/
+    class on_the_way
     {
-      name = "moar_";
-      init = /*%FSM<STATEINIT""">*/"hintSilent ""Alright! let's see  the next spot?"";" \n
+      name = "on_the_way";
+      init = /*%FSM<STATEINIT""">*/"_approaching = false;" \n
+       "_approach_tgt = _locMarkers select 0;" \n
        "" \n
-       "deleteMarker (_markers select _current-1);"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/"{	" \n
+       "	if (!_approaching && ((vehicle player) distance (getMarkerPos _x)) < 500 ) then" \n
+       "	{" \n
+       "		_approach_tgt = _x;" \n
+       "		_approaching = true;" \n
+       "	};" \n
+       "" \n
+       "} foreach _locMarkers;" \n
+       ""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "approach_locatio">*/
         class approach_locatio
         {
-          priority = 0.000000;
+          priority = 1.000000;
           to="flyaround";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_approaching;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"FailCount = 0;" \n
+           "" \n
+           "hintSilent ""Ok, now hold it steady and let's go around a bit...."";" \n
+           "" \n
+           "_pos = getMarkerPos _approach_tgt;" \n
+           "" \n
+           "" \n
+           "_t = time + 30 + random(90);" \n
+           "" \n
+           "" \n
+           ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -728,7 +752,10 @@ class FSM
     class fly_back
     {
       name = "fly_back";
-      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"_pos = _this select 0; // head back..." \n
+       "" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {

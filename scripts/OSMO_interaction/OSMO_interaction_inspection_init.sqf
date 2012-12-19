@@ -113,7 +113,7 @@ _heli setVariable ["HSim_hitpoints", _hps];
 
 // TODO: Add obstructions
 
-if(OSMO_INT_obstructions && isServer) then
+if(OSMO_INT_obstructions && isServer && !HW_DEBUG) then
 {
   // Randomly trigger obstructions defined in config
   private ["_cfgObstructions", "_obstructIDs"];

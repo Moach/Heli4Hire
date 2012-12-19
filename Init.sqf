@@ -1,4 +1,6 @@
 
+HW_DEBUG = true;
+
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 [(getPos _HeliPort), (getDir _HeliPort), "heliport_hangarDefault"] spawn BIS_fnc_ObjectsMapper;
 
@@ -73,13 +75,16 @@ player setDir 60;
 
 
 
-
-_reliability_factor = 80; //
-_reliability_cutoff = .55; // 
-_hps = chopper call BIS_fnc_helicopterGetHitpoints;
+if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
-	chopper setHitPointDamage [_x, ( (1 / (.0001 + (random(1) * _reliability_factor))) - _reliability_cutoff ) max 0];
-} foreach _hps;
+
+	_reliability_factor = 80; //
+	_reliability_cutoff = .55; // 
+	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
+	{
+		chopper setHitPointDamage [_x, ( (1 / (.0001 + (random(1) * _reliability_factor))) - _reliability_cutoff ) max 0];
+	} foreach _hps;
+};
 
 
 Heli_Has_Obstruction = false; // or is it?
