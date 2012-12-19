@@ -16,7 +16,7 @@ while {Fuel_Pump_Active} do
 	if ((fuel chopper) < _fillAmount) then
 	{
 		// keep it flowing!
-		chopper setFuel ( ((fuel chopper) + .25) min 1 );
+		chopper setFuel ( ((fuel chopper) + .05) min 1 );
 	
 	} else
 	{
