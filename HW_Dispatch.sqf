@@ -5,7 +5,6 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 
 
 
-
 //
 // functions...
 
@@ -85,20 +84,23 @@ HW_Dispatch_Taxi =
 HW_Dispatch_Survey = 
 {
 	//
-	//
+	_p1 = getPos service_helipad;
 	
-//	_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
-//	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-
-	_p1 = (getPos service_helipad); // for debug!
+	if (!RadioCall_J) then
+	{
+		_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
+		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
+	};
 	
-	_areaCenter = [[[_p1, 10000]], ["water","out"]] call BIS_fnc_randomPos;
-	_num = 1+ round(random 6); // up to this many positions in a survey flight...
 	
+	AreaCenter = [[[_p1, 35000], survey_safe_zone], ["water","out"]] call BIS_fnc_randomPos;
 	_surveyPoints = [];
+	_num = 1+random(6);
+	AreaLimit = (3+random(4)) * 1000;
+	
 	for "_i" from 0 to _num do
 	{
-		_sp = [[[_areaCenter, 4000]], ["water","out"]] call BIS_fnc_randomPos;
+		_sp = [[[AreaCenter, AreaLimit], survey_safe_zone], ["water","out"], {(_this distance AreaCenter) < AreaLimit}] call BIS_fnc_randomPos;
 		_surveyPoints set [_i, _sp];
 	};
 	
@@ -111,8 +113,8 @@ HW_Dispatch_Survey =
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];
 	_mkr setMarkerType "hd_start";
-	_mkr setMarkerDir ((_areaCenter select 0) - (_p1 select 0)) atan2 ((_areaCenter select 1) - (_p1 select 1));
-	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _areaCenter) * .01)* .1) + "km");
+	_mkr setMarkerDir ((AreaCenter select 0) - (_p1 select 0)) atan2 ((AreaCenter select 1) - (_p1 select 1));
+	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
 	
 	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
 	
@@ -155,7 +157,7 @@ HW_Pilot_Task_Commit =
 			2 setRadioMsg "NULL";
 			
 			RadioCallDelay = time+30; // since dispatch man will call a report after acknowledging your commit, this counts for a non-repeat delay
-			OnCall = [_p1, _p2] execFSM _fsm;
+			[_p1, _p2] execFSM _fsm;
 			
 			deleteGroup _x;
 			exit;
@@ -179,7 +181,6 @@ HW_Pilot_Task_Commit =
 
 player execFSM "HW_Dispatch_Gen.fsm";
 
-
 if (HW_DEBUG) then // enable only for debug!
 {
 	10 setRadioMsg "DEBUG!";
@@ -188,12 +189,13 @@ if (HW_DEBUG) then // enable only for debug!
 	
 	player moveInDriver chopper;
 	
-	RadioCall_J = false;
+	
 	10 setRadioMsg "NULL";
 	
 	sleep 1;
 	call HW_Dispatch_Survey;
 	
+	RadioCall_J = false;
 };
 
 

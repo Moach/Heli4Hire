@@ -23,7 +23,7 @@ item18[] = {"you_fucked_it",1,250,117.298737,1482.596680,207.298767,1532.596680,
 item19[] = {"all_aboard__live",4,218,-372.379242,1678.746948,-282.378632,1728.746948,0.000000,"all aboard" \n "(live)"};
 item20[] = {"go_fly_",2,250,-340.386475,1839.904297,-250.386444,1889.904297,0.000000,"go fly!"};
 item21[] = {"abort_pickup",4,218,-281.435181,1390.746094,-191.435379,1440.746094,2.000000,"abort pickup"};
-item22[] = {"quit",1,250,-430.955780,1390.794800,-340.955536,1440.794800,0.000000,"quit"};
+item22[] = {"quit",1,4346,-430.955780,1390.794800,-340.955536,1440.794800,0.000000,"quit"};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -50,8 +50,8 @@ link22[] = {19,20};
 link23[] = {20,4};
 link24[] = {20,12};
 link25[] = {21,22};
-globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-572.770630,342.854309,2516.332764,1185.500366,591,859,1};
-window[] = {0,-1,-1,-32000,-32000,1022,187,1605,68,1,609};
+globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-572.770630,342.854309,2516.332764,1185.500366,591,840,1};
+window[] = {0,-1,-1,-1,-1,1108,1716,3134,154,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -210,13 +210,23 @@ class FSM
        "{" \n
        "	 if (RadioCall_B) then" \n
        "	{" \n
-       "		hintSilent ""Roger, we got a fix on your location - tell your passengers to stand by and make sure you apologize your ass off..."";" \n
        "		RadioCall_B = false;" \n
        "" \n
        "		bis_genericSentenceMode = .4;" \n
        "		[""FeedbackGeneralBad"",  (leader _grp)] call bis_fnc_genericSentence;" \n
+       "	" \n
+       "		if(_abortEnroute) then" \n
+       "		{" \n
+       "			" \n
+       "		//	hintSilent ""Roger, we got a fix on your location - tell your passengers to stand by and make sure you apologize your ass off..."";" \n
+       "			central sideRadio ""HW_Radio_Taxi_Abort_Landed"";" \n
+       "			1 setRadioMsg ""Cfm. Fix on Location"";" \n
        "" \n
-       "		central sideRadio ""HW_Radio_Taxi_Abort_Landed"";" \n
+       "		} else" \n
+       "		{" \n
+       "			central sideRadio ""HW_Radio_Unable"";" \n
+       "			1 setRadioMsg ""Confirm Aborted"";" \n
+       "		};" \n
        "" \n
        "	} else" \n
        "	{" \n
@@ -397,6 +407,7 @@ class FSM
        "2 setRadioMsg ""NULL"";" \n
        "" \n
        "PilotFailFurther = false; // yep - you CAN still make it worse!" \n
+       "_abortEnroute = false;" \n
        "" \n
        "if PilotFail then " \n
        "{ " \n
@@ -405,7 +416,11 @@ class FSM
        "	" \n
        "} else" \n
        "{" \n
-       "	central sideRadio ""HW_Radio_Taxi_Enroute_Abort"";" \n
+       "	if (!(isTouchingGround (vehicle player))) then" \n
+       "	{	" \n
+       "		central sideRadio ""HW_Radio_Taxi_Enroute_Abort"";	" \n
+       "		_abortEnroute = true;" \n
+       "	};" \n
        "};" \n
        "" \n
        "deleteMarker _mkr;" \n
@@ -608,12 +623,13 @@ class FSM
        "player removeSimpleTask _tsk;" \n
        "_go = false;" \n
        "" \n
-       "hint ""We copy you unable! Ok then, we'll send out someone else - Call in and let us know when you're available again."";" \n
+       "central sideRadio ""HW_Radio_Unable"";" \n
+       "" \n
        "" \n
        "RadioCall_B = false;" \n
        "2 setRadioMsg ""NULL"";" \n
        "" \n
-       "1 setRadioMsg ""Call in back on duty""; // ready to go again!" \n
+       "1 setRadioMsg ""Confirm Unable""; // ready to go again!" \n
        "" \n
        "" \n
        ""/*%FSM</STATEINIT""">*/;

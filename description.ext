@@ -102,11 +102,11 @@ class CfgRadio
 	
 	
 	
-	class HW_Radio_Unavailable_Idle
+	class HW_Radio_Unable
 	{
 		name = "";
 		sound[] = {"\sound\copy unable.ogg", db-100, 1.0};
-		title = "We copy you unavailable. Call us back when you're up and able again.";
+		title = "We copy you unable. Please Confirm!";
 	};
 	
 	class HW_Radio_Taxi_Commit
@@ -116,12 +116,6 @@ class CfgRadio
 		title = "Confirmed! Passengers should be out at departure by the time you get there...";
 	};
 	
-	class HW_Radio_Taxi_Abort
-	{
-		name = "";
-		sound[] = {"\sound\abort before pax.ogg", db-100, 1.0};
-		title = "We copy you unable enroute to pickup! Ok, sending someone else! Give us a call when ready to proceed...";
-	};
 	
 	class HW_Radio_Taxi_Enroute_Abort
 	{
@@ -134,7 +128,7 @@ class CfgRadio
 	{
 		name = "";
 		sound[] = {"\sound\abort pax landed.ogg", db-100, 1.0};
-		title = "Well, Good call ... Send out another bird for your passengers... Let us know then you're good to go again!";
+		title = "Copy landed! - We got a fix on your location and will dispatch another bird, can you confirm?";
 	};
 	
 	class HW_Radio_Taxi_Little_Late
@@ -175,7 +169,7 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "hw_fx_pump_fuel";
 		// filename, volume, pitch
-		sound[] = {"sound\fx_pump_fuel", 1, 1};
+		sound[] = {"\sound\fx_pump_fuel.ogg", 1, 1};
 		titles[] = {};
 	};
 	class FX_Draw_Fuel_Line
@@ -183,7 +177,7 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "hw_fx_draw_fuel_line";
 		// filename, volume, pitch
-		sound[] = {"sound\fx_draw_fuel_line", 1, 1};
+		sound[] = {"\sound\fx_draw_fuel_line.ogg", 1, 1};
 		titles[] = {};
 	};
 	

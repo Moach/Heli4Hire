@@ -14832,12 +14832,12 @@ class Mission
 		class Item10
 		{
 			position[]={29995.678,1.0388517,30001.855};
-			a=27500;
-			b=27500;
+			a=23000;
+			b=23000;
 			rectangular=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="map_safe_zone";
+			name="survey_safe_zone";
 			class Effects
 			{
 			};
