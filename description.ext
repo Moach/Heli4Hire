@@ -198,7 +198,7 @@ class CfgLoadingTexts
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
 			"Flying with any damaged component is extremely dangerous!",
-			"A slightly off rotor may cause strain on the transmission, leading to damage;",
+			"A slightly off rotor may cause strain on the transmission, leading to damage.",
 			"A damaged transmission may stress the engine leading up to an emergency situation..."
 		};
 
@@ -213,7 +213,7 @@ class CfgLoadingTexts
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
 			"Good Pilots will always inspect their gear before takoff, so make sure to check if your bird is proper for flight.",
-			"It's also a good idea to verify the upkeep of your cabin, and clean it up as it gets increasingly messy with passengers coming in and out.".
+			"It's also a good idea to verify the upkeep of your cabin, and clean it up as it gets increasingly messy with passengers coming in and out."
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
