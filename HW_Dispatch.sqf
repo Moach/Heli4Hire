@@ -89,13 +89,13 @@ HW_Dispatch_Survey =
 	
 	if (!RadioCall_J) then // not a debug run!
 	{
-		_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
+		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
 		_num = 1+random(5);
 	};
 	
 	
-	AreaCenter = [[[_p1, 2000], survey_safe_zone], ["water","out"], {(_this distance player) < 2000}] call BIS_fnc_randomPos;
+	AreaCenter = [[[_p1, 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 25000}] call BIS_fnc_randomPos;
 	_surveyPoints = [];
 	
 	AreaLimit = (3+random(4)) * 1000;
