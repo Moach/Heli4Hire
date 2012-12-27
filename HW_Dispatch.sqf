@@ -85,17 +85,19 @@ HW_Dispatch_Survey =
 {
 	//
 	_p1 = getPos service_helipad;
+	_num = 0;
 	
-	if (!RadioCall_J) then
+	if (!RadioCall_J) then // not a debug run!
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
+		_num = 1+random(5);
 	};
 	
 	
-	AreaCenter = [[[_p1, 30000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
+	AreaCenter = [[[_p1, 2000], survey_safe_zone], ["water","out"], {(_this distance player) < 2000}] call BIS_fnc_randomPos;
 	_surveyPoints = [];
-	_num = 1+random(6);
+	
 	AreaLimit = (3+random(4)) * 1000;
 	
 	for "_i" from 0 to _num do
@@ -127,13 +129,6 @@ HW_Dispatch_Survey =
 	
 	GigLineup set [ count GigLineup, gig ];
 };
-
-
-
-
-
-
-
 
 
 
@@ -188,7 +183,7 @@ if (HW_DEBUG) then // enable only for debug!
 	waitUntil { sleep 1; RadioCall_J };
 	
 	player moveInDriver chopper;
-	
+	chopper setBatteryRTD true;
 	
 	10 setRadioMsg "NULL";
 	

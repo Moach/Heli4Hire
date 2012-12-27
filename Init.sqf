@@ -1,5 +1,30 @@
 
-HW_DEBUG = false;
+HW_DEBUG = true;
+
+
+LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
+
+PaxDefs_taxi = [
+	"Woman01_Random_H",
+	"Woman02_Random_H",
+	"Woman03_Random_H",
+	"Hooker1",
+	"Hooker4",
+	"Hooker2",
+	"Citizen_Random_H",
+	"Citizen_Random_H",
+	"Citizen_Random_H",
+	"Journalist_H",
+	"Manager_H",
+	"Rocker_H",
+	"SeattleMan_Random_H"
+];
+
+
+enableEndDialog;
+
+
+
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 [(getPos _HeliPort), (getDir _HeliPort), "heliport_hangarDefault"] spawn BIS_fnc_ObjectsMapper;
@@ -38,34 +63,57 @@ RadioCall_I = false;
 RadioCall_J = false; 
 
 
+// this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
+// should be reset to zero after use....
+PilotDecision = 0;
+PD_Armed = false; // indicates if pilot decisions are available
+PD_Actions = [];  // tracks menu action ids for pilot decisions
 
 
-LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
-PaxDefs_taxi = [
-	"Woman01_Random_H",
-	"Woman02_Random_H",
-	"Woman03_Random_H",
-	"Hooker1",
-	"Hooker4",
-	"Hooker2",
-	"Citizen_Random_H",
-	"Citizen_Random_H",
-	"Citizen_Random_H",
-	"Journalist_H",
-	"Manager_H",
-	"Rocker_H",
-	"SeattleMan_Random_H"
-];
+//
+// PD setup utility functions...
+//
+
+HW_PD_Prompt = 
+{
+	if (PD_Armed) exitWith { player sidechat "WARNING!!\n - PD armed - \ncannot prompt further options before clear!"; };
+	
+	PD_Armed = true;
+	_opts = _this select 0; // array expected as argument, should contain strings of titles for each option
+
+	_p = 1; 
+	PD_Actions resize (count _opts);
+	
+	{
+		//
+		_id = chopper addAction [_x, "HW_Pilot_Decision.sqf", _p, 6];
+		PD_Actions set [_p-1, _id];
+		_p = _p+1;
+		
+	} foreach _opts;
+};
 
 
-enableEndDialog;
+HW_PD_Clear = 
+{
+	PilotDecision = 0;
+	PD_Armed = false;
+	
+	{
+		chopper removeAction _x;
+		//
+	} foreach PD_Actions;
+	
+	PD_Actions = [];
+};
+
+
+
+
 
 
 sleep 1;
-
-
-
 
 deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter in the hangar that comes with the object composition...
 
@@ -93,7 +141,7 @@ chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
 [service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
 
 
-chopper enableCoPilot true;
+chopper enableCoPilot false;
 chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false;
 chopper enableAutoTrimRTD false;
