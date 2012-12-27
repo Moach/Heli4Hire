@@ -1,5 +1,5 @@
 
-HW_DEBUG = true;
+HW_DEBUG = false;
 
 
 LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
