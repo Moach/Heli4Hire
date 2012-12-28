@@ -26,7 +26,7 @@ _inspectColor = "#DD00FF00";
 if(_hitpoint == "HitHydraulics") then
 {
   _inputDetected = 0;
-  hintSilent Format["Move your stick or rudder to inspect hydraulics.\n\nProgress: %1%2",_inputdetected,"%"];
+  hintSilent Format["Move your stick and rudder to inspect flight cotrols.\n\nProgress: %1%2",_inputdetected,"%"];
   
   private ["_inputDetected", "_inputs"];
 
@@ -59,7 +59,7 @@ if(_hitpoint == "HitHydraulics") then
 
     // highlight a new segment
     [_id,_file, ("Inspect " + _partname), _actiontext, _heli, _inspectColor] call OSMO_INS__UpdateInspectIcon;
-    hintSilent Format["Move your stick or rudder to inspect hydraulics.\n\nProgress: %1%2",_inputdetected,"%"];
+    hintSilent Format["Move your stick and rudder to inspect flight controls.\n\nProgress: %1%2",_inputdetected,"%"];
 
 		sleep 0.02;
 	};
@@ -74,7 +74,7 @@ else
     _file = format["%1_%2",_iconstart,_frame];
     _actiontext = format["<t color='%1'>Inspecting %2</t>",_inspectColor, _partname];
 
-    //highlight a new segment
+    // highlight a new segment
     [_id,_file, ("Inspect " + _partname), _actiontext, _heli, _inspectColor] call OSMO_INS__UpdateInspectIcon;
     
     sleep 0.15;
@@ -95,24 +95,24 @@ if ((call _showCond) && _frame == _max) then
   _fueltext = "";
   if(_hitpoint == "HitFuel") then 
   {
-    _fueltext = " Fuel level is at " + (str (round((fuel _heli)*100))) + "%.";
+    _fueltext = " Fuel level about " + (str ((round((fuel _heli)*10))*10)) + "%.";
     _partname = "Fuel tank";
   };
   _actiontext = format["<t color='%2'>%1 %3%4</t>", _partname, _color, _damageDesc, _fueltext];  
   _iconstart = if (_hitpointDamage > 0) then {"damaged"} else {"ok"};
-  sleep 0.2;
+  sleep 0.15;
   if(_hitpoint == "HitHydraulics") then {hintsilent Format["%1 %2",_partname,_damagedesc];};
   for "_i" from 0 to 3 do
-	{
-		_file = format["%1_%2",_iconstart,_i];
-		[_id,_file, ("Inspect " + _partname), _actiontext, _heli, _color] call OSMO_INS__UpdateInspectIcon;
-		sleep 0.2;
-	};
+  {
+  	    _file = format["%1_%2",_iconstart,_i];
+  	    [_id,_file, ("Inspect " + _partname), _actiontext, _heli, _color] call OSMO_INS__UpdateInspectIcon;
+    	sleep 0.2;
+  };
 	
 	sleep 2;
 	_file = format["%1_%2",_iconstart,3];
 	_color = "#88" + _retColor;
-  _actiontext = format["<t color='%2'>%1 %3%4</t>", _partname, _color, _damageDesc, _fueltext];  
+    _actiontext = format["<t color='%2'>%1 %3%4</t>", _partname, _color, _damageDesc, _fueltext];  
 	[_id,_file, ("Inspect " + _partname), _actiontext, _heli, _color] call OSMO_INS__UpdateInspectIcon;
 	sleep 5;
 };	

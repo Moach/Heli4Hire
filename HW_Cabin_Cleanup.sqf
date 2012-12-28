@@ -8,3 +8,7 @@ sleep 3;
 
 Cabin_needs_action = false;
 titleText["", "BLACK IN"];
+
+hintSilent "Attaboy! That's much better!";
+
+doGetOut player;

@@ -6,7 +6,7 @@ item1[] = {"avail",4,218,-153.806915,1227.377930,-63.807053,1277.377930,0.000000
 item2[] = {"land",4,218,-153.762665,1538.161011,-63.762154,1588.161011,1.000000,"land"};
 item3[] = {"pickup",2,250,-154.019196,1323.003540,-64.019272,1373.003540,0.000000,"pickup"};
 item4[] = {"land_",4,218,-210.934753,1840.424072,-120.934570,1890.424072,1.000000,"land" \n ""};
-item5[] = {"deboard",2,4346,-76.981750,2033.776489,13.018229,2083.776611,0.000000,"deboard"};
+item5[] = {"deboard",2,250,-76.981750,2033.776489,13.018229,2083.776611,0.000000,"deboard"};
 item6[] = {"away",4,218,-77.823822,2118.767090,12.176426,2168.767578,0.000000,"away"};
 item7[] = {"now_boarding___",2,250,-341.422546,1538.873413,-239.575897,1587.688721,0.000000,"now boarding..."};
 item8[] = {"clear",1,250,-78.757111,2263.419189,11.243042,2313.419189,0.000000,"clear"};
@@ -50,8 +50,8 @@ link22[] = {19,20};
 link23[] = {20,4};
 link24[] = {20,12};
 link25[] = {21,22};
-globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-559.173157,329.256683,2467.569824,1204.826782,591,840,1};
-window[] = {0,-1,-1,-32000,-32000,982,148,1566,28,1,609};
+globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-474.772308,244.855789,2347.609131,1324.787476,591,840,1};
+window[] = {0,-1,-1,-1,-1,1049,95,1513,95,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -303,9 +303,9 @@ class FSM
        "{" \n
        "	// put everyone aboard by telling them to like normal people..." \n
        "	" \n
-       "	units _grp select 0 assignAsCargo (vehicle player);" \n
+       "	units _grp select 0 assignAsTurret [(vehicle player),[0]];" \n
        "	if (count units _grp > 1) then { units _grp select 1 assignAsCargo (vehicle player); } ;" \n
-       "	if (count units _grp > 2) then { units _grp select 2 assignAsTurret [(vehicle player),[0]]; } ;	" \n
+       "	if (count units _grp > 2) then { units _grp select 2 assignAsCargo (vehicle player); } ;	" \n
        "	 " \n
        "	units _grp orderGetIn true;" \n
        "" \n
@@ -345,9 +345,9 @@ class FSM
           to="go_fly_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"units _grp select 0 moveInCargo (vehicle player);" \n
-           "if (count units _grp > 1) then { units _grp select 1 moveInCargo (vehicle player); } ;" \n
-           "if (count units _grp > 2) then { units _grp select 2 moveInTurret [(vehicle player),[0]]; } ;"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"units _grp select 0 moveInTurret [(vehicle player),[0]];" \n
+           "if (count units _grp > 1) then { units _grp select 1 moveInCargo (vehicle player); };" \n
+           "if (count units _grp > 2) then { units _grp select 2 moveInCargo (vehicle player); };"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
