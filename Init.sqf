@@ -1,12 +1,10 @@
 
-HW_DEBUG = false;
+HW_DEBUG = true;
 
-player execVM "InitDefs.sqf";
-
+_initDefs = player execVM "InitDefs.sqf";
+waitUntil { scriptDone _initDefs };
 
 enableEndDialog;
-
-
 
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
@@ -14,7 +12,6 @@ _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 [(getPos _HeliPort), ((getDir _HeliPort) + 110), "heliport_hangarExterior"] spawn BIS_fnc_ObjectsMapper;
-
 
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
@@ -109,7 +106,7 @@ player setDir 60;
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 
-	_reliability_factor = 80; //
+	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
 	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
 	{
@@ -122,6 +119,7 @@ Heli_Has_Obstruction = false; // or is it?
 
 chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
 [service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
+
 
 
 chopper enableCoPilot false;
@@ -143,10 +141,43 @@ chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true,
 
 sleep 1;	
 	
-// chopper setBatteryChargeRTD (.6 + random .4);
+
+
+// since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
+chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
+
+if (HW_DEBUG) then
+{
+	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
+	//
 	
-//
-sleep 1;
+	// create markers showing ALL indexed landing areas!
+	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
+	_counter = 0;
+	{
+		_counter = _counter + 1;
+		_lzMkr = createMarker [("LZ#"+str(_counter)), (locationPosition _x)];
+		_lzMkr setMarkerType "mil_dot";
+		_lzMkr setMarkerColor "ColorRedAlpha";
+		_lzMkr setMarkerAlpha 0.2; 
+		
+	} foreach _locLZs;
+	
+	_counter = 0;
+	{
+		_counter = _counter + 1;
+		_lzMkr = createMarker [("RT#"+str(_counter)), _x];
+		_lzMkr setMarkerType "mil_triangle";
+		_lzMkr setMarkerColor "ColorRedAlpha";
+		_lzMkr setMarkerAlpha 0.2; 
+		
+	} foreach PosDefs_roofTops;
+	
+	
+	
+	
+	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
+};
 
 
 //
@@ -155,14 +186,4 @@ player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
 
-
-// since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
-chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
-
-if (HW_DEBUG) then
-{
-	
-	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
-	
-};
 

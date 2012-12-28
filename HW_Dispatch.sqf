@@ -132,6 +132,71 @@ HW_Dispatch_Survey =
 
 
 
+
+HW_Dispatch_Cargo = 
+{
+	// locate tower (the high point requiring helicopter cargo)
+	//
+	_twrPos = PosDefs_roofTops call bis_fnc_selectRandom; // could be done better... but let's use this for now, there are only so many worthy rooftops out there
+	
+	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
+	_baseCargo  = round((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
+	
+	// select base from our beloved list of possible locations
+	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
+	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
+	
+	_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
+	while { _atts > -1 && _atts < 8 } do 
+	{
+		_castPos = _basePos; 
+		_castPos set [2, 1000];	
+		
+		if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
+		{
+			_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
+			_atts = _atts+1;
+		} else
+		{
+			_atts = -1;
+		}
+	};
+	
+	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
+	_crewPos = _basePos;
+	if (random(5) > 2) then 
+	{
+		_near = nearestLocations [_basePos, LocDefs_taxi, 10000];
+		_crewPos = locationPosition (_near call BIS_fnc_selectRandom);
+	};
+
+	_mkID = ("C-"+str(round time));
+	_mkr = createMarker [_mkID, _crewPos];
+	_mkr setMarkerType "hd_join";
+	_mkr setMarkerText ("Cargo | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	
+	_tsk = player createSimpleTask ["Cargo SlingLoad"];
+	_tsk setSimpleTaskDestination _crewPos;
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Cargo SlingLoad", "Meet Logistics Crew here"];
+	
+	_order = [_basePos, _twrPos, _baseCargo, _towerCargo];
+	
+	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...	
+	gig setVariable ["p1", _crewPos];
+	gig setVariable ["p2", _order]; // p2 holds our work order!
+	gig setVariable ["exp", time + 60 + random(500)];
+	gig setVariable ["mkr", _mkID];
+	gig setVariable ["tsk", _tsk];
+	gig setVariable ["fsm", "HeliWorks_Cargo.fsm"];
+	
+	GigLineup set [ count GigLineup, gig ];
+};
+
+
+
+
+
+
 HW_Pilot_Task_Commit = 
 {
 	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
@@ -188,7 +253,7 @@ if (HW_DEBUG) then // enable only for debug!
 	10 setRadioMsg "NULL";
 	
 	sleep 1;
-	call HW_Dispatch_Survey;
+	call HW_Dispatch_Cargo;
 	
 	RadioCall_J = false;
 };

@@ -1,4 +1,3 @@
-
 LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
 PaxDefs_taxi = [
@@ -8,6 +7,7 @@ PaxDefs_taxi = [
 	"Hooker1",
 	"Hooker4",
 	"Hooker2",
+	"Hooker3",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
@@ -20,13 +20,24 @@ PaxDefs_taxi = [
 
 CargoDefs_Lite = 
 [
-	"FireSuppression_H", "Ventilation_H", "CargoCont_Net1_H", "Misc_Cargo_Cont_Tiny", 
-	"FlagPole_H", "PowerGenerator", "Land_Antenna", "Scaffolding_Wheeled_H", "Land_BoardsPack2_H"
+	"FireSuppression_H", 
+	"Ventilation_H", 
+	"CargoCont_Net1_H", 
+	"Misc_Cargo_Cont_Tiny", 
+	"FlagPole_H", 
+	"PowerGenerator", 
+	"Land_Antenna", 
+	"Scaffolding_Wheeled_H", 
+	"Land_BoardsPack2_H"
 ];
 
 
 //  the following points were marked by ACTUALLY flying a helicopter (ingame, not a real one, alas) onto them and logging the choppers position
-//   using a special developer-tool script... many of those are not landing-capable, which made cataloging them quite a pilot-intensive task
+//   using a special developer-tool script... many of those are not landing-friendly, which made cataloging them quite a pilot-intensive task
+
+
+// rooftops for cargo sling ops
+//
 PosDefs_roofTops = [
 	//
 	//                                                SEATTLE DOWNTOWN AND IMMEDIATE AREA
@@ -53,6 +64,11 @@ PosDefs_roofTops = [
 	[41881.1, 32249.7, -0.114868],  // convoluted side vrana-topped building
 	[41996.1, 32162.9, -0.114838],  // assymetric one SE of the above
 	[38822.1, 29029.5, -0.11599],   // one of 3-building compound at island near eastbound motorway
+	[41785.7, 32149.8, -0.152466],  // fancy glass-thing building between two of the above
+	[41931.5, 32642.6, -0.133713],  // round panelled top north of highrise cluster
+	[41702.4, 31900.5, -0.248566],  // center of building that looks like this --> (=||=)
+	[41333.1, 31700.5, -0.115913],  // two-tier flat top near the water
+	[42004.5, 32244, -0.270859],    // SIDE of taller round panelled top close the the columbia-like tower mentioned above
 	//
 	//                                                      NEWPORT HILLS / RENTON IMMEDIACY
 	[41858.9, 23498, -0.115891],    // multi-tier compound east of the aforementioned island
@@ -70,7 +86,7 @@ PosDefs_roofTops = [
 	[32918.6, 21267.8, -0.115273],  // cube-top building west across motorway
 	[33149.3, 21553.4, -0.114777],  // tallest one in the middle
 	[33318, 21562.8, -0.115356],    // cube-topped flip-off shaped towers center
-	[34057.2, 21441.5, -0.162743],  // yellow box building across the water by the airfield
+	[34057.2, 21441.5, -0.162743],  // dull yellow box building across the water by the airfield
 	[36115.2, 22092.7, -0.115326],  // lil' blue flat-top past the hill east of boeing field
 	[36332.9, 21803.6, -0.115372],  // brown one SE of the above
 	[33520.5, 26486.9, -0.115112],  // 3-tier cube-top NE of boeing field	
@@ -94,5 +110,20 @@ PosDefs_roofTops = [
 	[44025.1, 40000.3, -0.114838],  // fortress-looking castle thing atop hill
 	[42824.8, 39957.1, -0.140884]   // Y-shaped building between motorway and little lake
 ];
+
+
+
+// additional field landing points (allows an easier/more fun alternative method for indexing LZ's) 
+//
+PosDefs_landings = [
+	
+	
+];
+
+{ _lz = createLocation ["Heliport", _x, 100, 100]; } foreach PosDefs_landings;
+
+
+
+
 
 

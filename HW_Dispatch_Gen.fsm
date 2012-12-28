@@ -3,7 +3,7 @@
 /*
 item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
 item1[] = {"time_for_new_gig",4,218,2.773048,1822.903198,92.773041,1912.545654,0.000000,"time for" \n "new gig"};
-item2[] = {"gig_generator",2,250,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
+item2[] = {"gig_generator",2,4346,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
 item3[] = {"call_in",4,218,-16.004354,1579.932007,73.995605,1629.932007,1.000000,"call-in"};
 item4[] = {"call_out",4,218,-261.682007,1751.779419,-193.426971,1818.407715,0.000000,"call-out"};
 item5[] = {"off_duty_",2,250,-108.009804,1334.885376,-18.009850,1384.885376,0.000000,"off duty" \n ""};
@@ -72,8 +72,8 @@ link38[] = {25,17};
 link39[] = {26,5};
 link40[] = {27,13};
 link41[] = {28,0};
-globals[] = {0.000000,0,0,0,0,640,480,3,61,6316128,1,-331.897491,248.258240,1966.378662,1193.819092,591,787,1};
-window[] = {0,-1,-1,-32000,-32000,1003,207,1625,102,1,609};
+globals[] = {0.000000,0,0,0,0,640,480,3,61,6316128,1,-331.897491,248.258240,2286.265137,1513.705811,591,787,1};
+window[] = {0,-1,-1,-1,-1,931,72,1490,30,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -172,15 +172,16 @@ class FSM
        "//" \n
        "_random_fnc_dispatchGig =" \n
        " [" \n
-       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
-       "	HW_Dispatch_Survey" \n
-       "	" \n
+       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
+       "	HW_Dispatch_Survey, HW_Dispatch_Survey," \n
+       "	HW_Dispatch_Cargo, HW_Dispatch_Cargo" \n
+       "" \n
        "] call BIS_fnc_selectRandom;" \n
        "" \n
        "call _random_fnc_dispatchGig;" \n
        "call HW_Disptach_Radio_Update;" \n
        "" \n
-       "_tNew = time + 60 + random 250; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
+       "_tNew = time + 30 + random 300; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
