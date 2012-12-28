@@ -1,4 +1,4 @@
-
+﻿
 
 GigLineup = [];
 GigNumMax = 6; // maximum tasks presented to player at any one time...
@@ -110,8 +110,7 @@ HW_Dispatch_Survey =
 	_tsk = player createSimpleTask ["Area Survey"];
 	_tsk setSimpleTaskDestination _p1;
 	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Area Survey", "Departing here"];
-	
-	
+		
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];
 	_mkr setMarkerType "hd_start";
@@ -131,6 +130,45 @@ HW_Dispatch_Survey =
 };
 
 
+HW_Dispatch_Slingload = 
+{
+	_locationType = "ConstructionSite";
+	_area = [];
+	_loc = [_area,_locationType] call BIS_fnc_missionInitPos;
+	
+	_locEnd = nearestlocations [position _loc,[_locationType],5000];
+	_locEndNear = nearestlocations [position _loc,[_locationType],1000];
+	_locEnd = _locEnd - [_loc] - _locEndNear;
+		
+	_p1 = locationPosition _loc;
+	_p2 = locationPosition (_locEnd call BIS_fnc_selectRandom);
+		
+	if (!isnull nearestobject [_p1,"Land_A_BuildingWIP_H"] && !isnull nearestobject [_p2,"Land_A_BuildingWIP_H"]) then
+	{		
+		_tsk = player createSimpleTask ["Sling Load"];
+		_tsk setSimpleTaskDestination _p1;
+		_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Sling Load", "Pickup Here"];
+			
+		_mkID = ("SL-"+str(round time));
+		_mkr = createMarker [_mkID, _p1];
+		_mkr setMarkerType "hd_start";
+		_mkr setMarkerDir ((_p2 select 0) - (_p1 select 0)) atan2 ((_p2 select 1) - (_p1 select 1));
+		_mkr setMarkerText ("Sling | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
+			
+		gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
+		
+		gig setVariable ["p1", _p1];
+		gig setVariable ["p2", _p1];
+		gig setVariable ["exp", time + 60 + random(400)];
+		gig setVariable ["tsk", _tsk];
+		gig setVariable ["fsm", "HeliWorks_Slingload.fsm"];
+		
+		GigLineup set [ count GigLineup, gig ];
+	} else {
+		hint "No valid locations found";
+	};
+};
+
 
 
 HW_Dispatch_Cargo = 
@@ -144,29 +182,23 @@ HW_Dispatch_Cargo =
 	
 	// select base from our beloved list of possible locations
 	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
-	_baseLoc = _near call BIS_fnc_selectRandom;
-	_basePos = locationPosition (_baseLoc);
+	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
-	
-	if ((type _baseLoc) == "Heliport") then // heliports have a little caveat... they may be on top of something!
+	_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
+	while { _atts > -1 && _atts < 8 } do 
 	{
-		_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
-		while { _atts > -1 && _atts < 8 } do 
+		_castPos = _basePos; 
+		_castPos set [2, 1000];	
+		
+		if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
 		{
-			_castPos = _basePos; 
-			_castPos set [2, 1000];	
-			
-			if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
-			{
-				_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
-				_atts = _atts+1;
-			} else
-			{
-				_atts = -1;
-			};
-		};
+			_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
+			_atts = _atts+1;
+		} else
+		{
+			_atts = -1;
+		}
 	};
-	
 	
 	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
 	_crewPos = _basePos;
@@ -205,7 +237,7 @@ HW_Dispatch_Cargo =
 
 HW_Pilot_Task_Commit = 
 {
-	_tsk = currentTask player; // well, as setVariable with tasks isn't working..... we loop to find ours
+	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
 	{ 
 		if ((_x getVariable "tsk") == _tsk) then 
 		{ 
@@ -248,24 +280,20 @@ HW_Pilot_Task_Commit =
 player execFSM "HW_Dispatch_Gen.fsm";
 
 if (HW_DEBUG) then // enable only for debug!
-{	
-	while { true } do
-	{
+{
+	10 setRadioMsg "DEBUG!";
 	
-		10 setRadioMsg "DEBUG!";
-		
-		waitUntil { sleep 1; RadioCall_J };
-		
-		player moveInDriver chopper;
-		chopper setBatteryRTD true;
-		
-		10 setRadioMsg "NULL";
-		
-		sleep 1;
-		call HW_Dispatch_Cargo;
-		
-		RadioCall_J = false;
-	};
+	waitUntil { sleep 1; RadioCall_J };
+	
+	player moveInDriver chopper;
+	chopper setBatteryRTD true;
+	
+	10 setRadioMsg "NULL";
+	
+	sleep 1;
+	call HW_Dispatch_Slingload;
+	
+	RadioCall_J = false;
 };
 
 

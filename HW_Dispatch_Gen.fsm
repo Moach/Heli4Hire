@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
@@ -169,7 +169,7 @@ class FSM
       name = "gig_generator";
       init = /*%FSM<STATEINIT""">*/"" \n
        "//  entries below appear multiple times as needed to adjust the relative likelyhood of each type of gig..." \n
-       "//" \n
+       "" \n
        "_random_fnc_dispatchGig =" \n
        " [" \n
        "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
@@ -177,6 +177,7 @@ class FSM
        "	HW_Dispatch_Cargo, HW_Dispatch_Cargo" \n
        "" \n
        "] call BIS_fnc_selectRandom;" \n
+       "" \n
        "" \n
        "call _random_fnc_dispatchGig;" \n
        "call HW_Disptach_Radio_Update;" \n
