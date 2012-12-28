@@ -18,8 +18,8 @@ link4[] = {4,5};
 link5[] = {5,6};
 link6[] = {6,7};
 link7[] = {8,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-260.752716,315.021301,1073.858032,131.984894,519,849,1};
-window[] = {2,1280,0,-1,-1,791,1325,2285,53,3,537};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-280.135834,334.404388,1105.565674,100.277267,519,849,1};
+window[] = {2,0,0,-1,-1,788,50,1010,50,3,537};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -65,7 +65,9 @@ class FSM
        "	];" \n
        "};" \n
        "" \n
-       "_listCargoClasses = [_params,1,_listCargoClassesDefault,[[]]] call bis_fnc_param;"/*%FSM</STATEINIT""">*/;
+       "_listCargoClasses = [_params,1,_listCargoClassesDefault,[[]]] call bis_fnc_param;" \n
+       "" \n
+       "hint ""starting mission..."";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -164,11 +166,11 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"_thrashList = [];" \n
        "" \n
        "_startPos = this select 0;" \n
-       "_startSite = nearestobject [_startPos,""Land_A_BuildingWIP_H""];" \n
+       "_startSite = nearestObjects [_startPos, [""Land_A_BuildingWIP_H""], 900] select 0;" \n
        "_startDir = direction _startSite;" \n
        "" \n
        "_endPos = this select 1;" \n
-       "_endSite = nearestobject [_endPos,""Land_A_BuildingWIP_H""];" \n
+       "_endSite = nearestObjects [_endPos, [""Land_A_BuildingWIP_H""], 900] select 0;" \n
        "_endDir = direction _endSite;" \n
        "" \n
        "_errorMsg = ""No buildings of type Land_A_BuildingWIP_H found"";" \n
@@ -351,7 +353,7 @@ class FSM
        "_range = player distance _startPos;" \n
        "_eta =  [daytime + ((_t - time)*28e-5), ""HH:MM""] call bis_fnc_timeToString;" \n
        "" \n
-       "hint format[""Got %1 loads to carry over, have at it!\n\nYou're %km's out, arrival expected by %3"", " \n
+       "hint format[""Got %1 loads to carry over, have at it!\n\nYou're %2km's out, arrival expected by %3"", " \n
        "				count _listSpawns, round(_range * 0.01) * .1, _eta];" \n
        "" \n
        ""/*%FSM</STATEINIT""">*/;

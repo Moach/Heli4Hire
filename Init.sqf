@@ -16,7 +16,9 @@ _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 
-titleText["", "BLACK FADED"];
+if (!HW_DEBUG) then {
+	titleText["", "BLACK FADED"];
+};
 
  1 setRadioMsg "Call in Available";
  2 setRadioMsg "NULL";
