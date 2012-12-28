@@ -72,8 +72,8 @@ link38[] = {25,17};
 link39[] = {26,5};
 link40[] = {27,13};
 link41[] = {28,0};
-globals[] = {0.000000,0,0,0,0,640,480,3,61,6316128,1,-271.967773,250.172409,2185.089600,1517.174438,591,756,1};
-window[] = {0,-1,-1,-1,-1,901,0,1418,0,1,609};
+globals[] = {0.000000,0,0,0,0,640,480,3,61,6316128,1,-331.897491,248.258240,2286.265137,1513.705811,591,756,1};
+window[] = {0,-1,-1,-1,-1,951,50,1468,50,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -171,18 +171,19 @@ class FSM
        "//  entries below appear multiple times as needed to adjust the relative likelyhood of each type of gig..." \n
        "" \n
        "_random_fnc_dispatchGig =" \n
-       "[" \n
-       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
-       "	HW_Dispatch_Survey," \n
+       " [" \n
+       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
+       "	HW_Dispatch_Survey, HW_Dispatch_Survey," \n
+       "	HW_Dispatch_Cargo, HW_Dispatch_Cargo," \n
        "	HW_Dispatch_Slingload" \n
-       "	" \n
+       "" \n
        "] call BIS_fnc_selectRandom;" \n
        "" \n
        "" \n
        "call _random_fnc_dispatchGig;" \n
        "call HW_Disptach_Radio_Update;" \n
        "" \n
-       "_tNew = time + 60 + random 250; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
+       "_tNew = time + 30 + random 300; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {

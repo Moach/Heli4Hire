@@ -127,13 +127,13 @@ if(OSMO_INT_obstructions && isServer && !HW_DEBUG) then
     _obstruction = _cfgObstructions select (_i - 1);
 
     // if (true) then
-    if ((random 20) < 1) then
+    if ((random 30) < 2) then
 	{
       Heli_Has_Obstruction = true;
 	  
 	  private ["_visual", "_cond", "_id"];
-	  // _visual = ((getArray (_obstruction >> "visuals")) call BIS_fnc_selectRandom) createVehicle [100, 100, 100];
-	  
+	 
+	  // added many different things that can end up in an engine compartment... BAD things to have near a running engine!
 	  _visual = (["Nest_H", "Hammer_H", "Wrench_H", "Pliers_H", "Gloves_H", "DustMask_H", "LightStick_H"] call BIS_fnc_selectRandom) createVehicle [100, 100, 100];
       _visual setDir (random 360);
       _visual attachTo [_heli, _heli selectionPosition _mp];

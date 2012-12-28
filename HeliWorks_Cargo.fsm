@@ -1,61 +1,82 @@
-/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Commute">*/
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Cargo">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-154.354126,1151.648315,-64.354385,1201.648438,0.000000,"START"};
-item1[] = {"avail",4,218,-153.806915,1227.377930,-63.807053,1277.377930,0.000000,"avail"};
-item2[] = {"land",4,218,-153.762665,1538.161011,-63.762154,1588.161011,1.000000,"land"};
-item3[] = {"pickup",2,250,-154.019196,1323.003540,-64.019272,1373.003540,0.000000,"pickup"};
-item4[] = {"land_",4,218,-210.934753,1840.424072,-120.934570,1890.424072,1.000000,"land" \n ""};
-item5[] = {"deboard",2,250,-76.981750,2033.776489,13.018229,2083.776611,0.000000,"deboard"};
-item6[] = {"away",4,218,-77.823822,2118.767090,12.176426,2168.767578,0.000000,"away"};
-item7[] = {"now_boarding___",2,250,-341.422546,1538.873413,-239.575897,1587.688721,0.000000,"now boarding..."};
-item8[] = {"clear",1,250,-78.757111,2263.419189,11.243042,2313.419189,0.000000,"clear"};
-item9[] = {"timeout",4,218,-303.251709,1646.920898,-213.251511,1696.920898,0.000000,"timeout"};
-item10[] = {"done",4,218,-76.305161,1935.412354,13.695011,1985.412354,0.000000,"done"};
-item11[] = {"wait_for_it___",2,250,-85.246552,1837.713989,23.993065,1893.726318,0.000000,"wait for it..."};
-item12[] = {"fail___abort",4,218,-341.203949,1923.504761,-251.203949,1973.504395,2.000000,"fail / abort"};
-item13[] = {"just_put_it_down",2,250,-363.853943,2035.987793,-228.553894,2083.829102,0.000000,"just put it down"};
-item14[] = {"land_ASAP",4,218,-198.493195,2033.791504,-108.493370,2083.791992,0.000000,"land ASAP"};
-item15[] = {"running_late",4,218,-17.601326,1321.526855,72.398682,1371.526855,1.000000,"running late"};
-item16[] = {"you_re_late",2,250,-10.363567,1390.758057,65.494629,1439.603027,0.000000,"you're late"};
-item17[] = {"too_late",4,218,116.329941,1390.925049,206.329941,1440.925049,2.000000,"too late"};
-item18[] = {"you_fucked_it",1,250,117.298737,1482.596680,207.298767,1532.596680,0.000000,"you fucked it"};
-item19[] = {"all_aboard__live",4,218,-372.379242,1678.746948,-282.378632,1728.746948,0.000000,"all aboard" \n "(live)"};
-item20[] = {"go_fly_",2,250,-340.386475,1839.904297,-250.386444,1889.904297,0.000000,"go fly!"};
-item21[] = {"abort_pickup",4,218,-281.435181,1390.746094,-191.435379,1440.746094,2.000000,"abort pickup"};
-item22[] = {"quit",1,250,-430.955780,1390.794800,-340.955536,1440.794800,0.000000,"quit"};
-link0[] = {0,1};
-link1[] = {1,3};
-link2[] = {2,7};
-link3[] = {3,2};
-link4[] = {3,15};
-link5[] = {3,21};
-link6[] = {4,11};
-link7[] = {5,6};
-link8[] = {6,8};
-link9[] = {7,9};
-link10[] = {7,19};
-link11[] = {9,20};
-link12[] = {10,5};
-link13[] = {11,10};
-link14[] = {12,13};
-link15[] = {13,14};
-link16[] = {14,5};
-link17[] = {15,16};
-link18[] = {16,2};
-link19[] = {16,17};
-link20[] = {16,21};
-link21[] = {17,18};
-link22[] = {19,20};
-link23[] = {20,4};
-link24[] = {20,12};
+item0[] = {"START",0,250,-181.376450,1381.338257,-91.376732,1431.338379,0.000000,"START"};
+item1[] = {"avail",4,218,-730.189453,1327.362671,-640.189636,1377.362671,0.000000,"avail"};
+item2[] = {"land",4,218,-730.145264,1571.567627,-640.144714,1621.567627,1.000000,"land"};
+item3[] = {"pickup_cargo_ops",2,250,-730.401855,1458.276978,-640.401855,1508.276978,0.000000,"pickup" \n "cargo ops" \n "team"};
+item4[] = {"land_",4,218,-696.558899,2275.525146,-606.558777,2325.524658,1.000000,"land" \n ""};
+item5[] = {"deboard",2,250,-653.364319,2468.877197,-563.364380,2518.877197,0.000000,"deboard"};
+item6[] = {"away",4,218,-654.206421,2553.867920,-564.206177,2603.868408,0.000000,"away"};
+item7[] = {"now_boarding___",2,250,-734.907959,1644.049927,-633.061279,1692.865234,0.000000,"now boarding..."};
+item8[] = {"clear",1,250,-655.139709,2698.519775,-565.139526,2748.519775,0.000000,"clear"};
+item9[] = {"timeout",4,218,-857.640686,1643.285156,-767.640137,1693.285156,0.000000,"timeout"};
+item10[] = {"done",4,218,-652.687744,2370.512939,-562.687561,2420.512939,0.000000,"done"};
+item11[] = {"wait_for_it___",2,250,-570.870728,2272.814697,-461.631165,2328.826904,0.000000,"wait for it..."};
+item12[] = {"fail___abort",4,218,-917.586731,2358.605225,-827.586548,2408.605225,2.000000,"fail / abort"};
+item13[] = {"just_put_it_down",2,250,-940.236633,2471.088623,-804.936523,2518.929932,0.000000,"just put it down"};
+item14[] = {"land_ASAP",4,218,-774.875854,2468.892334,-684.875916,2518.892822,0.000000,"land ASAP"};
+item15[] = {"running_late",4,218,-592.910889,1457.873291,-502.910889,1507.873291,1.000000,"running late"};
+item16[] = {"you_re_late",2,250,-586.746155,1526.031494,-510.887939,1574.876465,0.000000,"you're late"};
+item17[] = {"too_late",4,218,-458.979614,1526.198486,-368.979614,1576.198486,2.000000,"too late"};
+item18[] = {"you_fucked_it",1,250,-459.083862,1617.870117,-369.083801,1667.870117,0.000000,"you fucked it"};
+item19[] = {"all_aboard__live",4,218,-728.822144,1717.941528,-638.821533,1767.941528,0.000000,"all aboard" \n "(live)"};
+item20[] = {"go_fly_",2,250,-857.732727,1717.038086,-767.732666,1767.038086,0.000000,"go fly!"};
+item21[] = {"abort_pickup",4,218,-857.817688,1526.019531,-767.817993,1576.019531,2.000000,"abort pickup"};
+item22[] = {"quit",1,250,-1007.338379,1526.068237,-917.338196,1576.068237,0.000000,"quit"};
+item23[] = {"approaching_area",4,218,-872.508972,1792.271118,-751.036865,1859.580933,0.000000,"approaching" \n "area"};
+item24[] = {"now_what___PD_",2,250,-856.548157,1887.426758,-766.548218,1937.426270,0.000000,"now what?" \n "-PD-"};
+item25[] = {"land_and_attach",4,218,-745.890503,1875.183350,-625.120544,1950.491699,0.000000,"land and attach"};
+item26[] = {"attach_from_hove",4,218,-862.697327,1966.932617,-755.073975,2038.744385,0.000000,"attach" \n "from hover"};
+item27[] = {"land_by_cargo",2,250,-587.720093,1888.055664,-497.720032,1938.055664,0.000000,"land by cargo"};
+item28[] = {"inspect__delivery",4,218,-996.451721,1878.928833,-886.540344,1946.125244,0.000000,"inspect " \n "delivery " \n "point"};
+item29[] = {"crew____base",4,218,-185.125290,1471.254150,-90.590126,1525.710083,0.000000,"crew @" \n " base"};
+item30[] = {"crew_away",4,218,-29.212856,1380.886230,60.787125,1430.886230,0.000000,"crew" \n "away"};
+item31[] = {"____FAKE____",9,1240,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,29};
+link1[] = {0,30};
+link2[] = {1,3};
+link3[] = {2,7};
+link4[] = {3,2};
+link5[] = {3,15};
+link6[] = {3,21};
+link7[] = {4,11};
+link8[] = {5,6};
+link9[] = {6,8};
+link10[] = {7,9};
+link11[] = {7,19};
+link12[] = {9,20};
+link13[] = {10,5};
+link14[] = {11,10};
+link15[] = {12,13};
+link16[] = {13,14};
+link17[] = {14,5};
+link18[] = {15,16};
+link19[] = {16,2};
+link20[] = {16,17};
+link21[] = {16,21};
+link22[] = {17,18};
+link23[] = {19,20};
+link24[] = {20,23};
 link25[] = {21,22};
-globals[] = {0.000000,0,0,0,0,640,480,1,71,6316128,1,-474.772308,244.855789,2347.609131,1324.787476,591,840,1};
-window[] = {0,-1,-1,-1,-1,1049,95,1513,95,1,609};
+link26[] = {23,24};
+link27[] = {24,25};
+link28[] = {24,26};
+link29[] = {24,28};
+link30[] = {25,27};
+link31[] = {31,1};
+link32[] = {31,4};
+link33[] = {31,12};
+link34[] = {26,31};
+link35[] = {28,31};
+link36[] = {29,31};
+link37[] = {30,31};
+globals[] = {0.000000,0,0,0,0,640,480,1,84,6316128,1,-389.917175,269.786285,2016.045898,1078.396362,591,840,1};
+window[] = {0,-1,-1,-1,-1,992,301,1719,38,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
-  fsmName = "HeliWorks_Commute";
+  fsmName = "HeliWorks_Cargo";
   class States
   {
     /*%FSM<STATE "START">*/
@@ -64,51 +85,63 @@ class FSM
       name = "START";
       init = /*%FSM<STATEINIT""">*/"" \n
        "_go = false;" \n
-       "" \n
-       "central sideRadio ""HW_Radio_Taxi_Commit"";" \n
-       "" \n
        "_t = time + 3 + (random 5);" \n
+       "" \n
+       "_crewPos = _this select 0;" \n
+       "_order = _this select 1;" \n
+       "" \n
+       "" \n
+       "hint format ["" - Cargo Work Order -\n @Tower: %1\n @Base: %2"", _order select 3, _order select 2];" \n
+       "" \n
+       "" \n
+       "_baseMkr = createMarker [""cargo_base"",  _order select 0];" \n
+       "_baseMkr setMarkerText ""Cargo Base"";" \n
+       "_baseMkr setMarkerType ""hd_pickup"";" \n
+       "" \n
+       "_towrMkr = createMarker [""cargo_tower"",  _order select 1];" \n
+       "_towrMkr setMarkerText ""Cargo Tower"";" \n
+       "_towrMkr setMarkerType ""hd_objective"";" \n
+       "" \n
+       "" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "avail">*/
-        class avail
+        /*%FSM<LINK "crew_away">*/
+        class crew_away
         {
           priority = 0.000000;
-          to="pickup";
+          to="____FAKE____";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "crew____base">*/
+        class crew____base
+        {
+          priority = 0.000000;
+          to="____FAKE____";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "pickup">*/
-    class pickup
+    /*%FSM<STATE "pickup_cargo_ops">*/
+    class pickup_cargo_ops
     {
-      name = "pickup";
+      name = "pickup_cargo_ops";
       init = /*%FSM<STATEINIT""">*/"hintSilent ""stand by..."";" \n
        "//_locDefs = _locDefs_lineup call bis_fnc_selectrandom;" \n
        "" \n
        "" \n
        "_pos = _this select 0;" \n
        "" \n
-       "" \n
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
-       "" \n
-       "if (chopper call bis_fnc_helicopterType > 0) then // larger than lite choppah -- we can easily handle some more load" \n
-       "{" \n
-       "	_pax resize 8; _pps resize 8;" \n
-       "	_pax set [3, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [3, [8,-6,0]];" \n
-       "	_pax set [4, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [4, [5,-6,0]]; " \n
-       "	_pax set [5, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [5, [7 -7,0]];" \n
-       "	_pax set [6, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [6, [8,-7,0]];" \n
-       "	_pax set [7, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [7, [8,-5,0]];" \n
-       "};" \n
-       "" \n
        "" \n
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
        "" \n
@@ -118,6 +151,7 @@ class FSM
        "_tsk = player createSimpleTask [""Current Assignment""];" \n
        "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
+       "" \n
        "" \n
        "_mkr = createMarker [""Departure"", _pos];" \n
        "_mkr setMarkerType ""hd_pickup"";" \n
@@ -129,7 +163,7 @@ class FSM
        "_late = 0;" \n
        "" \n
        "_eta =  [daytime + ((_t - time)*28e-5), ""HH:MM""] call bis_fnc_timeToString;" \n
-       "hint format[ ""Got %1 waiting for you, go pick 'em up!\n\n you're %2km's out, arrival expected by %3"", " \n
+       "hint format[ ""Got %1 ready  for you, go pick 'em up!\n\n you're %2km's out, arrival expected by %3"", " \n
        "	count units _grp, round(_range*.01)*.1, _eta];" \n
        "" \n
        "" \n
@@ -274,7 +308,7 @@ class FSM
       name = "now_boarding___";
       init = /*%FSM<STATEINIT""">*/"if (_late==0) then " \n
        "{" \n
-       "	hintSilent ""Passengers now boarding..."";" \n
+       "	hintSilent ""Logistics crew now boarding..."";" \n
        "} else {" \n
        "" \n
        "	hintSilent ""OMG! Finally.... hold on for boarding..."";" \n
@@ -536,7 +570,7 @@ class FSM
        "_pos = _this select 1;" \n
        "" \n
        "_mkr setMarkerType ""hd_objective"";" \n
-       "_mkr setmarkerText ""Arrival"";" \n
+       "_mkr setmarkerText ""Delivery"";" \n
        "_mkr setMarkerPos [_pos select 0, _pos select 1];" \n
        "" \n
        "_tsk setSimpleTaskDestination _pos;" \n
@@ -595,23 +629,13 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "fail___abort">*/
-        class fail___abort
+        /*%FSM<LINK "approaching_area">*/
+        class approaching_area
         {
-          priority = 2.000000;
-          to="just_put_it_down";
+          priority = 0.000000;
+          to="now_what___PD_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "land_">*/
-        class land_
-        {
-          priority = 1.000000;
-          to="wait_for_it___";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -643,6 +667,99 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "now_what___PD_">*/
+    class now_what___PD_
+    {
+      name = "now_what___PD_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "attach_from_hove">*/
+        class attach_from_hove
+        {
+          priority = 0.000000;
+          to="____FAKE____";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "inspect__delivery">*/
+        class inspect__delivery
+        {
+          priority = 0.000000;
+          to="____FAKE____";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "land_and_attach">*/
+        class land_and_attach
+        {
+          priority = 0.000000;
+          to="land_by_cargo";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "land_by_cargo">*/
+    class land_by_cargo
+    {
+      name = "land_by_cargo";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "____FAKE____">*/
+    class ____FAKE____
+    {
+      name = "____FAKE____";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "land_">*/
+        class land_
+        {
+          priority = 1.000000;
+          to="wait_for_it___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "avail">*/
+        class avail
+        {
+          priority = 0.000000;
+          to="pickup_cargo_ops";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
