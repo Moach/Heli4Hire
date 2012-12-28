@@ -1,0 +1,522 @@
+/*%FSM<COMPILE "C:\BIS\fsmeditor\scriptedFSM.cfg, missionSlingload">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"mission_Slingloa",0,4346,-100.000000,-150.000000,0.000000,-100.000000,0.000000,"mission" \n "Slingload"};
+item1[] = {"No_locations",4,218,25.000000,-150.000000,125.000000,-100.000000,1.000000,"No" \n "locations"};
+item2[] = {"TERMINATE",1,250,150.000000,-150.000000,250.000000,-100.000000,0.000000,"TERMINATE"};
+item3[] = {"True",8,218,-100.000000,-75.000000,0.000000,-25.000000,0.000000,"True"};
+item4[] = {"Ending_point",2,250,-100.000000,0.000000,0.000000,50.000000,0.000000,"Ending point"};
+item5[] = {"No_locations",4,218,25.000000,0.000000,125.000000,50.000000,1.000000,"No" \n "locations"};
+item6[] = {"True",8,218,-100.000000,75.000000,0.000000,125.000000,0.000000,"True"};
+item7[] = {"Prepare_world",2,250,-100.000000,300.000000,0.000000,350.000000,0.000000,"Prepare" \n "world"};
+item8[] = {"Finished",4,218,-100.000000,525.000000,0.000000,575.000000,0.000000,"Finished"};
+item9[] = {"SUCCESS",1,250,-100.000000,600.000000,0.000000,650.000000,0.000000,"SUCCESS"};
+item10[] = {"Detect_construction",2,250,-100.000000,150.000000,0.000000,200.000000,0.000000,"Detect" \n "construction" \n "sites"};
+item11[] = {"True",8,218,-100.000000,225.000000,0.000000,275.000000,0.000000,"True"};
+item12[] = {"No_objects",4,218,25.000000,150.000000,125.000000,200.000000,1.000000,"No objects"};
+item13[] = {"True",8,218,-100.000000,375.000000,0.000000,425.000000,0.000000,"True"};
+item14[] = {"Ambient_Composit",2,250,-100.000000,450.000000,0.000000,500.000000,0.000000,"Ambient" \n "Compositions"};
+link0[] = {0,1};
+link1[] = {0,3};
+link2[] = {1,2};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {5,2};
+link7[] = {6,10};
+link8[] = {7,13};
+link9[] = {8,9};
+link10[] = {10,11};
+link11[] = {10,12};
+link12[] = {11,7};
+link13[] = {12,2};
+link14[] = {13,14};
+link15[] = {14,8};
+globals[] = {25.000000,1,0,0,16777215,640,480,1,15,6316128,1,-262.743835,301.953522,754.670410,-199.583252,532,899,1};
+window[] = {2,-1,-1,-32000,-32000,869,-1160,-200,120,3,549};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "missionSlingload";
+  class States
+  {
+    /*%FSM<STATE "mission_Slingloa">*/
+    class mission_Slingloa
+    {
+      name = "mission_Slingloa";
+      itemno = 0;
+      init = /*%FSM<STATEINIT""">*/"_player =	[_this,0,player,[objnull]] call bis_fnc_param;" \n
+       "_area =		[_this,1,[],[[]]] call bis_fnc_param;" \n
+       "_forced =	[_this,2,false,[false]] call bis_fnc_param;" \n
+       "_params =	[_this,3,[],[[]]] call bis_fnc_param;" \n
+       "" \n
+       "//--- Default cargo" \n
+       "_listCargoClassesDefault = [" \n
+       "	[""PalletsFoiled_H"",-1,0]," \n
+       "	[""CargoCont_Net1_H"",-1,0]" \n
+       "];" \n
+       "" \n
+       "//--- Light specific cargo" \n
+       "if ((_player call bis_fnc_helicopterType) < 1) then {" \n
+       "	_listCargoClassesDefault = [" \n
+       "		[""Barrels_H"",200,100]" \n
+       "	];" \n
+       "};" \n
+       "" \n
+       "//--- Heavy specific cargo" \n
+       "if ((_player call bis_fnc_helicopterType) > 1) then {" \n
+       "	_listCargoClassesDefault = _listCargoClassesDefault + [" \n
+       "		[""Misc_Cargo1C_Floating_H"",-1,0]," \n
+       "		[""Misc_Cargo1Ao_Floating_H"",-1,0]," \n
+       "		[""Misc_Cargo1F_Floating_H"",-1,0]" \n
+       "	];" \n
+       "};" \n
+       "" \n
+       "_cargoCount = [_params,0,2 + floor random 2,[0]] call bis_fnc_param;" \n
+       "" \n
+       "//--- Easter Egg" \n
+       "if (random 1 > 0.99) then {" \n
+       "	_listCargoClassesDefault = [" \n
+       "		[""Land_Toilet_H"",-1,0]" \n
+       "	];" \n
+       "};" \n
+       "" \n
+       "_listCargoClasses = [_params,1,_listCargoClassesDefault,[[]]] call bis_fnc_param;" \n
+       "" \n
+       "" \n
+       "_locationType = ""ConstructionSite"";" \n
+       "_loc = [_area,_locationType] call BIS_fnc_missionInitPos;" \n
+       "" \n
+       "_errorMsg = ""No location of type ConstructionSite not found"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "No_locations">*/
+        class No_locations
+        {
+          itemno = 1;
+          priority = 1.000000;
+          to="TERMINATE";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isnil ""_loc"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "True">*/
+        class True
+        {
+          itemno = 3;
+          priority = 0.000000;
+          to="Ending_point";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "TERMINATE">*/
+    class TERMINATE
+    {
+      name = "TERMINATE";
+      itemno = 2;
+      init = /*%FSM<STATEINIT""">*/"_errorMsg spawn {" \n
+       "	_this call BIS_fnc_halt;" \n
+       "	[] call BIS_fnc_endmission;" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Ending_point">*/
+    class Ending_point
+    {
+      name = "Ending_point";
+      itemno = 4;
+      init = /*%FSM<STATEINIT""">*/"_locEnd = nearestlocations [position _loc,[_locationType],5000];" \n
+       "_locEndNear = nearestlocations [position _loc,[_locationType],1000];" \n
+       "_locEnd = _locEnd - [_loc] - _locEndNear;" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "No_locations">*/
+        class No_locations
+        {
+          itemno = 5;
+          priority = 1.000000;
+          to="TERMINATE";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"count _locEnd == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "True">*/
+        class True
+        {
+          itemno = 6;
+          priority = 0.000000;
+          to="Detect_construction";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Prepare_world">*/
+    class Prepare_world
+    {
+      name = "Prepare_world";
+      itemno = 7;
+      init = /*%FSM<STATEINIT""">*/"//--- Get rid of cranes" \n
+       "_startDirPos = _startDir + 90;" \n
+       "_endDirPos = _endDir + 90;" \n
+       "_spawns = [];" \n
+       "{" \n
+       "	_site = _x;" \n
+       "	_cranes = position _x nearObjects [""Land_A_CraneCon_H"",150];" \n
+       "	{" \n
+       "		_siteDirTo = [_x,_site] call bis_fnc_dirto;" \n
+       "		_x setdir (_siteDirTo - 5 + random 10);" \n
+       "" \n
+       "		if (random 1 > 0.5) then {" \n
+       "			_spawn = [_x,_siteDirTo] spawn {" \n
+       "				scriptname ""BIS_fnc_missionSlingload_crane"";" \n
+       "				_crane = _this select 0;" \n
+       "				_dirEnd = (_this select 1) + 180;" \n
+       "				_dirStart = direction _crane;" \n
+       "				_dirDiff = _dirStart - _dirEnd;" \n
+       "				while {true} do {" \n
+       "					waituntil {" \n
+       "						_dis = cameraon distance _crane;" \n
+       "						_dis < 1000 && _dis > 150" \n
+       "					};" \n
+       "					_crane setdir (_dirStart + (sin time) * _dirDiff * 3);" \n
+       "					sleep 0.01;" \n
+       "				};" \n
+       "			};" \n
+       "			_spawns set [count _spawns,_spawn];" \n
+       "		};" \n
+       "	} foreach _cranes;" \n
+       "} foreach [_startSite,_endSite];" \n
+       "" \n
+       "#define CARGO_LOST (_cargo getvariable [""BIS_slingload_lost"",false])" \n
+       "" \n
+       "//--- Cargo" \n
+       "_cargoRandomDir = 5;" \n
+       "_cargoDis = 6;" \n
+       "_cargoCountOffset = (_cargoCount + 1) / 2;" \n
+       "_listCargos = [];" \n
+       "_listSpawns = [];" \n
+       "for ""_i"" from 1 to _cargoCount do {" \n
+       "	_ii = _i - _cargoCountOffset;" \n
+       "" \n
+       "	_posStart = _startSite modeltoworld [-10 + _ii * _cargoDis,0,12.2];" \n
+       "	_posEnd = _endSite modeltoworld [-10 + _ii * _cargoDis,0,12.2];" \n
+       "" \n
+       "	_cargoArray = _listCargoClasses call bis_fnc_selectrandom;" \n
+       "	_cargoClass = _cargoArray select 0;" \n
+       "	_cargoWeight = _cargoArray select 1;" \n
+       "	_cargoWeightRandom = _cargoArray select 2;" \n
+       "	_cargoWeight = _cargoWeight + random _cargoWeightRandom;" \n
+       "	_cargo = createvehicle [_cargoClass,_posStart,[],0,""none""];" \n
+       "	_cargo setpos _posStart;//position _cargo;" \n
+       "	_cargo setdir (_startDir - _cargoRandomDir + random (_cargoRandomDir * 2));" \n
+       "	_listcargos = _listcargos + [_cargo];" \n
+       "" \n
+       "	//--- Waypoint" \n
+       "	_spawn = [_cargo,_i,_posEnd,_endDir,_cargoCount,_player,_cargoWeight] spawn {" \n
+       "		_cargo = _this select 0;" \n
+       "		_i = _this select 1;" \n
+       "		_posEnd = _this select 2;" \n
+       "		_endDir = _this select 3;" \n
+       "		_cargoCount = _this select 4;" \n
+       "		_player = _this select 5;" \n
+       "		_cargoWeight = _this select 6;" \n
+       "		[""missionSlingload_ATTACH"",[_i,getposatl _cargo]] call BIS_fnc_missionTasks;" \n
+       "" \n
+       "		//--- Near start" \n
+       "		waituntil {" \n
+       "			vehicle _player distance _cargo < 300" \n
+       "			&&" \n
+       "			 (""SLINGLOAD_FIRST"" call bis_fnc_counter) == (_i - 1)" \n
+       "		};" \n
+       "		_counter = ""SLINGLOAD_FIRST"" call bis_fnc_counter;" \n
+       "" \n
+       "		//--- Welcome" \n
+       "		if (_counter == 0) then {" \n
+       "			""SLINGLOAD_INTRO"" spawn bis_fnc_missionConversations;" \n
+       "		};" \n
+       "" \n
+       "		//--- Last" \n
+       "		if (_counter == _cargoCount - 1) then {" \n
+       "			""SLINGLOAD_LAST"" spawn bis_fnc_missionConversations;" \n
+       "		};" \n
+       "" \n
+       "" \n
+       "		//--- Attach" \n
+       "		[" \n
+       "			_player," \n
+       "			_cargo," \n
+       "			(sizeof typeof _cargo)/2 + (sizeof typeof vehicle player)/2," \n
+       "			5," \n
+       "			{" \n
+       "				[""FeedbackGeneralBad""] call bis_fnc_genericSentence;" \n
+       "				hint localize ""str_hsim_us_tut_07_steps_waitfordetach_2"";" \n
+       "			}," \n
+       "			_cargoWeight" \n
+       "		] call BIS_fnc_wpSlingloadAttach;" \n
+       "		[""missionSlingload_DETACH"",[_i,_posEnd]] call BIS_fnc_missionTasks;" \n
+       "" \n
+       "		//--- F!rst" \n
+       "		if (_counter == 0) then {" \n
+       "			""SLINGLOAD_FIRST"" call bis_fnc_missionConversations;" \n
+       "		};" \n
+       "" \n
+       "		//--- Near end" \n
+       "		waituntil {" \n
+       "			vehicle _player distance _posEnd < 300" \n
+       "			||" \n
+       "			CARGO_LOST" \n
+       "		};" \n
+       "" \n
+       "		//--- Detach" \n
+       "		_wpDetach = if (CARGO_LOST) then {" \n
+       "			[] spawn {true};" \n
+       "		} else {" \n
+       "			[" \n
+       "				_player," \n
+       "				_posEnd," \n
+       "				5," \n
+       "				10" \n
+       "			] spawn BIS_fnc_wpSlingloadDetach;" \n
+       "		};" \n
+       "" \n
+       "		//--- Detach is complete or cargo was lost" \n
+       "		waituntil {" \n
+       "			scriptdone _wpDetach" \n
+       "			||" \n
+       "			CARGO_LOST" \n
+       "		};" \n
+       "		terminate _wpDetach;" \n
+       "		[" \n
+       "			""missionSlingload_ATTACH""," \n
+       "			[_i,CARGO_LOST]" \n
+       "		] call BIS_fnc_missionTasks;" \n
+       "" \n
+       "		//--- Increase the counter" \n
+       "		[""SLINGLOAD_FIRST"",1] call bis_fnc_counter;" \n
+       "	};" \n
+       "	_listSpawns = _listSpawns + [_spawn];" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True">*/
+        class True
+        {
+          itemno = 13;
+          priority = 0.000000;
+          to="Ambient_Composit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "SUCCESS">*/
+    class SUCCESS
+    {
+      name = "SUCCESS";
+      itemno = 9;
+      init = /*%FSM<STATEINIT""">*/"//--- Evaluate reward" \n
+       "_rewardCoef = [] call bis_fnc_heliportMissionReward;" \n
+       "_rewardCoefDef = _rewardCoef;" \n
+       "{" \n
+       "	if (_x getvariable [""BIS_slingload_lost"",false]) then {" \n
+       "" \n
+       "		//--- Fail" \n
+       "		_rewardCoef = _rewardCoef - (_rewardCoefDef / _cargoCount);" \n
+       "	};" \n
+       "} foreach _listCargos;" \n
+       "if (_rewardCoef < 0.001) then {_rewardCoef = 0;};" \n
+       "[_rewardCoef,true] call bis_fnc_heliportMissionReward;" \n
+       "" \n
+       "if (_rewardCoef > 0) then {" \n
+       "	""SLINGLOAD_OUTRO"" spawn bis_fnc_missionConversations;" \n
+       "};" \n
+       "" \n
+       "{terminate _x;} foreach _spawns;" \n
+       "" \n
+       "//--- Garbage Collector" \n
+       "(" \n
+       "	_listCargos" \n
+       "	+" \n
+       "	_thrashList" \n
+       ") call bis_fnc_GC;" \n
+       "" \n
+       "//--- Remove overloads" \n
+       "BIS_fnc_wpSlingloadAttach_1 = nil;" \n
+       "bis_fnc_genericsentence_1 = nil;" \n
+       "" \n
+       "" \n
+       "//--- Delete counters" \n
+       "[""SLINGLOAD_FIRST"",true] call bis_fnc_counter;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Detect_construction">*/
+    class Detect_construction
+    {
+      name = "Detect_construction";
+      itemno = 10;
+      init = /*%FSM<STATEINIT""">*/"_thrashList = [];" \n
+       "" \n
+       "_startPos = [position _loc select 0,position _loc select 1,0];" \n
+       "_startSite = nearestobject [_startPos,""Land_A_BuildingWIP_H""];" \n
+       "_startDir = direction _startSite;" \n
+       "" \n
+       "_locEnd = _locEnd call bis_fnc_selectrandom;" \n
+       "_endPos = [position _locEnd select 0,position _locEnd select 1,0];" \n
+       "_endSite = nearestobject [_endPos,""Land_A_BuildingWIP_H""];" \n
+       "_endDir = direction _endSite;" \n
+       "" \n
+       "_errorMsg = ""No buildings of type Land_A_BuildingWIP_H found"";" \n
+       "" \n
+       "//--- Markers" \n
+       "_m = createmarker [""hsim_end"",_endPos];" \n
+       "_m setmarkertype ""hd_end"";" \n
+       "_m setmarkerdir (_endDir + 180);" \n
+       "_m setmarkercolor ""colorgreen"";" \n
+       "_thrashList set [count _thrashList,_m];" \n
+       "" \n
+       "_m = createmarker [""hsim_start"",_startPos];" \n
+       "_m setmarkertype ""hd_start"";" \n
+       "_m setmarkerdir _startDir;" \n
+       "_m setmarkercolor ""colorgreen"";" \n
+       "_thrashList set [count _thrashList,_m];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "No_objects">*/
+        class No_objects
+        {
+          itemno = 12;
+          priority = 1.000000;
+          to="TERMINATE";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isnull _startSite || isnull _endSite;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "True">*/
+        class True
+        {
+          itemno = 11;
+          priority = 0.000000;
+          to="Prepare_world";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Ambient_Composit">*/
+    class Ambient_Composit
+    {
+      name = "Ambient_Composit";
+      itemno = 14;
+      init = /*%FSM<STATEINIT""">*/"//--- Ambient Life around" \n
+       "_objectsAmbientClasses = [" \n
+       "	""Trailer_Gravel_H""," \n
+       "	""Trailer_Freight_H""," \n
+       "	""Van_H""," \n
+       "	""Van_Flatbed_H""," \n
+       "	""Truck_US_H""" \n
+       "];" \n
+       "{" \n
+       "	_site = _x;" \n
+       "	_sitePos = position _site;" \n
+       "" \n
+       "	//--- Workers" \n
+       "	_grp = creategroup side _player;" \n
+       "	_grp setspeedmode ""limited"";" \n
+       "	_grp setformation ""diamond"";" \n
+       "	_thrashList set [count _thrashList,_grp];" \n
+       "	_wp1 = _grp addwaypoint [_site modeltoworld [-10 + random 20,-10 + random 20,12],0];" \n
+       "	_wp1 setwaypointtimeout [5,10,15];" \n
+       "	_wp2 = _grp addwaypoint [_site modeltoworld [-10 + random 20,-10 + random 20,12],0];" \n
+       "	_wp2 setwaypointtimeout [5,10,15];" \n
+       "	_wp3 = _grp addwaypoint [_site modeltoworld [-10 + random 20,-10 + random 20,12],0];" \n
+       "	_wp3 setwaypointtimeout [5,10,15];" \n
+       "	_wpc = _grp addwaypoint [waypointposition _wp1,0];" \n
+       "	_wpc setwaypointtype ""cycle"";" \n
+       "	for ""_i"" from 0 to 0 do {" \n
+       "		_unit = _grp createunit [""Workman_Random_H"",_sitePos,[],50,""none""];" \n
+       "		_unit setpos (_site modeltoworld [5,4,12]);" \n
+       "		_unit allowdamage false;" \n
+       "		_thrashList set [count _thrashList,_unit];" \n
+       "	};" \n
+       "" \n
+       "	//--- Objects" \n
+       "	for ""_i"" from 0 to 3 do {" \n
+       "		_objectClass = _objectsAmbientClasses call bis_fnc_selectrandom;" \n
+       "		_object = createvehicle [_objectClass,_sitePos,[],50,""none""];" \n
+       "		_object setdir (random 360);" \n
+       "		_thrashList set [count _thrashList,_object];" \n
+       "	};" \n
+       "" \n
+       "	//--- Flag" \n
+       "	_flagPositions = [" \n
+       "		[-6.4,-19.7,12]," \n
+       "		[11,-11.8,11]," \n
+       "		[5,12.2,12]" \n
+       "	];" \n
+       "	_flag = createvehicle [""FlagPole_H"",_sitePos,[],0,""none""];" \n
+       "	_flag setpos (_site modeltoworld (_flagPositions call bis_fnc_selectrandom));" \n
+       "	_flag setdir 0;" \n
+       "	_flag setFlagTexture ""hsim\data_h\data\flag_usa_co.paa"";" \n
+       "	_thrashList set [count _thrashList,_flag];" \n
+       "} foreach [_startSite,_endSite];" \n
+       "" \n
+       "" \n
+       "bis_fnc_kbTell_createDummy = true;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Finished">*/
+        class Finished
+        {
+          itemno = 8;
+          priority = 0.000000;
+          to="SUCCESS";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"{!scriptdone _x} count _listSpawns == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="mission_Slingloa";
+  finalStates[] =
+  {
+    "TERMINATE",
+    "SUCCESS",
+  };
+};
+/*%FSM</COMPILE>*/

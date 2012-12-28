@@ -133,17 +133,17 @@ HW_Dispatch_Survey =
 HW_Dispatch_Slingload = 
 {
 	_locationType = "ConstructionSite";
-	_area = [];
-	_loc = [_area,_locationType] call BIS_fnc_missionInitPos;
+	_loc = nearestlocations [getMarkerPos "map_center",[_locationType],100000] call BIS_fnc_selectRandom;
 	
-	_locEnd = nearestlocations [position _loc,[_locationType],5000];
+	_locEnd = nearestlocations [position _loc,[_locationType],10000];
 	_locEndNear = nearestlocations [position _loc,[_locationType],1000];
 	_locEnd = _locEnd - [_loc] - _locEndNear;
 		
 	_p1 = locationPosition _loc;
 	_p2 = locationPosition (_locEnd call BIS_fnc_selectRandom);
 		
-	if (!isnull nearestobject [_p1,"Land_A_BuildingWIP_H"] && !isnull nearestobject [_p2,"Land_A_BuildingWIP_H"]) then
+	if (!isnull (nearestObjects [_p1,["Land_A_BuildingWIP_H"], 900] select 0) 
+	 && !isnull (nearestObjects [_p2,["Land_A_BuildingWIP_H"], 900] select 0)) then
 	{		
 		_tsk = player createSimpleTask ["Sling Load"];
 		_tsk setSimpleTaskDestination _p1;
@@ -161,6 +161,7 @@ HW_Dispatch_Slingload =
 		gig setVariable ["p2", _p1];
 		gig setVariable ["exp", time + 60 + random(400)];
 		gig setVariable ["tsk", _tsk];
+		gig setVariable ["mkr", _mkID];
 		gig setVariable ["fsm", "HeliWorks_Slingload.fsm"];
 		
 		GigLineup set [ count GigLineup, gig ];
@@ -281,19 +282,22 @@ player execFSM "HW_Dispatch_Gen.fsm";
 
 if (HW_DEBUG) then // enable only for debug!
 {
-	10 setRadioMsg "DEBUG!";
+	while { true } do
+	{
+		10 setRadioMsg "DEBUG!";
 	
-	waitUntil { sleep 1; RadioCall_J };
-	
-	player moveInDriver chopper;
-	chopper setBatteryRTD true;
-	
-	10 setRadioMsg "NULL";
-	
-	sleep 1;
-	call HW_Dispatch_Slingload;
-	
-	RadioCall_J = false;
+		waitUntil { sleep 1; RadioCall_J };
+		
+		player moveInDriver chopper;
+		chopper setBatteryRTD true;
+		
+		10 setRadioMsg "NULL";
+		
+		sleep 1;
+		call HW_Dispatch_Slingload;
+		
+		RadioCall_J = false;
+	};
 };
 
 
