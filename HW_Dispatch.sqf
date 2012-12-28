@@ -91,10 +91,10 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = 1+random(5);
+		_num = 1+random(2);
 	};
 	
-	
+	//
 	AreaCenter = [[[_p1, 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 25000}] call BIS_fnc_randomPos;
 	_surveyPoints = [];
 	
@@ -106,11 +106,11 @@ HW_Dispatch_Survey =
 		_surveyPoints set [_i, _sp];
 	};
 	
-
+	//
 	_tsk = player createSimpleTask ["Area Survey"];
 	_tsk setSimpleTaskDestination _p1;
 	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Area Survey", "Departing here"];
-		
+	
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];
 	_mkr setMarkerType "hd_start";
@@ -127,47 +127,6 @@ HW_Dispatch_Survey =
 	gig setVariable ["fsm", "HeliWorks_Survey.fsm"];
 	
 	GigLineup set [ count GigLineup, gig ];
-};
-
-
-HW_Dispatch_Slingload = 
-{
-	_locationType = "ConstructionSite";
-	_loc = nearestlocations [getMarkerPos "map_center",[_locationType],100000] call BIS_fnc_selectRandom;
-	
-	_locEnd = nearestlocations [position _loc,[_locationType],10000];
-	_locEndNear = nearestlocations [position _loc,[_locationType],1000];
-	_locEnd = _locEnd - [_loc] - _locEndNear;
-		
-	_p1 = locationPosition _loc;
-	_p2 = locationPosition (_locEnd call BIS_fnc_selectRandom);
-		
-	if (!isnull (nearestObjects [_p1,["Land_A_BuildingWIP_H"], 900] select 0) 
-	 && !isnull (nearestObjects [_p2,["Land_A_BuildingWIP_H"], 900] select 0)) then
-	{		
-		_tsk = player createSimpleTask ["Sling Load"];
-		_tsk setSimpleTaskDestination _p1;
-		_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Sling Load", "Pickup Here"];
-			
-		_mkID = ("SL-"+str(round time));
-		_mkr = createMarker [_mkID, _p1];
-		_mkr setMarkerType "hd_start";
-		_mkr setMarkerDir ((_p2 select 0) - (_p1 select 0)) atan2 ((_p2 select 1) - (_p1 select 1));
-		_mkr setMarkerText ("Sling | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
-			
-		gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
-		
-		gig setVariable ["p1", _p1];
-		gig setVariable ["p2", _p1];
-		gig setVariable ["exp", time + 60 + random(400)];
-		gig setVariable ["tsk", _tsk];
-		gig setVariable ["mkr", _mkID];
-		gig setVariable ["fsm", "HeliWorks_Slingload.fsm"];
-		
-		GigLineup set [ count GigLineup, gig ];
-	} else {
-		hint "No valid locations found";
-	};
 };
 
 
@@ -294,7 +253,7 @@ if (HW_DEBUG) then // enable only for debug!
 		10 setRadioMsg "NULL";
 		
 		sleep 1;
-		call HW_Dispatch_Slingload;
+		call HW_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};
