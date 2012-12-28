@@ -1,5 +1,5 @@
-
-HW_DEBUG = false;
+﻿
+HW_DEBUG = true;
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 [(getPos _HeliPort), (getDir _HeliPort), "heliport_hangarDefault"] spawn BIS_fnc_ObjectsMapper;
