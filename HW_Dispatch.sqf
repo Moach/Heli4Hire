@@ -158,7 +158,7 @@ HW_Dispatch_Slingload =
 		gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
 		
 		gig setVariable ["p1", _p1];
-		gig setVariable ["p2", _p1];
+		gig setVariable ["p2", _p2];
 		gig setVariable ["exp", time + 60 + random(400)];
 		gig setVariable ["tsk", _tsk];
 		gig setVariable ["mkr", _mkID];
