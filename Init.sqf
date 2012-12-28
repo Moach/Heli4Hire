@@ -156,10 +156,13 @@ chopper execVM "HW_AdvFailureModel.sqf";
 
 
 
-if (false || HW_DEBUG) then
+// since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
+chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
+
+if (HW_DEBUG) then
 {
-	chopper addAction ["DnD: Log Position", "DnD\LogPos.sqf", nil, 0, false];
-	chopper addAction ["DnD: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
+	
+	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
 	
 };
 

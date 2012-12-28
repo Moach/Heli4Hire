@@ -18,6 +18,13 @@ PaxDefs_taxi = [
 ];
 
 
+CargoDefs_Lite = 
+[
+	"FireSuppression_H", "Ventilation_H", "CargoCont_Net1_H", "Misc_Cargo_Cont_Tiny", 
+	"FlagPole_H", "PowerGenerator", "Land_Antenna", "Scaffolding_Wheeled_H", "Land_BoardsPack2_H"
+];
+
+
 //  the following points were marked by ACTUALLY flying a helicopter (ingame, not a real one, alas) onto them and logging the choppers position
 //   using a special developer-tool script... many of those are not landing-capable, which made cataloging them quite a pilot-intensive task
 PosDefs_roofTops = [
