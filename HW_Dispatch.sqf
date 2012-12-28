@@ -144,23 +144,29 @@ HW_Dispatch_Cargo =
 	
 	// select base from our beloved list of possible locations
 	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
-	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
+	_baseLoc = _near call BIS_fnc_selectRandom;
+	_basePos = locationPosition (_baseLoc);
 	
-	_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
-	while { _atts > -1 && _atts < 8 } do 
+	
+	if ((type _baseLoc) == "Heliport") then // heliports have a little caveat... they may be on top of something!
 	{
-		_castPos = _basePos; 
-		_castPos set [2, 1000];	
-		
-		if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
+		_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
+		while { _atts > -1 && _atts < 8 } do 
 		{
-			_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
-			_atts = _atts+1;
-		} else
-		{
-			_atts = -1;
-		}
+			_castPos = _basePos; 
+			_castPos set [2, 1000];	
+			
+			if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
+			{
+				_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
+				_atts = _atts+1;
+			} else
+			{
+				_atts = -1;
+			};
+		};
 	};
+	
 	
 	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
 	_crewPos = _basePos;
@@ -199,7 +205,7 @@ HW_Dispatch_Cargo =
 
 HW_Pilot_Task_Commit = 
 {
-	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
+	_tsk = currentTask player; // well, as setVariable with tasks isn't working..... we loop to find ours
 	{ 
 		if ((_x getVariable "tsk") == _tsk) then 
 		{ 
@@ -242,20 +248,24 @@ HW_Pilot_Task_Commit =
 player execFSM "HW_Dispatch_Gen.fsm";
 
 if (HW_DEBUG) then // enable only for debug!
-{
-	10 setRadioMsg "DEBUG!";
+{	
+	while { true } do
+	{
 	
-	waitUntil { sleep 1; RadioCall_J };
-	
-	player moveInDriver chopper;
-	chopper setBatteryRTD true;
-	
-	10 setRadioMsg "NULL";
-	
-	sleep 1;
-	call HW_Dispatch_Cargo;
-	
-	RadioCall_J = false;
+		10 setRadioMsg "DEBUG!";
+		
+		waitUntil { sleep 1; RadioCall_J };
+		
+		player moveInDriver chopper;
+		chopper setBatteryRTD true;
+		
+		10 setRadioMsg "NULL";
+		
+		sleep 1;
+		call HW_Dispatch_Cargo;
+		
+		RadioCall_J = false;
+	};
 };
 
 

@@ -91,8 +91,6 @@ HW_PD_Clear =
 
 
 
-
-
 sleep 1;
 
 deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter in the hangar that comes with the object composition...
