@@ -2399,7 +2399,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=1720;
+		items=1725;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -22724,6 +22724,66 @@ class Mission
 			azimut=359.42499;
 			special="NONE";
 			id=1849;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1720
+		{
+			position[]={14434.017,45,11235.775};
+			azimut=359.42499;
+			special="NONE";
+			id=1850;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1721
+		{
+			position[]={15001.49,96.843979,7746.5352};
+			azimut=359.42499;
+			special="NONE";
+			id=1851;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1722
+		{
+			position[]={18272.344,80.434319,9089.8301};
+			azimut=359.42499;
+			special="NONE";
+			id=1852;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1723
+		{
+			position[]={19470.117,72.511452,15500.956};
+			azimut=359.42499;
+			special="NONE";
+			id=1853;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1724
+		{
+			position[]={22178.27,66.585068,19702.545};
+			azimut=359.42499;
+			special="NONE";
+			id=1854;
 			side="EMPTY";
 			vehicle="Helipad_Invisible_H";
 			leader=1;
