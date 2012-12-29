@@ -10,16 +10,16 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 
 HW_Reset_RadioCalls = 
 {
-	RadioCall_A = false; 
-	RadioCall_B = false; 
-	RadioCall_C = false; 
-	RadioCall_D = false; 
-	RadioCall_E = false; 
-	RadioCall_F = false; 
-	RadioCall_G = false; 
-	RadioCall_H = false; 
-	RadioCall_I = false; 
-	RadioCall_J = false; 
+	RadioCall_A = false;
+	RadioCall_B = false;
+	RadioCall_C = false;
+	RadioCall_D = false;
+	RadioCall_E = false;
+	RadioCall_F = false;
+	RadioCall_G = false;
+	RadioCall_H = false;
+	RadioCall_I = false;
+	RadioCall_J = false;
 };
 
 //
@@ -91,7 +91,7 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = 1+random(2);
+		_num = 1+round(random(5)-random(5));
 	};
 	
 	//
