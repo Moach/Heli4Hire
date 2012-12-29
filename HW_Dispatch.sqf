@@ -138,7 +138,7 @@ HW_Dispatch_Cargo =
 	_twrPos = PosDefs_roofTops call bis_fnc_selectRandom; // could be done better... but let's use this for now, there are only so many worthy rooftops out there
 	
 	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
-	_baseCargo  = round((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
+	_baseCargo  = ceil((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
 	
 	// select base from our beloved list of possible locations
 	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
@@ -251,6 +251,8 @@ if (HW_DEBUG) then // enable only for debug!
 		chopper setBatteryRTD true;
 		
 		10 setRadioMsg "NULL";
+		
+		[1, chopper, true] call BIS_fnc_enginesOnDebug;
 		
 		sleep 1;
 		call HW_Dispatch_Cargo;

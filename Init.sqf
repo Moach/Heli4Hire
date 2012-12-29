@@ -185,5 +185,3 @@ if (HW_DEBUG) then
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
-
-
