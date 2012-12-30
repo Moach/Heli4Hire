@@ -180,7 +180,75 @@ class CfgSounds
 		sound[] = {"\sound\fx_draw_fuel_line.ogg", 1, 1};
 		titles[] = {};
 	};
+	class FX_Rope_Release
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_rope_release";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_rope_release.ogg", 1, 1};
+		titles[] = {};
+	};
+	class FX_Rope_Connect
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_rope_connect";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_rope_connect.ogg", 1, 1};
+		titles[] = {};
+	};
+	class FX_Rope_Unlatch
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_rope_unlatch";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_rope_unlatch.ogg", 1, 1};
+		titles[] = {};
+	};
 	
+	class FX_Fail_Engine_Bad
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_fail_engine_bad";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_fail_engine_bad.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	class FX_Fail_Surge
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_fail_surge";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_fail_surge.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	class FX_Fail_Clunk
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_fail_clunk";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_fail_clunk.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	class FX_Fail_Crackling
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_fail_crackling";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_fail_crackling.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	class FX_Fail_Rough
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_fail_rough";
+		// filename, volume, pitch
+		sound[] = {"\sound\fx_fail_rough.ogg", 1, 1};
+		titles[] = {};
+	};
 };
 
 

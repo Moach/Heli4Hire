@@ -1,6 +1,7 @@
 
 HW_DEBUG = true;
 
+
 _initDefs = player execVM "InitDefs.sqf";
 waitUntil { scriptDone _initDefs };
 
@@ -98,14 +99,16 @@ sleep 1;
 deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter in the hangar that comes with the object composition...
 
 
-player setPos (getPos start_here);
-player setDir 60;
+
 
 
 
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
-
+	player setPos (getPos start_here);
+	player setDir 60;
+	
+	
 	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
 	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
@@ -115,7 +118,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 };
 
 
+RopeAttached = false;
+
 Heli_Has_Obstruction = false; // or is it?
+Heli_Hint_On_Fail = false;
 
 chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
 [service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
@@ -126,6 +132,7 @@ chopper enableCoPilot false;
 chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false; // doesn't work... dunno why - these do nothing...
 chopper enableAutoTrimRTD false;
+
 
 
 Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine and dandy,  .5: crumbs and dirt,  0: may require an exorcist
@@ -149,6 +156,7 @@ chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
 if (HW_DEBUG) then
 {
 	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
+	chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf", nil, 0, false];
 	//
 	
 	// create markers showing ALL indexed landing areas!
@@ -184,4 +192,15 @@ if (HW_DEBUG) then
 //
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
+
+
+
+test_cargo addAction ["Connect 16m Sling Rope", "HW_Attach_Sling_Action.sqf", 16, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14"];
+test_cargo addAction ["Connect 24m Sling Rope", "HW_Attach_Sling_Action.sqf", 24, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22"];
+test_cargo addAction ["Connect 32m Sling Rope", "HW_Attach_Sling_Action.sqf", 32, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 30"];
+
+
+
+
+
 

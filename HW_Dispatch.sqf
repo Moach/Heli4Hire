@@ -91,7 +91,7 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = 1+round(random(5)-random(5));
+		_num = round(random(6)-random(6)); // due to the nature of 'for' loops in this scripting language, if _num is zero, we'll still get one area to fly
 	};
 	
 	//
@@ -139,6 +139,12 @@ HW_Dispatch_Cargo =
 	
 	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
 	_baseCargo  = ceil((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
+	
+	if(_towerCargo+_baseCargo < 1) then // what da? no cargo = no job!
+	{
+		_towerCargo = 1; // fallback to 'one coming down' in the off chance this happens...
+	};
+	
 	
 	// select base from our beloved list of possible locations
 	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
