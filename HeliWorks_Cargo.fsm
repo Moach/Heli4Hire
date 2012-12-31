@@ -2,7 +2,7 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"START",0,250,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
-item1[] = {"get_to__cargo_ba",2,250,320.400726,1731.332886,410.400665,1781.332886,0.000000,"get to " \n "cargo base"};
+item1[] = {"get_to__cargo_ba",2,250,318.828217,1683.231445,408.828156,1733.231445,0.000000,"get to " \n "cargo base"};
 item2[] = {"avail",4,218,-198.493408,1108.035400,-108.493408,1158.035400,0.000000,"avail"};
 item3[] = {"where_s_the__cargo",2,250,-198.370941,1196.576782,-108.371117,1246.576782,0.000000,"where's the " \n "cargo crew?"};
 item4[] = {"land",4,218,-408.133972,2450.102295,-324.746307,2494.591797,1.000000,"land"};
@@ -11,7 +11,7 @@ item6[] = {"away",4,218,-13.087595,2672.058594,76.912575,2722.059082,0.000000,"a
 item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
 item8[] = {"done",4,218,-40.338226,2539.218506,17.704243,2575.994629,0.000000,"done"};
 item9[] = {"wait_for_it___",2,250,-370.199432,2542.669434,-287.676331,2571.965332,0.000000,"wait for it..."};
-item10[] = {"fail___abort",4,218,317.771820,2380.181396,407.771515,2430.181396,2.000000,"fail / abort"};
+item10[] = {"fail___abort",4,218,316.953094,2379.425049,406.952759,2429.425049,2.000000,"fail / abort"};
 item11[] = {"just_put_it_down",2,250,201.199188,2589.852295,336.498871,2637.693604,0.000000,"just put it down"};
 item12[] = {"land_ASAP",4,218,99.680283,2587.556641,189.680725,2637.557129,0.000000,"land ASAP"};
 item13[] = {"crew____base",4,218,-199.737350,1304.926147,-105.202164,1359.382080,0.000000,"crew @" \n " base"};
@@ -20,8 +20,8 @@ item15[] = {"meet_crew_at__cargo",2,250,-37.154335,1307.018677,52.845650,1357.01
 item16[] = {"go_get_crew_",2,250,84.498543,1249.568237,174.498566,1299.568237,0.000000,"go get crew!"};
 item17[] = {"land",4,218,84.439957,1536.182617,174.440735,1586.182617,1.000000,"land"};
 item18[] = {"now_boarding___",2,250,225.460266,1536.869141,327.306824,1585.684448,0.000000,"now boarding..."};
-item19[] = {"timeout",4,218,269.502594,1620.112793,359.503326,1670.112793,0.000000,"timeout"};
-item20[] = {"all_aboard__live",4,218,320.175507,1592.861084,410.175995,1642.861084,0.000000,"all aboard" \n "(live)"};
+item19[] = {"timeout",4,218,271.861359,1601.242798,361.862091,1651.242798,0.000000,"timeout"};
+item20[] = {"all_aboard__live",4,218,319.389252,1575.563477,409.389740,1625.563477,0.000000,"all aboard" \n "(live)"};
 item21[] = {"running_late",4,218,28.838615,1385.417114,118.838516,1435.417114,1.000000,"running late"};
 item22[] = {"you_re_late",2,250,-140.236877,1385.935181,-64.378677,1434.780151,0.000000,"you're late"};
 item23[] = {"too_late",4,218,-185.592270,1451.904175,-95.592545,1501.904175,2.000000,"too late"};
@@ -30,42 +30,44 @@ item25[] = {"abort_pickup",4,218,235.049316,1307.333252,325.049225,1357.333252,2
 item26[] = {"quit",1,250,305.763184,1243.715210,395.763245,1293.715210,0.000000,"quit"};
 item27[] = {"land",4,218,-36.447037,1536.110962,53.553764,1586.110962,1.000000,"land"};
 item28[] = {"now_boarding____1",2,250,-41.857361,1617.905273,59.989212,1666.720581,0.000000,"now boarding..."};
-item29[] = {"timeout",4,218,-5.126402,1700.880127,84.874352,1750.880127,0.000000,"timeout"};
-item30[] = {"and_then____",2,250,40.941536,1807.136230,145.309357,1874.377686,0.000000,"and then?..."};
-item31[] = {"land",4,218,160.271576,1731.255371,250.271576,1781.255371,1.000000,"land"};
-item32[] = {"cargo__going_up",4,218,-171.476776,1807.334717,-59.446159,1873.619507,1.000000,"cargo " \n "going up"};
+item29[] = {"timeout",4,218,-36.361481,1682.143066,53.639275,1732.143066,0.000000,"timeout"};
+item30[] = {"and_then____",2,250,40.941536,1808.422363,145.309372,1875.663818,0.000000,"and then?..."};
+item31[] = {"land",4,4314,190.286224,1682.652100,280.286316,1732.652100,1.000000,"land"};
+item32[] = {"cargo__going_up",4,218,-174.515625,1808.854248,-62.485001,1875.139038,1.000000,"cargo " \n "going up"};
 item33[] = {"cargo__coming_do",4,218,172.613861,1805.462402,277.916656,1875.928589,2.000000,"cargo " \n "coming" \n "down"};
 item34[] = {"attach_rope_to_c",2,250,260.505615,1965.259155,350.505585,2015.259644,0.000000,"attach rope" \n "to chopper"};
 item35[] = {"ready",4,218,243.591965,2029.942627,311.524078,2070.011230,0.000000,"ready"};
 item36[] = {"fly_to_cargo_atop",2,250,211.494141,2080.448486,301.493958,2130.448242,0.000000,"fly to cargo" \n "atop tower"};
 item37[] = {"go_back",2,250,-413.162933,2379.086670,-323.162842,2429.086670,0.000000,"go back"};
-item38[] = {"attach_sling_rope",2,250,-161.575867,1887.315796,-71.575851,1937.315918,0.000000,"attach sling" \n "rope to cargo"};
-item39[] = {"ready_",4,218,-253.578857,2051.190186,-176.613510,2096.156982,0.000000,"ready!"};
+item38[] = {"attach_sling_rope",2,250,-164.614716,1888.835327,-74.614693,1938.835449,0.000000,"attach sling" \n "rope to cargo"};
+item39[] = {"ready_",4,218,-253.513046,2081.167236,-176.547699,2126.134033,0.000000,"ready!"};
 item40[] = {"sling_up_to_towe",2,250,-255.132965,2202.145264,-175.312592,2237.043945,0.000000,"sling up" \n "to tower"};
-item41[] = {"steady__over_it",4,218,143.122696,2226.752441,234.398132,2276.752441,0.000000,"steady " \n "over it"};
-item42[] = {"complete_",4,218,-413.548981,1762.996460,-320.899750,1815.692139,0.000000,"complete!"};
-item43[] = {"hover__",2,250,226.512009,2295.979004,316.511871,2345.979004,0.000000,"hover!!"};
-item44[] = {"attached_",4,218,111.250237,2294.089355,201.249863,2344.089355,0.000000,"attached!"};
+item41[] = {"steady__over_it",4,218,237.509674,2140.757568,328.785095,2190.757568,0.000000,"steady " \n "over it"};
+item42[] = {"complete_",4,218,-63.029034,1757.934814,29.620232,1810.630493,0.000000,"complete!"};
+item43[] = {"hover__",2,250,237.711090,2270.530273,327.710968,2320.530273,0.000000,"hover!!"};
+item44[] = {"attached_",4,218,97.286133,2271.208984,187.285751,2321.208984,0.000000,"attached!"};
 item45[] = {"take_it_down",2,250,-26.098213,2271.579346,63.901947,2321.579346,0.000000,"take it down"};
-item46[] = {"released_",4,218,139.805435,1936.837891,234.427734,1986.140625,1.000000,"released!"};
+item46[] = {"released_",4,218,136.046707,1911.355347,230.669006,1960.658081,1.000000,"released!"};
 item47[] = {"approach",4,218,8.396235,2195.091064,98.396133,2245.091064,0.000000,"approach"};
-item48[] = {"gently_drop__car",2,250,56.693695,2112.394775,146.693573,2162.394775,0.000000,"gently drop " \n "cargo"};
-item49[] = {"all_aboard__live",4,218,48.429901,1669.434448,138.430603,1719.434448,0.000000,"all aboard" \n "(live)"};
+item48[] = {"gently_drop__car",2,250,48.349426,2111.419922,138.349304,2161.419922,0.000000,"gently drop " \n "cargo"};
+item49[] = {"all_aboard__live",4,218,106.985039,1616.773193,196.985794,1666.773193,0.000000,"all aboard" \n "(live)"};
 item50[] = {"",7,210,359.177643,2101.162598,367.177643,2109.162598,0.000000,""};
-item51[] = {"",7,210,-21.176142,2399.924561,-13.176104,2407.924561,0.000000,""};
-item52[] = {"FUCK__",4,218,-252.909180,2275.029541,-174.979568,2318.314209,0.000000,"FUCK!!"};
+item51[] = {"",7,210,-82.866577,2399.924561,-74.866524,2407.924561,0.000000,""};
+item52[] = {"FUCK__",4,218,-253.926010,2275.029541,-175.996368,2318.314209,0.000000,"FUCK!!"};
 item53[] = {"YOU_BROKE_IT_",2,250,-270.163452,2442.075195,-158.881241,2495.458252,0.000000,"YOU BROKE IT!"};
 item54[] = {"land_near__disas",4,218,-262.783081,2584.564697,-164.016708,2643.331543,0.000000,"land near " \n "disaster"};
-item55[] = {"land_back_cargo",4,218,-351.826355,2110.754395,-254.490143,2163.540283,2.000000,"land back" \n "cargo"};
+item55[] = {"land_back_cargo",4,218,-351.826355,2110.754395,-254.490143,2163.540283,1.000000,"land back" \n "cargo"};
 item56[] = {"try_again_",2,250,-259.900543,1888.438965,-169.900513,1938.436890,0.000000,"try again?"};
-item57[] = {"bad",4,218,400.664063,2295.847168,490.664032,2345.847168,0.000000,"bad"};
-item58[] = {"drumroll___",2,250,-13.706608,1932.342163,52.711433,1991.065796,0.000000,"drumroll..."};
-item59[] = {"clear_",4,218,55.725372,1988.949097,131.786255,2026.558472,1.000000,"clear!"};
-item60[] = {"",7,210,2.410860,1785.554810,10.410860,1793.554810,0.000000,""};
+item57[] = {"bad",4,218,161.663101,2170.039795,251.662994,2220.039795,0.000000,"bad"};
+item58[] = {"drumroll___",2,250,-2.107710,1906.566772,64.310318,1965.290405,0.000000,"drumroll..."};
+item59[] = {"clear_",4,218,44.145332,1955.999756,141.798798,2005.486450,1.000000,"clear!"};
+item60[] = {"",7,210,-372.076080,1780.178467,-364.076080,1788.178467,0.000000,""};
 item61[] = {"hold___",2,250,-330.200928,2006.167480,-276.436951,2055.112305,0.000000,"hold..."};
 item62[] = {"safe_",4,218,-334.631927,1893.321045,-271.554871,1929.018188,1.000000,"safe!"};
-item63[] = {"bad_drop_",4,218,-60.604301,2006.661133,29.395607,2056.658691,0.000000,"bad" \n "drop!"};
-item64[] = {"____FAKE____",9,2560,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item63[] = {"bad_drop_",4,218,-59.587517,2005.644409,30.412394,2055.642090,0.000000,"bad" \n "drop!"};
+item64[] = {"___cargo_base",2,250,86.930336,1692.775635,153.301559,1723.442993,0.000000,"@ cargo" \n "base"};
+item65[] = {"_",8,218,68.948021,1750.665405,116.572922,1781.333496,0.000000,""};
+item66[] = {"____FAKE____",9,2640,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 link0[] = {0,2};
 link1[] = {1,31};
 link2[] = {1,50};
@@ -102,10 +104,10 @@ link32[] = {25,26};
 link33[] = {27,28};
 link34[] = {28,29};
 link35[] = {28,49};
-link36[] = {29,30};
+link36[] = {29,64};
 link37[] = {30,32};
-link38[] = {30,60};
-link39[] = {31,30};
+link38[] = {30,42};
+link39[] = {31,64};
 link40[] = {32,38};
 link41[] = {33,34};
 link42[] = {34,35};
@@ -122,7 +124,7 @@ link52[] = {40,47};
 link53[] = {40,52};
 link54[] = {40,55};
 link55[] = {41,43};
-link56[] = {42,37};
+link56[] = {42,60};
 link57[] = {43,10};
 link58[] = {43,44};
 link59[] = {43,57};
@@ -133,7 +135,7 @@ link63[] = {46,58};
 link64[] = {47,48};
 link65[] = {48,46};
 link66[] = {48,55};
-link67[] = {49,30};
+link67[] = {49,64};
 link68[] = {50,10};
 link69[] = {51,10};
 link70[] = {52,53};
@@ -147,13 +149,15 @@ link77[] = {57,36};
 link78[] = {58,59};
 link79[] = {58,63};
 link80[] = {59,30};
-link81[] = {60,42};
+link81[] = {60,37};
 link82[] = {61,62};
 link83[] = {61,63};
 link84[] = {62,56};
 link85[] = {63,53};
-link86[] = {64,33};
-globals[] = {0.000000,0,0,0,0,640,480,1,200,6316128,1,-302.723175,472.872894,2950.605957,1875.702515,596,826,1};
+link86[] = {64,65};
+link87[] = {65,30};
+link88[] = {66,33};
+globals[] = {0.000000,0,0,0,0,640,480,1,203,6316128,1,-144.189667,550.560303,2433.641113,1470.782959,596,826,1};
 window[] = {0,-1,-1,-32000,-32000,984,175,1593,44,1,614};
 *//*%FSM</HEAD>*/
 class FSM
@@ -277,7 +281,7 @@ class FSM
         class land
         {
           priority = 1.000000;
-          to="and_then____";
+          to="___cargo_base";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(player distance (leader _grp) < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"terminate _steady;"/*%FSM</ACTION""">*/;
@@ -913,7 +917,7 @@ class FSM
         class all_aboard__live
         {
           priority = 0.000000;
-          to="and_then____";
+          to="___cargo_base";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"PaxBoarded == count units _grp;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -923,7 +927,7 @@ class FSM
         class timeout
         {
           priority = 0.000000;
-          to="and_then____";
+          to="___cargo_base";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"units _grp select 0 moveInTurret [(vehicle player),[0]];" \n
@@ -939,23 +943,6 @@ class FSM
     {
       name = "and_then____";
       init = /*%FSM<STATEINIT""">*/"" \n
-       "PilotFail = false;" \n
-       "" \n
-       "" \n
-       "2 setRadioMsg ""Decl. Unable and Drop"";" \n
-       "RadioCall_B = false; " \n
-       "" \n
-       "_steady = [" \n
-       "	 player, [0,0,0], nil, [10,1.0,35], 15, " \n
-       "	{ PilotFail = true; }" \n
-       "] spawn BIS_fnc_wpSteady;" \n
-       "" \n
-       "" \n
-       "if (!_crewAway) then" \n
-       "{" \n
-       "	hintSilent ""It's usually a good idea to fly around the delivery point so you know what to expect before taking out the first load...\nThis is your chance to do that if needed"";" \n
-       "	//" \n
-       "};" \n
        "" \n
        "_t = time + 10;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1135,10 +1122,10 @@ class FSM
         /*%FSM<LINK "land_back_cargo">*/
         class land_back_cargo
         {
-          priority = 2.000000;
+          priority = 1.000000;
           to="hold___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 250"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 150"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_cgo = ObjNull;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1248,10 +1235,10 @@ class FSM
         /*%FSM<LINK "land_back_cargo">*/
         class land_back_cargo
         {
-          priority = 2.000000;
+          priority = 1.000000;
           to="hold___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 250"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 150"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_cgo = ObjNull;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1261,7 +1248,7 @@ class FSM
           priority = 1.000000;
           to="drumroll___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(!RopeAttached); // free!"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(!RopeAttached);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1395,6 +1382,44 @@ class FSM
           to="YOU_BROKE_IT_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(time - 1) > _t;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "___cargo_base">*/
+    class ___cargo_base
+    {
+      name = "___cargo_base";
+      init = /*%FSM<STATEINIT""">*/"PilotFail = false;" \n
+       "" \n
+       "" \n
+       "2 setRadioMsg ""Decl. Unable and Drop"";" \n
+       "RadioCall_B = false; " \n
+       "" \n
+       "_steady = [" \n
+       "	 player, [0,0,0], nil, [10,1.0,35], 15, " \n
+       "	{ PilotFail = true; }" \n
+       "] spawn BIS_fnc_wpSteady;" \n
+       "" \n
+       "" \n
+       "if (!_crewAway) then" \n
+       "{" \n
+       "	hintSilent ""It's usually a good idea to fly around the delivery point so you know what to expect before taking out the first load...\nThis is your chance to do that if needed"";" \n
+       "	//" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="and_then____";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
