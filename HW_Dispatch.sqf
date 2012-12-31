@@ -146,25 +146,10 @@ HW_Dispatch_Cargo =
 	};
 	
 	
-	// select base from our beloved list of possible locations
-	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
+	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 2500];
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
-	_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
-	while { _atts > -1 && _atts < 8 } do 
-	{
-		_castPos = _basePos; 
-		_castPos set [2, 1000];	
-		
-		if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
-		{
-			_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
-			_atts = _atts+1;
-		} else
-		{
-			_atts = -1;
-		}
-	};
 	
 	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
 	_crewPos = _basePos;
@@ -224,6 +209,8 @@ HW_Pilot_Task_Commit =
 			[_p1, _p2] execFSM _fsm;
 			
 			deleteGroup _x;
+			
+			[] spawn { sleep (8+random(4)); playSound "FX_Dispatch_Beep"; };
 			exit;
 		}; 
 		

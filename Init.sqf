@@ -119,6 +119,7 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 
 
 RopeAttached = false;
+SlingLoadCgo = ObjNull;
 
 Heli_Has_Obstruction = false; // or is it?
 Heli_Hint_On_Fail = false;
@@ -151,6 +152,7 @@ sleep 1;
 
 
 // since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
+lzLogCount = count PosDefs_landings;
 chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
 
 if (HW_DEBUG) then
@@ -167,21 +169,28 @@ if (HW_DEBUG) then
 		_lzMkr = createMarker [("LZ#"+str(_counter)), (locationPosition _x)];
 		_lzMkr setMarkerType "mil_dot";
 		_lzMkr setMarkerColor "ColorRedAlpha";
-		_lzMkr setMarkerAlpha 0.2; 
+		_lzMkr setMarkerAlpha 0.3; 
 		
 	} foreach _locLZs;
 	
 	_counter = 0;
 	{
 		_counter = _counter + 1;
-		_lzMkr = createMarker [("RT#"+str(_counter)), _x];
+		_lzMkr = createMarker [("ST#"+str(_counter)), _x];
 		_lzMkr setMarkerType "mil_triangle";
-		_lzMkr setMarkerColor "ColorRedAlpha";
-		_lzMkr setMarkerAlpha 0.2; 
+		_lzMkr setMarkerColor "ColorBlack";
+		_lzMkr setMarkerAlpha 0.5; 
 		
 	} foreach PosDefs_roofTops;
 	
-	
+	{
+		_lzMkr = createMarker [_x select 1, _x select 2];
+		_lzMkr setMarkerType "mil_box";
+		_lzMkr setMarkerText (_x select 1) + ": " + (_x select 0);
+		_lzMkr setMarkerColor "ColorBlue";
+		_lzMkr setMarkerAlpha 0.5; 
+		
+	} foreach PosDefs_landings;
 	
 	
 	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
@@ -190,14 +199,23 @@ if (HW_DEBUG) then
 
 //
 //
+_initUtils = player execVM "HW_Utilities.sqf";
+waitUntil { scriptDone _initUtils };
+
+
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
+chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
+chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
+chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
 
 
-test_cargo addAction ["Connect 16m Sling Rope", "HW_Attach_Sling_Action.sqf", 16, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14"];
-test_cargo addAction ["Connect 24m Sling Rope", "HW_Attach_Sling_Action.sqf", 24, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22"];
-test_cargo addAction ["Connect 32m Sling Rope", "HW_Attach_Sling_Action.sqf", 32, 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 30"];
+
+_testCDef = [typeOf test_cargo, 300];
+test_cargo addAction ["Connect 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [16, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14"];
+test_cargo addAction ["Connect 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [24, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22"];
+test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [32, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 30"];
 
 
 

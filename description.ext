@@ -164,6 +164,26 @@ class CfgRadio
 class CfgSounds
 {
 	sounds[] = {};
+	
+	class FX_Dispatch_Chime
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_dispatch_chime";
+		// filename, volume, pitch
+		sound[] = {"\sound\chime.ogg", 1, 1};
+		titles[] = {};
+	};
+	class FX_Dispatch_Beep
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_dispatch_beep";
+		// filename, volume, pitch
+		sound[] = {"\sound\beepbeep.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	
+	
 	class FX_Pump_Fuel
 	{
 		// how the sound is referred to in the editor (e.g. trigger effects)

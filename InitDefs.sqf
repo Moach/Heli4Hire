@@ -17,18 +17,20 @@ PaxDefs_taxi = [
 	"SeattleMan_Random_H"
 ];
 
+PaxDefs_cargo = [
+	"Citizen_Random_H",
+	"Citizen_Random_H",
+	"Citizen_Random_H"
+];
 
 CargoDefs_Lite = 
 [
-	"FireSuppression_H", 
-	"Ventilation_H", 
-	"CargoCont_Net1_H", 
-	"Misc_Cargo_Cont_Tiny", 
-	"FlagPole_H", 
-	"PowerGenerator", 
-	"Land_Antenna", 
-	"Scaffolding_Wheeled_H", 
-	"Land_BoardsPack2_H"
+	["FireSuppression_H",      320],
+	["Ventilation_H",          250],
+	["CargoCont_Net1_H",       350],
+	["Misc_Cargo_Cont_Tiny",   400],
+	["PowerGenerator",         300],
+	["Land_Antenna",           210]
 ];
 
 
@@ -69,6 +71,8 @@ PosDefs_roofTops = [
 	[41702.4, 31900.5, -0.248566],  // center of building that looks like this --> (=||=)
 	[41333.1, 31700.5, -0.115913],  // two-tier flat top near the water
 	[42004.5, 32244, -0.270859],    // SIDE of taller round panelled top close the the columbia-like tower mentioned above
+	[45949.9, 33854.8, -0.11557],   // large flat-top over to the northeast cluster
+	[46533.6, 35593.4, -0.129532],  // westernmost one of two twin buildings adjacent to northbound motorway
 	//
 	//                                                      NEWPORT HILLS / RENTON IMMEDIACY
 	[41858.9, 23498, -0.115891],    // multi-tier compound east of the aforementioned island
@@ -80,6 +84,8 @@ PosDefs_roofTops = [
 	[47039.5, 28723.1, 0.884644],   // north tower of the 2-building compund near the eastern lakeside
 	[55866.3, 26236.3, -0.115189],  // flat-top way east of issaquah
 	[53851.7, 30880, -0.115005],    // robocop type building up the road north of the above
+	[47150.1, 30700.3, -0.115616],  // lone awkward-L somewhere among the hills  
+	[45885.7, 35095.5, -0.115067],  // generic office building north of the above
 	//
 	//                                            SHOREWOOD / RENTON VALLEY NEAR BOEING FIELD
 	[32748.8, 22062.2, -0.115356],  // awkward dual angled building (looks residential)
@@ -116,11 +122,91 @@ PosDefs_roofTops = [
 // additional field landing points (allows an easier/more fun alternative method for indexing LZ's) 
 //
 PosDefs_landings = [
-	
-	
+	['ConstructionSupply', 'lz.1' ,[30685.5, 31455.1, -0.19357]],
+	['ConstructionSupply', 'lz.2' ,[30787.1, 32514.5, -0.118195]],
+	['ConstructionSupply', 'lz.3' ,[31655.6, 31903.9, -0.115631]],
+	['ConstructionSupply', 'lz.4' ,[31751.8, 30259.2, -0.115619]],
+	['ConstructionSupply', 'lz.5' ,[32168.4, 29381.6, -0.115246]],
+	['ConstructionSupply', 'lz.6' ,[32813.5, 31369.7, -0.103508]],
+	['ConstructionSupply', 'lz.7' ,[32645.1, 31809.9, -0.10112]],
+	['ConstructionSupply', 'lz.8' ,[33568.4, 37159.4, -0.114929]],
+	['ConstructionSupply', 'lz.9' ,[32945.5, 37474, -0.115128]],
+	['ConstructionSupply', 'lz.10' ,[33215.6, 27270, -0.115395]],
+	['ConstructionSupply', 'lz.11' ,[33550.2, 26311.9, -0.103859]],
+	['ConstructionSupply', 'lz.12' ,[27447.4, 26089.8, -0.112984]],
+	['ConstructionSupply', 'lz.13' ,[27988.6, 25383.5, -0.115364]],
+	['ConstructionSupply', 'lz.14' ,[27928, 26111.2, -0.0989914]],
+	['ConstructionSupply', 'lz.15' ,[28309.8, 23878.7, -0.110077]],
+	['ConstructionSupply', 'lz.16' ,[28674.9, 24422.1, -0.115448]],
+	['ConstructionSupply', 'lz.17' ,[27350.3, 23805.1, -0.118538]],
+	['ConstructionSupply', 'lz.18' ,[31623.8, 21287.4, -0.108788]],
+	['ConstructionSupply', 'lz.19' ,[32982.6, 21359.6, -0.110984]],
+	['ConstructionSupply', 'lz.20' ,[33619.7, 22344.9, -0.114958]],
+	['ConstructionSupply', 'lz.21' ,[27978, 34057.9, -0.112494]],
+	['ConstructionSupply', 'lz.22' ,[33634.2, 32856.4, -0.115746]],
+	['ConstructionSupply', 'lz.23' ,[33978.7, 35602.9, -0.0968237]],
+	['ConstructionSupply', 'lz.24' ,[39948.6, 27302, -0.107979]],
+	['ConstructionSupply', 'lz.25' ,[39261.4, 29329.7, -0.115719]],
+	['ConstructionSupply', 'lz.26' ,[39246.4, 28916.2, -0.107254]],
+	['ConstructionSupply', 'lz.27' ,[44339.7, 30082.9, -0.0858727]],
+	['ConstructionSupply', 'lz.28' ,[42823.6, 31282, -0.102856]],
+	['ConstructionSupply', 'lz.29' ,[42718.5, 32042.3, -0.0912285]],
+	['ConstructionSupply', 'lz.30' ,[40576.4, 33243.2, -0.11869]],
+	['ConstructionSupply', 'lz.31' ,[41395.2, 31669.9, -0.107603]],
+	['ConstructionSupply', 'lz.32' ,[41083.4, 32268.5, -0.0974388]],
+	['ConstructionSupply', 'lz.33' ,[42466, 33409, -0.072403]],
+	['ConstructionSupply', 'lz.34' ,[42683.9, 30973.9, -0.10804]],
+	['ConstructionSupply', 'lz.35' ,[46426.2, 28587.6, -0.106148]],
+	['ConstructionSupply', 'lz.36' ,[48045.7, 28131.8, -0.113417]],
+	['ConstructionSupply', 'lz.37' ,[41418.3, 22890.8, -0.114307]],
+	['ConstructionSupply', 'lz.38' ,[39954.8, 23992.2, -0.119675]],
+	['ConstructionSupply', 'lz.39' ,[43096.4, 20485.5, -0.115524]],
+	['ConstructionSupply', 'lz.40' ,[43052.9, 19579, -0.115135]],
+	['ConstructionSupply', 'lz.41' ,[40294.4, 19380.3, -0.111359]],
+	['ConstructionSupply', 'lz.42' ,[45509.4, 18835.6, -0.115616]],
+	['ConstructionSupply', 'lz.43' ,[43468.6, 17789.4, -0.115921]],
+	['ConstructionSupply', 'lz.44' ,[42815.7, 19100.5, -0.114685]],
+	['ConstructionSupply', 'lz.45' ,[44032.9, 20929.8, -0.115128]],
+	['ConstructionSupply', 'lz.46' ,[46509.8, 19713.3, -0.114456]],
+	['ConstructionSupply', 'lz.47' ,[46079.5, 31325.1, -0.115791]],
+	['ConstructionSupply', 'lz.48' ,[46571.2, 33966.9, -0.115822]],
+	['ConstructionSupply', 'lz.49' ,[45053.9, 34201.8, -0.114296]],
+	['ConstructionSupply', 'lz.50' ,[45916.9, 36993.5, -0.11335]],
+	['ConstructionSupply', 'lz.51' ,[48314.2, 36307, -0.115555]],
+	['ConstructionSupply', 'lz.52' ,[46401, 36059.8, -0.0960007]],
+	['ConstructionSupply', 'lz.53' ,[47885.1, 37344.1, -0.116003]],
+	['ConstructionSupply', 'lz.54' ,[44649.3, 39866.7, -0.112572]],
+	['ConstructionSupply', 'lz.55' ,[43162.6, 40127.1, -0.10199]],
+	['ConstructionSupply', 'lz.56' ,[42485.9, 43014.8, -0.114883]],
+	['ConstructionSupply', 'lz.57' ,[45802, 42227, -0.116129]],
+	['ConstructionSupply', 'lz.58' ,[30644, 47350.4, -0.11528]],
+	['ConstructionSupply', 'lz.59' ,[28608.9, 48283.4, -0.102356]],
+	['ConstructionSupply', 'lz.60' ,[26831.9, 53287, -0.11483]],
+	['ConstructionSupply', 'lz.61' ,[28456.2, 54437.9, -0.0846996]],
+	['ConstructionSupply', 'lz.62' ,[29005.8, 54978.6, -0.118587]],
+	['ConstructionSupply', 'lz.63' ,[36854.7, 21981.3, -0.114371]],
+	['ConstructionSupply', 'lz.64' ,[35716.9, 20655.8, -0.116359]],
+	['ConstructionSupply', 'lz.65' ,[34502.9, 20435.1, -0.114703]]
 ];
 
-{ _lz = createLocation ["Heliport", _x, 100, 100]; } foreach PosDefs_landings;
+
+
+{ 
+	_lz = createLocation [(_x select 0), (_x select 2), 100, 100]; 
+	//
+} foreach PosDefs_landings;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
