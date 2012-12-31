@@ -120,6 +120,7 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 
 RopeAttached = false;
 SlingLoadCgo = ObjNull;
+SlingLoadLen = 0;
 
 Heli_Has_Obstruction = false; // or is it?
 Heli_Hint_On_Fail = false;
@@ -147,14 +148,14 @@ chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true,
 	"", -1,-1, 0, 2];
 
 	
-
+DisasterEvent = ""; // for now...
 
 sleep 1;	
 	
 
 
 // since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
-lzLogCount = count PosDefs_landings;
+lzLogCount = count PosDefs_roofTops;
 chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
 
 if (HW_DEBUG) then
@@ -171,24 +172,23 @@ if (HW_DEBUG) then
 		_lzMkr = createMarker [("LZ#"+str(_counter)), (locationPosition _x)];
 		_lzMkr setMarkerType "mil_dot";
 		_lzMkr setMarkerColor "ColorRedAlpha";
-		_lzMkr setMarkerAlpha 0.3; 
+		_lzMkr setMarkerAlpha 0.4; 
 		
 	} foreach _locLZs;
 	
-	_counter = 0;
 	{
-		_counter = _counter + 1;
-		_lzMkr = createMarker [("ST#"+str(_counter)), _x];
+		_lzMkr = createMarker [_x select 0, _x select 1];
 		_lzMkr setMarkerType "mil_triangle";
+		_lzMkr setMarkerText ((_x select 0) + ": Tower");
 		_lzMkr setMarkerColor "ColorBlack";
-		_lzMkr setMarkerAlpha 0.5; 
+		_lzMkr setMarkerAlpha 0.6; 
 		
 	} foreach PosDefs_roofTops;
 	
 	{
 		_lzMkr = createMarker [_x select 1, _x select 2];
 		_lzMkr setMarkerType "mil_box";
-		_lzMkr setMarkerText (_x select 1) + ": " + (_x select 0);
+		_lzMkr setMarkerText (_x select 0) + ": " + (_x select 1);
 		_lzMkr setMarkerColor "ColorBlue";
 		_lzMkr setMarkerAlpha 0.5; 
 		

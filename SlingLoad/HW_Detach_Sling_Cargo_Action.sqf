@@ -1,7 +1,6 @@
 
 	 chopper removeAction SlingRopeDiscn_Action_H;
 SlingLoadCgo removeAction SlingRopeDiscn_Action_C;
-SlingLoadCgo = objNull;
 
 chopper ropeDetach SlingRope;
 ropeDestroy SlingRope;
@@ -11,5 +10,6 @@ playSound "FX_Rope_Unlatch";
 
 sleep 3;
 
-hintSilent "Sling Rope released manually!";
+// hintSilent "Sling Rope released manually!";
 RopeAttached = false;
+SlingLoadCgo = objNull;

@@ -135,7 +135,7 @@ HW_Dispatch_Cargo =
 {
 	// locate tower (the high point requiring helicopter cargo)
 	//
-	_twrPos = PosDefs_roofTops call bis_fnc_selectRandom; // could be done better... but let's use this for now, there are only so many worthy rooftops out there
+	_twrPos = (PosDefs_roofTops call bis_fnc_selectRandom) select 1; 
 	
 	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
 	_baseCargo  = ceil((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
@@ -146,8 +146,15 @@ HW_Dispatch_Cargo =
 	};
 	
 	
+	if (RadioCall_J) then // override for debug run!
+	{
+		_towerCargo = 1;
+		_baseCargo  = 1;
+	};
+	
+	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
-	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 2500];
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 3200];
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	
