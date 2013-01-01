@@ -2,12 +2,12 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
-item1[] = {"time_for_new_gig",4,218,2.773048,1822.903198,92.773041,1912.545654,0.000000,"time for" \n "new gig"};
-item2[] = {"gig_generator",2,4346,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
+item1[] = {"time_for_new_gig",4,4314,2.773048,1822.903198,92.773041,1912.545654,1.000000,"time for" \n "new gig" \n "-clear-"};
+item2[] = {"gig_generator",2,250,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
 item3[] = {"call_in",4,218,-16.004354,1579.932007,73.995605,1629.932007,1.000000,"call-in"};
 item4[] = {"call_out",4,218,-261.682007,1751.779419,-193.426971,1818.407715,0.000000,"call-out"};
 item5[] = {"off_duty_",2,250,-108.009804,1334.885376,-18.009850,1384.885376,0.000000,"off duty" \n ""};
-item6[] = {"clear_expired_gi",4,218,-228.512650,1828.015625,-139.555847,1919.744629,0.000000,"clear" \n "expired" \n "gigs"};
+item6[] = {"clear_expired_gi",4,218,-228.512650,1828.015625,-139.555847,1919.744629,1.000000,"clear" \n "expired" \n "gigs"};
 item7[] = {"bottomless_hole",2,250,-229.247986,1948.857910,-139.247971,1998.858032,0.000000,"bottomless" \n "hole of lost" \n "opportunities"};
 item8[] = {"able",4,218,-97.393997,1879.205322,-46.234524,1917.962036,0.000000,"able"};
 item9[] = {"commit__proper_",4,218,-220.220001,1654.043579,-130.219986,1704.043457,0.000000,"commit" \n "-proper-"};
@@ -29,51 +29,54 @@ item24[] = {"_",8,218,-171.012238,1345.669556,-156.367966,1374.085083,0.000000,"
 item25[] = {"",7,210,-76.565742,1970.662231,-68.565742,1978.662231,0.000000,""};
 item26[] = {"atc_off__",4,218,67.391815,1337.520996,138.713440,1384.272705,3.000000,"atc off!?"};
 item27[] = {"atc_off__",4,218,-109.884727,1507.245850,-38.563095,1553.997559,3.000000,"atc off!?"};
-item28[] = {"atc_off__",4,218,72.305252,1762.482666,143.626892,1809.234375,3.000000,"atc off!?"};
+item28[] = {"atc_off__",4,218,-33.778873,1717.502930,37.542843,1764.254639,3.000000,"atc off!?"};
+item29[] = {"time_for_new_gig_1",4,218,68.911865,1743.817505,171.641968,1826.915771,0.000000,"time for" \n "new gig" \n "-full-"};
 link0[] = {0,1};
 link1[] = {0,4};
 link2[] = {0,6};
 link3[] = {0,9};
 link4[] = {0,12};
 link5[] = {0,28};
-link6[] = {1,2};
-link7[] = {2,25};
-link8[] = {3,0};
-link9[] = {4,11};
-link10[] = {5,10};
-link11[] = {5,22};
-link12[] = {6,7};
-link13[] = {7,25};
-link14[] = {8,0};
-link15[] = {9,13};
-link16[] = {10,3};
-link17[] = {10,20};
-link18[] = {10,26};
-link19[] = {11,24};
-link20[] = {12,0};
-link21[] = {13,3};
-link22[] = {13,14};
-link23[] = {13,16};
-link24[] = {13,21};
-link25[] = {13,27};
-link26[] = {14,15};
-link27[] = {15,6};
-link28[] = {16,1};
-link29[] = {17,18};
-link30[] = {18,19};
-link31[] = {19,13};
-link32[] = {20,5};
-link33[] = {21,11};
-link34[] = {22,5};
-link35[] = {23,24};
-link36[] = {24,5};
-link37[] = {25,8};
-link38[] = {25,17};
-link39[] = {26,5};
-link40[] = {27,13};
-link41[] = {28,0};
-globals[] = {0.000000,0,0,0,0,640,480,3,61,6316128,1,-369.180695,219.688507,2107.189453,1221.935913,456,681,1};
-window[] = {0,-1,-1,-1,-1,876,50,1161,50,1,474};
+link6[] = {0,29};
+link7[] = {1,2};
+link8[] = {2,25};
+link9[] = {3,0};
+link10[] = {4,11};
+link11[] = {5,10};
+link12[] = {5,22};
+link13[] = {6,7};
+link14[] = {7,25};
+link15[] = {8,0};
+link16[] = {9,13};
+link17[] = {10,3};
+link18[] = {10,20};
+link19[] = {10,26};
+link20[] = {11,24};
+link21[] = {12,0};
+link22[] = {13,3};
+link23[] = {13,14};
+link24[] = {13,16};
+link25[] = {13,21};
+link26[] = {13,27};
+link27[] = {14,15};
+link28[] = {15,6};
+link29[] = {16,1};
+link30[] = {17,18};
+link31[] = {18,19};
+link32[] = {19,13};
+link33[] = {20,5};
+link34[] = {21,11};
+link35[] = {22,5};
+link36[] = {23,24};
+link37[] = {24,5};
+link38[] = {25,8};
+link39[] = {25,17};
+link40[] = {26,5};
+link41[] = {27,13};
+link42[] = {28,0};
+link43[] = {29,0};
+globals[] = {0.000000,0,0,0,0,640,480,3,62,6316128,1,-256.299377,245.266388,2202.487305,1534.583374,591,787,1};
+window[] = {0,-1,-1,-32000,-32000,935,150,1568,34,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -94,20 +97,42 @@ class FSM
           priority = 3.000000;
           to="standby";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ( (driver chopper) != player || !isBatteryOnRtd chopper || !(profileNamespace getVariable ""HSim_radioATCOn"") );"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
            "RadioCall_A = false;" \n
-           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
+           "hint ""Get in the Helicopter and turn on the power and comms so you can use the radio!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "clear_expired_gi">*/
         class clear_expired_gi
         {
-          priority = 0.000000;
+          priority = 1.000000;
           to="bottomless_hole";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_for_new_gig">*/
+        class time_for_new_gig
+        {
+          priority = 1.000000;
+          to="gig_generator";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/" // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
+           "" \n
+           "_tNew = time + 20 + (((random 500) - random(400)) max 0);"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "enable__commit">*/
+        class enable__commit
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!isNull currentTask player && !Pilot_Commited;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"2 setRadioMsg ""Rqst. Current Task"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "commit__proper_">*/
@@ -123,14 +148,17 @@ class FSM
            "Pilot_Commited = true;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "enable__commit">*/
-        class enable__commit
+        /*%FSM<LINK "time_for_new_gig_1">*/
+        class time_for_new_gig_1
         {
           priority = 0.000000;
           to="standby";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"!isNull currentTask player && !Pilot_Commited;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"2 setRadioMsg ""Rqst. Current Task"";"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_tNew = time + 20 + (((random 500) - random(400)) max 0);" \n
+           "" \n
+           "// this should clear the buildup effect causing new gigs to instantly appear upon the lineup ceasing to be full" \n
+           ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "call_out">*/
@@ -148,16 +176,6 @@ class FSM
            "" \n
            "1 setRadioMsg ""Call back in"";" \n
            "2 setRadioMsg ""NULL"";"/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "time_for_new_gig">*/
-        class time_for_new_gig
-        {
-          priority = 0.000000;
-          to="gig_generator";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -181,9 +199,13 @@ class FSM
        "" \n
        "" \n
        "call _random_fnc_dispatchGig;" \n
-       "call HW_Disptach_Radio_Update;" \n
        "" \n
-       "_tNew = time + 30 + random 300; // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)"/*%FSM</STATEINIT""">*/;
+       "playSound ""FX_Dispatch_Chime"";" \n
+       "if (random (10) > 2) then {  call HW_Disptach_Radio_Update;  };// dispatch won't always call out a new gig by radio, most times, it's just a chime" \n
+       "" \n
+       "" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -224,10 +246,10 @@ class FSM
           priority = 3.000000;
           to="off_duty_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && ( (driver chopper) != player || !isBatteryOnRtd chopper || !(profileNamespace getVariable ""HSim_radioATCOn"" ));"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
            "RadioCall_A = false;" \n
-           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
+           "hint ""Get in the Helicopter and turn on the power and comms so you can use the radio!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "call_in">*/
@@ -309,9 +331,10 @@ class FSM
        "_GigCycleCheck = nil;" \n
        "_tExp = time + 5; // time to next check for expired gigs" \n
        "" \n
+       "" \n
        "if _down then" \n
        "{" \n
-       "	call HW_Disptach_Radio_Update;" \n
+       "	playSound ""FX_Dispatch_Beep"";" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -382,7 +405,7 @@ class FSM
           condition=/*%FSM<CONDITION""">*/"RadioCall_A && ((driver chopper) != player || !isBatteryOnRtd chopper)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
            "RadioCall_A = false;" \n
-           "hint ""Get in the Helicopter and turn on the power so you can use the radio!"";"/*%FSM</ACTION""">*/;
+           "RadioCall_A && ( (driver chopper) != player || !isBatteryOnRtd chopper || !(profileNamespace getVariable ""HSim_radioATCOn"") );"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "unfit_fail">*/
@@ -396,6 +419,28 @@ class FSM
            "2 setRadioMsg ""NULL"";" \n
            "_fail = true;" \n
            "Pilot_Commited = false;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "clear_expired_gi">*/
+        class clear_expired_gi
+        {
+          priority = 1.000000;
+          to="bottomless_hole";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_for_new_gig">*/
+        class time_for_new_gig
+        {
+          priority = 1.000000;
+          to="gig_generator";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/" // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
+           "" \n
+           "_tNew = time + 20 + (((random 500) - random(400)) max 0);"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "call_in">*/
@@ -418,26 +463,6 @@ class FSM
            "" \n
            "central sideRadio ([""HW_Radio_RogerStby"", ""HW_Radio_ReceivedStby"", ""HW_Radio_CopyStby""] call bis_fnc_selectRandom);" \n
            ""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "time_for_new_gig">*/
-        class time_for_new_gig
-        {
-          priority = 0.000000;
-          to="gig_generator";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "clear_expired_gi">*/
-        class clear_expired_gi
-        {
-          priority = 0.000000;
-          to="bottomless_hole";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };

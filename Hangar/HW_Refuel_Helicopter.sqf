@@ -7,8 +7,11 @@ hintSilent "Now, connect the fuel line to the chopper to start refueling...";
 playSound ["FX_Draw_Fuel_Line", true];
 //
 
+
+
 Fuel_Connect_Action = chopper addAction ["Start Refueling", "Hangar\HW_Refuel_Start.sqf", _fillAmount, 6, true, true, "fire", 
-	"chopper distance service_helipad < 10 && isTouchingGround chopper", "HitFuel", 1, .15, 1+8, 4, "Refuel Helicopter", "Connect line and start pump"];
+	"player distance _target < 30 && isTouchingGround chopper && player distance chopper < 3", 
+	"HitFuel", 1, .15, 1+8, 4, "Refuel Helicopter", "Connect line and start pump"];
 
 
 Fuel_Cancel_Action = player addAction ["Cancel Refuelling", "Hangar\HW_Refuel_Cancel.sqf", nil, 5, false, true];

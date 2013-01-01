@@ -91,7 +91,7 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = 1+round(random(5)-random(5));
+		_num = round(random(6)-random(6)); // due to the nature of 'for' loops in this scripting language, if _num is zero, we'll still get one area to fly
 	};
 	
 	//
@@ -174,30 +174,28 @@ HW_Dispatch_Cargo =
 {
 	// locate tower (the high point requiring helicopter cargo)
 	//
-	_twrPos = PosDefs_roofTops call bis_fnc_selectRandom; // could be done better... but let's use this for now, there are only so many worthy rooftops out there
+	_twrPos = (PosDefs_roofTops call bis_fnc_selectRandom) select 1; 
 	
 	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
 	_baseCargo  = ceil((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
 	
-	// select base from our beloved list of possible locations
-	_near = nearestLocations [_twrPos, LocDefs_taxi, 2500];
+	if(_towerCargo+_baseCargo < 1) then // what da? no cargo = no job!
+	{
+		_towerCargo = 1; // fallback to 'one coming down' in the off chance this happens...
+	};
+	
+	
+	if (RadioCall_J) then // override for debug run!
+	{
+		_towerCargo = 1;
+		_baseCargo  = 1;
+	};
+	
+	
+	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 3200];
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
-	_atts = 0; // do some extra runs to try and use only ground locations, lest having the base atop some building (possibly higher up than the tower itself)
-	while { _atts > -1 && _atts < 8 } do 
-	{
-		_castPos = _basePos; 
-		_castPos set [2, 1000];	
-		
-		if ( lineIntersects [_castPos, _basePos, player, chopper] ) then
-		{
-			_basePos = locationPosition (_near call BIS_fnc_selectRandom); // try another...
-			_atts = _atts+1;
-		} else
-		{
-			_atts = -1;
-		}
-	};
 	
 	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
 	_crewPos = _basePos;
@@ -257,6 +255,8 @@ HW_Pilot_Task_Commit =
 			[_p1, _p2] execFSM _fsm;
 			
 			deleteGroup _x;
+			
+			[] spawn { sleep (8+random(4)); playSound "FX_Dispatch_Beep"; };
 			exit;
 		}; 
 		
