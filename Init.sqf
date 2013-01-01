@@ -109,13 +109,16 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos (getPos start_here);
 	player setDir 20;
 	
-	
 	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
 	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
 	{
 		chopper setHitPointDamage [_x, ( (1 / (.0001 + (random(1) * _reliability_factor))) - _reliability_cutoff ) max 0];
 	} foreach _hps;
+} else
+{
+	player setPos [getPos select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
+	//
 };
 
 
