@@ -4,7 +4,7 @@
 item0[] = {"START",0,250,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
 item1[] = {"get_to__cargo_ba",2,250,318.828217,1683.231445,408.828156,1733.231445,0.000000,"get to " \n "cargo base"};
 item2[] = {"avail",4,218,-198.493408,1108.035400,-108.493408,1158.035400,0.000000,"avail"};
-item3[] = {"where_s_the__cargo",2,250,-198.370941,1196.576782,-108.371117,1246.576782,0.000000,"where's the " \n "cargo crew?"};
+item3[] = {"where_s_the__cargo",2,4346,-198.370941,1196.576782,-108.371117,1246.576782,0.000000,"where's the " \n "cargo crew?"};
 item4[] = {"land",4,218,-408.133972,2450.102295,-324.746307,2494.591797,1.000000,"land"};
 item5[] = {"deboard",2,250,-14.093563,2587.386230,75.906296,2637.386230,0.000000,"deboard"};
 item6[] = {"away",4,218,-13.649254,2672.620117,76.350922,2722.620605,0.000000,"away"};
@@ -203,8 +203,8 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-72.819588,992.397949,2983.215332,1504.442749,595,826,1};
-window[] = {0,-1,-1,-1,-1,950,121,1538,10,1,613};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-863.882141,695.701843,2901.612549,736.543030,595,826,1};
+window[] = {0,-1,-1,-32000,-32000,950,121,1538,10,1,613};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -339,7 +339,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"_scoot = 0; // we can't have our loads up top intersecting eachother... as soon as they hook the rope snaps, it's quite nasty..." \n
        "{ " \n
        "	(_x select 0) setPos [_towerPos select 0, (_towerPos select 1) + _scoot, (_towerPos select 2) - 1.19232];" \n
-       "	_scoot = _scoot + 2; // so we scoot them over in 2m intervals (hopefully nothing falls off a side or hovers magically past a ledge or something)" \n
+       "	_scoot = _scoot + 4; // so we scoot them over in set intervals (hopefully nothing falls off a side or hovers magically past a ledge or something)" \n
        "} foreach _cgo_towr;" \n
        "" \n
        "" \n
