@@ -32,7 +32,9 @@ class Mission
 		"hsim_air_h_aircraft_c",
 		"hsim_air_h_airliner_a",
 		"hsim_misc_h_weather_station",
-		"hsim_misc_h_folding_ladder"
+		"hsim_misc_h_folding_ladder",
+		"hsim_modulescore_h_functions",
+		"jed_taxi"
 	};
 	addOnsAuto[]=
 	{
@@ -40,6 +42,7 @@ class Mission
 		"hsim_water_h_container_ship",
 		"hsim_water_h_oil_tanker",
 		"hsim_characters_h",
+		"hsim_modulescore_h_functions",
 		"hsim_misc_h_helipads",
 		"hsim_air_us_h_helicopters_light",
 		"hsim_structures_h_industrial_rooftop_objects",
@@ -83,7 +86,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=126;
+		items=127;
 		class Item0
 		{
 			side="LOGIC";
@@ -2393,6 +2396,26 @@ class Mission
 					vehicle="OilTanker_H";
 					leader=1;
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item126
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={27885.041,8.8811541,29756.285};
+					azimut=-18.613701;
+					id=1855;
+					side="LOGIC";
+					vehicle="LocationLogic";
+					leader=1;
+					skill=0.60000002;
+					text="office_area";
+					init="this setposATL [getpos this select 0, getpos this select 1, 0];  officeInit = this execVM ""Hangar\HW_Office_init.sqf"";";
 				};
 			};
 		};

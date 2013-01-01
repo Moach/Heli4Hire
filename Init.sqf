@@ -1,5 +1,5 @@
 
-HW_DEBUG = false;
+HW_DEBUG = true;
 
 _initDefs = player execVM "InitDefs.sqf";
 waitUntil { scriptDone _initDefs };
