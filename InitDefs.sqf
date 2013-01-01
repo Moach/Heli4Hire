@@ -28,7 +28,7 @@ CargoDefs_Lite =
 	["FireSuppression_H",      320],
 	["Ventilation_H",          250],
 	["CargoCont_Net1_H",       350],
-	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB almost doesn't cut it (+2 ppl aboard)
+	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB is barely able to lift it (+2 pax aboard)
 	["PowerGenerator",         300]
 ];
 
@@ -145,7 +145,15 @@ PosDefs_roofTops =
     ['rt.102', [32900.4, 29192.9, 47.27]],
     ['rt.103', [32709, 29524.3, 26.337]],
     ['rt.104', [35377.3, 37402.9, 38.7076]],
-    ['rt.105', [35991.8, 37601, 19.6457]]
+    ['rt.105', [35991.8, 37601, 19.6457]],
+	['rt.106', [29663.8, 15646.6, 37.2568]],
+	['rt.107', [30619.3, 16121.6, 38.6541]],
+	['rt.108', [30614.7, 17554.1, 43.8012]],
+	['rt.109', [36226.2, 22084.4, 55.8641]],
+	['rt.110', [30930.9, 26882.2, 47.77]],
+	['rt.111', [29802.3, 27723.8, 47.7192]],
+	['rt.112', [29446.2, 27268.3, 44.755]],
+	['rt.113', [26311.6, 28435.4, 16.6907]]
 ];
 
 // additional field landing points (allows an easier/more fun alternative method for indexing LZ's) 
@@ -215,7 +223,15 @@ PosDefs_landings = [
 	['ConstructionSupply', 'lz.62', [29005.8, 54978.6, -0.118587]],
 	['ConstructionSupply', 'lz.63', [36854.7, 21981.3, -0.114371]],
 	['ConstructionSupply', 'lz.64', [35716.9, 20655.8, -0.116359]],
-	['ConstructionSupply', 'lz.65', [34502.9, 20435.1, -0.114703]]
+	['ConstructionSupply', 'lz.65', [34502.9, 20435.1, -0.114703]],
+	['ConstructionSupply', 'lz.66', [31199, 16026.9, 0]],
+	['ConstructionSupply', 'lz.67', [30184.1, 16277.4, 0]],
+	['ConstructionSupply', 'lz.68', [30794.6, 16032.8, 0]],
+	['ConstructionSupply', 'lz.69', [36036.6, 22301.6, 0]],
+	['ConstructionSupply', 'lz.70', [29308.5, 27461.9, 1.19246]],
+	['ConstructionSupply', 'lz.71', [30109, 27635.7, 1.19256]],
+	['ConstructionSupply', 'lz.72', [31029.5, 26349.1, 1.19249]],
+	['ConstructionSupply', 'lz.73', [27907.1, 29743.5, 1.1922]]
 ];
 
 

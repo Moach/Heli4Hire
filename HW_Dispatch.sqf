@@ -130,45 +130,6 @@ HW_Dispatch_Survey =
 };
 
 
-HW_Dispatch_Slingload = 
-{
-	_locationType = "ConstructionSite";
-	_loc = nearestlocations [getMarkerPos "map_center",[_locationType],100000] call BIS_fnc_selectRandom;
-	
-	_locEnd = nearestlocations [position _loc,[_locationType],10000];
-	_locEndNear = nearestlocations [position _loc,[_locationType],1000];
-	_locEnd = _locEnd - [_loc] - _locEndNear;
-		
-	_p1 = locationPosition _loc;
-	_p2 = locationPosition (_locEnd call BIS_fnc_selectRandom);
-		
-	if (!isnull (nearestObjects [_p1,["Land_A_BuildingWIP_H"], 900] select 0) 
-	 && !isnull (nearestObjects [_p2,["Land_A_BuildingWIP_H"], 900] select 0)) then
-	{		
-		_tsk = player createSimpleTask ["Sling Load"];
-		_tsk setSimpleTaskDestination _p1;
-		_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Sling Load", "Pickup Here"];
-			
-		_mkID = ("SL-"+str(round time));
-		_mkr = createMarker [_mkID, _p1];
-		_mkr setMarkerType "hd_start";
-		_mkr setMarkerDir ((_p2 select 0) - (_p1 select 0)) atan2 ((_p2 select 1) - (_p1 select 1));
-		_mkr setMarkerText ("Sling | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
-			
-		gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
-		
-		gig setVariable ["p1", _p1];
-		gig setVariable ["p2", _p2];
-		gig setVariable ["exp", time + 60 + random(400)];
-		gig setVariable ["tsk", _tsk];
-		gig setVariable ["mkr", _mkID];
-		gig setVariable ["fsm", "HeliWorks_Slingload.fsm"];
-		
-		GigLineup set [ count GigLineup, gig ];
-	} else {
-		hint "No valid locations found";
-	};
-};
 
 HW_Dispatch_Cargo = 
 {
@@ -193,7 +154,7 @@ HW_Dispatch_Cargo =
 	
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
-	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 3200];
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 2500];
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	
@@ -201,7 +162,7 @@ HW_Dispatch_Cargo =
 	_crewPos = _basePos;
 	if (random(5) > 2) then 
 	{
-		_near = nearestLocations [_basePos, LocDefs_taxi, 10000];
+		_near = nearestLocations [_basePos, LocDefs_taxi, 15000];
 		_crewPos = locationPosition (_near call BIS_fnc_selectRandom);
 	};
 
