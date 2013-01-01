@@ -1,5 +1,5 @@
 
-HW_DEBUG = false;
+HW_DEBUG = true;
 
 
 
@@ -22,29 +22,19 @@ if (!HW_DEBUG) then {
 	titleText["", "BLACK FADED"];
 };
 
- 1 setRadioMsg "Call in Available";
- 2 setRadioMsg "NULL";
- 3 setRadioMsg "NULL";
- 4 setRadioMsg "NULL";
- 5 setRadioMsg "NULL";
- 6 setRadioMsg "NULL";
- 7 setRadioMsg "NULL";
- 8 setRadioMsg "NULL";
- 9 setRadioMsg "NULL";
-10 setRadioMsg "NULL";
 
 // reset upon expecting radio call
 //
-RadioCall_A = false; 
-RadioCall_B = false; 
-RadioCall_C = false; 
-RadioCall_D = false; 
-RadioCall_E = false; 
-RadioCall_F = false; 
-RadioCall_G = false; 
-RadioCall_H = false; 
-RadioCall_I = false; 
-RadioCall_J = false; 
+RadioCall_A = false;    1 setRadioMsg "Call in Available";
+RadioCall_B = false;    2 setRadioMsg "NULL";
+RadioCall_C = false;    3 setRadioMsg "NULL";
+RadioCall_D = false;    4 setRadioMsg "NULL";
+RadioCall_E = false;    5 setRadioMsg "NULL";
+RadioCall_F = false;    6 setRadioMsg "NULL";
+RadioCall_G = false;    7 setRadioMsg "NULL";
+RadioCall_H = false;    8 setRadioMsg "NULL";
+RadioCall_I = false;    9 setRadioMsg "NULL";
+RadioCall_J = false;   10 setRadioMsg "NULL";
 
 
 // this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options

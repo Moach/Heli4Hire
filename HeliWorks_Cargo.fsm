@@ -8,8 +8,8 @@ item3[] = {"where_s_the__cargo",2,250,-198.370941,1196.576782,-108.371117,1246.5
 item4[] = {"land",4,218,-408.133972,2450.102295,-324.746307,2494.591797,1.000000,"land"};
 item5[] = {"deboard",2,250,-14.093563,2587.386230,75.906296,2637.386230,0.000000,"deboard"};
 item6[] = {"away",4,218,-13.649254,2672.620117,76.350922,2722.620605,0.000000,"away"};
-item7[] = {"clear",1,4346,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
-item8[] = {"done",4,218,6.378744,2538.797607,64.421211,2575.573730,0.000000,"done"};
+item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
+item8[] = {"done",4,218,1.641144,2538.797607,59.683609,2575.573730,0.000000,"done"};
 item9[] = {"wait_for_it___",2,250,-370.199432,2542.669434,-287.676331,2571.965332,0.000000,"wait for it..."};
 item10[] = {"fail___abort",4,218,298.978210,2368.742432,428.058411,2441.651855,2.000000,"fail / abort"};
 item11[] = {"just_put_it_down",2,250,294.343048,2591.572754,429.642731,2639.414063,0.000000,"just put it down"};
@@ -38,7 +38,7 @@ item33[] = {"cargo__coming_do",4,218,185.667786,1806.659912,290.970520,1877.1260
 item34[] = {"check_rope_attac",2,250,263.773712,1907.366211,353.773682,1957.366699,0.000000,"check rope" \n "attached"};
 item35[] = {"ready",4,218,221.008575,2015.593628,317.572845,2062.774414,0.000000,"ready"};
 item36[] = {"fly_to_cargo_atop",2,250,202.101349,2081.207031,292.101227,2131.206787,0.000000,"fly to cargo" \n "atop tower"};
-item37[] = {"go_back",2,250,-413.162933,2379.086670,-323.162842,2429.086670,0.000000,"go back"};
+item37[] = {"go_back",2,4346,-413.162933,2379.086670,-323.162842,2429.086670,0.000000,"go back"};
 item38[] = {"attach_sling_rope",2,250,-163.399231,1888.835327,-73.399231,1938.835449,0.000000,"attach sling" \n "rope to cargo"};
 item39[] = {"ready_",4,218,-263.442383,2060.557129,-165.912338,2117.531250,0.000000,"ready!"};
 item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,0.000000,"sling it up"};
@@ -48,7 +48,7 @@ item43[] = {"hover__",2,250,374.316315,2287.735352,445.565582,2338.141846,0.0000
 item44[] = {"attached_",4,218,197.268951,2288.430420,287.268555,2338.430420,0.000000,"attached!"};
 item45[] = {"take_it_down",2,250,7.353292,2288.217529,97.353439,2338.217529,0.000000,"take it down"};
 item46[] = {"released_",4,218,136.178558,1910.379517,230.800858,1959.682251,1.000000,"released!"};
-item47[] = {"approach",4,218,8.542566,2191.452881,98.542465,2241.452881,0.000000,"approach"};
+item47[] = {"approach",4,218,6.669127,2192.389648,96.669037,2242.389648,0.000000,"approach"};
 item48[] = {"gently_drop__car",2,250,48.349426,2112.474121,138.349304,2162.474121,0.000000,"gently drop " \n "cargo"};
 item49[] = {"all_aboard__live",4,218,106.985039,1616.773193,196.985794,1666.773193,0.000000,"all aboard" \n "(live)"};
 item50[] = {"",7,210,358.136353,2220.363037,366.136353,2228.363037,0.000000,""};
@@ -75,8 +75,8 @@ item70[] = {"damage_control",2,250,-257.138306,2672.474365,-167.138306,2722.4743
 item71[] = {"close_in",4,218,510.073059,2081.115967,600.072815,2131.115967,0.000000,"close in"};
 item72[] = {"approach_cargo",2,250,512.999939,2196.121338,597.501648,2253.581055,0.000000,"approach" \n "cargo"};
 item73[] = {"far",4,218,202.209091,2199.135742,292.209045,2249.135986,0.000000,"far"};
-item74[] = {"no_rope",4,218,402.601044,1907.481812,492.601135,1957.481812,1.000000,"no" \n "rope"};
-item75[] = {"you_really_need",2,250,519.879639,1906.544556,609.879700,1956.544312,0.000000,"you really" \n "need one now"};
+item74[] = {"no_rope",4,218,400.965027,1906.663818,490.965118,1956.663818,1.000000,"no" \n "rope"};
+item75[] = {"you_really_need",2,250,519.879639,1907.362549,609.879700,1957.362305,0.000000,"you really" \n "need one now"};
 item76[] = {"attached_to_carg",4,218,519.752625,2015.362427,609.752563,2065.363770,1.000000,"attached" \n "to cargo"};
 item77[] = {"you_need_a_loose",2,250,401.814423,2014.738403,491.814484,2064.738281,0.000000,"you need a" \n "loose end to" \n "hook cargo"};
 item78[] = {"rope_without_car",4,218,-302.147095,1715.768066,-196.612198,1777.647583,0.000000,"rope" \n "without" \n "cargo"};
@@ -203,7 +203,7 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-863.882141,695.701843,2961.898926,796.829468,595,826,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-524.822632,-55.010376,2899.503662,2247.294189,595,826,1};
 window[] = {0,-1,-1,-32000,-32000,950,121,1538,10,1,613};
 *//*%FSM</HEAD>*/
 class FSM
@@ -1117,17 +1117,33 @@ class FSM
       name = "go_back";
       init = /*%FSM<STATEINIT""">*/"2 setRadioMsg ""Decl. Unable and Drop"";" \n
        "" \n
-       "hint ""Alright! that's it! -- that was a fine job you did there! congratulations!\nnow could you please take us back?"";" \n
        "" \n
        "" \n
        "deleteMarker _baseMkr;" \n
        "deleteMarker _towrMkr;" \n
        "" \n
-       "_pos = _this select 0;" \n
        "" \n
-       "_mkr = createMarker [""Land Crew"", _pos];" \n
-       "_mkr setMarkerText ""Land With Crew"";" \n
-       "_mkr setMarkerType ""hd_objective"";"/*%FSM</STATEINIT""">*/;
+       "if (random 5 > 2)" \n
+       "{" \n
+       "	hint ""Alright! that's it! -- that was a fine job you did there! congratulations!\nnow could you please take us back?"";" \n
+       "" \n
+       "	_pos = _this select 0;" \n
+       "" \n
+       "	_mkr = createMarker [""Land Crew"", _pos];" \n
+       "	_mkr setMarkerText ""Land With Crew"";" \n
+       "	_mkr setMarkerType ""hd_objective"";" \n
+       "" \n
+       "} else" \n
+       "{" \n
+       "	hint ""Ok, That was some fancy flying right there! Kudos!\n now, we're not going back to where we met, as I got some business to get to, could you take me there?"";" \n
+       "		" \n
+       "	_near = nearestLocations [getPos chopper, LocDefs_taxi, 15000];" \n
+       "	_pos = locationPosition (_near call BIS_fnc_selectRandom);" \n
+       "		" \n
+       "	_mkr = createMarker [""Arrival"", _pos];" \n
+       "	_mkr setMarkerType ""hd_pickup"";" \n
+       "	_mkr setmarkerText ""Arrival"";	" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
