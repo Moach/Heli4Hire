@@ -587,7 +587,7 @@ class RscListBox
 	colorSelect[] = {1,1,1,1};
 	colorSelect2[] = {1,1,1,1};
 	colorSelectBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",0.5};
-	colorSelectBackground2[] = {"(1 - profilenamespace getvariable 'GUI_BCG_RGB_R'))","(1-(profilenamespace getvariable 'GUI_BCG_RGB_G'))","(1 -(profilenamespace getvariable 'GUI_BCG_RGB_B'))",0.5};
+	colorSelectBackground2[] = {"(1 - (profilenamespace getvariable 'GUI_BCG_RGB_R'))","(1-(profilenamespace getvariable 'GUI_BCG_RGB_G'))","(1 -(profilenamespace getvariable 'GUI_BCG_RGB_B'))",0.5};
 	colorBackground[] = {0,0,0,1};
 	soundSelect[] = {"",0.1,1};
 	arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
@@ -603,7 +603,7 @@ class RscListBox
 		arrowEmpty = "\HSim\UI_H\data\ui_arrow_top_ca.paa";
 		border = "\HSim\UI_H\data\ui_border_scroll_ca.paa";
 	};
-	style = 16;
+	style = 0x10;
 	font = "FontNormal";
 	sizeEx = "(			(			(1 / 1.2) / 20) * 0.7)";
 	shadow = 1;
@@ -870,8 +870,7 @@ class OfficeDialog {
 		// define controls here
 	};
 	class controls { 
-		// define controls here
-		////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT START (by Tom Larkin, v1.044)
 ////////////////////////////////////////////////////////
 
@@ -906,45 +905,12 @@ class OverviewGroup: RscControlsGroup
 		{
 			idc = 1000;
 			text = "Overview"; //--- ToDo: Localize;
-			x = 13 * GUI_GRID_W;
-			y = 0.5 * GUI_GRID_H;
+			x = 0 * GUI_GRID_W;
+			y = 0 * GUI_GRID_H;
 			w = 3 * GUI_GRID_W;
 			h = 0.5 * GUI_GRID_H;
 		};
 	};
-};
-class StoreButton: RscButton
-{
-	action = "OfficeMode = 1";
-
-	idc = 1601;
-	text = "Online Store"; //--- ToDo: Localize;
-	x = 5.5 * GUI_GRID_W + GUI_GRID_X;
-	y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-	w = 4.5 * GUI_GRID_W;
-	h = 1 * GUI_GRID_H;
-};
-class OverviewButton: RscButton
-{
-	action = "OfficeMode = 0";
-
-	idc = 1600;
-	text = "Overview"; //--- ToDo: Localize;
-	x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-	y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-	w = 4.5 * GUI_GRID_W;
-	h = 1 * GUI_GRID_H;
-};
-class CloseButton: RscButton
-{
-	action = "closeDialog 4200";
-
-	idc = 1602;
-	text = "Close"; //--- ToDo: Localize;
-	x = 27 * GUI_GRID_W + GUI_GRID_X;
-	y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
-	w = 4.5 * GUI_GRID_W;
-	h = 1 * GUI_GRID_H;
 };
 class StoreGroup: RscControlsGroup
 {
@@ -959,12 +925,193 @@ class StoreGroup: RscControlsGroup
 		{
 			idc = 1001;
 			text = "Store"; //--- ToDo: Localize;
+			x = 0 * GUI_GRID_W;
+			y = 0 * GUI_GRID_H;
+			w = 3 * GUI_GRID_W;
+			h = 0.5 * GUI_GRID_H;
+		};
+		class RscText_1003: RscText
+		{
+			idc = 1003;
+			text = "Welcome to Heli-bay! Your one-stop shop for all things hovering!"; //--- ToDo: Localize;
+			x = 0 * GUI_GRID_W;
+			y = 1 * GUI_GRID_H;
+			w = 18.5 * GUI_GRID_W;
+			h = 0.5 * GUI_GRID_H;
+		};
+		class IGUIBack_2202: IGUIBack
+		{
+			idc = 2202;
+			x = 0 * GUI_GRID_W;
+			y = 2 * GUI_GRID_H;
+			w = 13 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class IGUIBack_2203: IGUIBack
+		{
+			idc = 2203;
 			x = 13 * GUI_GRID_W;
-			y = 0.5 * GUI_GRID_H;
+			y = 2 * GUI_GRID_H;
+			w = 17 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class StoreItemList: RscListbox
+		{
+			onLBSelChanged = "(HW_Office_StoreItems select (_this select 1)) call HW_Office_StoreSetSelection;";
+
+			idc = 1500;
+			x = 0.5 * GUI_GRID_W;
+			y = 2.5 * GUI_GRID_H;
+			w = 12 * GUI_GRID_W;
+			h = 13 * GUI_GRID_H;
+		};
+		class StoreSelText: RscText
+		{
+			idc = 1004;
+			x = 13.5 * GUI_GRID_W;
+			y = 2.5 * GUI_GRID_H;
+			w = 16 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class StoreSelDescription: RscText
+		{
+			style = ST_MULTI;
+
+			idc = 1005;
+			text = "Select an item on the list to purchase it."; //--- ToDo: Localize;
+			x = 13.5 * GUI_GRID_W;
+			y = 4 * GUI_GRID_H;
+			w = 15.5 * GUI_GRID_W;
+			h = 3.5 * GUI_GRID_H;
+		};
+		class StoreSelPicture: RscPicture
+		{
+			idc = 1200;
+			text = "#(argb,8,8,3)color(1,1,1,0)";
+			x = 13.5 * GUI_GRID_W;
+			y = 8 * GUI_GRID_H;
+			w = 8 * GUI_GRID_W;
+			h = 5.5 * GUI_GRID_H;
+		};
+		class StoreSelPrice: RscText
+		{
+			idc = 1006;
+			x = 21 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class BuyButton: RscButton
+		{
+			action = "call HW_Office_StorePlaceOrder;";
+
+			idc = 1604;
+			text = "Order"; //--- ToDo: Localize;
+			x = 26.5 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 3 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class StoreItemWeight: RscText
+		{
+			idc = 1008;
+			x = 22.5 * GUI_GRID_W;
+			y = 8 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class StoreItemCondition: RscText
+		{
+			idc = 1009;
+			x = 22.5 * GUI_GRID_W;
+			y = 9.5 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class StoreEstimatedDeliveryTime: RscText
+		{
+			idc = 1010;
+			x = 22.5 * GUI_GRID_W;
+			y = 11 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 2.5 * GUI_GRID_H;
+		};
+	};
+};
+class OrdersGroup: RscControlsGroup
+{
+	idc = 2302;
+	x = 1 * GUI_GRID_W + GUI_GRID_X;
+	y = 2 * GUI_GRID_H + GUI_GRID_Y;
+	w = 30 * GUI_GRID_W;
+	h = 16 * GUI_GRID_H;
+	class controls
+	{
+		class OrdersText: RscText
+		{
+			idc = 1002;
+			text = "Orders"; //--- ToDo: Localize;
+			x = 0 * GUI_GRID_W;
+			y = 0 * GUI_GRID_H;
 			w = 3 * GUI_GRID_W;
 			h = 0.5 * GUI_GRID_H;
 		};
 	};
+};
+class FundsText: RscText
+{
+	idc = 1007;
+	text = "Funds: "; //--- ToDo: Localize;
+	x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+	y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+	w = 12 * GUI_GRID_W;
+	h = 1 * GUI_GRID_H;
+};
+class OverviewButton: RscButton
+{
+	action = "HW_Office_Mode = 0";
+
+	idc = 1600;
+	text = "Overview"; //--- ToDo: Localize;
+	x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+	y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+	w = 4.5 * GUI_GRID_W;
+	h = 1 * GUI_GRID_H;
+};
+class StoreButton: RscButton
+{
+	action = "HW_Office_Mode = 1";
+
+	idc = 1601;
+	text = "Online Store"; //--- ToDo: Localize;
+	x = 5.5 * GUI_GRID_W + GUI_GRID_X;
+	y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+	w = 4.5 * GUI_GRID_W;
+	h = 1 * GUI_GRID_H;
+};
+class OrdersButton: RscButton
+{
+	action = "HW_Office_Mode = 2";
+
+	idc = 1603;
+	text = "Orders"; //--- ToDo: Localize;
+	x = 10.5 * GUI_GRID_W + GUI_GRID_X;
+	y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+	w = 4.5 * GUI_GRID_W;
+	h = 1 * GUI_GRID_H;
+};
+class CloseButton: RscButton
+{
+	action = "closeDialog 4200";
+
+	idc = 1602;
+	text = "Close"; //--- ToDo: Localize;
+	x = 27 * GUI_GRID_W + GUI_GRID_X;
+	y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+	w = 4.5 * GUI_GRID_W;
+	h = 1 * GUI_GRID_H;
 };
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
