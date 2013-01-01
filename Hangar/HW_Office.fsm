@@ -1,11 +1,11 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Office">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,4346,-114.021553,266.415558,-24.021507,316.415558,0.000000,"START"};
+item0[] = {"START",0,250,-114.021553,266.415558,-24.021507,316.415558,0.000000,"START"};
 item1[] = {"overview",4,218,-113.807426,365.663086,-23.807367,415.663086,0.000000,"overview"};
 item2[] = {"Overview",2,250,-115.333397,470.958984,-25.333328,520.959106,0.000000,"Overview"};
 item3[] = {"Store",4,218,14.378952,365.663116,104.378998,415.663116,0.000000,"Store"};
-item4[] = {"Store",2,250,13.999413,471.725952,103.999474,521.725952,0.000000,"Store"};
+item4[] = {"Store",2,4346,13.999413,471.725952,103.999474,521.725952,0.000000,"Store"};
 item5[] = {"Orders",4,218,138.198624,364.516632,228.198715,414.516632,0.000000,"Orders"};
 item6[] = {"Orders",2,250,137.819092,468.286530,227.819168,518.286499,0.000000,"Orders"};
 link0[] = {0,1};
@@ -18,8 +18,8 @@ link6[] = {4,5};
 link7[] = {5,6};
 link8[] = {6,1};
 link9[] = {6,3};
-globals[] = {0.000000,0,0,0,0,640,480,1,12,6316128,1,-139.619675,243.948975,648.009583,52.442837,389,604,1};
-window[] = {0,-1,-1,-1,-1,837,1319,2279,88,1,407};
+globals[] = {0.000000,0,0,0,0,640,480,1,12,6316128,1,-267.960876,374.903503,927.354797,-91.779266,381,604,1};
+window[] = {0,-1,-1,-32000,-32000,829,1307,2154,80,1,399};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -33,6 +33,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"HW_Office_Mode = 0;" \n
        "" \n
        "ctrlShow [1604, false];" \n
+       "ctrlShow [1605, false];" \n
        "" \n
        "ctrlSetText [1007, format[""Funds: $%1"", HW_Office_Funds]]; // set funds" \n
        "" \n
@@ -112,20 +113,7 @@ class FSM
        "	ctrlShow [_x, true];" \n
        "} foreach [2301];" \n
        "" \n
-       "" \n
-       "lbClear 1500;" \n
-       "" \n
-       "// populate the store list with items" \n
-       "{	" \n
-       "	_i = lbAdd [1500, (_x select 0)];" \n
-       "	lbSetValue [1500, _i, (_x select 1)];" \n
-       "	lbSetData [1500, _i, (_x select 2)];" \n
-       "	lbSetPicture[1500, _i, (_x select 3)];" \n
-       "" \n
-       "} foreach HW_Office_StoreItems;" \n
-       "" \n
-       "" \n
-       "" \n
+       "call HW_Office_StoreRefreshList;" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -164,6 +152,8 @@ class FSM
        "{" \n
        "	ctrlShow [_x, true];" \n
        "} foreach [2302];" \n
+       "" \n
+       "call HW_Office_OrdersRefreshList;" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links

@@ -998,7 +998,7 @@ class StoreGroup: RscControlsGroup
 		class StoreSelPrice: RscText
 		{
 			idc = 1006;
-			x = 21 * GUI_GRID_W;
+			x = 20.5 * GUI_GRID_W;
 			y = 14.5 * GUI_GRID_H;
 			w = 5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
@@ -1058,6 +1058,122 @@ class OrdersGroup: RscControlsGroup
 			w = 3 * GUI_GRID_W;
 			h = 0.5 * GUI_GRID_H;
 		};
+		class IGUIBack_2204: IGUIBack
+		{
+			idc = 2204;
+			x = 0 * GUI_GRID_W;
+			y = 2 * GUI_GRID_H;
+			w = 13 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class IGUIBack_2205: IGUIBack
+		{
+			idc = 2205;
+			x = 13 * GUI_GRID_W;
+			y = 2 * GUI_GRID_H;
+			w = 17 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class OrdersCaption: RscText
+		{
+			idc = 1011;
+			text = "Incoming Orders"; //--- ToDo: Localize;
+			x = 0 * GUI_GRID_W;
+			y = 1 * GUI_GRID_H;
+			w = 18.5 * GUI_GRID_W;
+			h = 0.5 * GUI_GRID_H;
+		};
+		class OrdersItemsList: RscListbox
+		{
+			onLBSelChanged = "[HW_Office_Orders select (_this select 1), _this select 1] call HW_Office_OrdersSetSelection;";
+
+			idc = 1501;
+			x = 0.5 * GUI_GRID_W;
+			y = 2.5 * GUI_GRID_H;
+			w = 12 * GUI_GRID_W;
+			h = 13 * GUI_GRID_H;
+		};
+		class OrdersSelName: RscText
+		{
+			idc = 1012;
+			x = 13.5 * GUI_GRID_W;
+			y = 2.5 * GUI_GRID_H;
+			w = 16 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersSelDescription: RscText
+		{
+			style = ST_MULTI;
+
+			idc = 1013;
+			text = "Select an item on the list to see its shipping status."; //--- ToDo: Localize;
+			x = 13.5 * GUI_GRID_W;
+			y = 4 * GUI_GRID_H;
+			w = 15.5 * GUI_GRID_W;
+			h = 3.5 * GUI_GRID_H;
+		};
+		class OrdersSelPicture: RscPicture
+		{
+			idc = 1201;
+			text = "#(argb,8,8,3)color(1,1,1,0)";
+			x = 13.5 * GUI_GRID_W;
+			y = 8 * GUI_GRID_H;
+			w = 8 * GUI_GRID_W;
+			h = 5.5 * GUI_GRID_H;
+		};
+		class CancelOrderButton: RscButton
+		{
+			action = "call HW_Office_CancelOrder;";
+
+			idc = 1605;
+			text = "Cancel Order"; //--- ToDo: Localize;
+			x = 25 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 4.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersPricePaid: RscText
+		{
+			idc = 1014;
+			x = 13.5 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersRefund: RscText
+		{
+			idc = 1015;
+			x = 19.5 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersItemWeight: RscText
+		{
+			idc = 1016;
+			x = 22.5 * GUI_GRID_W;
+			y = 8 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersItemCondition: RscText
+		{
+			idc = 1017;
+			x = 22.5 * GUI_GRID_W;
+			y = 9.5 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class OrdersEstimatedTime: RscText
+		{
+			idc = 1018;
+			x = 22.5 * GUI_GRID_W;
+			y = 11 * GUI_GRID_H;
+			w = 7 * GUI_GRID_W;
+			h = 2.5 * GUI_GRID_H;
+		};
 	};
 };
 class FundsText: RscText
@@ -1116,6 +1232,7 @@ class CloseButton: RscButton
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
 ////////////////////////////////////////////////////////
+
 
 		
 	};	
