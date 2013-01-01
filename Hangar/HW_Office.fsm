@@ -1,0 +1,116 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Office">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-114.021553,266.415558,-24.021507,316.415558,0.000000,"START"};
+item1[] = {"overview",4,218,-113.807426,365.663086,-23.807367,415.663086,0.000000,"overview"};
+item2[] = {"Overview",2,250,-115.333397,470.958984,-25.333328,520.959106,0.000000,"Overview"};
+item3[] = {"Store",4,218,14.378952,365.663116,104.378998,415.663116,0.000000,"Store"};
+item4[] = {"Store",2,4346,12.852936,469.433014,102.852997,519.432983,0.000000,"Store"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-243.727814,202.252335,746.082703,53.609722,389,604,1};
+window[] = {0,-1,-1,-1,-1,816,1486,2446,67,1,407};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "HW_Office";
+  class States
+  {
+    /*%FSM<STATE "START">*/
+    class START
+    {
+      name = "START";
+      init = /*%FSM<STATEINIT""">*/"OfficeMode = 0;" \n
+       "" \n
+       "_officeDialog = createDialog ""OfficeDialog"";" \n
+       "" \n
+       "/*" \n
+       "Modes" \n
+       "0 : Overview" \n
+       "1 : Store" \n
+       "more to follow..." \n
+       "*/" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "overview">*/
+        class overview
+        {
+          priority = 0.000000;
+          to="Overview";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"OfficeMode == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Overview">*/
+    class Overview
+    {
+      name = "Overview";
+      init = /*%FSM<STATEINIT""">*/"{" \n
+       "	ctrlShow [_x, false];" \n
+       "} foreach [2301];" \n
+       "" \n
+       "{" \n
+       "	ctrlShow [_x, true];" \n
+       "} foreach [2300];" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Store">*/
+        class Store
+        {
+          priority = 0.000000;
+          to="Store";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"OfficeMode == 1"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Store">*/
+    class Store
+    {
+      name = "Store";
+      init = /*%FSM<STATEINIT""">*/"{" \n
+       "	ctrlShow [_x, true];" \n
+       "} foreach [2301];" \n
+       "" \n
+       "{" \n
+       "	ctrlShow [_x, false];" \n
+       "} foreach [2300];" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "overview">*/
+        class overview
+        {
+          priority = 0.000000;
+          to="Overview";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"OfficeMode == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="START";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

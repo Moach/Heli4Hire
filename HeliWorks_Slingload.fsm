@@ -1,12 +1,12 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Slingload">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-16.355730,235.895020,73.644272,285.895020,0.000000,"Start"};
+item0[] = {"Start",0,250,-16.355730,235.895020,73.644272,285.895020,0.000000,"Start"};
 item1[] = {"avail",4,218,-16.155972,319.172089,73.844040,369.172089,0.000000,"avail"};
 item2[] = {"Ambient_Comps",2,250,-16.945904,603.331055,73.054115,653.331055,0.000000,"Ambient Comps"};
 item3[] = {"Setup_Mission",2,250,-14.704315,404.941803,75.295708,454.941772,0.000000,"Setup Mission"};
 item4[] = {"Finished",4,218,-15.518671,692.895203,74.481323,742.895203,0.000000,"Finished"};
-item5[] = {"Mission_Rewards",2,250,-17.083181,791.460266,72.916824,841.460266,0.000000,"Mission Rewards"};
+item5[] = {"Mission_Rewards",2,4346,-17.083181,791.460266,72.916824,841.460266,0.000000,"Mission Rewards"};
 item6[] = {"away",4,218,-26.470331,882.202698,85.432999,946.283386,0.000000,"away"};
 item7[] = {"Clear_Props",1,250,-17.083181,990.937134,72.916840,1040.937256,0.000000,"Clear Props"};
 item8[] = {"true",8,218,-15.518671,494.422089,74.481331,544.422119,0.000000,"true"};
@@ -18,7 +18,7 @@ link4[] = {4,5};
 link5[] = {5,6};
 link6[] = {6,7};
 link7[] = {8,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-280.135834,334.404388,1105.565674,100.277267,519,849,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-290.763580,345.028198,1172.862305,132.809875,519,849,1};
 window[] = {2,0,0,-1,-1,788,50,1010,50,3,537};
 *//*%FSM</HEAD>*/
 class FSM
@@ -101,10 +101,10 @@ class FSM
        "	_sitePos = position _site;" \n
        "" \n
        "	//--- Workers" \n
-       "	_grp = creategroup side _player;" \n
+       "	_grp = creategroup side player;" \n
        "	_grp setspeedmode ""limited"";" \n
        "	_grp setformation ""diamond"";" \n
-       "	_thrashList set [count _thrashList,_grp];" \n
+       "	_groups set [count _groups,_grp];" \n
        "	_wp1 = _grp addwaypoint [_site modeltoworld [-10 + random 20,-10 + random 20,12],0];" \n
        "	_wp1 setwaypointtimeout [5,10,15];" \n
        "	_wp2 = _grp addwaypoint [_site modeltoworld [-10 + random 20,-10 + random 20,12],0];" \n
@@ -117,7 +117,7 @@ class FSM
        "		_unit = _grp createunit [""Workman_Random_H"",_sitePos,[],50,""none""];" \n
        "		_unit setpos (_site modeltoworld [5,4,12]);" \n
        "		_unit allowdamage false;" \n
-       "		_thrashList set [count _thrashList,_unit];" \n
+       "		_props set [count _props,_unit];" \n
        "	};" \n
        "" \n
        "	//--- Objects" \n
@@ -125,7 +125,7 @@ class FSM
        "		_objectClass = _objectsAmbientClasses call bis_fnc_selectrandom;" \n
        "		_object = createvehicle [_objectClass,_sitePos,[],50,""none""];" \n
        "		_object setdir (random 360);" \n
-       "		_thrashList set [count _thrashList,_object];" \n
+       "		_props set [count _props,_object];" \n
        "	};" \n
        "" \n
        "	//--- Flag" \n
@@ -138,7 +138,7 @@ class FSM
        "	_flag setpos (_site modeltoworld (_flagPositions call bis_fnc_selectrandom));" \n
        "	_flag setdir 0;" \n
        "	_flag setFlagTexture ""hsim\data_h\data\flag_usa_co.paa"";" \n
-       "	_thrashList set [count _thrashList,_flag];" \n
+       "	_props set [count _props,_flag];" \n
        "} foreach [_startSite,_endSite];" \n
        "" \n
        "" \n
@@ -152,7 +152,8 @@ class FSM
           priority = 0.000000;
           to="Mission_Rewards";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"{!scriptdone _x} count _listSpawns == 0"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"{!scriptdone _x} count _listSpawns == 0" \n
+           ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -163,13 +164,15 @@ class FSM
     class Setup_Mission
     {
       name = "Setup_Mission";
-      init = /*%FSM<STATEINIT""">*/"_thrashList = [];" \n
+      init = /*%FSM<STATEINIT""">*/"_markers = [];" \n
+       "_props = [];" \n
+       "_groups = [];" \n
        "" \n
-       "_startPos = this select 0;" \n
+       "_startPos = _this select 0;" \n
        "_startSite = nearestObjects [_startPos, [""Land_A_BuildingWIP_H""], 900] select 0;" \n
        "_startDir = direction _startSite;" \n
        "" \n
-       "_endPos = this select 1;" \n
+       "_endPos = _this select 1;" \n
        "_endSite = nearestObjects [_endPos, [""Land_A_BuildingWIP_H""], 900] select 0;" \n
        "_endDir = direction _endSite;" \n
        "" \n
@@ -180,13 +183,13 @@ class FSM
        "_m setmarkertype ""hd_end"";" \n
        "_m setmarkerdir (_endDir + 180);" \n
        "_m setmarkercolor ""colorgreen"";" \n
-       "_thrashList set [count _thrashList,_m];" \n
+       "_markers set [count _markers,_m];" \n
        "" \n
        "_m = createmarker [""hsim_start"",_startPos];" \n
        "_m setmarkertype ""hd_start"";" \n
        "_m setmarkerdir _startDir;" \n
        "_m setmarkercolor ""colorgreen"";" \n
-       "_thrashList set [count _thrashList,_m];" \n
+       "_markers set [count _markers,_m];" \n
        "" \n
        "" \n
        "" \n
@@ -247,7 +250,7 @@ class FSM
        "	_listcargos = _listcargos + [_cargo];" \n
        "" \n
        "	//--- Waypoint" \n
-       "	_spawn = [_cargo,_i,_posEnd,_endDir,_cargoCount,_player,_cargoWeight] spawn {" \n
+       "	_spawn = [_cargo,_i,_posEnd,_endDir,_cargoCount, player,_cargoWeight] spawn {" \n
        "		_cargo = _this select 0;" \n
        "		_i = _this select 1;" \n
        "		_posEnd = _this select 2;" \n
@@ -257,8 +260,8 @@ class FSM
        "		_cargoWeight = _this select 6;" \n
        "" \n
        "		// [""missionSlingload_ATTACH"",[_i,getposatl _cargo]] call BIS_fnc_missionTasks;" \n
-       "		_task = player createSimpleTask [(""Sling Load "" + _i)];" \n
-       "		_task setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request other tasks until clear"", (""Sling Load "" + _i), ""Pickup Site""];" \n
+       "		_task = _player createSimpleTask [""Sling Load "" + str _i];" \n
+       "		_task setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request other tasks until clear"", ""Sling Load "" + str _i, ""Pickup Site""];" \n
        "		_task setSimpleTaskDestination (getposatl _cargo);" \n
        "" \n
        "" \n
@@ -296,7 +299,7 @@ class FSM
        "		] call BIS_fnc_wpSlingloadAttach;" \n
        "" \n
        "		//[""missionSlingload_DETACH"",[_i,_posEnd]] call BIS_fnc_missionTasks;		" \n
-       "		_task setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request other tasks until clear"", (""Sling Load "" + _i), ""Drop-off Site""];" \n
+       "		_task setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request other tasks until clear"", (""Sling Load "" + str _i), ""Drop-off Site""];" \n
        "		_task setSimpleTaskDestination _posEnd;" \n
        "" \n
        "		//--- F!rst" \n
@@ -395,7 +398,9 @@ class FSM
        "	""SLINGLOAD_OUTRO"" spawn bis_fnc_missionConversations;      " \n
        "} else {" \n
        "     // something" \n
-       "};"/*%FSM</STATEINIT""">*/;
+       "};" \n
+       "" \n
+       "1 setRadioMsg ""Rpt. Clear of Assignment"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -416,7 +421,10 @@ class FSM
     class Clear_Props
     {
       name = "Clear_Props";
-      init = /*%FSM<STATEINIT""">*/"{ deleteVehicle _x; } foreach units _thrashList;" \n
+      init = /*%FSM<STATEINIT""">*/"{ deleteVehicle _x; } foreach _props;" \n
+       "{ deleteMarker _x; } foreach _markers;" \n
+       "{ deleteVehicle _x; } foreach _listCargos;" \n
+       "{ deleteGroup _x; } foreach _groups;" \n
        "" \n
        "{terminate _x;} foreach _spawns;" \n
        "" \n
@@ -424,7 +432,7 @@ class FSM
        "(" \n
        "	_listCargos" \n
        "	+" \n
-       "	_thrashList" \n
+       "	_markers" \n
        ") call bis_fnc_GC;" \n
        "" \n
        "//--- Remove overloads" \n
