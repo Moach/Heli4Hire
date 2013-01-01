@@ -14,7 +14,7 @@ item9[] = {"wait_for_it___",2,250,-370.199432,2542.669434,-287.676331,2571.96533
 item10[] = {"fail___abort",4,218,298.978210,2368.742432,428.058411,2441.651855,2.000000,"fail / abort"};
 item11[] = {"just_put_it_down",2,250,294.343048,2591.572754,429.642731,2639.414063,0.000000,"just put it down"};
 item12[] = {"land_ASAP",4,218,144.923187,2587.556641,234.923630,2637.557129,0.000000,"land ASAP"};
-item13[] = {"crew____base",4,218,-199.737350,1304.926147,-105.202164,1359.382080,0.000000,"crew @" \n " base"};
+item13[] = {"crew____base",4,218,-201.239655,1304.926147,-106.704468,1359.382080,0.000000,"crew @" \n " base"};
 item14[] = {"crew_away",4,218,-59.178150,1196.362549,30.821869,1246.362549,0.000000,"crew" \n "away"};
 item15[] = {"meet_crew_at__cargo",2,250,-37.154335,1307.018677,52.845650,1357.018677,0.000000,"meet crew at" \n " cargo base!"};
 item16[] = {"go_get_crew_",2,250,84.498543,1249.568237,174.498566,1299.568237,0.000000,"go get crew!"};
@@ -34,7 +34,7 @@ item29[] = {"timeout",4,218,-38.365921,1683.145264,51.634842,1733.145264,0.00000
 item30[] = {"and_then____",2,250,40.941536,1808.422363,145.309372,1875.663818,0.000000,"and then?..."};
 item31[] = {"land",4,218,190.286224,1682.652100,280.286316,1732.652100,1.000000,"land"};
 item32[] = {"cargo__going_up",4,218,-141.931335,1808.854248,-29.900734,1875.139038,1.000000,"cargo " \n "going up"};
-item33[] = {"cargo__coming_do",4,218,184.165497,1805.157593,289.468231,1875.623779,2.000000,"cargo " \n "coming" \n "down"};
+item33[] = {"cargo__coming_do",4,218,185.667786,1806.659912,290.970520,1877.126099,2.000000,"cargo " \n "coming" \n "down"};
 item34[] = {"check_rope_attac",2,250,263.773712,1907.366211,353.773682,1957.366699,0.000000,"check rope" \n "attached"};
 item35[] = {"ready",4,218,221.008575,2015.593628,317.572845,2062.774414,0.000000,"ready"};
 item36[] = {"fly_to_cargo_atop",2,250,202.101349,2081.207031,292.101227,2131.206787,0.000000,"fly to cargo" \n "atop tower"};
@@ -203,7 +203,7 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-551.488342,472.100372,3208.391357,1787.409424,595,826,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-72.819588,992.397949,2983.215332,1504.442749,595,826,1};
 window[] = {0,-1,-1,-1,-1,950,121,1538,10,1,613};
 *//*%FSM</HEAD>*/
 class FSM
@@ -336,11 +336,10 @@ class FSM
     class where_s_the__cargo
     {
       name = "where_s_the__cargo";
-      init = /*%FSM<STATEINIT""">*/"" \n
-       "" \n
-       "// this is because loads keep falling off... quite nasty..." \n
+      init = /*%FSM<STATEINIT""">*/"_scoot = 0; // we can't have our loads up top intersecting eachother... as soon as they hook the rope snaps, it's quite nasty..." \n
        "{ " \n
-       "	(_x select 0) setPos [_towerPos select 0, _towerPos select 1, (_towerPos select 2) - 1.19232];" \n
+       "	(_x select 0) setPos [_towerPos select 0, (_towerPos select 1) + _scoot, (_towerPos select 2) - 1.19232];" \n
+       "	_scoot = _scoot + 2; // so we scoot them over in 2m intervals (hopefully nothing falls off a side or hovers magically past a ledge or something)" \n
        "} foreach _cgo_towr;" \n
        "" \n
        "" \n
@@ -1272,7 +1271,7 @@ class FSM
           to="approach_cargo";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"_off > 5 || _hgt > SlingLoadLen || _hgt < 0;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Hold! you're drifting a lot and the load couldn't be attached yet...\nMove in closer and hold it steady."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "attached_">*/
@@ -1682,7 +1681,7 @@ class FSM
           to="hover__";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"_off < 5 && _hgt < SlingLoadLen && _hgt > 0;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Hold it steady!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };

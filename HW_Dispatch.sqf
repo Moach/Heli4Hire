@@ -176,7 +176,7 @@ HW_Dispatch_Cargo =
 	//
 	_twrPos = (PosDefs_roofTops call bis_fnc_selectRandom) select 1; 
 	
-	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down
+	_towerCargo = round((random 4)-2) max 0; // chance of random cargo atop tower needing a ride down (two is the max to have coming down, not much room up there)
 	_baseCargo  = ceil((random 4)-_towerCargo) max 0; // quasi-random amount of stuff going up (may be zero if cargo going down exists)
 	
 	if(_towerCargo+_baseCargo < 1) then // what da? no cargo = no job!
@@ -187,8 +187,8 @@ HW_Dispatch_Cargo =
 	
 	if (RadioCall_J) then // override for debug run!
 	{
-		_towerCargo = 1;
-		_baseCargo  = 1;
+		_towerCargo = 2;
+		_baseCargo  = 2;
 	};
 	
 	
