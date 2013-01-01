@@ -33,7 +33,9 @@ class Mission
 		"hsim_air_h_airliner_a",
 		"hsim_misc_h_weather_station",
 		"hsim_misc_h_folding_ladder",
-		"hsim_misc_h_barels"
+		"hsim_misc_h_barels",
+		"hsim_modulescore_h_functions",
+		"jed_taxi"
 	};
 	addOnsAuto[]=
 	{
