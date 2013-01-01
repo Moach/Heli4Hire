@@ -12,7 +12,7 @@ item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"
 item8[] = {"done",4,218,6.378744,2538.797607,64.421211,2575.573730,0.000000,"done"};
 item9[] = {"wait_for_it___",2,250,-370.199432,2542.669434,-287.676331,2571.965332,0.000000,"wait for it..."};
 item10[] = {"fail___abort",4,218,298.978210,2368.742432,428.058411,2441.651855,2.000000,"fail / abort"};
-item11[] = {"just_put_it_down",2,250,296.063385,2589.852295,431.363068,2637.693604,0.000000,"just put it down"};
+item11[] = {"just_put_it_down",2,250,294.343048,2591.572754,429.642731,2639.414063,0.000000,"just put it down"};
 item12[] = {"land_ASAP",4,218,144.923187,2587.556641,234.923630,2637.557129,0.000000,"land ASAP"};
 item13[] = {"crew____base",4,218,-199.737350,1304.926147,-105.202164,1359.382080,0.000000,"crew @" \n " base"};
 item14[] = {"crew_away",4,218,-59.178150,1196.362549,30.821869,1246.362549,0.000000,"crew" \n "away"};
@@ -45,7 +45,7 @@ item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,
 item41[] = {"steady__over_it",4,218,508.040466,2287.943604,599.315796,2337.943604,0.000000,"steady " \n "over it"};
 item42[] = {"complete_",4,218,-63.029034,1757.934814,29.620232,1810.630493,0.000000,"complete!"};
 item43[] = {"hover__",2,250,374.316315,2287.735352,445.565582,2338.141846,0.000000,"hover!!"};
-item44[] = {"attached_",4,4314,197.268951,2288.430420,287.268555,2338.430420,0.000000,"attached!"};
+item44[] = {"attached_",4,218,197.268951,2288.430420,287.268555,2338.430420,0.000000,"attached!"};
 item45[] = {"take_it_down",2,250,7.353292,2288.217529,97.353439,2338.217529,0.000000,"take it down"};
 item46[] = {"released_",4,218,136.178558,1910.379517,230.800858,1959.682251,1.000000,"released!"};
 item47[] = {"approach",4,218,8.542566,2191.452881,98.542465,2241.452881,0.000000,"approach"};
@@ -203,7 +203,7 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-165.345154,685.287598,2692.003662,1511.125732,595,826,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-551.488342,472.100372,3208.391357,1787.409424,595,826,1};
 window[] = {0,-1,-1,-1,-1,950,121,1538,10,1,613};
 *//*%FSM</HEAD>*/
 class FSM
@@ -251,17 +251,17 @@ class FSM
        "" \n
        "for ""_i"" from 0 to (_order select 3)-1 do" \n
        "{" \n
-       "	_cPos = _towerPos; " \n
        "	_cDef = CargoDefs_Lite call BIS_fnc_selectRandom;" \n
-       "	_cargo = (_cDef select 0) createVehicle _cPos;" \n
+       "	_cargo = (_cDef select 0) createVehicle [_towerPos select 0, _towerPos select 1];" \n
+       "	_cargo flyInHeight (_towerPos select 2);" \n
+       "" \n
        "	_cgo_towr set [_i, [_cargo, _cDef select 1]];" \n
        "};" \n
        "" \n
        "for ""_i"" from 0 to (_order select 2)-1 do" \n
        "{" \n
-       "	_cPos = _basePos;" \n
        "	_cDef = CargoDefs_Lite call BIS_fnc_selectRandom;" \n
-       "	_cargo = (_cDef select 0) createVehicle _cPos;" \n
+       "	_cargo = (_cDef select 0) createVehicle _basePos;" \n
        "" \n
        "	_cargo addAction [""Connect 16m Sling Rope"", ""SlingLoad\HW_Attach_Sling_Cargo_Action.sqf"", [16, _cDef], 6, true, true, ""Fire"", ""!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14""];" \n
        "	_cargo addAction [""Connect 24m Sling Rope"", ""SlingLoad\HW_Attach_Sling_Cargo_Action.sqf"", [24, _cDef], 6, true, true, ""Fire"", ""!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22""];" \n
@@ -337,6 +337,13 @@ class FSM
     {
       name = "where_s_the__cargo";
       init = /*%FSM<STATEINIT""">*/"" \n
+       "" \n
+       "// this is because loads keep falling off... quite nasty..." \n
+       "{ " \n
+       "	(_x select 0) setPos [_towerPos select 0, _towerPos select 1, (_towerPos select 2) - 1.19232];" \n
+       "} foreach _cgo_towr;" \n
+       "" \n
+       "" \n
        "_crewMkr = """";" \n
        "_baseMkr = """";" \n
        "_towrMkr = """";" \n
@@ -1078,7 +1085,7 @@ class FSM
     {
       name = "fly_to_cargo_atop";
       init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/"hintSilent ""range: "" + str(getPos chopper distance _towerPos);"/*%FSM</STATEPRECONDITION""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
         /*%FSM<LINK "fail___abort">*/
@@ -1141,7 +1148,7 @@ class FSM
           priority = 1.000000;
           to="wait_for_it___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance _pos < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
