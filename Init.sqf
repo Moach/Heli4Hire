@@ -1,5 +1,6 @@
 
-HW_DEBUG = true;
+HW_DEBUG = false;
+
 
 
 _initDefs = player execVM "InitDefs.sqf";
@@ -96,7 +97,7 @@ HW_PD_Clear =
 
 sleep 1;
 
-deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter in the hangar that comes with the object composition...
+deleteVehicle nearestObject [(getPos start_here), "air"]; // remove medium helicopter in the hangar that comes with the object composition...
 
 
 
@@ -106,7 +107,7 @@ deleteVehicle nearestObject [(getPos start_here), "air"]; // remove helicopter i
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos (getPos start_here);
-	player setDir 60;
+	player setDir 20;
 	
 	
 	_reliability_factor =  80; //
@@ -141,7 +142,7 @@ Heli_Cabin_Condition = .7 + random .3;  // cabin interior condition -- 1: fine a
 
 Cabin_needs_action = false;
 chopper addAction ["Inspect Cabin", "HW_Cabin_Check.sqf", nil, 0, false, true, "", 
-	"!Cabin_needs_action && isTouchingGround chopper;", "", -1,-1, 0, 2];
+	"!Cabin_needs_action && isTouchingGround chopper", "", 3,2, 0, 2];
 
 chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true, "", 
 	"Cabin_needs_action && !((chopper turretUnit [0]) == player || driver chopper == player) && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", 
@@ -154,9 +155,18 @@ sleep 1;
 	
 
 
+	
+	
 // since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
+//
 lzLogCount = count PosDefs_roofTops;
-chopper addAction ["D+D: Log Position", "DnD\LogPos.sqf", nil, 0, false];
+chopper addAction ["D+D: Log Position (RT)", "DnD\LogPos.sqf", 0, 0, false];
+chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false];
+//
+//
+
+
+/*
 
 if (HW_DEBUG) then
 {
@@ -197,7 +207,7 @@ if (HW_DEBUG) then
 	
 	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
 };
-
+*/
 
 //
 //
@@ -208,9 +218,9 @@ waitUntil { scriptDone _initUtils };
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
-chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
-chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
-chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 3, true, true, "", "!RopeAttached && (player distance chopper) < 3 && (vehicle player) != chopper"];
+chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
+chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
+chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
 
 
 

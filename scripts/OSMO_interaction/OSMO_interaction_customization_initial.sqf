@@ -59,6 +59,18 @@ if(_chopper isKindOf "Heli_Light01_Base_H") then
   
   _act = _chopper addAction ["Remove Mirror", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddMirror",0]], 0, true, true, "", "((_target animationPhase ""AddMirror"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];
   OSMO_customize_actions set [count OSMO_customize_actions, _act];
+/*  
+  _act = _chopper addAction ["Add Doors", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddDoors",1]], 0, true, true, "", "((_target animationPhase ""AddDoors"") == 0) && ((_this distance _target) < 5)  && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+  _act = _chopper addAction ["Remove Doors", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddDoors",0]], 0, true, true, "", "((_target animationPhase ""AddDoors"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+    _act = _chopper addAction ["Add Back Seats", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddBackseats",1]], 0, true, true, "", "((_target animationPhase ""AddBackseats"") == 0) && ((_this distance _target) < 5)  && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+ */ 
+  _act = _chopper addAction ["Remove Back Seats", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddBackseats",0]], 0, true, true, "", "((_target animationPhase ""AddBackseats"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
   
   _act = _chopper addAction ["Add Long Step", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddTread",1]], 0, true, true, "", "((_target animationPhase ""AddTread_Short"") == 0) && ((_target animationPhase ""AddFLIR"") == 0) && ((_target animationPhase ""AddTread"") == 0) && ((_this distance _target) < 5)  && !(_this in _target)"];
   OSMO_customize_actions set [count OSMO_customize_actions, _act];
@@ -83,6 +95,19 @@ if(_chopper isKindOf "Heli_Light01_Base_H") then
   
   _act = _chopper addAction ["Remove Camera Below", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddFLIR2",0]], 0, true, true, "", "((_target animationPhase ""AddFLIR2"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];    
   OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+ /*  _act = _chopper addAction ["Add Cargo Hook", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddCargoHook",1]], 0, true, true, "", "((_target animationPhase ""AddCargoHook"") == 0) && ((_this distance _target) < 5) && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+  _act = _chopper addAction ["Remove Cargo Hook", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddCargoHook",0]], 0, true, true, "", "((_target animationPhase ""AddCargoHook"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];    
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+    _act = _chopper addAction ["Add Hook Cover", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddCargoHook_cover",1]], 0, true, true, "", "((_target animationPhase ""AddCargoHook_cover"") == 0) && ((_this distance _target) < 5) && !(_this in _target)"];
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+  
+  _act = _chopper addAction ["Remove Hook Cover", "scripts\OSMO_interaction\OSMO_interaction_animate.sqf", [["AddCargoHook_cover",0]], 0, true, true, "", "((_target animationPhase ""AddCargoHook_cover"") == 1) && ((_this distance _target) < 5) && !(_this in _target)"];    
+  OSMO_customize_actions set [count OSMO_customize_actions, _act];
+*/
   
   if((_chopper isKindOf "CIV_Heli_Light01_ION_H") || (_chopper isKindOf "Heli_Light01_ION_H")) then
   {

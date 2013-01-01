@@ -6,5 +6,8 @@ _arguments = _this select 3;
   _animation = _x select 0;
   _action = _x select 1;
   _chopper animate [_animation, _action];
+  
+ 
+  
   waitUntil {_chopper animationPhase _animation == _action};
 } foreach _arguments;

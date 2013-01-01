@@ -150,7 +150,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27881.025,10.89872,29766.979};
+					position[]={27878.811,8.6891146,29752.809};
 					id=6;
 					side="LOGIC";
 					vehicle="Logic";
@@ -2408,8 +2408,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27887.881,8.9035492,29757.479};
-					azimut=340.01602;
+					position[]={27886.166,8.9712515,29757.248};
+					azimut=340.01599;
 					special="NONE";
 					id=1879;
 					side="LOGIC";
@@ -22769,7 +22769,7 @@ class Mission
 		};
 		class Item1721
 		{
-			position[]={27918.512,3.6515367,29784.508};
+			position[]={27921.033,3.9722533,29776.24};
 			azimut=70.809898;
 			special="NONE";
 			id=1851;
@@ -23385,7 +23385,7 @@ class Mission
 		items=3;
 		class Item0
 		{
-			position[]={27875.303,10.913107,29773.645};
+			position[]={27869.352,10.606974,29760.873};
 			name="pad_service_marker";
 			type="Empty";
 		};
