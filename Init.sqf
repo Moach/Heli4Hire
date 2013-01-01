@@ -222,16 +222,16 @@ waitUntil { scriptDone _initUtils };
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
-chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
-chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
-chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 2.6, true, true, "", "!RopeAttached && (player distance chopper) < 3 && !(player in chopper)"];
+chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
+chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
+chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
 
 
 
 _testCDef = [typeOf test_cargo, 300];
-test_cargo addAction ["Connect 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [16, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14"];
-test_cargo addAction ["Connect 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [24, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22"];
-test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [32, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 30"];
+test_cargo addAction ["Connect 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [16, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 14", "", 3, 2];
+test_cargo addAction ["Connect 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [24, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 22", "", 3, 2];
+test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo_Action.sqf", [32, _testCDef], 6, true, true, "Fire", "!RopeAttached && (player distance _target) < 2 && (chopper distance _target) < 30", "", 3, 2];
 
 
 

@@ -18,9 +18,9 @@ HW_Office_Orders = [];
 HW_Office_Funds = 500 + random 500;
 
 
-player addAction ["Save Career Progress", "HW_Savegame.sqf", nil, 0, false, true, "", "!(player in chopper) && player distance office_area < 8 && !Office_Active;"];
+player addAction ["Save Career Progress", "HW_Savegame.sqf", nil, 0, false, true, "", "!(player in chopper) && player distance office_area < 8 && !HW_Office_Active;"];
 
 
 player addAction ["Access Office", "Hangar\HW_Office_Dialog.sqf", 1, 0, true, true, "fire", 
-	"player distance office_area < 8 && !Office_Active;",
+	"player distance office_area < 8 && !HW_Office_Active;",
 	"", -1, -1, 1+8];
