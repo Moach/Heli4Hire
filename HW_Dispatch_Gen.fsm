@@ -1,9 +1,9 @@
-/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_Dispatch_Gen">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
-item1[] = {"time_for_new_gig",4,4314,2.773048,1822.903198,92.773041,1912.545654,1.000000,"time for" \n "new gig" \n "-clear-"};
-item2[] = {"gig_generator",2,250,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
+item1[] = {"time_for_new_gig",4,218,2.773048,1822.903198,92.773041,1912.545654,1.000000,"time for" \n "new gig" \n "-clear-"};
+item2[] = {"gig_generator",2,4346,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
 item3[] = {"call_in",4,218,-16.004354,1579.932007,73.995605,1629.932007,1.000000,"call-in"};
 item4[] = {"call_out",4,218,-261.682007,1751.779419,-193.426971,1818.407715,0.000000,"call-out"};
 item5[] = {"off_duty_",2,250,-108.009804,1334.885376,-18.009850,1384.885376,0.000000,"off duty" \n ""};
@@ -76,7 +76,7 @@ link41[] = {27,13};
 link42[] = {28,0};
 link43[] = {29,0};
 globals[] = {0.000000,0,0,0,0,640,480,3,62,6316128,1,-256.299377,245.266388,2202.487305,1534.583374,591,787,1};
-window[] = {0,-1,-1,-32000,-32000,935,150,1568,34,1,609};
+window[] = {0,-1,-1,-1,-1,935,150,1568,34,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -192,8 +192,7 @@ class FSM
        " [" \n
        "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
        "	HW_Dispatch_Survey, HW_Dispatch_Survey," \n
-       "	HW_Dispatch_Cargo, HW_Dispatch_Cargo," \n
-       "	HW_Dispatch_Slingload" \n
+       "	HW_Dispatch_Cargo, HW_Dispatch_Cargo" \n
        "" \n
        "] call BIS_fnc_selectRandom;" \n
        "" \n

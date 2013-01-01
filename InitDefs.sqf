@@ -28,7 +28,7 @@ CargoDefs_Lite =
 	["FireSuppression_H",      320],
 	["Ventilation_H",          250],
 	["CargoCont_Net1_H",       350],
-	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB almost doesn't cut it (+2 ppl aboard)
+	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB is barely able to lift it (+2 pax aboard)
 	["PowerGenerator",         300]
 ];
 

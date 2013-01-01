@@ -148,8 +148,12 @@ chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true,
 	"Cabin_needs_action && !((chopper turretUnit [0]) == player || driver chopper == player) && Heli_Cabin_Condition < .9 && chopper distance service_helipad < 10 && isTouchingGround chopper && !isEngineOn chopper;", 
 	"", -1,-1, 0, 2];
 
-	
 DisasterEvent = ""; // for now...
+
+
+
+
+
 
 sleep 1;	
 	
