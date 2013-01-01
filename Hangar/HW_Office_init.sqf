@@ -24,8 +24,3 @@ player addAction ["Save Career Progress", "HW_Savegame.sqf", nil, 0, false, true
 player addAction ["Access Office", "Hangar\HW_Office_Dialog.sqf", 1, 0, true, true, "fire", 
 	"player distance office_area < 8 && !HW_Office_Active;",
 	"", -1, -1, 1+8];
-	
-if (HW_DEBUG) then
-{
-	player addAction ["Buddamus", "Hangar\HW_OfficeBuddamus.sqf", nil, 0, false, true, "", "!(player in chopper) && player distance office_area < 8 && !HW_Office_Active;"];
-}

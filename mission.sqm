@@ -2425,7 +2425,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=1772;
+		items=1773;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -23376,6 +23376,18 @@ class Mission
 			id=1902;
 			side="EMPTY";
 			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1772
+		{
+			position[]={15110.151,62.344185,22936.74};
+			azimut=359.42499;
+			special="NONE";
+			id=1903;
+			side="EMPTY";
+			vehicle="Helipad_Civil_H";
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";

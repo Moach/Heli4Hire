@@ -76,7 +76,7 @@ link41[] = {27,13};
 link42[] = {28,0};
 link43[] = {29,0};
 globals[] = {0.000000,0,0,0,0,640,480,3,62,6316128,1,-256.299377,245.266388,2202.487305,1534.583374,591,787,1};
-window[] = {0,-1,-1,-1,-1,935,150,1568,34,1,609};
+window[] = {0,-1,-1,-32000,-32000,935,150,1568,34,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -190,7 +190,7 @@ class FSM
        "" \n
        "_random_fnc_dispatchGig =" \n
        " [" \n
-       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
+       "	HW_Dispatch_Taxi, HW_Dispatch_Taxi, HW_Dispatch_Taxi," \n
        "	HW_Dispatch_Survey, HW_Dispatch_Survey," \n
        "	HW_Dispatch_Cargo, HW_Dispatch_Cargo" \n
        "" \n
