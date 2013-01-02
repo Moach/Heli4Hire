@@ -34,7 +34,6 @@ SlingLogic = [] spawn
 			
 			chopper      removeAction SlingRopeDiscn_Action_H;
 			SlingLoadCgo removeAction SlingRopeDiscn_Action_C;
-			SlingLoadCgo = objNull;
 			
 			chopper ropeDetach SlingRope;
 			ropeDestroy SlingRope;
@@ -44,8 +43,9 @@ SlingLogic = [] spawn
 			
 			
 			sleep 2;
-			RopeAttached = false;
 			
+			SlingLoadCgo = objNull;
+			RopeAttached = false;
 		};
 	};
 };
