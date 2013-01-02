@@ -163,7 +163,7 @@ chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false];
 //
 
 
-/*
+
 
 if (HW_DEBUG) then
 {
@@ -171,7 +171,9 @@ if (HW_DEBUG) then
 	chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf", nil, 0, false];
 	//
 	
-	// create markers showing ALL indexed landing areas!
+	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
+	
+/*	// create markers showing ALL indexed landing areas!
 	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
 	_counter = 0;
 	{
@@ -203,8 +205,9 @@ if (HW_DEBUG) then
 	
 	
 	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
+	*/
 };
-*/
+
 
 //
 //

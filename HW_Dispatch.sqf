@@ -154,7 +154,9 @@ HW_Dispatch_Cargo =
 	
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
-	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 2500];
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 5000];
+	_near resize (3 min (count _near)); // allow only the 3 closest sites for supply - it's incoherent to have miles-long trips to sling loads over
+	//
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	
@@ -187,8 +189,6 @@ HW_Dispatch_Cargo =
 	
 	GigLineup set [ count GigLineup, gig ];
 };
-
-
 
 
 

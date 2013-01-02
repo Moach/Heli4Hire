@@ -203,7 +203,7 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-524.822632,-55.010376,2899.503662,2247.294189,595,826,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-653.250488,454.541565,3002.952881,1465.076904,595,826,1};
 window[] = {0,-1,-1,-32000,-32000,950,121,1538,10,1,613};
 *//*%FSM</HEAD>*/
 class FSM
@@ -1123,7 +1123,7 @@ class FSM
        "deleteMarker _towrMkr;" \n
        "" \n
        "" \n
-       "if (random 5 > 2)" \n
+       "if (random 5 > 2) then" \n
        "{" \n
        "	hint ""Alright! that's it! -- that was a fine job you did there! congratulations!\nnow could you please take us back?"";" \n
        "" \n
@@ -1137,7 +1137,7 @@ class FSM
        "{" \n
        "	hint ""Ok, That was some fancy flying right there! Kudos!\n now, we're not going back to where we met, as I got some business to get to, could you take me there?"";" \n
        "		" \n
-       "	_near = nearestLocations [getPos chopper, LocDefs_taxi, 15000];" \n
+       "	_near = nearestLocations [getPos chopper, LocDefs_taxi, 20000];" \n
        "	_pos = locationPosition (_near call BIS_fnc_selectRandom);" \n
        "		" \n
        "	_mkr = createMarker [""Arrival"", _pos];" \n
