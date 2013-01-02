@@ -90,7 +90,7 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = round(random(6)-random(6)); // due to the nature of 'for' loops in this scripting language, if _num is zero, we'll still get one area to fly
+		_num = round(random(6)-random(6)) max 0; 
 	};
 	
 	//
@@ -99,7 +99,7 @@ HW_Dispatch_Survey =
 	
 	AreaLimit = (3+random(4)) * 1000;
 	
-	for "_i" from 0 to _num do
+	for "_i" from 0 to _num do // due to the nature of 'for' loops in this scripting language, if _num is zero, we'll still get one area to fly
 	{
 		_sp = [[[AreaCenter, AreaLimit], survey_safe_zone], ["water","out"], {(_this distance AreaCenter) < AreaLimit}] call BIS_fnc_randomPos;
 		_surveyPoints set [_i, _sp];
@@ -254,7 +254,7 @@ if (HW_DEBUG) then // enable only for debug!
 		[1, chopper, true] call BIS_fnc_enginesOnDebug;
 		
 		sleep 1;
-		call HW_Dispatch_Cargo;
+		call HW_Dispatch_Survey;
 		
 		RadioCall_J = false;
 	};
