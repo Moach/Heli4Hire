@@ -34,8 +34,7 @@ class Mission
 		"hsim_misc_h_weather_station",
 		"hsim_misc_h_folding_ladder",
 		"hsim_misc_h_barels",
-		"hsim_modulescore_h_functions",
-		"jed_taxi"
+		"hsim_modulescore_h_functions"
 	};
 	addOnsAuto[]=
 	{
@@ -2370,15 +2369,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27880.9,8.752203,29753.967};
-					azimut=343.202;
+					position[]={27912.621,3.8057361,29783.563};
+					azimut=180.98744;
 					id=336;
 					side="CIV";
 					vehicle="Instructor_H";
 					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
-					init="this setIdentity ""hsim_Player""; player flyInHeight 0;";
+					init="this setIdentity ""hsim_Player"";";
 				};
 			};
 		};

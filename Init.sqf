@@ -1,5 +1,5 @@
 
-HW_DEBUG = false;
+HW_DEBUG = true;
 
 
 
@@ -22,29 +22,19 @@ if (!HW_DEBUG) then {
 	titleText["", "BLACK FADED"];
 };
 
- 1 setRadioMsg "Call in Available";
- 2 setRadioMsg "NULL";
- 3 setRadioMsg "NULL";
- 4 setRadioMsg "NULL";
- 5 setRadioMsg "NULL";
- 6 setRadioMsg "NULL";
- 7 setRadioMsg "NULL";
- 8 setRadioMsg "NULL";
- 9 setRadioMsg "NULL";
-10 setRadioMsg "NULL";
 
 // reset upon expecting radio call
 //
-RadioCall_A = false; 
-RadioCall_B = false; 
-RadioCall_C = false; 
-RadioCall_D = false; 
-RadioCall_E = false; 
-RadioCall_F = false; 
-RadioCall_G = false; 
-RadioCall_H = false; 
-RadioCall_I = false; 
-RadioCall_J = false; 
+RadioCall_A = false;    1 setRadioMsg "Call in Available";
+RadioCall_B = false;    2 setRadioMsg "NULL";
+RadioCall_C = false;    3 setRadioMsg "NULL";
+RadioCall_D = false;    4 setRadioMsg "NULL";
+RadioCall_E = false;    5 setRadioMsg "NULL";
+RadioCall_F = false;    6 setRadioMsg "NULL";
+RadioCall_G = false;    7 setRadioMsg "NULL";
+RadioCall_H = false;    8 setRadioMsg "NULL";
+RadioCall_I = false;    9 setRadioMsg "NULL";
+RadioCall_J = false;   10 setRadioMsg "NULL";
 
 
 // this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
@@ -173,7 +163,7 @@ chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false];
 //
 
 
-/*
+
 
 if (HW_DEBUG) then
 {
@@ -181,7 +171,9 @@ if (HW_DEBUG) then
 	chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf", nil, 0, false];
 	//
 	
-	// create markers showing ALL indexed landing areas!
+	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
+	
+/*	// create markers showing ALL indexed landing areas!
 	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
 	_counter = 0;
 	{
@@ -213,8 +205,9 @@ if (HW_DEBUG) then
 	
 	
 	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
+	*/
 };
-*/
+
 
 //
 //

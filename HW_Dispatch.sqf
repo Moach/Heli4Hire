@@ -32,7 +32,7 @@ HW_Disptach_Radio_Update =
 		central sideRadio (["HW_Radio_Update", "HW_Radio_CheckReport", "HW_Radio_MapCheck", "HW_Radio_UpdateReport", 
 			"HW_Radio_CheckIn", "HW_Radio_Report", "HW_Radio_Dispatch", "HW_Radio_Update_Info"] call bis_fnc_selectRandom);
 		
-		RadioCallDelay = time+30; // no 'update' calls within 30 seconds from the last.... it can sound very robotic otherwise
+		RadioCallDelay = time+60; // no 'update' calls within so many seconds from the last.... it can sound very robotic otherwise
 	};
 };
 
@@ -40,7 +40,6 @@ HW_Dispatch_Taxi =
 {
 	//
 	//
-	
 	_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
 	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
 	
@@ -154,7 +153,9 @@ HW_Dispatch_Cargo =
 	
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
-	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 2500];
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 5000];
+	_near resize (3 min (count _near)); // allow only the 3 closest sites for supply - it's incoherent to have miles-long trips to sling loads over
+	//
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	
@@ -187,8 +188,6 @@ HW_Dispatch_Cargo =
 	
 	GigLineup set [ count GigLineup, gig ];
 };
-
-
 
 
 
