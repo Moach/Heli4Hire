@@ -65,6 +65,7 @@ HW_Dispatch_Taxi =
 	_mkr setMarkerType "hd_start";
 	_mkr setMarkerDir ((_p2 select 0) - (_p1 select 0)) atan2 ((_p2 select 1) - (_p1 select 1));
 	_mkr setMarkerText ("Pax | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
+	_mkr setMarkerColor "ColorRed";
 	
 	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
 	
@@ -115,6 +116,7 @@ HW_Dispatch_Survey =
 	_mkr setMarkerType "hd_start";
 	_mkr setMarkerDir ((AreaCenter select 0) - (_p1 select 0)) atan2 ((AreaCenter select 1) - (_p1 select 1));
 	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
+	_mkr setMarkerColor "ColorRed";
 	
 	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
 	
@@ -124,6 +126,7 @@ HW_Dispatch_Survey =
 	gig setVariable ["mkr", _mkID];
 	gig setVariable ["tsk", _tsk];
 	gig setVariable ["fsm", "HeliWorks_Survey.fsm"];
+	
 	
 	GigLineup set [ count GigLineup, gig ];
 };
@@ -144,17 +147,17 @@ HW_Dispatch_Cargo =
 		_towerCargo = 1; // fallback to 'one coming down' in the off chance this happens...
 	};
 	
-	
+	/*
 	if (RadioCall_J) then // override for debug run!
 	{
 		_towerCargo = 2;
 		_baseCargo  = 2;
 	};
-	
+	*/
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
-	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 5000];
-	_near resize (3 min (count _near)); // allow only the 3 closest sites for supply - it's incoherent to have miles-long trips to sling loads over
+	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 10000];
+	if (count _near > 3) then { _near resize 3; }; // allow only the few closest sites for supply - it's incoherent to have miles-long trips to sling loads over
 	//
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
@@ -171,6 +174,7 @@ HW_Dispatch_Cargo =
 	_mkr = createMarker [_mkID, _crewPos];
 	_mkr setMarkerType "hd_join";
 	_mkr setMarkerText ("Cargo | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	_mkr setMarkerColor "ColorRed";
 	
 	_tsk = player createSimpleTask ["Cargo SlingLoad"];
 	_tsk setSimpleTaskDestination _crewPos;
