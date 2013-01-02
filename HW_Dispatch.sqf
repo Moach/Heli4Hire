@@ -84,13 +84,13 @@ HW_Dispatch_Survey =
 {
 	//
 	_p1 = getPos service_helipad;
-	_num = 0;
+	_num = 2;
 	
 	if (!RadioCall_J) then // not a debug run!
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = round(random(6)-random(6)) max 0; 
+		_num = round(random(6) - random(6)) max 0; 
 	};
 	
 	//
