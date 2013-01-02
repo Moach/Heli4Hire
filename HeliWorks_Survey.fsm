@@ -10,7 +10,7 @@ item5[] = {"deboard",2,250,38.058102,2253.112793,128.058136,2303.113037,0.000000
 item6[] = {"away",4,218,39.097061,2323.200439,129.097290,2373.200928,0.000000,"away"};
 item7[] = {"now_boarding___",2,250,-625.913147,1599.736816,-532.392883,1641.415039,0.000000,"now boarding..."};
 item8[] = {"clear",1,250,37.422394,2391.902100,127.422539,2441.902100,0.000000,"clear"};
-item9[] = {"timeout",4,218,-331.205475,1723.223267,-237.637085,1774.412842,1.000000,"timeout"};
+item9[] = {"timeout",4,218,-343.738220,1719.463379,-250.169830,1770.652954,1.000000,"timeout"};
 item10[] = {"done",4,218,54.835030,2199.789795,114.914467,2237.597900,0.000000,"done"};
 item11[] = {"wait_for_it___",2,250,41.475163,2155.272217,121.902290,2189.119873,0.000000,"wait for it..."};
 item12[] = {"fail___abort",4,218,-265.970398,2050.503662,-175.970169,2100.500488,2.000000,"fail / abort"};
@@ -37,12 +37,12 @@ item32[] = {"",7,210,-397.862396,2277.080078,-389.862366,2285.080322,0.000000,""
 item33[] = {"too_high",4,218,-512.141357,2433.815430,-422.141296,2483.815430,4.000000,"too high"};
 item34[] = {"bad_pilot_",2,250,-621.909119,2276.475098,-531.909058,2326.475098,0.000000,"bad pilot!"};
 item35[] = {"too_low",4,218,-593.170166,2386.689453,-507.944397,2437.883057,3.000000,"too low"};
-item36[] = {"failsafe_over",4,218,-621.585754,2007.032227,-531.585449,2057.037109,0.000000,"failsafe" \n "over"};
+item36[] = {"failsafe_over_M",4,218,-621.585754,2007.032227,-531.585449,2057.037109,0.000000,"failsafe" \n "over M"};
 item37[] = {"too_close",4,218,-370.708008,2344.951416,-280.707855,2394.951416,1.000000,"too close"};
 item38[] = {"PD_can_t_land__t",4,218,-137.293015,1934.320435,-35.302204,1998.809204,0.000000,"PD" \n "can't land" \n " there"};
 item39[] = {"too_fast",4,218,-366.967957,2275.336670,-276.681610,2324.132324,2.000000,"too fast"};
 item40[] = {"steady_out",2,250,-1071.115723,1903.249756,-997.622925,1952.070679,0.000000,"steady out"};
-item41[] = {"failsafe_over",4,218,-974.283020,2144.402344,-884.283508,2194.402344,0.000000,"failsafe" \n "over"};
+item41[] = {"failsafe_over_H",4,218,-974.283020,2144.402344,-884.283508,2194.402344,0.000000,"failsafe" \n "over H"};
 item42[] = {"off_angle",4,218,-435.923798,2392.483887,-349.847809,2443.464844,0.000000,"off angle"};
 item43[] = {"slow",4,218,-352.869812,1853.684570,-283.237946,1897.422607,0.000000,"slow"};
 item44[] = {"move__around_",2,250,-559.952515,1849.116699,-489.982300,1902.592407,0.000000,"move " \n "around!"};
@@ -142,8 +142,8 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,192,6316128,1,-941.255920,-282.200378,2465.071533,1526.755127,590,840,1};
-window[] = {0,-1,-1,-1,-1,1017,142,1558,63,1,608};
+globals[] = {0.000000,0,0,0,0,640,480,1,193,6316128,1,-812.128540,-72.696594,2504.817383,1452.066895,590,840,1};
+window[] = {0,-1,-1,-1,-1,1014,218,1634,60,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -193,6 +193,8 @@ class FSM
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
        "" \n
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
+       "(units _grp) call HW_Util_Animate_Idle;" \n
+       "" \n
        "" \n
        "_tsk = player createSimpleTask [""Current Assignment""];" \n
        "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
@@ -373,6 +375,9 @@ class FSM
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
        "" \n
+       "(units _grp) call HW_Util_Animate_Off;" \n
+       "" \n
+       "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
        "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
        "" \n
@@ -383,7 +388,7 @@ class FSM
        "} else" \n
        "{" \n
        "	// put everyone aboard by telling them to like normal people..." \n
-       "	" \n
+       "" \n
        "	units _grp select 0 assignAsTurret [(vehicle player),[0]];" \n
        "	if (count units _grp > 1) then { units _grp select 1 assignAsCargo (vehicle player); };" \n
        "	if (count units _grp > 2) then { units _grp select 2 assignAsCargo (vehicle player); };	" \n
@@ -893,6 +898,8 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"_approaching = false;" \n
        "_approach_tgt = _locMarkers select 0;" \n
        "" \n
+       "" \n
+       "" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/"{	" \n
        "	if (!_approaching && ((vehicle player) distance (getMarkerPos _x)) < 500 ) then" \n
@@ -1032,8 +1039,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe_over">*/
-        class failsafe_over
+        /*%FSM<LINK "failsafe_over_H">*/
+        class failsafe_over_H
         {
           priority = 0.000000;
           to="survey__flight_H";
@@ -1042,8 +1049,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe_over_1">*/
-        class failsafe_over_1
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1101,8 +1108,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe_over">*/
-        class failsafe_over
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1222,8 +1229,8 @@ class FSM
            "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe_over">*/
-        class failsafe_over
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1489,8 +1496,8 @@ class FSM
            "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe_over">*/
-        class failsafe_over
+        /*%FSM<LINK "failsafe_over_H">*/
+        class failsafe_over_H
         {
           priority = 0.000000;
           to="survey__flight_H";

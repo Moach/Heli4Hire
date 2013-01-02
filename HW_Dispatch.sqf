@@ -230,6 +230,60 @@ HW_Pilot_Task_Commit =
 
 
 
+// this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
+// should be reset to zero after use....
+PilotDecision = 0;
+PD_Armed = false; // indicates if pilot decisions are available
+PD_Actions = [];  // tracks menu action ids for pilot decisions
+
+
+
+//
+// PD setup utility functions...
+//
+
+HW_PD_Prompt = 
+{
+	if (PD_Armed) exitWith { player sidechat "WARNING!!\n - PD armed - \ncannot prompt further options before clear!"; };
+	
+	PD_Armed = true;
+	_opts = _this select 0; // array expected as argument, should contain strings of titles for each option
+
+	_p = 1; 
+	PD_Actions resize (count _opts);
+	
+	{
+		//
+		_id = chopper addAction [_x, "HW_Pilot_Decision.sqf", _p, 6, false, true];
+		PD_Actions set [_p-1, _id];
+		_p = _p+1;
+		
+	} foreach _opts;
+};
+
+
+HW_PD_Clear = 
+{
+	PilotDecision = 0;
+	PD_Armed = false;
+	
+	{
+		chopper removeAction _x;
+		//
+	} foreach PD_Actions;
+	
+	PD_Actions = [];
+};
+
+
+
+
+
+
+
+
+
+
 
 // //////////////////////////////////////////////////////////////  //////////////////////////////////////////////////////////////
 // //////////////////////////////////////////////////////////////  //////////////////////////////////////////////////////////////

@@ -8,7 +8,7 @@ item3[] = {"where_s_the__cargo",2,250,-198.370941,1196.576782,-108.371117,1246.5
 item4[] = {"land",4,218,-408.133972,2450.102295,-324.746307,2494.591797,1.000000,"land"};
 item5[] = {"deboard",2,250,-13.834530,2586.281982,76.165344,2636.281982,0.000000,"deboard"};
 item6[] = {"away",4,218,-13.649254,2672.620117,76.350922,2722.620605,0.000000,"away"};
-item7[] = {"clear",1,4346,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
+item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
 item8[] = {"done",4,218,1.641144,2538.797607,59.683609,2575.573730,0.000000,"done"};
 item9[] = {"wait_for_it___",2,250,-370.199432,2542.669434,-287.676331,2571.965332,0.000000,"wait for it..."};
 item10[] = {"fail___abort",4,218,297.475616,2367.233887,426.555817,2440.143311,2.000000,"fail / abort"};
@@ -19,7 +19,7 @@ item14[] = {"crew_away",4,218,-59.178150,1196.362549,30.821869,1246.362549,0.000
 item15[] = {"meet_crew_at__cargo",2,250,-37.154335,1307.018677,52.845650,1357.018677,0.000000,"meet crew at" \n " cargo base!"};
 item16[] = {"go_get_crew_",2,250,84.498543,1249.568237,174.498566,1299.568237,0.000000,"go get crew!"};
 item17[] = {"land",4,218,84.439957,1536.182617,174.440735,1586.182617,1.000000,"land"};
-item18[] = {"now_boarding___",2,250,225.460266,1536.869141,327.306824,1585.684448,0.000000,"now boarding..."};
+item18[] = {"now_boarding___",2,4346,225.460266,1536.869141,327.306824,1585.684448,0.000000,"now boarding..."};
 item19[] = {"timeout",4,218,267.205170,1604.036499,357.205902,1654.036499,0.000000,"timeout"};
 item20[] = {"all_aboard__live",4,218,315.895752,1576.469849,405.896240,1626.469849,0.000000,"all aboard" \n "(live)"};
 item21[] = {"running_late",4,218,28.838615,1385.417114,118.838516,1435.417114,1.000000,"running late"};
@@ -29,7 +29,7 @@ item24[] = {"you_fucked_it",1,250,-226.689102,1536.246582,-136.688934,1586.24633
 item25[] = {"abort_pickup",4,218,235.049316,1307.333252,325.049225,1357.333252,2.000000,"abort pickup"};
 item26[] = {"quit",1,250,274.362823,1231.638062,364.362885,1281.638062,0.000000,"quit"};
 item27[] = {"land",4,218,-36.447037,1536.110962,53.553764,1586.110962,1.000000,"land"};
-item28[] = {"now_boarding____1",2,250,-41.857361,1617.905273,59.989212,1666.720581,0.000000,"now boarding..."};
+item28[] = {"now_boarding____1",2,250,-43.835674,1619.883545,59.000057,1668.698853,0.000000,"now boarding..."};
 item29[] = {"timeout",4,218,-38.365921,1683.145264,51.634842,1733.145264,0.000000,"timeout"};
 item30[] = {"and_then____",2,250,40.941536,1808.422363,145.309372,1875.663818,0.000000,"and then?..."};
 item31[] = {"land",4,218,190.286224,1683.340210,280.286316,1733.340210,1.000000,"land"};
@@ -40,7 +40,7 @@ item35[] = {"ready",4,218,222.003693,2015.338623,318.567963,2062.520264,0.000000
 item36[] = {"fly_to_cargo_atop",2,250,202.101349,2081.207031,292.101227,2131.206787,0.000000,"fly to cargo" \n "atop tower"};
 item37[] = {"go_back",2,250,-413.162933,2379.086670,-323.162842,2429.086670,0.000000,"go back"};
 item38[] = {"attach_sling_rope",2,250,-163.399231,1888.835327,-73.399231,1938.835449,0.000000,"attach sling" \n "rope to cargo"};
-item39[] = {"ready_",4,218,-263.442383,2059.593994,-165.912338,2116.568115,0.000000,"ready!"};
+item39[] = {"ready_",4,218,-263.442383,2060.687256,-165.912338,2117.661377,0.000000,"ready!"};
 item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,0.000000,"sling it up"};
 item41[] = {"steady__over_it",4,218,508.681213,2285.963623,599.956543,2335.963623,0.000000,"steady " \n "over it"};
 item42[] = {"complete_",4,218,-63.029034,1757.934814,29.620232,1810.630493,0.000000,"complete!"};
@@ -50,20 +50,20 @@ item45[] = {"take_it_down",2,250,6.390173,2287.254395,96.390335,2337.254395,0.00
 item46[] = {"released_",4,218,129.021179,1910.598877,223.643478,1959.901611,1.000000,"released!"};
 item47[] = {"approach",4,218,6.669127,2192.389648,96.669037,2242.389648,0.000000,"approach"};
 item48[] = {"gently_drop__car",2,250,48.349426,2112.474121,138.349304,2162.474121,0.000000,"gently drop " \n "cargo"};
-item49[] = {"all_aboard__live",4,218,106.985039,1616.773193,196.985794,1666.773193,0.000000,"all aboard" \n "(live)"};
+item49[] = {"all_aboard__live",4,218,110.159233,1618.938110,200.159988,1668.938110,0.000000,"all aboard" \n "(live)"};
 item50[] = {"",7,210,356.514832,2222.134277,364.514832,2230.134277,0.000000,""};
 item51[] = {"",7,210,-49.362514,2399.915039,-41.362507,2407.915039,0.000000,""};
 item52[] = {"FUCK__",4,218,-254.661392,2290.479004,-176.731796,2333.763672,0.000000,"FUCK!!"};
 item53[] = {"YOU_BROKE_IT_",2,250,-271.310059,2442.075195,-160.027817,2495.458252,0.000000,"YOU BROKE IT!"};
 item54[] = {"land_near__disas",4,218,-265.087097,2575.161377,-166.320587,2633.928223,0.000000,"land near " \n "disaster"};
-item55[] = {"land_it__back",4,218,-350.748260,2271.587158,-253.412048,2324.373047,1.000000,"land it" \n " back"};
+item55[] = {"land_it__back",4,218,-464.147186,2194.301514,-381.987213,2243.293213,1.000000,"land it" \n " back"};
 item56[] = {"try_again_",2,250,-258.937439,1890.365234,-168.937393,1940.363159,0.000000,"try again?"};
 item57[] = {"bad",4,218,436.878815,2162.364746,510.929535,2198.291992,0.000000,"bad"};
 item58[] = {"drumroll___",2,250,-4.956762,1909.944458,56.659019,1961.464722,0.000000,"drumroll..."};
 item59[] = {"clear_",4,218,44.145332,1955.999756,141.798798,2005.486450,1.000000,"clear!"};
 item60[] = {"",7,210,-372.076080,1780.178467,-364.076080,1788.178467,0.000000,""};
 item61[] = {"hold___",2,250,-329.000366,2006.167480,-275.236389,2055.112305,0.000000,"hold..."};
-item62[] = {"safe_",4,218,-288.466797,1951.663208,-225.389709,1987.360352,1.000000,"safe!"};
+item62[] = {"safe_",4,218,-288.466797,1950.713013,-225.389709,1986.410156,1.000000,"safe!"};
 item63[] = {"bad_drop_",4,218,-59.587517,2005.644409,30.412394,2055.642090,0.000000,"bad" \n "drop!"};
 item64[] = {"___cargo_base",2,250,86.930336,1692.775635,153.301559,1723.442993,0.000000,"@ cargo" \n "base"};
 item65[] = {"_",8,218,68.948021,1750.665405,116.572922,1781.333496,0.000000,""};
@@ -71,7 +71,7 @@ item66[] = {"where__from_",2,250,100.882423,2447.973877,181.359024,2512.348389,0
 item67[] = {"depart",4,218,94.396805,2212.429199,188.280624,2263.917969,0.000000,"depart"};
 item68[] = {"going_up",4,218,41.838890,2412.899170,120.265800,2454.797852,0.000000,"going" \n "up"};
 item69[] = {"going_down",4,218,170.579636,2408.152588,260.579956,2458.152588,0.000000,"going" \n "down"};
-item70[] = {"damage_control",2,250,-262.871246,2672.474365,-172.871231,2722.474365,0.000000,"damage" \n "control"};
+item70[] = {"damage_control",2,250,-261.423035,2672.474365,-171.423004,2722.474365,0.000000,"damage" \n "control"};
 item71[] = {"close_in",4,218,509.313477,2081.166992,599.313232,2131.166992,0.000000,"close in"};
 item72[] = {"approach_cargo",2,250,511.915222,2197.206055,596.416931,2254.665771,0.000000,"approach" \n "cargo"};
 item73[] = {"far",4,218,202.212433,2200.818359,292.211945,2250.818604,0.000000,"far"};
@@ -203,8 +203,8 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,228,6316128,1,-320.308533,448.577332,3195.877441,2128.483154,595,826,1};
-window[] = {0,-1,-1,-32000,-32000,950,121,1538,10,1,613};
+globals[] = {0.000000,0,0,0,0,640,480,1,228,6316128,1,-410.837341,562.064026,2239.081543,1009.187500,689,871,1};
+window[] = {0,-1,-1,-1,-1,1009,49,1552,24,1,707};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -236,6 +236,8 @@ class FSM
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.4]] call BIS_fnc_spawnGroup;" \n
        "{ _x lookAt chopper; } foreach units _grp;" \n
        "" \n
+       "" \n
+       "(units _grp) call HW_Util_Animate_Idle;" \n
        "" \n
        "_tsk = player createSimpleTask [""Current Assignment""];" \n
        "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
@@ -437,6 +439,8 @@ class FSM
        "		};" \n
        "	};" \n
        "" \n
+       "	1 setRadioMsg ""Sorry, My bad!"";" \n
+       "" \n
        "} else" \n
        "{" \n
        "	 if (RadioCall_B) then" \n
@@ -468,6 +472,8 @@ class FSM
        "		" \n
        "		bis_genericSentenceMode = 1;" \n
        "		[""AmbienceHeliportFarewell"",  (leader _grp)] call bis_fnc_genericSentence;" \n
+       "" \n
+       "		1 setRadioMsg ""Rpt. Clear & Complete"";" \n
        "	};" \n
        "};" \n
        "" \n
@@ -476,7 +482,7 @@ class FSM
        "units _grp allowGetIn false;             // OUT! NOW!! - beat it!" \n
        "" \n
        "" \n
-       "1 setRadioMsg ""Rpt. Clear of Assignment"";" \n
+       "" \n
        "" \n
        "" \n
        "" \n
@@ -717,6 +723,8 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
+       "(units _grp) call HW_Util_Animate_Off;" \n
+       "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
        "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
@@ -923,6 +931,8 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
+       "(units _grp) call HW_Util_Animate_Off;" \n
+       "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
        "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
@@ -1399,7 +1409,7 @@ class FSM
     class YOU_BROKE_IT_
     {
       name = "YOU_BROKE_IT_";
-      init = /*%FSM<STATEINIT""">*/"hint ""You wrecked the load!! -- the job has been scrapped! -- land the crew near the debris so they can check the damage!"";" \n
+      init = /*%FSM<STATEINIT""">*/"hint ""You lost the load!! -- the whole job has been put on hold for today! -- try to land the crew near the area so they can check the damage!"";" \n
        "" \n
        "" \n
        "deleteMarker _baseMkr;" \n
@@ -1633,6 +1643,8 @@ class FSM
        "" \n
        "" \n
        "DisasterEvent = ""LoadWrecked""; // this is coming out of your pay!" \n
+       "" \n
+       "hintSilent ""Let's see what the situation is...\n\n losing a load is a critical situation, so you're done here! - this is gonna take the crew the whole day now!"";" \n
        "" \n
        "" \n
        "1 setRadioMsg ""Go ahead! Tell 'em!"";"/*%FSM</STATEINIT""">*/;
