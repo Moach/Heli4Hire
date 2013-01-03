@@ -1,63 +1,59 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Survey">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-378.431091,1232.594116,-288.431335,1282.594238,0.000000,"START"};
-item1[] = {"avail",4,218,-224.070770,1232.925171,-134.070892,1282.925171,0.000000,"avail"};
-item2[] = {"land",4,218,-225.096634,1538.357666,-135.096100,1588.357666,1.000000,"land"};
-item3[] = {"pickup",2,250,-224.283051,1328.550781,-134.283112,1378.550781,0.000000,"pickup"};
-item4[] = {"land_",4,218,-52.303757,1933.734375,17.224367,2003.182739,1.000000,"land" \n ""};
-item5[] = {"deboard",2,250,-75.912941,2096.356201,14.087046,2146.356445,0.000000,"deboard"};
-item6[] = {"away",4,218,40.815125,2095.252930,130.815308,2145.253418,0.000000,"away"};
-item7[] = {"now_boarding___",2,250,-348.725983,1538.873413,-246.879333,1587.688721,0.000000,"now boarding..."};
-item8[] = {"clear",1,250,186.092850,2096.158936,276.093048,2146.158936,0.000000,"clear"};
-item9[] = {"timeout",4,218,-284.795746,1641.321899,-194.795441,1691.321899,1.000000,"timeout"};
-item10[] = {"done",4,218,-61.110374,2029.684082,-1.030961,2067.493408,0.000000,"done"};
-item11[] = {"wait_for_it___",2,250,48.039490,2031.630005,128.466583,2065.479004,0.000000,"wait for it..."};
-item12[] = {"fail___abort",4,218,-341.813446,2045.222412,-251.813446,2095.220459,2.000000,"fail / abort"};
-item13[] = {"just_put_it_down",2,250,-207.437393,2134.862549,-112.153442,2170.477051,0.000000,"just put it down"};
-item14[] = {"land_ASAP",4,218,-76.137001,2202.443359,13.862848,2252.444580,0.000000,"land ASAP"};
-item15[] = {"running_late",4,218,-87.865166,1327.074097,2.134842,1377.074097,1.000000,"running late"};
-item16[] = {"you_re_late",2,250,-80.627411,1396.305298,-4.769211,1445.150269,0.000000,"you're late"};
-item17[] = {"too_late",4,218,46.066101,1396.472290,136.066101,1446.472290,2.000000,"too late"};
-item18[] = {"you_fucked_it",1,250,47.034897,1488.143921,137.034912,1538.143921,0.000000,"you fucked it"};
-item19[] = {"all_aboard__live",4,218,-404.270325,1641.880249,-314.269714,1691.880249,0.000000,"all aboard" \n "(live)"};
-item20[] = {"go_fly_",2,250,-342.126587,1775.221313,-252.126556,1825.221313,0.000000,"go fly!"};
-item21[] = {"abort_pickup",4,218,-351.699097,1396.293335,-261.699219,1446.293335,2.000000,"abort pickup"};
-item22[] = {"quit",1,250,-501.219727,1396.342041,-411.219482,1446.342041,0.000000,"quit"};
-item23[] = {"approach_locatio",4,218,-918.159058,1776.165161,-828.157959,1826.165161,1.000000,"approach" \n "location"};
-item24[] = {"survey_flight_OR",2,250,-442.193207,1951.488281,-378.859222,2009.974243,0.000000,"survey" \n "flight" \n "ORBIT"};
-item25[] = {"next_",4,218,-586.260742,1776.411743,-496.260925,1826.411743,0.000000,"next!"};
-item26[] = {"on_the_way",2,250,-752.841858,1775.411133,-662.841614,1825.411133,0.000000,"on the way"};
-item27[] = {"_",8,218,-730.808289,1727.380859,-686.967407,1754.336792,0.000000,""};
-item28[] = {"that_s_all",4,218,-407.789032,2205.889648,-317.789520,2255.886719,1.000000,"that's all"};
-item29[] = {"go_for_landing",2,4346,-205.815796,2044.938477,-115.815918,2094.938965,0.000000,"go for landing"};
-item30[] = {"away",4,218,-738.865906,1854.521851,-678.426880,1890.131104,0.000000,"away"};
-item31[] = {"",7,210,-407.303162,1795.653687,-399.303162,1803.653687,0.000000,""};
-item32[] = {"",7,210,-490.363983,1736.344482,-482.363983,1744.344482,0.000000,""};
-item33[] = {"",7,210,-554.104858,2066.258545,-546.105042,2074.261719,0.000000,""};
-item34[] = {"",7,210,-463.829956,2226.160889,-455.829956,2234.160889,0.000000,""};
-item35[] = {"too_high",4,218,-672.454956,2235.619141,-582.454956,2285.619141,4.000000,"too high"};
-item36[] = {"bad_pilot_",2,250,-672.486084,2363.081787,-582.486084,2413.081787,0.000000,"bad pilot!"};
-item37[] = {"too_low",4,218,-616.175537,2267.510498,-530.949951,2318.704102,3.000000,"too low"};
-item38[] = {"failsafe__orbit",4,218,-869.000671,1953.777832,-779.000305,2003.782227,0.000000,"failsafe" \n "-orbit-"};
-item39[] = {"too_close",4,218,-511.754211,2328.301758,-421.754150,2378.301758,1.000000,"too close"};
-item40[] = {"PD_can_t_land__t",4,218,-216.228577,1843.682007,-105.441971,1907.193115,0.000000,"PD" \n "can't land" \n " there"};
-item41[] = {"too_fast",4,218,-563.404663,2298.011719,-478.359192,2349.427246,2.000000,"too fast"};
-item42[] = {"",7,210,-716.301331,2203.103516,-708.301331,2211.104004,0.000000,""};
-item43[] = {"steady_out",2,250,-908.758118,1848.031006,-835.265503,1896.851929,0.000000,"steady out"};
-item44[] = {"failsafe__hover",4,218,-1005.941772,2127.445068,-915.941956,2177.445068,0.000000,"failsafe" \n "-hover-"};
-item45[] = {"off_angle",4,218,-451.924561,2362.142578,-365.848572,2413.123535,0.000000,"off angle"};
-item46[] = {"",7,210,-961.510193,1698.973389,-953.510193,1706.973389,0.000000,""};
-item47[] = {"slow",4,218,-514.303223,1903.879028,-458.343231,1942.645142,0.000000,"slow"};
-item48[] = {"move__around",2,250,-573.228333,1851.078613,-525.629150,1893.368896,0.000000,"move " \n "around"};
-item49[] = {"now__hover_",4,218,-582.552795,2133.157715,-504.343079,2173.511475,0.000000,"now " \n "hover!"};
-item50[] = {"survey__flight_H",2,250,-989.163940,1988.043213,-927.495667,2039.091919,0.000000,"survey " \n "flight" \n "HOVER"};
-item51[] = {"oops_",4,218,-911.684509,2075.141846,-846.077393,2113.425537,0.000000,"oops!"};
-item52[] = {"hold_steady_",2,250,-850.782898,2136.375244,-778.510193,2170.235107,0.000000,"hold steady!"};
-item53[] = {"now_orbit_",4,218,-692.142090,1993.858887,-599.998413,2036.354126,0.000000,"now orbit!"};
-item54[] = {"fly_back___then",2,250,-63.134476,1851.736328,26.865463,1901.736328,0.000000,"fly back, " \n "then..."};
-item55[] = {"",7,210,-414.519104,1891.506836,-406.519226,1899.506836,0.000000,""};
-item56[] = {"",7,210,-545.089661,1697.621826,-537.089661,1705.621826,0.000000,""};
+item0[] = {"START",0,250,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
+item1[] = {"avail",4,218,-771.961426,1344.660034,-681.961304,1394.660034,0.000000,"avail"};
+item2[] = {"land",4,218,-772.595642,1523.999756,-682.595154,1573.999756,1.000000,"land"};
+item3[] = {"pickup",2,250,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
+item4[] = {"land_",4,218,43.767811,2085.719727,122.927696,2139.114990,1.000000,"land" \n ""};
+item5[] = {"deboard",2,250,38.058102,2253.112793,128.058136,2303.113037,0.000000,"deboard"};
+item6[] = {"away",4,218,39.097061,2323.200439,129.097290,2373.200928,0.000000,"away"};
+item7[] = {"now_boarding___",2,4346,-625.913147,1599.736816,-532.392883,1641.415039,0.000000,"now boarding..."};
+item8[] = {"clear",1,250,37.422394,2391.902100,127.422539,2441.902100,0.000000,"clear"};
+item9[] = {"timeout",4,218,-343.738220,1719.463379,-250.169830,1770.652954,1.000000,"timeout"};
+item10[] = {"done",4,218,54.835030,2199.789795,114.914467,2237.597900,0.000000,"done"};
+item11[] = {"wait_for_it___",2,250,41.475163,2155.272217,121.902290,2189.119873,0.000000,"wait for it..."};
+item12[] = {"fail___abort",4,218,-265.970398,2050.503662,-175.970169,2100.500488,2.000000,"fail / abort"};
+item13[] = {"just_put_it_down",2,250,-269.131226,2190.381592,-173.847458,2225.996094,0.000000,"just put it down"};
+item14[] = {"land_ASAP",4,218,-152.048431,2254.183350,-62.048279,2304.184570,0.000000,"land ASAP"};
+item15[] = {"running_late",4,218,-623.006042,1403.985352,-533.006165,1453.985352,1.000000,"running late"};
+item16[] = {"you_re_late",2,250,-476.817169,1411.554688,-400.959839,1444.936035,0.000000,"you're late"};
+item17[] = {"too_late",4,218,-370.645355,1400.677368,-280.645264,1450.677368,2.000000,"too late"};
+item18[] = {"you_fucked_it",1,250,-237.772202,1401.517944,-147.772324,1451.517944,0.000000,"you fucked it"};
+item19[] = {"all_aboard__live",4,218,-461.486755,1593.256226,-370.296570,1645.635254,0.000000,"all aboard" \n "(live)"};
+item20[] = {"go_fly_",2,250,-462.676575,1721.141724,-372.676514,1771.141724,0.000000,"go fly!"};
+item21[] = {"abort_pickup",4,218,-483.985107,1521.014526,-393.984802,1571.014526,2.000000,"abort pickup"};
+item22[] = {"quit",1,250,-242.860443,1523.077271,-162.238647,1568.908936,0.000000,"quit"};
+item23[] = {"approach_locatio",4,218,-1003.177490,1775.022095,-913.175964,1825.022095,1.000000,"approach" \n "location"};
+item24[] = {"survey_flight_OR",2,250,-436.113861,1893.561523,-354.137421,1961.872681,0.000000,"survey" \n "flight" \n "ORBIT"};
+item25[] = {"next_",4,218,-826.626709,1705.797852,-736.626648,1755.797729,0.000000,"next!"};
+item26[] = {"on_the_way",2,250,-753.837219,1775.411133,-663.836975,1825.411133,0.000000,"on the way"};
+item27[] = {"_",8,218,-439.719238,1787.184570,-395.877563,1814.140503,0.000000,""};
+item28[] = {"that_s_all",4,218,-374.943359,2142.479736,-284.944031,2192.476807,1.000000,"that's all"};
+item29[] = {"go_for_landing",2,250,-131.613281,2143.034180,-41.613796,2193.034668,0.000000,"go for landing"};
+item30[] = {"away",4,218,-758.197998,1899.120605,-659.782898,1956.993042,0.000000,"away"};
+item31[] = {"",7,210,-615.651001,1726.730591,-607.651001,1734.730591,0.000000,""};
+item32[] = {"",7,210,-397.862396,2277.080078,-389.862366,2285.080322,0.000000,""};
+item33[] = {"too_high",4,218,-512.141357,2433.815430,-422.141296,2483.815430,4.000000,"too high"};
+item34[] = {"bad_pilot_",2,250,-621.909119,2276.475098,-531.909058,2326.475098,0.000000,"bad pilot!"};
+item35[] = {"too_low",4,218,-593.170166,2386.689453,-507.944397,2437.883057,3.000000,"too low"};
+item36[] = {"failsafe_over_M",4,218,-621.585754,2007.032227,-531.585449,2057.037109,0.000000,"failsafe" \n "over M"};
+item37[] = {"too_close",4,218,-370.708008,2344.951416,-280.707855,2394.951416,1.000000,"too close"};
+item38[] = {"PD_can_t_land__t",4,218,-137.293015,1934.320435,-35.302204,1998.809204,0.000000,"PD" \n "can't land" \n " there"};
+item39[] = {"too_fast",4,218,-366.967957,2275.336670,-276.681610,2324.132324,2.000000,"too fast"};
+item40[] = {"steady_out",2,250,-1071.115723,1903.249756,-997.622925,1952.070679,0.000000,"steady out"};
+item41[] = {"failsafe_over_H",4,218,-974.283020,2144.402344,-884.283508,2194.402344,0.000000,"failsafe" \n "over H"};
+item42[] = {"off_angle",4,218,-435.923798,2392.483887,-349.847809,2443.464844,0.000000,"off angle"};
+item43[] = {"slow",4,218,-352.869812,1853.684570,-283.237946,1897.422607,0.000000,"slow"};
+item44[] = {"move__around_",2,250,-559.952515,1849.116699,-489.982300,1902.592407,0.000000,"move " \n "around!"};
+item45[] = {"now__hover_",4,218,-852.850037,2276.987549,-754.447632,2325.418457,0.000000,"now " \n "hover!"};
+item46[] = {"survey__flight_H",2,250,-966.997192,1976.064941,-891.657776,2040.784546,0.000000,"survey " \n "flight" \n "HOVER"};
+item47[] = {"oops_",4,218,-1099.486450,2048.676758,-1033.880127,2086.960693,0.000000,"oops!"};
+item48[] = {"hold__steady_",2,250,-809.913025,2139.671631,-728.700378,2199.225830,0.000000,"hold " \n "steady!"};
+item49[] = {"now_orbit_",4,218,-970.362122,1856.077881,-888.531555,1895.993286,0.000000,"now orbit!"};
+item50[] = {"fly_back___then",2,250,38.030136,1942.662231,128.030060,1992.661499,0.000000,"fly back, " \n "then..."};
+item51[] = {"",7,210,-974.964294,2069.950928,-966.964294,2077.951416,0.000000,""};
+item52[] = {"",7,210,-430.537933,2069.987793,-422.537994,2077.986572,0.000000,""};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -81,74 +77,73 @@ link19[] = {16,17};
 link20[] = {16,21};
 link21[] = {17,18};
 link22[] = {19,20};
-link23[] = {20,12};
-link24[] = {20,31};
-link25[] = {21,22};
-link26[] = {23,43};
-link27[] = {24,12};
+link23[] = {20,27};
+link24[] = {21,22};
+link25[] = {23,40};
+link26[] = {24,12};
+link27[] = {24,28};
 link28[] = {24,30};
-link29[] = {24,34};
-link30[] = {24,47};
-link31[] = {24,49};
-link32[] = {24,55};
+link29[] = {24,31};
+link30[] = {24,32};
+link31[] = {24,43};
+link32[] = {24,45};
 link33[] = {25,26};
 link34[] = {26,23};
-link35[] = {26,33};
+link35[] = {26,52};
 link36[] = {27,26};
 link37[] = {28,29};
 link38[] = {29,4};
 link39[] = {29,12};
-link40[] = {29,40};
+link40[] = {29,38};
 link41[] = {30,26};
-link42[] = {31,32};
-link43[] = {32,27};
-link44[] = {33,12};
-link45[] = {34,28};
-link46[] = {34,35};
-link47[] = {34,37};
-link48[] = {34,39};
-link49[] = {34,41};
-link50[] = {34,45};
-link51[] = {35,36};
-link52[] = {36,42};
-link53[] = {37,36};
-link54[] = {38,24};
-link55[] = {39,36};
-link56[] = {40,54};
-link57[] = {41,36};
-link58[] = {42,30};
-link59[] = {42,33};
-link60[] = {42,38};
-link61[] = {42,44};
-link62[] = {43,12};
-link63[] = {43,30};
-link64[] = {43,38};
-link65[] = {44,50};
-link66[] = {45,36};
-link67[] = {46,56};
-link68[] = {47,48};
-link69[] = {48,30};
-link70[] = {48,33};
-link71[] = {48,34};
-link72[] = {48,38};
-link73[] = {49,52};
-link74[] = {50,30};
-link75[] = {50,33};
-link76[] = {50,34};
-link77[] = {50,46};
-link78[] = {50,51};
-link79[] = {50,53};
-link80[] = {51,52};
-link81[] = {52,30};
-link82[] = {52,33};
-link83[] = {52,34};
-link84[] = {52,44};
-link85[] = {53,48};
-link86[] = {54,4};
-link87[] = {55,25};
-link88[] = {56,25};
-globals[] = {0.000000,0,0,0,0,640,480,1,164,6316128,1,-471.521484,79.428574,2467.722168,1683.318726,590,840,1};
-window[] = {0,-1,-1,-32000,-32000,1017,142,1558,63,1,608};
+link42[] = {31,25};
+link43[] = {32,33};
+link44[] = {32,35};
+link45[] = {32,37};
+link46[] = {32,39};
+link47[] = {32,42};
+link48[] = {33,34};
+link49[] = {34,30};
+link50[] = {34,36};
+link51[] = {34,41};
+link52[] = {34,52};
+link53[] = {35,34};
+link54[] = {36,24};
+link55[] = {37,34};
+link56[] = {38,50};
+link57[] = {39,34};
+link58[] = {40,30};
+link59[] = {40,36};
+link60[] = {40,51};
+link61[] = {41,46};
+link62[] = {42,34};
+link63[] = {43,44};
+link64[] = {44,28};
+link65[] = {44,30};
+link66[] = {44,32};
+link67[] = {44,36};
+link68[] = {44,52};
+link69[] = {45,48};
+link70[] = {46,25};
+link71[] = {46,28};
+link72[] = {46,30};
+link73[] = {46,32};
+link74[] = {46,47};
+link75[] = {46,49};
+link76[] = {46,51};
+link77[] = {47,48};
+link78[] = {48,28};
+link79[] = {48,30};
+link80[] = {48,32};
+link81[] = {48,41};
+link82[] = {48,52};
+link83[] = {49,44};
+link84[] = {50,4};
+link85[] = {50,12};
+link86[] = {51,52};
+link87[] = {52,12};
+globals[] = {0.000000,0,0,0,0,640,480,1,194,6316128,1,-770.828979,141.742249,2686.914063,1387.660278,590,840,1};
+window[] = {0,-1,-1,-1,-1,1015,97,1513,61,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -192,12 +187,11 @@ class FSM
        "" \n
        "_pos = _this select 0;" \n
        "" \n
-       "[_pos] call HW_Util_Clear_Cranes;" \n
-       "" \n
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
        "" \n
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
+       "units _grp call HW_Util_Animate_Idle;" \n
        "" \n
        "_tsk = player createSimpleTask [""Current Assignment""];" \n
        "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
@@ -377,6 +371,8 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
+       "(units _grp) call HW_Util_Animate_Off;" \n
+       "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
        "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
@@ -388,7 +384,7 @@ class FSM
        "} else" \n
        "{" \n
        "	// put everyone aboard by telling them to like normal people..." \n
-       "	" \n
+       "" \n
        "	units _grp select 0 assignAsTurret [(vehicle player),[0]];" \n
        "	if (count units _grp > 1) then { units _grp select 1 assignAsCargo (vehicle player); };" \n
        "	if (count units _grp > 2) then { units _grp select 2 assignAsCargo (vehicle player); };	" \n
@@ -647,6 +643,7 @@ class FSM
        "" \n
        "" \n
        "" \n
+       "" \n
        "2 setRadioMsg ""Decl. Unable and Drop"";" \n
        "RadioCall_B = false; " \n
        "" \n
@@ -687,16 +684,6 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "fail___abort">*/
-        class fail___abort
-        {
-          priority = 2.000000;
-          to="just_put_it_down";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "_">*/
         class _
         {
@@ -782,16 +769,6 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent ""We're Flying too low, take us higher for a better view"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "fail___abort">*/
-        class fail___abort
-        {
-          priority = 2.000000;
-          to="just_put_it_down";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "too_fast">*/
         class too_fast
         {
@@ -800,6 +777,16 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"speed (vehicle player) > 60"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Slow down! It's really hard to make sense of things at this pace"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "that_s_all">*/
@@ -826,24 +813,12 @@ class FSM
         class slow
         {
           priority = 0.000000;
-          to="move__around";
+          to="move__around_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"_spd < 5.6"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Don't just stop in one place, Try and circle around..."";" \n
-           "_t = _t + 2 + random(3); // small penalty!"/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "now__hover_">*/
-        class now__hover_
-        {
-          priority = 0.000000;
-          to="hold_steady_";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"time > _t_switch"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"hintSilent ""Could you hold this position for a while?"";  " \n
-           "" \n
-           "_orbit = false;" \n
-           "_t_switch = time + 10 + (random 60);"/*%FSM</ACTION""">*/;
+           "_t = _t + 3 + random(4); // small penalty!" \n
+           "_failsafe = time + 5;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "away">*/
@@ -858,20 +833,18 @@ class FSM
            "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "off_angle">*/
-        class off_angle
+        /*%FSM<LINK "now__hover_">*/
+        class now__hover_
         {
           priority = 0.000000;
-          to="bad_pilot_";
+          to="hold__steady_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_tgtDir > 100 && _tgtDir < 330;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"if (_tgtDir < 235) then" \n
-           "{" \n
-           "	hintSilent ""Boy, if you keep going like that, we're gonna be here all day!\nTurn us towards the target area..."";" \n
-           "} else" \n
-           "{" \n
-           "	hintSilent ""You know I'm seated on the other side from you, right?\nTurn around so I can see..."";" \n
-           "};"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t_switch"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Could you hold this position for a while?"";  " \n
+           "" \n
+           "_orbit = false;" \n
+           "_t_switch = time + 10 + (random 60);" \n
+           "_failsafe = time + 10;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "next_">*/
@@ -895,6 +868,22 @@ class FSM
            "_locMarkers = _resetMarkers;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
+        /*%FSM<LINK "off_angle">*/
+        class off_angle
+        {
+          priority = 0.000000;
+          to="bad_pilot_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_tgtDir > 100 && _tgtDir < 330;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"if (_tgtDir < 235) then" \n
+           "{" \n
+           "	hintSilent ""Boy, if you keep going like that, we're gonna be here all day!\nTurn us towards the target area..."";" \n
+           "} else" \n
+           "{" \n
+           "	hintSilent ""You know I'm seated on the other side from you, right?\nTurn around so I can see..."";" \n
+           "};"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
@@ -904,6 +893,8 @@ class FSM
       name = "on_the_way";
       init = /*%FSM<STATEINIT""">*/"_approaching = false;" \n
        "_approach_tgt = _locMarkers select 0;" \n
+       "" \n
+       "" \n
        "" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/"{	" \n
@@ -985,6 +976,7 @@ class FSM
        "	[[""PD: Cannot safely land there!""]] call HW_PD_Prompt;" \n
        "};" \n
        "" \n
+       "_tsk setSimpleTaskdestination _pos;" \n
        "" \n
        "{ _x lookAt ObjNull; } foreach units _grp;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1043,8 +1035,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe__hover">*/
-        class failsafe__hover
+        /*%FSM<LINK "failsafe_over_H">*/
+        class failsafe_over_H
         {
           priority = 0.000000;
           to="survey__flight_H";
@@ -1053,8 +1045,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe__orbit">*/
-        class failsafe__orbit
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1112,8 +1104,8 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe__orbit">*/
-        class failsafe__orbit
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1137,11 +1129,11 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "move__around">*/
-    class move__around
+    /*%FSM<STATE "move__around_">*/
+    class move__around_
     {
-      name = "move__around";
-      init = /*%FSM<STATEINIT""">*/"_failsafe = time + 5;"/*%FSM</STATEINIT""">*/;
+      name = "move__around_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1165,16 +1157,6 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent ""We're Flying too low, take us higher for a better view"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "fail___abort">*/
-        class fail___abort
-        {
-          priority = 2.000000;
-          to="just_put_it_down";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "too_fast">*/
         class too_fast
         {
@@ -1183,6 +1165,16 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"speed (vehicle player) > 60"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Slow down! It's really hard to make sense of things at this pace"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "too_close">*/
@@ -1205,18 +1197,6 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "away">*/
-        class away
-        {
-          priority = 0.000000;
-          to="on_the_way";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) > 600;" \n
-           ""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"" \n
-           "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "off_angle">*/
         class off_angle
         {
@@ -1233,8 +1213,20 @@ class FSM
            "};"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe__orbit">*/
-        class failsafe__orbit
+        /*%FSM<LINK "away">*/
+        class away
+        {
+          priority = 0.000000;
+          to="on_the_way";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) > 600;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "failsafe_over_M">*/
+        class failsafe_over_M
         {
           priority = 0.000000;
           to="survey_flight_OR";
@@ -1305,16 +1297,6 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent ""Slow down! It's really hard to make sense of things at this pace"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "too_close">*/
-        class too_close
-        {
-          priority = 1.000000;
-          to="bad_pilot_";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) < 120;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"hintSilent ""I can't see the area when it's right below us\npull out a bit!"";"/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "that_s_all">*/
         class that_s_all
         {
@@ -1325,17 +1307,14 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "now_orbit_">*/
-        class now_orbit_
+        /*%FSM<LINK "too_close">*/
+        class too_close
         {
-          priority = 0.000000;
-          to="move__around";
+          priority = 1.000000;
+          to="bad_pilot_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"time > _t_switch"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"hintSilent ""Take us around slowly\n I wanna see another angle"";" \n
-           "" \n
-           "_orbit = true;" \n
-           "_t_switch = time + 10 + (random 60);"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) < 120;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""I can't see the area when it's right below us\npull out a bit!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "away">*/
@@ -1350,15 +1329,18 @@ class FSM
            "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "oops_">*/
-        class oops_
+        /*%FSM<LINK "now_orbit_">*/
+        class now_orbit_
         {
           priority = 0.000000;
-          to="hold_steady_";
+          to="move__around_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_spd > 3.6;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"hintSilent ""You're tossing about too much, keep it steady!"";" \n
-           "_t = _t + 2 + random(3); // small penalty!"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t_switch"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Take us around slowly\n I wanna see another angle"";" \n
+           "" \n
+           "_orbit = true;" \n
+           "_t_switch = time + 10 + (random 60);" \n
+           "_failsafe = time + 10;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "off_angle">*/
@@ -1375,6 +1357,19 @@ class FSM
            "{" \n
            "	hintSilent ""You know I'm seated on the other side from you, right?\nTurn around so I can see..."";" \n
            "};"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "oops_">*/
+        class oops_
+        {
+          priority = 0.000000;
+          to="hold__steady_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_spd > 3.6;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""You're tossing about too much, keep it steady!"";" \n
+           "_t = _t + 3 + random(4); // small penalty!" \n
+           "_failsafe = time + 5;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "next_">*/
@@ -1401,11 +1396,11 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "hold_steady_">*/
-    class hold_steady_
+    /*%FSM<STATE "hold__steady_">*/
+    class hold__steady_
     {
-      name = "hold_steady_";
-      init = /*%FSM<STATEINIT""">*/"_failsafe = time + 5;"/*%FSM</STATEINIT""">*/;
+      name = "hold__steady_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1429,16 +1424,6 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent ""We're Flying too low, take us higher for a better view"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "fail___abort">*/
-        class fail___abort
-        {
-          priority = 2.000000;
-          to="just_put_it_down";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "too_fast">*/
         class too_fast
         {
@@ -1447,6 +1432,16 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"speed (vehicle player) > 60"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Slow down! It's really hard to make sense of things at this pace"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "too_close">*/
@@ -1469,18 +1464,6 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "away">*/
-        class away
-        {
-          priority = 0.000000;
-          to="on_the_way";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) > 600;" \n
-           ""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"" \n
-           "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "off_angle">*/
         class off_angle
         {
@@ -1497,8 +1480,20 @@ class FSM
            "};"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "failsafe__hover">*/
-        class failsafe__hover
+        /*%FSM<LINK "away">*/
+        class away
+        {
+          priority = 0.000000;
+          to="on_the_way";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (getMarkerPos _approach_tgt)) > 600;" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "hintSilent ""You're too far! Turn back around, we're not done here yet!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "failsafe_over_H">*/
+        class failsafe_over_H
         {
           priority = 0.000000;
           to="survey__flight_H";
@@ -1519,6 +1514,9 @@ class FSM
        "" \n
        "deleteMarker _fieldLandingMkr;" \n
        "" \n
+       "_tsk setSimpleTaskdestination _pos;" \n
+       "" \n
+       "" \n
        "hintSilent ""Oh! too bad... Ok, then - just head on back"";" \n
        "" \n
        "" \n
@@ -1527,6 +1525,16 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put_it_down";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "land_">*/
         class land_
         {

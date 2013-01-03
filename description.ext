@@ -1,6 +1,7 @@
 showGPS = 0;
 showCompass = 0;
 
+#include <AnimationViewer\include.h>
 
 class CfgIdentities
 {

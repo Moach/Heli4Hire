@@ -37,52 +37,6 @@ RadioCall_I = false;    9 setRadioMsg "NULL";
 RadioCall_J = false;   10 setRadioMsg "NULL";
 
 
-// this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
-// should be reset to zero after use....
-PilotDecision = 0;
-PD_Armed = false; // indicates if pilot decisions are available
-PD_Actions = [];  // tracks menu action ids for pilot decisions
-
-
-
-//
-// PD setup utility functions...
-//
-
-HW_PD_Prompt = 
-{
-	if (PD_Armed) exitWith { player sidechat "WARNING!!\n - PD armed - \ncannot prompt further options before clear!"; };
-	
-	PD_Armed = true;
-	_opts = _this select 0; // array expected as argument, should contain strings of titles for each option
-
-	_p = 1; 
-	PD_Actions resize (count _opts);
-	
-	{
-		//
-		_id = chopper addAction [_x, "HW_Pilot_Decision.sqf", _p, 6];
-		PD_Actions set [_p-1, _id];
-		_p = _p+1;
-		
-	} foreach _opts;
-};
-
-
-HW_PD_Clear = 
-{
-	PilotDecision = 0;
-	PD_Armed = false;
-	
-	{
-		chopper removeAction _x;
-		//
-	} foreach PD_Actions;
-	
-	PD_Actions = [];
-};
-
-
 
 
 sleep 1;
@@ -148,8 +102,8 @@ DisasterEvent = ""; // for now...
 
 
 
-sleep 1;	
-	
+sleep 1;
+
 
 
 	
@@ -170,6 +124,8 @@ if (HW_DEBUG) then
 	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
 	chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf", nil, 0, false];
 	//
+	
+	[] execVM "AnimationViewer\init.sqf";
 	
 	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
 	
@@ -231,6 +187,11 @@ test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo
 
 
 
+sleep 1;
+
+
+
+// OSMO_SV_serviceMenArray call HW_Util_Animate_Idle;
 
 
 

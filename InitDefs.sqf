@@ -33,6 +33,75 @@ CargoDefs_Lite =
 ];
 
 
+
+MoveDefs_Men_Group = 
+[
+	"AmovPercMstpSnonWnonDnon_talking",
+	"AidlPercSnonWnonDnon_talkBS",
+	"AidlPercSnonWnonDnon_talk1",
+	"AidlPercSnonWnonDnon_talk2",
+	"AidlPercSnonWnonDnon_talk3",
+	"AidlPercSnonWnonDnon_talk4",
+	"AidlPercSnonWnonDnon_talk5",
+	"c5calming_apc",
+	"c5calming_fjodor",
+	"c5calming_zevl1",
+	"c5calming_zevl2",
+	"c5calming_zevl3",
+	"c5calming_zevl4",
+	"c5calming_zevl5",
+	"c5calming_zevl6",
+	"c5calming_zevl7",
+	"UnaErcVelitelProslov1",
+	"UnaErcVelitelProslov3",
+	"UnaErcVelitelProslov5",
+	"LHD_hiDeck",
+	"LHD_krajPaluby",
+	"LHD_midDeck",
+	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small reference to the simcopter gay sims prank that cost a developer his job
+];
+
+MoveDefs_Men_Idle = 
+[
+	"LHD_hiDeck",
+	"LHD_krajPaluby",
+	"LHD_midDeck"
+];
+
+
+MoveDefs_Women_Group = 
+[
+	"Cwmn_GalkinaErc_talkCry",
+	"Cwmn_GalkinaErc_talkHappy1",
+	"Cwmn_GalkinaErc_talkHappy2",
+	"AidlPercMstpSnonWnonDnon_3greetR",
+	"CwmnPerc_diskuse1",
+	"CwmnPerc_ukazatDoleva",
+	"CwmnPerc_diskuse2",
+	"AidlPercMstpSnonWnonDnon_2",
+	"AidlPercMstpSnonWnonDnon_1",
+	"AidlPercMstpSnonWnonDnon_4"
+];
+
+
+MoveDefs_Women_Idle = 
+[
+	"AidlPercMstpSnonWnonDnon_2",
+	"AidlPercMstpSnonWnonDnon_1",
+	"AidlPercMstpSnonWnonDnon_4"
+];
+
+
+/*
+	
+["NavigationHeli"]
+
+*/
+
+
+
+
+
 //  the following points were marked by ACTUALLY flying a helicopter (ingame, not a real one, alas) onto them and logging the choppers position
 //   using a special developer-tool script... many of those are not landing-friendly, which made cataloging them quite a pilot-intensive task
 
