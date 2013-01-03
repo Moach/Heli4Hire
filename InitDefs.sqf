@@ -34,7 +34,7 @@ CargoDefs_Lite =
 
 
 
-MoveDefs_Men_Idle = 
+MoveDefs_Men_Group = 
 [
 	"AmovPercMstpSnonWnonDnon_talking",
 	"AidlPercSnonWnonDnon_talkBS",
@@ -61,8 +61,15 @@ MoveDefs_Men_Idle =
 	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small reference to the simcopter gay sims prank that cost a developer his job
 ];
 
+MoveDefs_Men_Idle = 
+[
+	"LHD_hiDeck",
+	"LHD_krajPaluby",
+	"LHD_midDeck"
+];
 
-MoveDefs_Women_Idle = 
+
+MoveDefs_Women_Group = 
 [
 	"Cwmn_GalkinaErc_talkCry",
 	"Cwmn_GalkinaErc_talkHappy1",
@@ -70,12 +77,19 @@ MoveDefs_Women_Idle =
 	"AidlPercMstpSnonWnonDnon_3greetR",
 	"CwmnPerc_diskuse1",
 	"CwmnPerc_ukazatDoleva",
+	"CwmnPerc_diskuse2",
 	"AidlPercMstpSnonWnonDnon_2",
 	"AidlPercMstpSnonWnonDnon_1",
-	"AidlPercMstpSnonWnonDnon_4",
-	"CwmnPerc_diskuse2"
+	"AidlPercMstpSnonWnonDnon_4"
 ];
 
+
+MoveDefs_Women_Idle = 
+[
+	"AidlPercMstpSnonWnonDnon_2",
+	"AidlPercMstpSnonWnonDnon_1",
+	"AidlPercMstpSnonWnonDnon_4"
+];
 
 
 /*

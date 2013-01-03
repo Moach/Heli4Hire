@@ -312,7 +312,7 @@ if (HW_DEBUG) then // enable only for debug!
 		[1, chopper, true] call BIS_fnc_enginesOnDebug;
 		
 		sleep 1;
-		call HW_Dispatch_Survey;
+		call HW_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};
