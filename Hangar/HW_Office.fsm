@@ -3,23 +3,29 @@
 /*
 item0[] = {"START",0,250,-114.021553,266.415558,-24.021507,316.415558,0.000000,"START"};
 item1[] = {"overview",4,218,-113.807426,365.663086,-23.807367,415.663086,0.000000,"overview"};
-item2[] = {"Overview",2,250,-115.333397,470.958984,-25.333328,520.959106,0.000000,"Overview"};
+item2[] = {"Overview",2,4346,-115.333397,470.958984,-25.333328,520.959106,0.000000,"Overview"};
 item3[] = {"Store",4,218,14.378952,365.663116,104.378998,415.663116,0.000000,"Store"};
-item4[] = {"Store",2,4346,13.999413,471.725952,103.999474,521.725952,0.000000,"Store"};
+item4[] = {"Store",2,250,13.999413,471.725952,103.999474,521.725952,0.000000,"Store"};
 item5[] = {"Orders",4,218,138.198624,364.516632,228.198715,414.516632,0.000000,"Orders"};
 item6[] = {"Orders",2,250,137.819092,468.286530,227.819168,518.286499,0.000000,"Orders"};
+item7[] = {"end",4,218,11.402752,633.047119,101.402763,683.047119,0.000000,"end"};
+item8[] = {"finish",1,250,10.501713,745.680908,100.501747,795.680908,0.000000,"finish"};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,3};
 link3[] = {2,5};
-link4[] = {3,4};
-link5[] = {4,1};
-link6[] = {4,5};
-link7[] = {5,6};
-link8[] = {6,1};
-link9[] = {6,3};
-globals[] = {0.000000,0,0,0,0,640,480,1,12,6316128,1,-267.960876,374.903503,927.354797,-91.779266,381,604,1};
-window[] = {0,-1,-1,-32000,-32000,829,1307,2154,80,1,399};
+link4[] = {2,7};
+link5[] = {3,4};
+link6[] = {4,1};
+link7[] = {4,5};
+link8[] = {4,7};
+link9[] = {5,6};
+link10[] = {6,1};
+link11[] = {6,3};
+link12[] = {6,7};
+link13[] = {7,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,15,6316128,1,-116.238029,227.069641,823.578003,279.331696,381,604,1};
+window[] = {0,-1,-1,-1,-1,849,100,947,100,1,399};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -74,7 +80,7 @@ class FSM
        "	ctrlShow [_x, true];" \n
        "} foreach [2300];" \n
        "" \n
-       ""/*%FSM</STATEINIT""">*/;
+       "call HW_InventoryRefreshList;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -85,6 +91,16 @@ class FSM
           to="Orders";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"HW_Office_Mode == 2"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "end">*/
+        class end
+        {
+          priority = 0.000000;
+          to="finish";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -128,6 +144,16 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
+        /*%FSM<LINK "end">*/
+        class end
+        {
+          priority = 0.000000;
+          to="finish";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "overview">*/
         class overview
         {
@@ -152,7 +178,7 @@ class FSM
        "{" \n
        "	ctrlShow [_x, true];" \n
        "} foreach [2302];" \n
-       "" \n
+       "	" \n
        "call HW_Office_OrdersRefreshList;" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -165,6 +191,16 @@ class FSM
           to="Store";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"HW_Office_Mode == 1"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "end">*/
+        class end
+        {
+          priority = 0.000000;
+          to="finish";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -181,10 +217,22 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
+    /*%FSM<STATE "finish">*/
+    class finish
+    {
+      name = "finish";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
   };
   initState="START";
   finalStates[] =
   {
+    "finish",
   };
 };
 /*%FSM</COMPILE>*/

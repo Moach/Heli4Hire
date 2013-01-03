@@ -7,8 +7,9 @@ execVM "Hangar\HW_Office_functions.sqf";
 //				   4 int weight,  	5 int deliveryTimeMins,	6 01float condition, 	7 int timeOfPurchase]
 				   
 HW_Office_StoreItems = [
-	["Test Item 1", 100, "A test item to test items", "#(argb,8,8,3)color(1,1,1,1)", 10, 5, 1, 0],
-	["Test Item 2", 130, "Another test item to test items", "#(argb,8,8,3)color(0,1,1,1)", 55, 12, 1, 0]
+	["Test Item 1", 10, "A test item to test items", "#(argb,8,8,3)color(1,1,1,1)", 10, 5, 1, 0],
+	["Test Item 2", 13, "Another test item to test items", "#(argb,8,8,3)color(0,1,1,1)", 55, 12, 1, 0],
+	["Test Item 3", 22, "Yet Another test item to test items", "#(argb,8,8,3)color(1,1,0,1)", 3, 0.1, 1, 0]
 ];
 
 HW_Office_Inventory = [];
@@ -24,3 +25,12 @@ player addAction ["Save Career Progress", "HW_Savegame.sqf", nil, 0, false, true
 player addAction ["Access Office", "Hangar\HW_Office_Dialog.sqf", 1, 0, true, true, "fire", 
 	"player distance office_area < 8 && !HW_Office_Active;",
 	"", -1, -1, 1+8];
+	
+	
+HW_Office_OrdersUpdateDaemon = [] spawn {
+	while { true } do 
+	{
+		sleep 1;	
+		call HW_Office_UpdateOrders;
+	};	
+};

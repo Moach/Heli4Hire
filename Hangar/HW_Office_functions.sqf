@@ -30,14 +30,14 @@ HW_Office_StoreSetSelection =
 	if (_this select 6 > 0.99) then
 	{
 		ctrlSetText [1009, "Condition: New"]; // set condition
-	};
-	if (_this select 6 > 0.5 ) then
-	{
-		ctrlSetText [1009, "Condition: Used"]; // set condition
 	} else {
-		ctrlSetText [1009, "Condition: Junk"]; // set condition
+		if (_this select 6 > 0.5 ) then
+		{
+			ctrlSetText [1009, "Condition: Used"]; // set condition
+		} else {
+			ctrlSetText [1009, "Condition: Junk"]; // set condition
+		};
 	};
-	
 	ctrlSetText [1010,   format ["Shipping Time: %1 mins.", _this select 5]]; // set eta
 	
 	HW_Office_StoreSelection = _this;
@@ -52,11 +52,8 @@ HW_Office_StorePlaceOrder =
 		
 		hint format ["You've ordered %1\n\nYour order will arrive in %2 minutes\n\nThank you for shopping at Heli-bay!", 
 						HW_Office_StoreSelection select 0, HW_Office_StoreSelection select 5];
-		
-		HW_Office_StoreSelection set [7, daytime];
-		
-		HW_Office_Orders set [count HW_Office_Orders, HW_Office_StoreSelection];
-		
+						
+		HW_Office_StoreSelection call HW_Office_AddOrder;
 		
 	} else {
 		hint "You don't have enough funds to order this";
@@ -74,12 +71,18 @@ HW_Office_OrdersRefreshList =
 
 	// populate the orders list with items
 	{	
-		_i = lbAdd [1501, (_x select 0)];
+		_i = lbAdd [1501, format ["%1 - ETA: %2m", (_x select 0),[(_x call HW_Office_GetOrderETA), "HH:MM"] call bis_fnc_timeToString]];
 		lbSetValue [1501, _i, (_x select 1)];
 		lbSetData [1501, _i, (_x select 2)];
 		lbSetPicture[1501, _i, (_x select 3)];
 
 	} foreach HW_Office_Orders;
+	
+	if (HW_Office_OrdersSelIdx != -1) then
+	{
+		_eta = HW_Office_OrdersSelection call HW_Office_GetOrderETA;
+		ctrlSetText [1018,  format ["Time to Arrive: %1m", [_eta, "HH:MM"] call bis_fnc_timeToString]]; // set eta
+	};
 };
 
 HW_Office_OrdersSelection = [];
@@ -102,18 +105,39 @@ HW_Office_OrdersSetSelection =
 	if ((_this select 0) select 6 > 0.99) then
 	{
 		ctrlSetText [1017, "Condition: New"]; // set condition
-	};
-	if ((_this select 0) select 6 > 0.5 ) then
-	{
-		ctrlSetText [1017, "Condition: Used"]; // set condition
 	} else {
-		ctrlSetText [1017, "Condition: Junk"]; // set condition
+		if ((_this select 0) select 6 > 0.5 ) then
+		{
+			ctrlSetText [1017, "Condition: Used"]; // set condition
+		} else {
+			ctrlSetText [1017, "Condition: Junk"]; // set condition
+		};
 	};
-	
-	ctrlSetText [1018,   format ["Shipping Time: %1 mins.", (_this select 0) select 5]]; // set eta
+	_eta = (_this select 0) call HW_Office_OrderGetETA;	
+	ctrlSetText [1018,   format ["Time to Arrive: %1m", [_eta, "HH:MM"] call bis_fnc_timeToString]]; // set eta
 	
 	HW_Office_OrdersSelection = (_this select 0);
 	HW_Office_OrdersSelIdx = (_this select 1);
+};
+
+
+HW_Office_OrdersDeselect = 
+{
+	ctrlSetText [1012, ""]; // set name
+			
+	ctrlSetText [1014, ""]; // set price paid
+	ctrlSetText [1015, ""]; // set refund price
+	
+	ctrlSetText [1013, "Select an item on the list to see its shipping status."];	// set description
+	ctrlSetText [1201, "#(argb,8,8,3)color(1,1,1,0)"]; // set picture
+	ctrlSetText [1016, ""]; // set weight
+	ctrlSetText [1017, ""]; // set condition
+	ctrlSetText [1018, ""]; // set eta
+	
+	ctrlShow [1605, false];
+	
+	HW_Office_OrdersSelIdx = -1;
+	HW_Office_OrdersSelection = [];
 };
 
 HW_Office_CancelOrder = 
@@ -126,21 +150,147 @@ HW_Office_CancelOrder =
 	hint format ["You've cancelled your order for %1\n\nYou've been refunded $%2.", 
 					HW_Office_OrdersSelection select 0, _refund];
 					
-	ctrlSetText [1012, ""]; // set name
+	HW_Office_OrdersSelIdx call HW_Office_RemoveOrder;
 	
-	ctrlSetText [1014, ""]; // set price paid
-	ctrlSetText [1015, ""]; // set refund price
+	call HW_Office_OrdersDeselect;
+};
+
+// adds an item to the orders list
+// syntax: item call HW_Office_AddOrder;
+HW_Office_AddOrder = 
+{
+	_newOrder = [];
+	_i = 0;
+	{
+		_newOrder set [_i, _x];
+		_i = _i + 1;
+	} foreach _this;
 	
-	ctrlSetText [1013, "Select an item on the list to see its shipping status."];	// set description
-	ctrlSetText [1201, "#(argb,8,8,3)color(1,1,1,0)"]; // set picture
-	ctrlSetText [1016, ""]; // set weight
-	ctrlSetText [1017, ""]; // set condition
-	ctrlSetText [1018, ""]; // set eta
+	_newOrder set [7, daytime + (_this select 5) / 60];
+	HW_Office_Orders set [count HW_Office_Orders, _newOrder];
+};
+
+// removes an item from the orders list
+// syntax: itemIndex call HW_Office_RemoveOrders;
+HW_Office_RemoveOrder = 
+{	
+	HW_Office_Orders set [_this, -1];
+	HW_Office_Orders = HW_Office_Orders - [-1];	
 	
-	ctrlShow [1605, false];
+	if (HW_Office_Active && HW_Office_Mode == 2) then
+	{
+		call HW_Office_OrdersRefreshList;
+	};
+};
+
+// returns the eta for the given order. 
+// syntax: item call HW_Office_GetOrderETA;
+HW_Office_GetOrderETA = 
+{
+	(_this select 7) - daytime
+};
+
+HW_Office_UpdateOrders = 
+{
+	_toRemove = [];
+		
+	scopeName "main";
 	
-	HW_Office_Orders set [HW_Office_OrdersSelIdx, -1];
-	HW_Office_Orders = HW_Office_Orders - [-1];
+	for [{_a = 0}, {_a < (count HW_Office_Orders)}, {_a = _a + 1}] do
+	{	
+		_o = HW_Office_Orders select _a;
 	
-	call HW_Office_OrdersRefreshList;
+		if (_o call HW_Office_GetOrderETA <= 0) then 
+		{
+			hint format ["Your order of %1 has arrived!", _o select 0];
+			
+			// add item to inventory
+			_o call HW_Office_AddInventory;								
+			
+			call HW_Office_OrdersDeselect;
+			
+			_a call HW_Office_RemoveOrder;						
+			
+			breakTo "main";
+		};	
+	};		
+	
+	if (HW_Office_Active && HW_Office_Mode == 2) then
+	{
+		call HW_Office_OrdersRefreshList;
+	};	
+};
+
+// adds an item to the inventory
+// syntax: item call HW_Office_AddInventory;
+HW_Office_AddInventory = 
+{
+	_newItem = [];
+	_i = 0;
+	{
+		_newItem set [_i, _x];
+		_i = _i + 1;
+	} foreach _this;
+	
+	_newItem set [7, time];
+	HW_Office_Inventory set [count HW_Office_Inventory, _newItem];
+	
+	if (HW_Office_Active && HW_Office_Mode == 0) then
+	{
+		call HW_InventoryRefreshList;
+	};
+};
+
+// removes an item from the inventory (and updates the list if necessary)
+// syntax: [itemIndices] call HW_Office_RemoveInventory;
+HW_Office_RemoveInventory = 
+{
+	HW_Office_Inventory set [_this, -1];
+	HW_Office_Inventory = HW_Office_Inventory - [-1];	
+	
+	if (HW_Office_Active && HW_Office_Mode == 0) then
+	{
+		call HW_InventoryRefreshList;
+	};
+};
+
+HW_InventoryRefreshList = 
+{
+	lbClear 1502;
+
+	// populate the store list with items
+	{	
+		_i = lbAdd [1502, (_x select 0)];
+		lbSetValue [1502, _i, (_x select 1)];
+		lbSetData [1502, _i, (_x select 2)];
+		lbSetPicture[1502, _i, (_x select 3)];
+
+	} foreach HW_Office_Inventory;
+};
+
+HW_Office_InventorySelection = [];
+HW_Office_InventoryIndex = -1;
+
+HW_Office_InventorySetSelection = 
+{	
+	ctrlSetText [1021, (_this select 0) select 0]; // set name
+		
+	ctrlSetText [1020, (_this select 0) select 2];	// set description
+	ctrlSetText [1202, (_this select 0) select 3]; // set picture
+	ctrlSetText [1022, format ["Weight: %1", (_this select 0) select 4]]; // set weight
+	
+	if ((_this select 0) select 6 > 0.99) then
+	{
+		ctrlSetText [1023, "Condition: New"]; // set condition
+	} else {
+		if ((_this select 0) select 6 > 0.5 ) then
+		{
+			ctrlSetText [1023, "Condition: Used"]; // set condition
+		} else {
+			ctrlSetText [1023, "Condition: Junk"]; // set condition
+		};
+	};
+	
+	HW_Office_InventorySelection = (_this select 0);
+	HW_Office_InventoryIndex = (_this select 1);
 };
