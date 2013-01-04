@@ -11,4 +11,4 @@
 
 
 CLAY_AV_Reset = false;
-CLAY_AV_ID0 = player addAction ["Animation Viewer", "AnimationViewer\viewer.sqf"];
+CLAY_AV_ID0 = player addAction ["Animation Viewer", "AnimationViewer\viewer.sqf", nil, 0, false, true];

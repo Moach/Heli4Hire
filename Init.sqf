@@ -2,6 +2,7 @@
 HW_DEBUG = true;
 
 removeAllItems player;
+player addWeapon "ItemRadio";
 
 
 _initDefs = player execVM "InitDefs.sqf";
