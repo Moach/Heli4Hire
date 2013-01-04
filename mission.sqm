@@ -34,7 +34,9 @@ class Mission
 		"hsim_misc_h_weather_station",
 		"hsim_misc_h_folding_ladder",
 		"hsim_misc_h_barels",
-		"hsim_modulescore_h_functions"
+		"hsim_modulescore_h_functions",
+		"ca_modules_coin",
+		"hsim_wheeled_h_towingtractor"
 	};
 	addOnsAuto[]=
 	{
@@ -43,6 +45,7 @@ class Mission
 		"hsim_water_h_oil_tanker",
 		"hsim_characters_h",
 		"hsim_modulescore_h_functions",
+		"ca_modules_coin",
 		"hsim_misc_h_helipads",
 		"hsim_air_us_h_helicopters_light",
 		"hsim_structures_h_industrial_rooftop_objects",
@@ -66,6 +69,7 @@ class Mission
 		"hsim_misc_h_weather_station",
 		"hsim_misc_h_folding_ladder",
 		"hsim_misc_h_barels",
+		"hsim_wheeled_h_towingtractor",
 		"united_states_h"
 	};
 	randomSeed=3723377;
@@ -87,7 +91,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=125;
+		items=126;
 		class Item0
 		{
 			side="LOGIC";
@@ -2385,10 +2389,29 @@ class Mission
 				};
 			};
 		};
+		class Item125
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={27897.34,4.1999998,29745.707};
+					id=1992;
+					side="LOGIC";
+					vehicle="ConstructionManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					synchronizations[]={1993};
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
-		items=1863;
+		items=1864;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -24432,6 +24455,18 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
+		};
+		class Item1863
+		{
+			position[]={27895.846,4.1999998,29766.322};
+			azimut=66.617813;
+			special="NONE";
+			id=1993;
+			side="EMPTY";
+			vehicle="TowingTractor_H";
+			leader=1;
+			skill=0.60000002;
+			synchronizations[]={1992};
 		};
 	};
 	class Markers
