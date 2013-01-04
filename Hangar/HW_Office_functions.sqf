@@ -202,7 +202,7 @@ HW_Office_UpdateOrders =
 	
 		if (_o call HW_Office_GetOrderETA <= 0) then 
 		{
-			hint format ["Your order of %1 has arrived!", _o select 0];
+			hint format ["The %1 you ordered has arrived!", _o select 0];
 			
 			// add item to inventory
 			_o call HW_Office_AddInventory;								
@@ -272,25 +272,123 @@ HW_Office_InventorySelection = [];
 HW_Office_InventoryIndex = -1;
 
 HW_Office_InventorySetSelection = 
-{	
-	ctrlSetText [1021, (_this select 0) select 0]; // set name
-		
-	ctrlSetText [1020, (_this select 0) select 2];	// set description
-	ctrlSetText [1202, (_this select 0) select 3]; // set picture
-	ctrlSetText [1022, format ["Weight: %1", (_this select 0) select 4]]; // set weight
+{		
+	HW_Office_InventorySelection = (_this select 0);
+	HW_Office_InventoryIndex = (_this select 1);
 	
-	if ((_this select 0) select 6 > 0.99) then
+	call HW_Office_InventoryUpdateItemDetails;
+};
+
+HW_Office_InventoryUpdateItemDetails = 
+{
+	ctrlSetText [1021, HW_Office_InventorySelection select 0]; // set name		
+	ctrlSetText [1020, HW_Office_InventorySelection select 2];	// set description
+	ctrlSetText [1202, HW_Office_InventorySelection select 3]; // set picture
+	ctrlSetText [1022, format ["Weight: %1", HW_Office_InventorySelection select 4]]; // set weight
+	
+	if (HW_Office_InventorySelection select 6 > 0.99) then
 	{
 		ctrlSetText [1023, "Condition: New"]; // set condition
 	} else {
-		if ((_this select 0) select 6 > 0.5 ) then
+		if (HW_Office_InventorySelection select 6 > 0.5 ) then
 		{
 			ctrlSetText [1023, "Condition: Used"]; // set condition
 		} else {
 			ctrlSetText [1023, "Condition: Junk"]; // set condition
 		};
 	};
+
+	{
+		ctrlShow[_x, false];
+	} foreach [1606, 1607, 1608, 1609]; 
 	
-	HW_Office_InventorySelection = (_this select 0);
-	HW_Office_InventoryIndex = (_this select 1);
+	_canSell = HW_Office_InventorySelection select 10;
+	_packed = HW_Office_InventorySelection select 11;
+	
+		
+	if (_canSell) then
+	{	
+		_resellValue = HW_Office_InventorySelection call HW_Office_GetItemValue;
+	
+		if (_packed) then
+		{
+			if (_resellValue > 0) then
+			{
+				ctrlShow [1606, true]; // show sell button
+				ctrlSetText [1606, format ["Sell for $%1", _resellValue]];
+			};
+						
+		} else {
+			ctrlShow [1608, true]; // show repack button
+		}
+	};
+	
+	if (_packed) then
+	{
+		ctrlShow[1607, true]; // show unpack button
+	};
 };
+
+// returns the value of the item, based on its purchase price and condition
+// syntax: item call HW_Office_GetItemValue;
+HW_Office_GetItemValue = 
+{
+	//  value proportional to condition
+	(_this select 1) * (_this select 6) * 0.8
+};
+
+HW_Office_InventoryDeselect = 
+{
+	ctrlSetText [1021, ""]; // set name		
+	ctrlSetText [1020, "Select an item on the list for details."];	// set description
+	ctrlSetText [1202, "#(argb,8,8,3)color(1,1,1,0)"]; // set picture
+	ctrlSetText [1022, ""]; // set weight
+	ctrlSetText [1023, ""]; // set condition
+	
+	HW_Office_InventorySelection = [];
+	HW_Office_InventoryIndex = -1;
+	
+	{
+		ctrlShow[_x, false];
+	} foreach [1606, 1607, 1608, 1609]; 
+};
+
+HW_Office_SellItem = 
+{
+	_sellValue = HW_Office_InventorySelection call HW_Office_GetItemValue;
+
+	hint format ["Sold %1 for $%2", HW_Office_InventorySelection select 0, _sellValue];
+	
+	HW_Office_Funds = HW_Office_Funds + _sellValue;
+	ctrlSetText [1007, format["Funds: $%1", HW_Office_Funds]]; // set funds
+	
+	HW_Office_InventoryIndex call HW_Office_RemoveInventory;	
+	call HW_Office_InventoryDeselect;	
+};
+
+HW_Office_ScrapItem = 
+{
+	hint format ["Scrapped %1.", HW_Office_InventorySelection select 0];
+	
+	HW_Office_InventoryIndex call HW_Office_RemoveInventory;	
+	call HW_Office_InventoryDeselect;	
+};
+
+HW_Office_UnpackItem = 
+{	
+	_onUnpack = compile (HW_Office_InventorySelection select 8);
+	
+	HW_Office_InventorySelection call _onUnpack;
+	
+	call HW_Office_InventoryUpdateItemDetails;
+};
+
+HW_Office_RepackItem = 
+{
+	_onRepack = compile (HW_Office_InventorySelection select 9);
+	
+	HW_Office_InventorySelection call _onRepack;
+	
+	call HW_Office_InventoryUpdateItemDetails;
+};
+

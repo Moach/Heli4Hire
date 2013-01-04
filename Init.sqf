@@ -1,6 +1,7 @@
 
 HW_DEBUG = true;
 
+removeAllItems player;
 
 
 _initDefs = player execVM "InitDefs.sqf";
