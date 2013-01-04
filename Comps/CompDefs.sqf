@@ -42,7 +42,6 @@ HW_Fx_Composition_Assemble =
 	_counter = 0;
 	//
 	
-	_pplPars = [];
 	
 	{
 		_p = _x select 1;
@@ -50,11 +49,13 @@ HW_Fx_Composition_Assemble =
 		
 		if ((_x select 0) isKindOf "Man") then
 		{
-			(_x select 0) createUnit [_p, _compGrp];
-			// oddly, yet not surprisingly, the above command returns nothing... so we loop through the group later to set it all up...
-			// that means we gotta store info on 'ppl' units - goddamn humans, when will they cease?!
+			(_x select 0) createUnit [_p, _compGrp, "cmpNewUnit = this"];
+			processInitCommands;
 			
-			_pplPars set [count _pplPars, [_p, _x select 2]];
+			cmpNewUnit disableAI "MOVE";
+			cmpNewUnit setPosATL _p;
+			cmpNewUnit setDir (_x select 2);
+			
 		} else
 		{
 			_veh = (_x select 0) createVehicle _p;
@@ -66,29 +67,18 @@ HW_Fx_Composition_Assemble =
 		};
 	} foreach (_this select 1);
 	
-	_counter = 0; 
-	{
-		// and as promised...
-		_x disableAI "MOVE";
-		_x setPosATL ((_pplPars select _counter) select 0);
-		_x setDir ((_pplPars select _counter) select 1);
-		
-		_counter = _counter+1; // what a weird language!
-		
-	} foreach units _compGrp; 
+	cmpNewUnit = nil;
 	
 [_compGrp, _vehs] };
 
 
 
 HW_Fx_Composition_Delete = 
-{
-	_delUnits = ((units (_this select 0)) + (_this select 1));
+{	
+	{ deleteVehicle _x; } foreach units (_this select 0);
+	{ if (!isNil "_x") then { deleteVehicle _x; }; } foreach (_this select 1);
 	
-	{
-		deleteVehicle _x;
-		//
-	} foreach _delUnits;
+	//
 	deleteGroup (_this select 0);
 };
 
