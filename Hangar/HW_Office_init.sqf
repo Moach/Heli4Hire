@@ -3,15 +3,101 @@ HW_Office_Active = false;
 
 execVM "Hangar\HW_Office_functions.sqf";
 
-// item syntax is [0 "Item Name", 	1 int cost,			  	2 "Description",		3 "picture filename",
-//				   4 int weight,  	5 int deliveryTimeMins,	6 01float condition, 	7 int timeOfPurchase]
+// item syntax is  [0 "Item Name", 		 1 int cost,			  	2 "Description",		3 "picture filename",
+//				   	4 int weight,  		 5 int deliveryTimeMins,	6 01float condition, 	7 int deliveryTimestamp,
+//				   	8 "onItemUnpack",   9 "onItemRepack", 			10 bool sellable, 		11 bool packed]
 				   
-HW_Office_StoreItems = [
-	["Test Item 1", 100, "A test item to test items", "#(argb,8,8,3)color(1,1,1,1)", 10, 5, 1, 0],
-	["Test Item 2", 130, "Another test item to test items", "#(argb,8,8,3)color(0,1,1,1)", 55, 12, 1, 0]
+// item parameters:
+// 0 - default
+// 1 - sellable
+// 2 - unpackable
+// 4 - repackable
+
+
+HW_Office_StoreItems = [	
+
+	["Map (Seattle)", 5.50, "A beautifully rendered foldout map of Seattle and the surrounding area. A must-have for map enthusiasts and the geographically challenged.\n\nNo refunds on this item.",	"#(argb,8,8,3)color(0.4,0.5,0.3,1)", 0.1, 0.1, 1, 0, 
+	 " 	if (player hasWeapon 'ItemMap') then
+		{
+			hint 'It seems you already have one of those. No point in unpacking this one.';
+		} else {
+			player addWeapon 'ItemMap';
+			hint 'Unpacked the map and added to Gear.';
+			_this set [11, false];
+			_this set [6, 0.8];	
+		}; ",  
+	 "	if (player hasWeapon 'ItemMap') then
+		{
+			player removeWeapon 'ItemMap';
+			hint 'Packed the map back neatly into its box.'; 
+			_this set [11, true];
+		} else {
+			hint 'You dont have the map with you. Did you drop it somewhere?';
+		}; ", false, true],
+		
+		
+	["GPS", 499.99, "The Armin BX300 Personal Satellite Signal Trilateration Processor and Chart Overlay Rendering Device may have a name that is longer than its list of features, but it is certainly much less deadly to use while flying than a foldout paper map.",	"#(argb,8,8,3)color(0.3,0.4,0.2,1)", 0.5, 0.1, 1, 0, 
+	 " 	if (player hasWeapon 'ItemGPS') then
+		{
+			hint 'It seems you already have one of those. No point in unpacking this one.';
+		} else {
+			player addWeapon 'ItemGPS';
+			hint 'Unpacked GPS and added to Gear.';
+			_this set [11, false];
+			_this set [6, 0.8];			
+		}; ",  
+	 "  if (player hasWeapon 'ItemGPS') then
+		{
+			player removeWeapon 'ItemGPS';
+			hint 'Packed GPS back neatly into its box.'; 
+			_this set [11, true];
+		} else {
+			hint 'You dont have the GPS with you. Did you drop it somewhere?';
+		}; ", true, true],
+		
+		
+	["Watch", 45.00, "A rugged, reliable time-telling device, with a manly brushed steel surface. Very useful if you have deadlines to keep. ",	"#(argb,8,8,3)color(0.4,0.4,0.4,1)", 0.1, 0.1, 1, 0, 
+	 " 	if (player hasWeapon 'ItemWatch') then
+		{
+			hint 'It seems you already have one of those. No point in unpacking this one.';
+		} else {
+			player addWeapon 'ItemWatch';
+			hint 'Unpacked the watch and added to Gear.';
+			_this set [11, false];
+			_this set [6, 0.8];			
+		}; ",  
+	 "  if (player hasWeapon 'ItemWatch') then
+		{
+			player removeWeapon 'ItemWatch';
+			hint 'Packed watch back neatly into its box.'; 
+			_this set [11, true];
+		} else {
+			hint 'You dont have the watch with you. Did you drop it somewhere?';
+		}; ", true, true],
+		
+	["Binoculars", 160.00, "Not very useful for flying, admittedly, but these high-performance binoculars are great for plane (or heli) spotting.",	"#(argb,8,8,3)color(0.1,0.4,0.4,1)", 0.1, 0.1, 1, 0, 
+	 " 	if (player hasWeapon 'Binocular') then
+		{
+			hint 'It seems you already have one of those. No point in unpacking this one.';
+		} else {
+			player addWeapon 'Binocular';
+			hint 'Unpacked the binoculars and added to Gear.';
+			_this set [11, false];
+			_this set [6, 0.8];			
+		}; ",  
+	 "  if (player hasWeapon 'Binocular') then
+		{
+			player removeWeapon 'Binocular';
+			hint 'Packed binoculars back neatly into its box.'; 
+			_this set [11, true];
+		} else {
+			hint 'You dont have the binoculars with you. Did you drop it somewhere?';
+		}; ", true, true]
 ];
 
-HW_Office_Inventory = [];
+HW_Office_Inventory = [
+	
+];
 
 HW_Office_Orders = [];
 
@@ -24,3 +110,15 @@ player addAction ["Save Career Progress", "HW_Savegame.sqf", nil, 0, false, true
 player addAction ["Access Office", "Hangar\HW_Office_Dialog.sqf", 1, 0, true, true, "fire", 
 	"player distance office_area < 8 && !HW_Office_Active;",
 	"", -1, -1, 1+8];
+	
+if (HW_DEBUG) then {
+	player addAction ["Buddamus", "Hangar\HW_OfficeBuddamus.sqf", nil, 0, false, true, "", "!(player in chopper) && player distance office_area < 8 && !HW_Office_Active;"];
+};
+	
+HW_Office_OrdersUpdateDaemon = [] spawn {
+	while { true } do 
+	{
+		sleep 1;	
+		call HW_Office_UpdateOrders;
+	};	
+};

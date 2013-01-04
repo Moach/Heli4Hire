@@ -1,5 +1,5 @@
-showGPS = 0;
-showCompass = 0;
+//showGPS = 0;
+//showCompass = 0;
 
 #include <AnimationViewer\include.h>
 
@@ -911,6 +911,144 @@ class OverviewGroup: RscControlsGroup
 			w = 3 * GUI_GRID_W;
 			h = 0.5 * GUI_GRID_H;
 		};
+		class IGUIBack_2206: IGUIBack
+		{
+			idc = 2206;
+			x = 10 * GUI_GRID_W;
+			y = 1 * GUI_GRID_H;
+			w = 8.5 * GUI_GRID_W;
+			h = 15 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class InventoryText: RscText
+		{
+			idc = 1019;
+			text = "Inventory"; //--- ToDo: Localize;
+			x = 10 * GUI_GRID_W;
+			y = 0 * GUI_GRID_H;
+			w = 3 * GUI_GRID_W;
+			h = 0.5 * GUI_GRID_H;
+		};
+		class IGUIBack_2207: IGUIBack
+		{
+			idc = 2207;
+			x = 18.5 * GUI_GRID_W;
+			y = 1 * GUI_GRID_H;
+			w = 11.5 * GUI_GRID_W;
+			h = 15 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class InventorySelDescription: RscText
+		{
+			style = ST_MULTI;
+
+			idc = 1020;
+			text = "Select an item on the list for details."; //--- ToDo: Localize;
+			x = 19 * GUI_GRID_W;
+			y = 6.5 * GUI_GRID_H;
+			w = 10.5 * GUI_GRID_W;
+			h = 5 * GUI_GRID_H;
+		};
+		class InventorySelName: RscText
+		{
+			idc = 1021;
+			x = 19 * GUI_GRID_W;
+			y = 1.5 * GUI_GRID_H;
+			w = 10.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class InventorySelPicture: RscPicture
+		{
+			idc = 1202;
+			text = "#(argb,8,8,3)color(1,1,1,0)";
+			x = 22.5 * GUI_GRID_W;
+			y = 3 * GUI_GRID_H;
+			w = 3.5 * GUI_GRID_W;
+			h = 3 * GUI_GRID_H;
+		};
+		class InventoryList: RscListbox
+		{
+			onLBSelChanged = "[HW_Office_Inventory select (_this select 1), _this select 1] call HW_Office_InventorySetSelection;";
+
+			idc = 1502;
+			x = 10.5 * GUI_GRID_W;
+			y = 1.5 * GUI_GRID_H;
+			w = 7.5 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+		};
+		class IGUIBack_2208: IGUIBack
+		{
+			idc = 2208;
+			x = 0 * GUI_GRID_W;
+			y = 1 * GUI_GRID_H;
+			w = 10 * GUI_GRID_W;
+			h = 15 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,0.2};
+		};
+		class InventorySelWeight: RscText
+		{
+			style = ST_MULTI;
+
+			idc = 1022;
+			x = 19 * GUI_GRID_W;
+			y = 12 * GUI_GRID_H;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class InventorySelCondition: RscText
+		{
+			style = ST_MULTI;
+
+			idc = 1023;
+			x = 19 * GUI_GRID_W;
+			y = 13 * GUI_GRID_H;
+			w = 4.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class ButtonSell: RscButton
+		{
+			action = "call HW_Office_SellItem;";
+
+			idc = 1606;
+			text = "Sell"; //--- ToDo: Localize;
+			x = 23.5 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 6 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class ButtonUnpack: RscButton
+		{
+			action = "call HW_Office_UnpackItem;";
+
+			idc = 1607;
+			text = "Unpack"; //--- ToDo: Localize;
+			x = 19 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 3 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class ButtonRepack: RscButton
+		{
+			action = "call HW_Office_RepackItem;";
+
+			idc = 1608;
+			text = "Re-pack"; //--- ToDo: Localize;
+			x = 19 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 3 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class ButtonScrap: RscButton
+		{
+			action = "call HW_Office_ScrapItem;";
+
+			idc = 1609;
+			text = "Scrap"; //--- ToDo: Localize;
+			x = 27.5 * GUI_GRID_W;
+			y = 14.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
 	};
 };
 class StoreGroup: RscControlsGroup
@@ -1234,8 +1372,6 @@ class CloseButton: RscButton
 // GUI EDITOR OUTPUT END
 ////////////////////////////////////////////////////////
 
-
-		
 	};	
 };
 
