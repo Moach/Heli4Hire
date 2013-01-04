@@ -130,8 +130,12 @@ if (HW_DEBUG) then
 	[] execVM "AnimationViewer\init.sqf";
 	
 	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
-	
-/*	// create markers showing ALL indexed landing areas!
+};	
+
+
+HW_DD_IdentLZs = 
+{
+	// create markers showing ALL indexed landing areas!
 	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
 	_counter = 0;
 	{
@@ -142,7 +146,12 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerAlpha 0.4; 
 		
 	} foreach _locLZs;
-	
+	hintSilent format ["LZ count = %1", count _locLZs];
+};
+
+
+HW_DD_IdentCargoTowers = 
+{
 	{
 		_lzMkr = createMarker [_x select 0, _x select 1];
 		_lzMkr setMarkerType "mil_triangle";
@@ -150,8 +159,11 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerColor "ColorBlack";
 		_lzMkr setMarkerAlpha 0.6; 
 		
-	} foreach PosDefs_roofTops;
-	
+	} foreach PosDefs_roofTops;	
+};
+
+HW_DD_IdentCargoBases = 
+{
 	{
 		_lzMkr = createMarker [_x select 1, _x select 2];
 		_lzMkr setMarkerType "mil_box";
@@ -160,11 +172,11 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerAlpha 0.5; 
 		
 	} foreach PosDefs_landings;
-	
-	
-	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
-	*/
 };
+	
+	
+	
+
 
 
 //
