@@ -39,7 +39,7 @@ item34[] = {"check_rope_attac",2,250,263.773712,1907.366211,353.773682,1957.3666
 item35[] = {"ready",4,218,222.003693,2015.338623,318.567963,2062.520264,0.000000,"ready"};
 item36[] = {"fly_to_cargo_atop",2,250,202.101349,2081.207031,292.101227,2131.206787,0.000000,"fly to cargo" \n "atop tower"};
 item37[] = {"go_back",2,250,-413.162933,2379.086670,-323.162842,2429.086670,0.000000,"go back"};
-item38[] = {"attach_sling_rope",2,4346,-163.399231,1888.835327,-73.399231,1938.835449,0.000000,"attach sling" \n "rope to cargo"};
+item38[] = {"attach_sling_rope",2,250,-163.399231,1888.835327,-73.399231,1938.835449,0.000000,"attach sling" \n "rope to cargo"};
 item39[] = {"ready_",4,218,-263.442383,2060.687256,-165.912338,2117.661377,0.000000,"ready!"};
 item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,0.000000,"sling it up"};
 item41[] = {"steady__over_it",4,218,508.681213,2285.963623,599.956543,2335.963623,0.000000,"steady " \n "over it"};
@@ -71,7 +71,7 @@ item66[] = {"where__from_",2,250,100.882423,2447.973877,181.359024,2512.348389,0
 item67[] = {"depart",4,218,94.396805,2212.429199,188.280624,2263.917969,0.000000,"depart"};
 item68[] = {"going_up",4,218,41.838890,2412.899170,120.265800,2454.797852,0.000000,"going" \n "up"};
 item69[] = {"going_down",4,218,170.579636,2408.152588,260.579956,2458.152588,0.000000,"going" \n "down"};
-item70[] = {"damage_control",2,250,-261.423035,2672.474365,-171.423004,2722.474365,0.000000,"damage" \n "control"};
+item70[] = {"damage_control",2,4346,-261.423035,2672.474365,-171.423004,2722.474365,0.000000,"damage" \n "control"};
 item71[] = {"close_in",4,218,509.313477,2081.166992,599.313232,2131.166992,0.000000,"close in"};
 item72[] = {"approach_cargo",2,250,511.915222,2197.206055,596.416931,2254.665771,0.000000,"approach" \n "cargo"};
 item73[] = {"far",4,218,202.212433,2200.818359,292.211945,2250.818604,0.000000,"far"};
@@ -203,8 +203,8 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,228,6316128,1,-588.010071,294.954803,2787.297607,1671.097290,689,871,1};
-window[] = {0,-1,-1,-32000,-32000,1009,49,1552,24,1,707};
+globals[] = {0.000000,0,0,0,0,640,480,1,228,6316128,1,-764.977478,17.668182,2990.753174,2001.370483,689,871,1};
+window[] = {0,-1,-1,-1,-1,1009,49,1552,24,1,707};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -320,8 +320,8 @@ class FSM
        "[_pos] call HW_Util_Clear_Cranes;" \n
        "" \n
        "_steady = [" \n
-       "	 player, _pos, nil, [10,1.0,35], 15, " \n
-       "	{ PilotFail = true; }" \n
+       "	 player, [0,0,0], nil, [10,1.0,35], 15, " \n
+       "	{ if (player in chopper) then {  PilotFail = true; }; }" \n
        "] spawn BIS_fnc_wpSteady;" \n
        "" \n
        "" \n
@@ -1264,7 +1264,7 @@ class FSM
           priority = 0.000000;
           to="sling_it_up";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RopeAttached && (SlingLoadCgo != ObjNull);" \n
+          condition=/*%FSM<CONDITION""">*/"RopeAttached && !(isNull SlingLoadCgo);" \n
            "" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n
@@ -1461,7 +1461,7 @@ class FSM
     class YOU_BROKE_IT_
     {
       name = "YOU_BROKE_IT_";
-      init = /*%FSM<STATEINIT""">*/"hint ""You lost the load!! -- the whole job has been put on hold for today! -- try to land the crew near the area so they can check the damage!"";" \n
+      init = /*%FSM<STATEINIT""">*/"hint ""You damaged the load!! -- the whole job has been put on hold for today! -- try to land the crew near the area so they can see how bad it is!"";" \n
        "" \n
        "" \n
        "deleteMarker _baseMkr;" \n
@@ -1534,7 +1534,7 @@ class FSM
           priority = 0.000000;
           to="sling_it_up";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RopeAttached && (SlingLoadCgo != ObjNull);" \n
+          condition=/*%FSM<CONDITION""">*/"RopeAttached && !(isNull SlingLoadCgo);" \n
            "" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n
@@ -1631,7 +1631,7 @@ class FSM
        "" \n
        "_steady = [" \n
        "	 player, [0,0,0], nil, [10,1.0,35], 15, " \n
-       "	{ PilotFail = true; }" \n
+       "	{ if (player in chopper) then {  PilotFail = true; }; }" \n
        "] spawn BIS_fnc_wpSteady;" \n
        "" \n
        "" \n
@@ -1705,7 +1705,7 @@ class FSM
        "" \n
        "DisasterEvent = ""LoadWrecked""; // this is coming out of your pay!" \n
        "" \n
-       "hintSilent ""Let's see what the situation is...\n\n losing a load is a critical situation, so you're done here! - this is gonna take the crew the whole day now!"";" \n
+       "hintSilent ""Let's see what the situation is...\n\nMessing up a load is a big no-no! so you're done here - this is gonna take the crew the whole day now!"";" \n
        "" \n
        "" \n
        "1 setRadioMsg ""Go ahead! Tell 'em!"";"/*%FSM</STATEINIT""">*/;
@@ -1895,7 +1895,7 @@ class FSM
           priority = 0.000000;
           to="sling_it_up";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RopeAttached && (SlingLoadCgo != ObjNull);" \n
+          condition=/*%FSM<CONDITION""">*/"RopeAttached && !(isNull SlingLoadCgo);" \n
            "" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n

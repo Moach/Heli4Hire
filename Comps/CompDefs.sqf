@@ -67,7 +67,6 @@ HW_Fx_Composition_Assemble =
 		};
 	} foreach (_this select 1);
 	
-	cmpNewUnit = nil;
 	
 [_compGrp, _vehs] };
 

@@ -3,12 +3,12 @@ SlingLoadCgo = objNull;
 SlingLoadLen = _this select 3;
 
 playSound "FX_Rope_Connect";
-RopeAttached = true;
+
 
 sleep 2;
 
 SlingRope = ropeCreate [chopper, "slingload0", round(SlingLoadLen * 3), SlingLoadLen, true];
-
+RopeAttached = true;
 
 
 sleep 2;
