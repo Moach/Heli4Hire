@@ -314,7 +314,8 @@ PosDefs_landings = [
 
 
 
-
+_compsInit = [] execVM "Comps\CompDefs.sqf";
+waituntil { scriptdone _compsInit };
 
 
 

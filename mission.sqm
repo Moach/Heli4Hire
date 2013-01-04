@@ -2301,8 +2301,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27908.869,3.7458482,29785.197};
-					azimut=161.66431;
+					position[]={27911.244,3.8111212,29783.584};
+					azimut=528.49182;
 					id=329;
 					side="CIV";
 					vehicle="Instructor_H";
@@ -2356,7 +2356,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=2162;
+		items=2169;
 		class Item0
 		{
 			position[]={27907.816,4.1060934,29777.199};
@@ -5059,8 +5059,8 @@ class Mission
 		};
 		class Item227
 		{
-			position[]={28878.842,93,21401.145};
-			azimut=359.42499;
+			position[]={28869.766,93,21399.035};
+			azimut=449.95401;
 			special="NONE";
 			id=352;
 			side="EMPTY";
@@ -11951,7 +11951,7 @@ class Mission
 		};
 		class Item824
 		{
-			position[]={27926.857,137.45914,27125.1};
+			position[]={27926.342,137.44911,27125.617};
 			azimut=229.53;
 			special="NONE";
 			id=950;
@@ -14138,7 +14138,7 @@ class Mission
 			special="NONE";
 			id=1132;
 			side="EMPTY";
-			vehicle="Helipad_Civil_H";
+			vehicle="Helipad_Invisible_H";
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
@@ -27801,6 +27801,83 @@ class Mission
 			skill=0.60000002;
 			init="loc = createLocation [""Heliport"", getPos this, 100, 100];";
 		};
+		class Item2162
+		{
+			position[]={29045.729,91,21810.783};
+			azimut=178.702;
+			special="NONE";
+			id=2289;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2163
+		{
+			position[]={27495.295,122,26702.566};
+			azimut=178.702;
+			special="NONE";
+			id=2290;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2164
+		{
+			position[]={27939.502,137.00911,27130.25};
+			azimut=178.702;
+			special="NONE";
+			id=2291;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2165
+		{
+			position[]={31506.941,246.00647,31196.455};
+			azimut=178.702;
+			special="NONE";
+			id=2292;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2166
+		{
+			position[]={30808.98,53.045265,32892.223};
+			azimut=178.702;
+			special="NONE";
+			id=2293;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2167
+		{
+			position[]={28874.973,93.014023,21388.684};
+			azimut=450.172;
+			special="NONE";
+			id=2294;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2168
+		{
+			position[]={28619.139,55.211105,26214.129};
+			azimut=450.172;
+			special="NONE";
+			id=2295;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
 	};
 	class Markers
 	{
@@ -27830,7 +27907,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=11;
+		items=12;
 		class Item0
 		{
 			position[]={27903.102,0.27171862,29898.475};
@@ -27991,6 +28068,21 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="survey_safe_zone";
+			class Effects
+			{
+			};
+		};
+		class Item11
+		{
+			position[]={30970.875,9,29051.125};
+			a=20;
+			b=20;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="comp_setup_area";
+			expCond="this && HW_DEBUG";
+			expActiv="player addAction [""Copy Composition Data"", ""Comps\Compilationer.sqf"", [this, 30]];";
 			class Effects
 			{
 			};

@@ -278,7 +278,7 @@ class CfgSounds
 class CfgLoadingTexts
 {
 	//--- Delay between texts are swapped (by default same as delay for images)
-	refreshDelay = 4;
+	refreshDelay = 2
 
 	//--- Loading text container
 	class Heli4Hire_1
@@ -288,7 +288,7 @@ class CfgLoadingTexts
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Reticulating Splines" 
+			"Inspecting ground resonance damper"
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
@@ -379,7 +379,7 @@ class CfgLoadingTexts
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Inspecting ground resonance damper"
+			"Reticulating Splines" 
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
