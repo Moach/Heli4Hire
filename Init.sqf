@@ -55,6 +55,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos (getPos start_here);
 	player setDir 20;
 	
+	player addWeapon "ItemMap";
+	player addWeapon "ItemGps";
+	player addWeapon "ItemWatch";
+	
 	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
 	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
