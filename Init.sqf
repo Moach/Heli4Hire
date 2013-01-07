@@ -1,5 +1,5 @@
 
-HW_DEBUG = true;
+HW_DEBUG = false;
 
 removeAllItems player;
 player addWeapon "ItemRadio";
