@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Cargo">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
+item0[] = {"START",0,4346,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
 item1[] = {"get_to__cargo_ba",2,250,316.117645,1683.599365,406.117584,1733.599365,0.000000,"get to " \n "cargo base"};
 item2[] = {"avail",4,218,-198.493408,1108.035400,-108.493408,1158.035400,0.000000,"avail"};
 item3[] = {"where_s_the__cargo",2,250,-199.340088,1197.545898,-109.340271,1247.545898,0.000000,"where's the " \n "cargo crew?"};
@@ -203,7 +203,7 @@ link115[] = {79,81};
 link116[] = {80,78};
 link117[] = {81,51};
 link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,229,6316128,1,-651.936462,394.483521,2925.411865,1602.578979,689,871,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,229,6316128,1,-705.315002,652.681519,2288.293213,571.580566,689,871,1};
 window[] = {0,-1,-1,-32000,-32000,1009,49,1552,24,1,707};
 *//*%FSM</HEAD>*/
 class FSM
@@ -229,7 +229,7 @@ class FSM
        "" \n
        "_crewAway = (_pos distance _basePos) > 10;" \n
        "" \n
-       "if (_crewAway) then { [_pos, _basePos] call HW_Util_Clear_Cranes; } else {  [_pos] call HW_Util_Clear_Cranes; };" \n
+       "if (_crewAway) then { [_pos, _basePos] call HW_Fx_Util_Clear_Cranes; } else {  [_pos] call HW_Fx_Util_Clear_Cranes; };" \n
        "" \n
        "" \n
        "_pax =  [PaxDefs_cargo call bis_fnc_selectRandom, PaxDefs_cargo call bis_fnc_selectRandom];" \n
@@ -238,10 +238,10 @@ class FSM
        "{ _x lookAt chopper; } foreach units _grp;" \n
        "" \n
        "" \n
-       "(units _grp) call HW_Util_Animate_Idle;" \n
+       "(units _grp) call HW_Fx_Util_Animate_Idle;" \n
        "" \n
-       "_tsk = player createSimpleTask [""Current Assignment""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
+       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", -CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "" \n
@@ -752,7 +752,7 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
-       "(units _grp) call HW_Util_Animate_Off;" \n
+       "(units _grp) call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
@@ -973,7 +973,7 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
-       "(units _grp) call HW_Util_Animate_Off;" \n
+       "(units _grp) call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
@@ -1130,7 +1130,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at tower"", (_cgo_done select 1)];" \n
            "" \n
            "_tsk setSimpleTaskDestination _towerPos;" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1270,7 +1270,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n
            "_upDownIndex = 0;" \n
            "" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1364,7 +1364,7 @@ class FSM
           condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"ropeDestroy SlingRope;" \n
            "" \n
-           "_topCrew switchMove """";" \n
+           "[_topCrew] call HW_Fx_Util_Animate_Off;" \n
            "" \n
            "SlingRope = ropeCreate [chopper, ""slingload0"", _hookCgo, [0, .32, 0], round(SlingLoadLen * 2)];" \n
            "ropeSetCargoMass [SlingRope, _hookCgo, _hookWgt];" \n
@@ -1469,7 +1469,7 @@ class FSM
        "player removeSimpleTask _tsk;" \n
        "" \n
        "" \n
-       "[_topCrew] call HW_Util_Animate_Off;" \n
+       "[_topCrew] call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "_go = false;" \n
        "" \n
@@ -1540,7 +1540,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n
            "_upDownIndex = 0;" \n
            "" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1555,7 +1555,7 @@ class FSM
        "_t = time + 1; // give it a second so we know if it's not falling or tumbling around" \n
        "" \n
        "" \n
-       "[_topCrew] call HW_Util_Animate_Off;"/*%FSM</STATEINIT""">*/;
+       "[_topCrew] call HW_Fx_Util_Animate_Off;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1821,7 +1821,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at tower"", (_cgo_done select 1)];" \n
            "" \n
            "_tsk setSimpleTaskDestination _towerPos;" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1865,7 +1865,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at tower"", (_cgo_done select 1)];" \n
            "" \n
            "_tsk setSimpleTaskDestination _towerPos;" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1901,7 +1901,7 @@ class FSM
           action=/*%FSM<ACTION""">*/"hintSilent format [""%1 load(s) to go at base"", (_cgo_done select 0)];" \n
            "_upDownIndex = 0;" \n
            "" \n
-           "[_topCrew] call HW_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
+           "[_topCrew] call HW_Fx_Util_Animate_Marshall;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };

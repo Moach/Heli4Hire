@@ -1,7 +1,7 @@
 
 
 
-HW_Util_Clear_Cranes = 
+HW_Fx_Util_Clear_Cranes = 
 {
 	//--- Get rid of cranes by spinning them away from landing site (with some luck...)
 	_spawns = [];
@@ -29,7 +29,7 @@ HW_Util_Clear_Cranes =
 
 
 
-HW_Util_Animate_Idle = 
+HW_Fx_Util_Animate_Idle = 
 {
 /*	if (count _this > 1) then // when in a group, people turn around a common mean center position so they appear to talk to eachother (not facing away)
 	{
@@ -75,7 +75,7 @@ HW_Util_Animate_Idle =
 };
 
 
-HW_Util_Animate_Marshall = 
+HW_Fx_Util_Animate_Marshall = 
 {
 	{
 		_x switchMove "NavigationHeli"; 
@@ -86,20 +86,13 @@ HW_Util_Animate_Marshall =
 
 
 
-HW_Util_Animate_Off = 
+HW_Fx_Util_Animate_Off = 
 {
 	{
 		_x removeAllEventHandlers "AnimDone";
 		_x switchmove "";
 	} foreach _this;
 };
-
-
-
-
-
-
-
 
 
 

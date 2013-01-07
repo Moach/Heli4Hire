@@ -4,7 +4,7 @@
 item0[] = {"START",0,250,-154.354126,1151.648315,-64.354385,1201.648438,0.000000,"START"};
 item1[] = {"avail",4,218,-153.806915,1227.377930,-63.807053,1277.377930,0.000000,"avail"};
 item2[] = {"land",4,218,-153.762665,1538.161011,-63.762154,1588.161011,1.000000,"land"};
-item3[] = {"pickup",2,250,-154.019196,1323.003540,-64.019272,1373.003540,0.000000,"pickup"};
+item3[] = {"pickup",2,4346,-154.019196,1323.003540,-64.019272,1373.003540,0.000000,"pickup"};
 item4[] = {"land_",4,218,-210.934753,1840.424072,-120.934570,1890.424072,1.000000,"land" \n ""};
 item5[] = {"deboard",2,250,-84.461296,2032.707886,5.538671,2082.708008,0.000000,"deboard"};
 item6[] = {"away",4,218,-85.303375,2118.767090,4.696871,2168.767578,0.000000,"away"};
@@ -70,7 +70,7 @@ link33[] = {28,29};
 link34[] = {29,31};
 link35[] = {30,31};
 link36[] = {31,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,91,255,1,-736.663696,81.751999,2197.967285,1034.736694,591,840,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,91,255,1,-589.875854,228.539368,2049.785156,886.558472,591,840,1};
 window[] = {0,-1,-1,-32000,-32000,980,88,1506,26,1,609};
 *//*%FSM</HEAD>*/
 class FSM
@@ -119,12 +119,14 @@ class FSM
        "//_locDefs = _locDefs_lineup call bis_fnc_selectrandom;" \n
        "" \n
        "" \n
+       "[_this select 0, _this select 1] call HW_Fx_Util_Clear_Cranes;" \n
+       "" \n
        "" \n
        "" \n
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
        "" \n
-       "if (chopper call bis_fnc_helicopterType > 0) then // larger than lite choppah -- we can easily handle some more load" \n
+       "if (chopper call bis_fnc_helicopterType > 0) then // larger than lite choppah -- we can easily handle some more meat" \n
        "{" \n
        "	_pax resize 8; _pps resize 8;" \n
        "	_pax set [3, PaxDefs_taxi call bis_fnc_selectRandom];  _pps set [3, [8,-6,0]];" \n
@@ -136,11 +138,11 @@ class FSM
        "" \n
        "" \n
        "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
-       "units _grp call HW_Util_Animate_Idle;" \n
+       "units _grp call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "" \n
-       "_tsk = player createSimpleTask [""Current Assignment""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
+       "_tsk = player createSimpleTask [-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", -CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_mkr = createMarker [""Departure"", _pos];" \n
@@ -313,7 +315,7 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
-       "(units _grp) call HW_Util_Animate_Off;" \n
+       "(units _grp) call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n

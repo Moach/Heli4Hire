@@ -8,7 +8,7 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 //
 // functions...
 
-HW_Reset_RadioCalls = 
+HW_Fx_Reset_RadioCalls = 
 {
 	RadioCall_A = false;
 	RadioCall_B = false;
@@ -24,7 +24,7 @@ HW_Reset_RadioCalls =
 
 //
 RadioCallDelay = 0;
-HW_Disptach_Radio_Update = 
+HW_Fx_Disptach_Radio_Update = 
 {
 	if (time > RadioCallDelay) then
 	{
@@ -36,7 +36,7 @@ HW_Disptach_Radio_Update =
 	};
 };
 
-HW_Dispatch_Taxi = 
+HW_Fx_Dispatch_Taxi = 
 {
 	//
 	//
@@ -81,7 +81,7 @@ HW_Dispatch_Taxi =
 
 
 
-HW_Dispatch_Survey = 
+HW_Fx_Dispatch_Survey = 
 {
 	//
 	_p1 = getPos service_helipad;
@@ -134,7 +134,7 @@ HW_Dispatch_Survey =
 
 
 
-HW_Dispatch_Cargo = 
+HW_Fx_Dispatch_Cargo = 
 {
 	// locate tower (the high point requiring helicopter cargo)
 	//
@@ -197,7 +197,7 @@ HW_Dispatch_Cargo =
 
 
 
-HW_Pilot_Task_Commit = 
+HW_Fx_Pilot_Task_Commit = 
 {
 	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
 	{ 
@@ -243,7 +243,7 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 // PD setup utility functions...
 //
 
-HW_PD_Prompt = 
+HW_Fx_PD_Prompt = 
 {
 	if (PD_Armed) exitWith { player sidechat "WARNING!!\n - PD armed - \ncannot prompt further options before clear!"; };
 	
@@ -263,7 +263,7 @@ HW_PD_Prompt =
 };
 
 
-HW_PD_Clear = 
+HW_Fx_PD_Clear = 
 {
 	PilotDecision = 0;
 	PD_Armed = false;

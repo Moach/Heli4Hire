@@ -1,5 +1,54 @@
 
-HW_DEBUG = false;
+/*
+	you are about to enter the ultimate vortex of enthropy! 
+	there where random things are!
+	
+	proceed at own risk of general confustication!
+	
+	
+
+	mind the required argument notation comments on some of this project's functions,
+	hopefully we can make this a standard, since self-documenting code is a no-go...
+	
+	
+	
+	henceforth, we define the basic laws of proper modular programming:
+	
+		1: functions that AWNSWER QUESTIONS by returning values shall not execute any logic that 
+		   results in change to the answer given by itself or another function.
+		
+		2: functions that EXECUTE LOGIC shall not proceed beyond that which is immediately obvious given their purpose,
+		   specially if this would cause an indirectly related question to produce a different answer.
+		   
+		3: functions that EXECUTE LOGIC AND RETURN THE RESULT must not cause change to answers other than that which it 
+		   provides whenever said result indicates failure to obtain full success in execution.
+		   
+	   
+	...and hope it sticks
+	
+	
+	thus-wise, a secondary prefix (post the HW_ project identifier) will read:
+	
+	Fn_   for functions that answer questions
+	Fx_   for functions that execute logic
+	Fs_   for functions that return their own success upon executing logic
+
+	the absense of such prefix usually denotes the definition of a variable, rather than a function...
+	
+	
+	do note however - it's really a tough gig to enfore this stuff on this type of project, so things may not comply (at all) at various scripts...
+	
+	
+*/
+
+
+
+
+
+HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
+
+
+
 
 removeAllItems player;
 player addWeapon "ItemRadio";
@@ -142,7 +191,7 @@ if (HW_DEBUG) then
 };	
 
 
-HW_DD_IdentLZs = 
+HW_Fx_DD_IdentLZs = 
 {
 	// create markers showing ALL indexed landing areas!
 	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
@@ -159,7 +208,7 @@ HW_DD_IdentLZs =
 };
 
 
-HW_DD_IdentCargoTowers = 
+HW_Fx_DD_IdentCargoTowers = 
 {
 	{
 		_lzMkr = createMarker [_x select 0, _x select 1];
@@ -171,7 +220,7 @@ HW_DD_IdentCargoTowers =
 	} foreach PosDefs_roofTops;	
 };
 
-HW_DD_IdentCargoBases = 
+HW_Fx_DD_IdentCargoBases = 
 {
 	{
 		_lzMkr = createMarker [_x select 1, _x select 2];

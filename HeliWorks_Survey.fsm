@@ -4,11 +4,11 @@
 item0[] = {"START",0,250,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
 item1[] = {"avail",4,218,-771.961426,1344.660034,-681.961304,1394.660034,0.000000,"avail"};
 item2[] = {"land",4,218,-772.595642,1523.999756,-682.595154,1573.999756,1.000000,"land"};
-item3[] = {"pickup",2,250,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
+item3[] = {"pickup",2,4346,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
 item4[] = {"land_",4,218,43.767811,2085.719727,122.927696,2139.114990,1.000000,"land" \n ""};
 item5[] = {"deboard",2,250,38.058102,2253.112793,128.058136,2303.113037,0.000000,"deboard"};
 item6[] = {"away",4,218,39.097061,2323.200439,129.097290,2373.200928,0.000000,"away"};
-item7[] = {"now_boarding___",2,4346,-625.913147,1599.736816,-532.392883,1641.415039,0.000000,"now boarding..."};
+item7[] = {"now_boarding___",2,250,-625.913147,1599.736816,-532.392883,1641.415039,0.000000,"now boarding..."};
 item8[] = {"clear",1,250,37.422394,2391.902100,127.422539,2441.902100,0.000000,"clear"};
 item9[] = {"timeout",4,218,-343.738220,1719.463379,-250.169830,1770.652954,1.000000,"timeout"};
 item10[] = {"done",4,218,54.835030,2199.789795,114.914467,2237.597900,0.000000,"done"};
@@ -51,7 +51,7 @@ item46[] = {"survey__flight_H",2,250,-966.997192,1976.064941,-891.657776,2040.78
 item47[] = {"oops_",4,218,-1099.486450,2048.676758,-1033.880127,2086.960693,0.000000,"oops!"};
 item48[] = {"hold__steady_",2,250,-809.913025,2139.671631,-728.700378,2199.225830,0.000000,"hold " \n "steady!"};
 item49[] = {"now_orbit_",4,218,-970.362122,1856.077881,-888.531555,1895.993286,0.000000,"now orbit!"};
-item50[] = {"fly_back___then",2,250,38.030136,1942.662231,128.030060,1992.661499,0.000000,"fly back, " \n "then..."};
+item50[] = {"fly_back___then",2,250,38.030136,1943.986084,128.030075,1993.985352,0.000000,"fly back, " \n "then..."};
 item51[] = {"",7,210,-974.964294,2069.950928,-966.964294,2077.951416,0.000000,""};
 item52[] = {"",7,210,-430.537933,2069.987793,-422.537994,2077.986572,0.000000,""};
 link0[] = {0,1};
@@ -142,8 +142,8 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-766.549438,-179.726379,2033.176147,1197.699341,590,840,1};
-window[] = {0,-1,-1,-1,-1,1015,97,1513,61,1,608};
+globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-912.120361,-131.059265,2054.587646,942.568542,590,840,1};
+window[] = {0,-1,-1,-32000,-32000,1015,97,1513,61,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -190,11 +190,13 @@ class FSM
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
        "" \n
-       "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
-       "units _grp call HW_Util_Animate_Idle;" \n
+       "[_pos] call HW_Fx_Util_Clear_Cranes;" \n
        "" \n
-       "_tsk = player createSimpleTask [""Current Assignment""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""Current Assignment"", ""Current Destination""];" \n
+       "_grp = [_pos, side player,_pax, _pps, [], [], [], [1,.8]] call BIS_fnc_spawnGroup;" \n
+       "units _grp call HW_Fx_Util_Animate_Idle;" \n
+       "" \n
+       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_mkr = createMarker [""DP/AR"", _pos];" \n
@@ -371,7 +373,7 @@ class FSM
        "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
-       "(units _grp) call HW_Util_Animate_Off;" \n
+       "(units _grp) call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "" \n
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
@@ -505,7 +507,7 @@ class FSM
        "" \n
        "if (PD_Armed) then" \n
        "{" \n
-       "	call HW_PD_Clear;" \n
+       "	call HW_Fx_PD_Clear;" \n
        "};" \n
        "" \n
        "" \n
@@ -979,7 +981,7 @@ class FSM
        "	_fieldLandingMkr setMarkerType ""hd_end"";" \n
        "	_fieldLandingMkr setMarkerColor ""ColorBlue"";" \n
        "" \n
-       "	[[""PD: Cannot safely land there!""]] call HW_PD_Prompt;" \n
+       "	[[""PD: Cannot safely land there!""]] call HW_Fx_PD_Prompt;" \n
        "};" \n
        "" \n
        "_tsk setSimpleTaskdestination _pos;" \n
@@ -1016,7 +1018,7 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"PilotDecision == 1;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
-           "call HW_PD_Clear;"/*%FSM</ACTION""">*/;
+           "call HW_Fx_PD_Clear;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
