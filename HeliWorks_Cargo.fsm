@@ -241,7 +241,7 @@ class FSM
        "(units _grp) call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", -CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "" \n

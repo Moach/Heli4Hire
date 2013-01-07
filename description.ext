@@ -173,7 +173,7 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "hw_fx_dispatch_chime";
 		// filename, volume, pitch
-		sound[] = {"\sound\chime.ogg", 1, 1};
+		sound[] = {"\sound\chime2.ogg", 1, 1};
 		titles[] = {};
 	};
 	class FX_Dispatch_Beep
@@ -314,7 +314,7 @@ class CfgLoadingTexts
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Adjusting swashplate" 
+			"Balancing swashplate" 
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)

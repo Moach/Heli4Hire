@@ -70,7 +70,7 @@ link33[] = {28,29};
 link34[] = {29,31};
 link35[] = {30,31};
 link36[] = {31,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,91,255,1,-589.875854,228.539368,2049.785156,886.558472,591,840,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,91,255,1,-548.331787,270.083405,1993.002197,829.778625,591,840,1};
 window[] = {0,-1,-1,-32000,-32000,980,88,1506,26,1,609};
 *//*%FSM</HEAD>*/
 class FSM
@@ -141,8 +141,8 @@ class FSM
        "units _grp call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "" \n
-       "_tsk = player createSimpleTask [-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", -CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_mkr = createMarker [""Departure"", _pos];" \n
