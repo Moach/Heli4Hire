@@ -26,9 +26,11 @@ HW_Comp_Sling_Base =
 	["RoadCone",[13.5391,6.81836,0],234.171]
 ];
 
-
-
-
+HW_Comp_Pax_Support_Car =
+[
+	["SeattleMan_Random_H",[2.33594,5.98438,0],190.392], 
+	["SUV_White_H",[-1.9707,4.3125,0],85.1373]
+];
 
 
 

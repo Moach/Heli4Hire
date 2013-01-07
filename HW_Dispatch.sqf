@@ -40,7 +40,7 @@ HW_Dispatch_Taxi =
 {
 	//
 	//
-	_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
+	_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	_near = nearestLocations [_p1, LocDefs_taxi, 25000];
@@ -91,7 +91,8 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = round(random(6) - random(6)) max 0; 
+		_num = round(random 6);
+		_num = _num - round( ((random _num) - 1) max 0 );
 	};
 	
 	//

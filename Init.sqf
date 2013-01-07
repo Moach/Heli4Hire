@@ -20,10 +20,11 @@ _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 
-if (!HW_DEBUG) then {
-	titleText["", "BLACK FADED"];
+if (!HW_DEBUG) then
+{
+	cutText ["Welcome!\nYour Helicopter is out on the pad!", "PLAIN DOWN"];
+	titleText ["", "BLACK FADED"];
 };
-
 
 // reset upon expecting radio call
 //
@@ -55,9 +56,9 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos (getPos start_here);
 	player setDir 20;
 	
-	player addWeapon "ItemMap";
-	player addWeapon "ItemGps";
-	player addWeapon "ItemWatch";
+	
+	titleFadeOut 2;
+	//
 	
 	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
@@ -69,6 +70,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
+	player addWeapon "ItemMap";
+	player addWeapon "ItemGps";
+	player addWeapon "ItemWatch";
+	
 };
 
 

@@ -39,7 +39,7 @@ item34[] = {"bad_pilot_",2,250,-621.909119,2276.475098,-531.909058,2326.475098,0
 item35[] = {"too_low",4,218,-593.170166,2386.689453,-507.944397,2437.883057,3.000000,"too low"};
 item36[] = {"failsafe_over_M",4,218,-621.585754,2007.032227,-531.585449,2057.037109,0.000000,"failsafe" \n "over M"};
 item37[] = {"too_close",4,218,-370.708008,2344.951416,-280.707855,2394.951416,1.000000,"too close"};
-item38[] = {"PD_can_t_land__t",4,218,-137.293015,1934.320435,-35.302204,1998.809204,0.000000,"PD" \n "can't land" \n " there"};
+item38[] = {"PD_can_t_land__t",4,218,-137.292908,1935.867188,-35.302208,2000.356079,0.000000,"PD" \n "can't land" \n " there"};
 item39[] = {"too_fast",4,218,-366.967957,2275.336670,-276.681610,2324.132324,2.000000,"too fast"};
 item40[] = {"steady_out",2,250,-1071.115723,1903.249756,-997.622925,1952.070679,0.000000,"steady out"};
 item41[] = {"failsafe_over_H",4,218,-974.283020,2144.402344,-884.283508,2194.402344,0.000000,"failsafe" \n "over H"};
@@ -142,7 +142,7 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,194,6316128,1,-770.828979,141.742249,2686.914063,1387.660278,590,840,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-766.549438,-179.726379,2033.176147,1197.699341,590,840,1};
 window[] = {0,-1,-1,-1,-1,1015,97,1513,61,1,608};
 *//*%FSM</HEAD>*/
 class FSM
@@ -377,7 +377,7 @@ class FSM
        "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
        "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
        "" \n
-       "if ( abs((getPosASL (leader _grp) select 2) - (getPosASL (vehicle player) select 2)) > 1 ) then " \n
+       "if ( abs((getPosASL (leader _grp) select 2) - (getPosASL (vehicle player) select 2)) > 2 ) then " \n
        "{" \n
        "	_t = (time + 3) + (random 7);" \n
        "" \n
@@ -502,6 +502,12 @@ class FSM
        "" \n
        "PilotFailFurther = false; // yep - you CAN still make it worse!" \n
        "_abortEnroute = false;" \n
+       "" \n
+       "if (PD_Armed) then" \n
+       "{" \n
+       "	call HW_PD_Clear;" \n
+       "};" \n
+       "" \n
        "" \n
        "if PilotFail then " \n
        "{ " \n
