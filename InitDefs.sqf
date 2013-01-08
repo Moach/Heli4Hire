@@ -25,8 +25,8 @@ PaxDefs_cargo = [
 
 CargoDefs_Lite = 
 [
-	["FireSuppression_H",      320],
-	["Ventilation_H",          250],
+	["FireSuppression_H",      240],
+	["Ventilation_H",          180],
 	["CargoCont_Net1_H",       350],
 	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB is barely able to lift it (+2 pax aboard)
 	["PowerGenerator",         300]
@@ -57,15 +57,15 @@ MoveDefs_Men_Group =
 	"UnaErcVelitelProslov5",
 	"LHD_hiDeck",
 	"LHD_krajPaluby",
-	"LHD_midDeck",
-	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small reference to the simcopter gay sims prank that cost a developer his job
+//	"LHD_midDeck",
+	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small tribute to the simcopter gay sims prank that had EA going mad for a little while
 ];
 
 MoveDefs_Men_Idle = 
 [
 	"LHD_hiDeck",
-	"LHD_krajPaluby",
-	"LHD_midDeck"
+	"LHD_krajPaluby"
+//	"LHD_midDeck"
 ];
 
 
@@ -222,7 +222,9 @@ PosDefs_roofTops =
 	['rt.110', [30930.9, 26882.2, 47.77]],
 	['rt.111', [29802.3, 27723.8, 47.7192]],
 	['rt.112', [29446.2, 27268.3, 44.755]],
-	['rt.113', [26311.6, 28435.4, 16.6907]]
+	['rt.113', [26311.6, 28435.4, 16.6907]],
+	['rt.114', [33924.9, 35553.2, 40.9222]],
+	['rt.115', [33427.6, 36042.8, 46.8774]]
 ];
 
 // additional field landing points (allows an easier/more fun alternative method for indexing LZ's) 
@@ -314,7 +316,8 @@ PosDefs_landings = [
 
 
 
-
+_compsInit = [] execVM "Comps\CompDefs.sqf";
+waituntil { scriptdone _compsInit };
 
 
 

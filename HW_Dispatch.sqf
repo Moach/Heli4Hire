@@ -8,7 +8,7 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 //
 // functions...
 
-HW_Reset_RadioCalls = 
+HW_Fx_Reset_RadioCalls = 
 {
 	RadioCall_A = false;
 	RadioCall_B = false;
@@ -24,7 +24,7 @@ HW_Reset_RadioCalls =
 
 //
 RadioCallDelay = 0;
-HW_Disptach_Radio_Update = 
+HW_Fx_Disptach_Radio_Update = 
 {
 	if (time > RadioCallDelay) then
 	{
@@ -36,11 +36,11 @@ HW_Disptach_Radio_Update =
 	};
 };
 
-HW_Dispatch_Taxi = 
+HW_Fx_Dispatch_Taxi = 
 {
 	//
 	//
-	_near = nearestLocations [getPos chopper, LocDefs_taxi, 5000];
+	_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
 	
 	_near = nearestLocations [_p1, LocDefs_taxi, 25000];
@@ -81,7 +81,7 @@ HW_Dispatch_Taxi =
 
 
 
-HW_Dispatch_Survey = 
+HW_Fx_Dispatch_Survey = 
 {
 	//
 	_p1 = getPos service_helipad;
@@ -91,7 +91,8 @@ HW_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = round(random(6) - random(6)) max 0; 
+		_num = round(random 6);
+		_num = _num - round( ((random _num) - 1) max 0 );
 	};
 	
 	//
@@ -133,7 +134,7 @@ HW_Dispatch_Survey =
 
 
 
-HW_Dispatch_Cargo = 
+HW_Fx_Dispatch_Cargo = 
 {
 	// locate tower (the high point requiring helicopter cargo)
 	//
@@ -196,7 +197,7 @@ HW_Dispatch_Cargo =
 
 
 
-HW_Pilot_Task_Commit = 
+HW_Fx_Pilot_Task_Commit = 
 {
 	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
 	{ 
@@ -242,7 +243,7 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 // PD setup utility functions...
 //
 
-HW_PD_Prompt = 
+HW_Fx_PD_Prompt = 
 {
 	if (PD_Armed) exitWith { player sidechat "WARNING!!\n - PD armed - \ncannot prompt further options before clear!"; };
 	
@@ -262,7 +263,7 @@ HW_PD_Prompt =
 };
 
 
-HW_PD_Clear = 
+HW_Fx_PD_Clear = 
 {
 	PilotDecision = 0;
 	PD_Armed = false;
@@ -310,9 +311,13 @@ if (HW_DEBUG) then // enable only for debug!
 		10 setRadioMsg "NULL";
 		
 		[1, chopper, true] call BIS_fnc_enginesOnDebug;
+		chopper setFuel 1;
+		chopper setDamage 0;
+		
+		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Dispatch_Cargo;
+		call HW_Fx_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};

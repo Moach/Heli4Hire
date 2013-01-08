@@ -1,7 +1,8 @@
-//showGPS = 0;
-//showCompass = 0;
+/*
+showGPS = 0;
+showCompass = 0;
+*/
 
-#include <AnimationViewer\include.h>
 
 class CfgIdentities
 {
@@ -11,14 +12,13 @@ class CfgIdentities
 		face = "Face20";
         glasses = "None";
         speaker = "Dan";
-        pitch = 1.1;
+        pitch = 1.0;
 	};
 };
 
 class CfgRadio
 {
 	sounds[] = {};
-		
 	class HW_Radio_ReceivedStby
 	{
 		name = "";
@@ -159,8 +159,10 @@ class CfgRadio
 		sound[] = {"\sound\later.ogg", db-100, 1.0};
 		title = "Copy that! See you later!";
 	};
-	
 };
+
+
+
 
 class CfgSounds
 {
@@ -171,7 +173,7 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "hw_fx_dispatch_chime";
 		// filename, volume, pitch
-		sound[] = {"\sound\chime.ogg", 1, 1};
+		sound[] = {"\sound\chime2.ogg", 1, 1};
 		titles[] = {};
 	};
 	class FX_Dispatch_Beep
@@ -276,81 +278,130 @@ class CfgSounds
 class CfgLoadingTexts
 {
 	//--- Delay between texts are swapped (by default same as delay for images)
-	refreshDelay = 10;
+	refreshDelay = 2
 
 	//--- Loading text container
 	class Heli4Hire_1
 	{
 		//--- Hint title
-		title = "Heli-4-Hire";
+		title = "Heli-4-Hire: Simcopter Take On Revival";
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Flying with any damaged component is extremely dangerous!",
-			"A slightly off rotor may cause strain on the transmission, leading to damage.",
-			"A damaged transmission may stress the engine leading up to an emergency situation..."
+			"Inspecting ground resonance damper"
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
-		isDiary = 1;
+		isDiary = 0;
 	};
 	class Heli4Hire_2
 	{
 		//--- Hint title
-		title = "Heli-4-Hire";
+		title = "Heli-4-Hire: Simcopter Take On Revival";
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Good Pilots will always inspect their gear before takoff, so make sure to check if your bird is proper for flight.",
-			"It's also a good idea to verify the upkeep of your cabin, and clean it up as it gets increasingly messy with passengers coming in and out."
+			"Cleaning elastomeric bearings"
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
-		isDiary = 1;
+		isDiary = 0;
 	};
 	class Heli4Hire_3
 	{
 		//--- Hint title
-		title = "Heli-4-Hire";
+		title = "Heli-4-Hire: Simcopter Take On Revival";
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"If you need your bird serviced and refueled, go talk to the hangar maintenance crew, they're there to help!",
-			"IF all you need is fuel, you may find more convenient to use the pump by the hangar and fill it up yourself."
+			"Balancing swashplate" 
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
-		isDiary = 1;
+		isDiary = 0;
 	};
 	class Heli4Hire_4
 	{
 		//--- Hint title
-		title = "Heli-4-Hire";
+		title = "Heli-4-Hire: Simcopter Take On Revival";
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"Give dispatch a call by radio (0-0-1) to let them know you're up and able.",
-			"You may abort assignments at any time, but a real pro wouldn't leave his passengers stranded unless extremely necessary."
+			"Calibrating lag-lead hinges"
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
-		isDiary = 1;
+		isDiary = 0;
 	};
 	class Heli4Hire_5
 	{
 		//--- Hint title
-		title = "Heli-4-Hire";
+		title = "Heli-4-Hire: Simcopter Take On Revival";
 
 		//--- Lines of text (<br /> will be placed inbetween them)
 		text[] = {
-			"As a pilot, it is your responsibility to judge if you have enough fuel before taking on a task",
-			"Nobody can do this for you, so be wary that dispatch relies on YOU to account for the safety of your flight."
+			"Adjusting density altitude"
 		};
 
 		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
-		isDiary = 1;
+		isDiary = 0;
+	};
+	class Heli4Hire_6
+	{
+		//--- Hint title
+		title = "Heli-4-Hire: Simcopter Take On Revival";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Lubricating freewheel unit"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 0;
+	};
+	class Heli4Hire_7
+	{
+		//--- Hint title
+		title = "Heli-4-Hire: Simcopter Take On Revival";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Tuning rotor tracking"
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 0;
+	};
+	class Heli4Hire_8
+	{
+		//--- Hint title
+		title = "Heli-4-Hire: Simcopter Take On Revival";
+
+		//--- Lines of text (<br /> will be placed inbetween them)
+		text[] = {
+			"Reticulating Splines" 
+		};
+
+		//--- Enable diary record (e.g. text is atimatically added to 'Hints' category in notes)
+		isDiary = 0;
 	};
 };
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+/// Animation Viewer
+///////////////////////////////////////////////////////////////////////////
+
+
+#include <AnimationViewer\include.h>
+
+
+
+
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////

@@ -1,7 +1,57 @@
 
-HW_DEBUG = true;
+/*
+	you are about to enter the ultimate vortex of enthropy! 
+	there where random things are!
+	
+	proceed at own risk of general confustication!
+	
+	
+
+	mind the required argument notation comments on some of this project's functions,
+	hopefully we can make this a standard, since self-documenting code is a no-go...
+	
+	
+	
+	henceforth, we define the basic laws of proper modular programming:
+	
+		1: functions that AWNSWER QUESTIONS by returning values shall not execute any logic that 
+		   results in change to the answer given by itself or another function.
+		
+		2: functions that EXECUTE LOGIC shall not proceed beyond that which is immediately obvious given their purpose,
+		   specially if this would cause an indirectly related question to produce a different answer.
+		   
+		3: functions that EXECUTE LOGIC AND RETURN THE RESULT must not cause change to answers other than that which it 
+		   provides whenever said result indicates failure to obtain full success in execution.
+		   
+	   
+	...and hope it sticks
+	
+	
+	thus-wise, a secondary prefix (post the HW_ project identifier) will read:
+	
+	Fn_   for functions that answer questions
+	Fx_   for functions that execute logic
+	Fs_   for functions that return their own success upon executing logic
+
+	the absense of such prefix usually denotes the definition of a variable, rather than a function...
+	
+	
+	do note however - it's really a tough gig to enfore this stuff on this type of project, so things may not comply (at all) at various scripts...
+	
+	
+*/
+
+
+
+
+
+HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
+
+
+
 
 removeAllItems player;
+player addWeapon "ItemRadio";
 
 
 _initDefs = player execVM "InitDefs.sqf";
@@ -19,10 +69,11 @@ _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 
 setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65]; 
 
-if (!HW_DEBUG) then {
-	titleText["", "BLACK FADED"];
+if (!HW_DEBUG) then
+{
+	cutText ["Welcome!\nYour Helicopter is out on the pad!", "PLAIN DOWN"];
+	titleText ["", "BLACK FADED"];
 };
-
 
 // reset upon expecting radio call
 //
@@ -54,6 +105,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos (getPos start_here);
 	player setDir 20;
 	
+	
+	titleFadeOut 2;
+	//
+	
 	_reliability_factor =  80; //
 	_reliability_cutoff = .55; // 
 	_hps = chopper call BIS_fnc_helicopterGetHitpoints;
@@ -64,6 +119,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
+	player addWeapon "ItemMap";
+	player addWeapon "ItemGps";
+	player addWeapon "ItemWatch";
+	
 };
 
 
@@ -129,8 +188,12 @@ if (HW_DEBUG) then
 	[] execVM "AnimationViewer\init.sqf";
 	
 	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
-	
-/*	// create markers showing ALL indexed landing areas!
+};	
+
+
+HW_Fx_DD_IdentLZs = 
+{
+	// create markers showing ALL indexed landing areas!
 	_locLZs = nearestLocations [getMarkerPos "map_center", LocDefs_taxi, 100000];
 	_counter = 0;
 	{
@@ -141,7 +204,12 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerAlpha 0.4; 
 		
 	} foreach _locLZs;
-	
+	hintSilent format ["LZ count = %1", count _locLZs];
+};
+
+
+HW_Fx_DD_IdentCargoTowers = 
+{
 	{
 		_lzMkr = createMarker [_x select 0, _x select 1];
 		_lzMkr setMarkerType "mil_triangle";
@@ -149,8 +217,11 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerColor "ColorBlack";
 		_lzMkr setMarkerAlpha 0.6; 
 		
-	} foreach PosDefs_roofTops;
-	
+	} foreach PosDefs_roofTops;	
+};
+
+HW_Fx_DD_IdentCargoBases = 
+{
 	{
 		_lzMkr = createMarker [_x select 1, _x select 2];
 		_lzMkr setMarkerType "mil_box";
@@ -159,11 +230,11 @@ if (HW_DEBUG) then
 		_lzMkr setMarkerAlpha 0.5; 
 		
 	} foreach PosDefs_landings;
-	
-	
-	hintSilent format [" - DEBUG MODE ON - \nLZ count = %1\nRooftops = %2", count _locLZs, count PosDefs_roofTops];
-	*/
 };
+	
+	
+	
+
 
 
 //
