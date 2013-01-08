@@ -311,9 +311,13 @@ if (HW_DEBUG) then // enable only for debug!
 		10 setRadioMsg "NULL";
 		
 		[1, chopper, true] call BIS_fnc_enginesOnDebug;
+		chopper setFuel 1;
+		chopper setDamage 0;
+		
+		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Dispatch_Cargo;
+		call HW_Fx_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};

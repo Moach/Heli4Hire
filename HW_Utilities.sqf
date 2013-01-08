@@ -75,12 +75,21 @@ HW_Fx_Util_Animate_Idle =
 };
 
 
-HW_Fx_Util_Animate_Marshall = 
+
+
+
+HW_Fx_Util_Animate_Set =
 {
+	_moveSet = _this select 1;
 	{
-		_x switchMove "NavigationHeli"; 
-		_x addEventHandler ["AnimDone", { (_this select 0) switchMove "NavigationHeli"; }];
-	} foreach _this;
+		if (count _moveSet > 1) then 
+		{ _x switchMove (_moveSet call BIS_fnc_selectRandom); } else { _x switchMove (_moveSet select 0); };
+		
+		_x addEventHandler ["AnimDone", 
+		{ 
+			(_this select 0) switchMove (_this select 1); 
+		}];
+	} foreach (_this select 0);
 };
 
 
@@ -93,13 +102,6 @@ HW_Fx_Util_Animate_Off =
 		_x switchmove "";
 	} foreach _this;
 };
-
-
-
-
-
-
-
 
 
 

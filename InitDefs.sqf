@@ -25,8 +25,8 @@ PaxDefs_cargo = [
 
 CargoDefs_Lite = 
 [
-	["FireSuppression_H",      320],
-	["Ventilation_H",          250],
+	["FireSuppression_H",      240],
+	["Ventilation_H",          180],
 	["CargoCont_Net1_H",       350],
 	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB is barely able to lift it (+2 pax aboard)
 	["PowerGenerator",         300]
@@ -57,15 +57,15 @@ MoveDefs_Men_Group =
 	"UnaErcVelitelProslov5",
 	"LHD_hiDeck",
 	"LHD_krajPaluby",
-	"LHD_midDeck",
-	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small reference to the simcopter gay sims prank that cost a developer his job
+//	"LHD_midDeck",
+	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small tribute to the simcopter gay sims prank that had EA going mad for a little while
 ];
 
 MoveDefs_Men_Idle = 
 [
 	"LHD_hiDeck",
-	"LHD_krajPaluby",
-	"LHD_midDeck"
+	"LHD_krajPaluby"
+//	"LHD_midDeck"
 ];
 
 
