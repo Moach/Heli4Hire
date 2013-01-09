@@ -4,7 +4,7 @@
 item0[] = {"START",0,250,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
 item1[] = {"avail",4,218,-771.961426,1344.660034,-681.961304,1394.660034,0.000000,"avail"};
 item2[] = {"land",4,218,-772.595642,1523.999756,-682.595154,1573.999756,1.000000,"land"};
-item3[] = {"pickup",2,4346,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
+item3[] = {"pickup",2,250,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
 item4[] = {"land_",4,218,42.049801,2065.103516,121.209686,2118.498779,1.000000,"land" \n ""};
 item5[] = {"deboard",2,250,38.058102,2253.112793,128.058136,2303.113037,0.000000,"deboard"};
 item6[] = {"away",4,218,39.097061,2323.200439,129.097290,2373.200928,0.000000,"away"};
@@ -51,7 +51,7 @@ item46[] = {"survey__flight_H",2,250,-966.997192,1976.064941,-891.657776,2040.78
 item47[] = {"oops_",4,218,-1099.486450,2048.676758,-1033.880127,2086.960693,0.000000,"oops!"};
 item48[] = {"hold__steady_",2,250,-809.913025,2139.671631,-728.700378,2199.225830,0.000000,"hold " \n "steady!"};
 item49[] = {"now_orbit_",4,218,-970.362122,1856.077881,-888.531555,1895.993286,0.000000,"now orbit!"};
-item50[] = {"fly_back___then",2,250,38.030136,1943.986084,128.030075,1993.985352,0.000000,"fly back, " \n "then..."};
+item50[] = {"fly_back___then",2,250,36.952980,1941.831665,126.952927,1991.830933,0.000000,"fly back, " \n "then..."};
 item51[] = {"",7,210,-974.964294,2069.950928,-966.964294,2077.951416,0.000000,""};
 item52[] = {"",7,210,-420.111633,2069.987549,-412.111694,2077.986328,0.000000,""};
 link0[] = {0,1};
@@ -142,7 +142,7 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-987.001343,-23.053551,2518.109863,1145.709106,590,840,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-435.756805,199.768158,2676.810059,1771.994873,590,840,1};
 window[] = {0,-1,-1,-1,-1,1015,97,1513,61,1,608};
 *//*%FSM</HEAD>*/
 class FSM
@@ -979,7 +979,12 @@ class FSM
        "} else {" \n
        "" \n
        "	_pos = _surveyLocations call BIS_fnc_selectRandom;" \n
-       "	hint ""Ok, we're good! - but i'd like to get down on one of the locations we've seen, any chance you could land there instead of flying back?\n [Pilot Decision Available!]"";" \n
+       "	if (_pos distance chopper < 500) then" \n
+       "	{" \n
+       "		hint ""Ok, that's all for now - so hey, could you see if we can land somewhere around here?\n [Pilot Decision Available!]"";	" \n
+       "	} else {" \n
+       "		hint ""Ok, we're good! - but i'd like to get down on one of the locations we've seen, any chance you could land there instead of flying back?\n [Pilot Decision Available!]"";" \n
+       "	};" \n
        "" \n
        "	_landRange = 400;" \n
        "	_fieldLandingMkr = createMarker [""Field Landing"", _pos];" \n
