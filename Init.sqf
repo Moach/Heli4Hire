@@ -120,7 +120,7 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
 	player addWeapon "ItemMap";
-	player addWeapon "ItemGps";
+//	player addWeapon "ItemGps";
 	player addWeapon "ItemWatch";
 	
 };
