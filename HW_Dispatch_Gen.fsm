@@ -190,7 +190,7 @@ class FSM
        "" \n
        "_random_fnc_dispatchGig =" \n
        " [" \n
-       "	HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi," \n
+       "	HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi," \n
        "	HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey," \n
        "	HW_Fx_Dispatch_Cargo, HW_Fx_Dispatch_Cargo" \n
        "" \n

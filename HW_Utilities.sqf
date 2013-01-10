@@ -108,3 +108,42 @@ HW_Fx_Util_Animate_Off =
 
 
 
+//
+// ////////////////////////////////////// // ////////////////////////////////////// // //////////////////////////////////////
+//
+//  VECTORS!
+//
+
+
+
+HW_Fn_VectorLerp2D = 
+{
+	_v1   = _this select 0;
+	_v2   = _this select 1;
+	_lerp = _this select 2;
+	
+	_d = (_v1 distance _v2);
+	_r = (1.0 / _d) * _lerp;
+	
+	[((_v2 select 0) - (_v1 select 0)) * _r, ((_v2 select 1) - (_v1 select 1)) * _r]
+};
+
+
+HW_Fn_VectorLerp3D = 
+{
+	_v1   = _this select 0;
+	_v2   = _this select 1;
+	_lerp = _this select 2;
+	
+	_d = (_v1 distance _v2);
+	_r = (1.0 / _d) * _lerp;
+	
+	[((_v2 select 0) - (_v1 select 0)) * _r, ((_v2 select 1) - (_v1 select 1)) * _r, ((_v2 select 2) - (_v1 select 2)) * _r]
+};
+
+
+
+
+
+
+

@@ -10,16 +10,11 @@ GigNumMax = 6; // maximum tasks presented to player at any one time...
 
 HW_Fx_Reset_RadioCalls = 
 {
-	RadioCall_A = false;
-	RadioCall_B = false;
-	RadioCall_C = false;
-	RadioCall_D = false;
-	RadioCall_E = false;
-	RadioCall_F = false;
-	RadioCall_G = false;
-	RadioCall_H = false;
-	RadioCall_I = false;
-	RadioCall_J = false;
+	RadioCall_A = false;	RadioCall_F = false;
+	RadioCall_B = false;	RadioCall_G = false;
+	RadioCall_C = false;	RadioCall_H = false;
+	RadioCall_D = false;	RadioCall_I = false;
+	RadioCall_E = false;	RadioCall_J = false;
 };
 
 //
@@ -297,7 +292,11 @@ HW_Fx_PD_Clear =
 
 player execFSM "HW_Dispatch_Gen.fsm";
 
-if (HW_DEBUG) then // enable only for debug!
+
+//
+//
+
+if (HW_DEBUG) then // enabled only for debug!
 {
 	while { true } do
 	{
@@ -317,7 +316,7 @@ if (HW_DEBUG) then // enable only for debug!
 		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Fx_Dispatch_Cargo;
+		call HW_Fx_Dispatch_Taxi;
 		
 		RadioCall_J = false;
 	};
