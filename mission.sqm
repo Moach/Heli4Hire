@@ -83,16 +83,16 @@ class Mission
 		briefingName="Heli-4-Hire";
 		briefingDescription="SimCopter Take On Revival";
 		resistanceEast=1;
-		startWeather=0.41958523;
+		startWeather=0.21128482;
 		startFog=0.016170288;
 		startWind=0.12286082;
-		forecastWeather=0.26208949;
-		forecastFog=0.031721447;
-		forecastWind=0.25018257;
+		forecastWeather=0.16556042;
+		forecastFog=0.021560384;
+		forecastWind=0.27050468;
 		year=2013;
 		month=3;
 		day=9;
-		hour=14;
+		hour=10;
 		minute=10;
 	};
 	class Groups

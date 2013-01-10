@@ -31,7 +31,7 @@
 	
 	Fn_   for functions that answer questions
 	Fx_   for functions that execute logic
-	Fs_   for functions that return their own success upon executing logic
+	Fs_   for functions that return their own success upon execution
 
 	the absense of such prefix usually denotes the definition of a variable, rather than a function...
 	
@@ -52,7 +52,7 @@ HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 removeAllItems player;
 player addWeapon "ItemRadio";
-
+player addWeapon "ItemMap";
 
 _initDefs = player execVM "InitDefs.sqf";
 waitUntil { scriptDone _initDefs };
@@ -119,7 +119,7 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
-	player addWeapon "ItemMap";
+	
 //	player addWeapon "ItemGps";
 	player addWeapon "ItemWatch";
 	
@@ -167,12 +167,14 @@ sleep 1;
 
 
 	
-	
-// since this feature is so damn useful, its availability bypasses the debug flag -- comment out to remove!
+lzLogCount = count PosDefs_roofTops;	
 //
-lzLogCount = count PosDefs_roofTops;
-chopper addAction ["D+D: Log Position (RT)", "DnD\LogPos.sqf", 0, 0, false];
-chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false];
+
+
+chopper addAction ["D+D: Log Position (RT)", "DnD\LogPos.sqf", 0, 0, false,   true, "", "HW_DEBUG"];
+chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false,   true, "", "HW_DEBUG"];
+chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false, true, "", "HW_DEBUG"];
+chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf",  nil, 0, false, true, "", "HW_DEBUG"];
 //
 //
 
@@ -181,12 +183,8 @@ chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false];
 
 if (HW_DEBUG) then
 {
-	chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false];
-	chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf", nil, 0, false];
-	//
 	
 	[] execVM "AnimationViewer\init.sqf";
-	
 	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
 };	
 
