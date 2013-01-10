@@ -14,7 +14,7 @@ item9[] = {"timeout",4,218,-455.020752,1538.409424,-365.020508,1588.409424,0.000
 item10[] = {"done",4,218,28.808483,1925.550903,118.808640,1975.550903,0.000000,"done"};
 item11[] = {"wait_for_it___",2,250,-133.108017,1927.167358,-40.000233,1974.689209,0.000000,"wait for it..."};
 item12[] = {"fail___abort",4,218,-492.734589,2001.514038,-346.389557,2076.683838,2.000000,"fail / abort"};
-item13[] = {"just_put__it_dow",2,4346,-287.930786,2014.662842,-207.224777,2063.479004,0.000000,"just put " \n "it down"};
+item13[] = {"just_put__it_dow",2,250,-287.930786,2014.662842,-207.224777,2063.479004,0.000000,"just put " \n "it down"};
 item14[] = {"land_ASAP",4,218,-130.914154,2014.159668,-40.914280,2064.156738,0.000000,"land ASAP"};
 item15[] = {"running_late",4,218,-35.827686,1323.242554,54.172276,1373.242554,1.000000,"running late"};
 item16[] = {"you_re_late",2,250,-28.533583,1396.826416,47.324608,1445.671387,0.000000,"you're late"};
@@ -26,7 +26,7 @@ item21[] = {"abort_pickup",4,218,-225.697083,1396.304932,-135.697311,1446.304932
 item22[] = {"quit",1,250,-361.823517,1396.294556,-271.823273,1446.294556,0.000000,"quit"};
 item23[] = {"simple_flight",8,218,-207.936523,1701.804932,-147.813843,1756.784546,0.000000,"simple" \n "flight"};
 item24[] = {"on_the_way",2,250,-295.253601,1800.252930,-205.253647,1850.252930,0.000000,"on the way"};
-item25[] = {"field_landing",4,218,-604.173218,1704.389893,-514.173218,1754.389893,1.000000,"field" \n "landing"};
+item25[] = {"field_landing",4,4314,-604.173218,1704.389893,-514.173218,1754.389893,1.000000,"field" \n "landing"};
 item26[] = {"see_if_you_can_land",2,218,-625.858032,1800.258179,-535.858032,1850.258179,0.000000,"see if" \n "you can" \n "land there"};
 item27[] = {"__PD__not_gonna",4,218,-481.195709,1788.931519,-351.941376,1861.118652,0.000000,"-PD-" \n "not gonna" \n "happen"};
 item28[] = {"",7,210,-584.435364,1946.165894,-576.435364,1954.165894,0.000000,""};
@@ -72,7 +72,7 @@ link35[] = {29,30};
 link36[] = {29,31};
 link37[] = {30,26};
 link38[] = {31,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,105,0,1,-507.434387,272.506104,2466.892090,1484.656860,667,840,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,105,0,1,-865.702087,172.398376,2507.837402,1200.484497,667,840,1};
 window[] = {0,-1,-1,-32000,-32000,1042,142,1560,88,1,685};
 *//*%FSM</HEAD>*/
 class FSM
@@ -588,9 +588,6 @@ class FSM
        "bis_genericSentenceMode =1;" \n
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
-       "{ _x lookAt ObjNull; } foreach units (group (_this select 0));" \n
-       "" \n
-       "" \n
        "" \n
        "_enrouteLogic = [ (leader _grp), _pos ] spawn " \n
        "{" \n
@@ -628,11 +625,9 @@ class FSM
           priority = 1.000000;
           to="go_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(random 10) > 5 || HW_DEBUG;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"" \n
-           "_pos = [_this select 0, _this select 2, 1-(5000 / ((_this select 0) distance _pos))] call HW_Fn_VectorLerp2D;" \n
-           "_pos = [[[_pos, 7000], survey_safe_zone], [""water"",""out""], " \n
-           "		{(_this distance _pos) < 8000}] call BIS_fnc_randomPos;" \n
+          condition=/*%FSM<CONDITION""">*/"(random 10) > 5; // 50-50 shot at a non-regulation LZ being requested"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_pos = _this select 1;" \n
+           "_pos = [[[_pos, 7000], survey_safe_zone], [""water"",""out""], {(_this distance _pos) < 7000}] call BIS_fnc_randomPos;" \n
            "" \n
            "_appRange = 2000 + random 1200;" \n
            "" \n
@@ -787,19 +782,19 @@ class FSM
           priority = 0.000000;
           to="on_the_way";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotDecision == 1;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"call HW_Fx_PD_Clear;" \n
            "" \n
            "" \n
            "hintSilent ""Oh, shoot! that's inconvenient...\nBut better safe than sorry, i guess... \nOh well, take us down the nearest safe area, even if it's a private property, i'll deal with it..."";" \n
            "" \n
-           "_pos = locationPosition (nearestLocation [_pos, LocDefs_Taxi]);" \n
+           "_pos = locationPosition (nearestLocations [_pos, LocDefs_Taxi, 5000] select 0);" \n
            "" \n
            "_mkr setMarkerType ""hd_objective"";" \n
            "_mkr setmarkerText ""Arrival"";" \n
            "" \n
            "_mkr setMarkerPos [_pos select 0, _pos select 1];" \n
-           "_fieldLandingMkr setMarkerColor ""Default"";" \n
+           "_mkr setMarkerColor ""Default"";" \n
            "" \n
            "_tsk setSimpleTaskDestination _pos;"/*%FSM</ACTION""">*/;
         };
@@ -831,7 +826,7 @@ class FSM
           priority = 0.000000;
           to="see_if_you_can_land";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"chopper distance _pos < _appRange;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(chopper distance _pos) < _appRange;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
