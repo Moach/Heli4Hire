@@ -27,7 +27,7 @@ SlingLogic = [] spawn
 	
 	while { RopeAttached } do
 	{
-		sleep .1;
+		sleep .025;
 		if ( (inputAction "HeliRopeAction") != 0 ) then
 		{
 			// hintSilent " - Sling Rope Released! - ";
