@@ -123,6 +123,8 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 //	player addWeapon "ItemGps";
 	player addWeapon "ItemWatch";
 	
+	player addAction ["Test Hangar Screen", "Hangar\TestHangarScreen.sqf", nil, 0, false, true];
+	
 };
 
 
