@@ -39,11 +39,13 @@ class Mission
 		"moach_hw_basics",
 		"hsim_air_us_h_helicopters_medium",
 		"hsim_air_us_h_helicopters_heavy",
-		"hsim_misc_h_signs"
+		"hsim_misc_h_signs",
+		"CA_Modules_Alice"
 	};
 	addOnsAuto[]=
 	{
 		"hsim_functions_h",
+		"CA_Modules_Alice",
 		"hsim_water_h_container_ship",
 		"hsim_water_h_oil_tanker",
 		"hsim_characters_h",
@@ -52,6 +54,7 @@ class Mission
 		"moach_hw_basics",
 		"hsim_structures_h_industrial_rooftop_objects",
 		"camisc3",
+		"CABuildings",
 		"ind_tank",
 		"hsim_water_h_fregata",
 		"hsim_water_h_destroyer",
@@ -71,7 +74,6 @@ class Mission
 		"hsim_misc_h_barels",
 		"hsim_misc_h_flagpole",
 		"hsim_misc_h_windsock",
-		"cabuildings",
 		"cadata",
 		"hsim_air_us_h_helicopters_medium",
 		"hsim_air_us_h_helicopters_heavy",
@@ -86,10 +88,10 @@ class Mission
 		resistanceEast=1;
 		startWeather=0.21128482;
 		startFog=0.016170288;
-		startWind=0.12286082;
+		startWind=0.018484639;
 		forecastWeather=0.16556042;
 		forecastFog=0.021560384;
-		forecastWind=0.27050468;
+		forecastWind=0.13925509;
 		year=2013;
 		month=3;
 		day=9;
@@ -104,7 +106,7 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=5;
+				items=6;
 				class Item0
 				{
 					position[]={27890.457,2.1176782,29825.707};
@@ -148,6 +150,15 @@ class Mission
 					id=7;
 					side="LOGIC";
 					vehicle="GenericConversations";
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+				class Item5
+				{
+					position[]={27890.406,3.6599,29815.037};
+					id=2864;
+					side="LOGIC";
+					vehicle="AliceManager";
 					lock="UNLOCKED";
 					skill=0.60000002;
 				};
