@@ -2647,7 +2647,7 @@ class Mission
 			special="NONE";
 			id=205;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -5960,7 +5960,7 @@ class Mission
 			special="NONE";
 			id=483;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -17242,7 +17242,7 @@ class Mission
 			special="NONE";
 			id=1445;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23126,7 +23126,7 @@ class Mission
 			special="NONE";
 			id=1939;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23137,7 +23137,7 @@ class Mission
 			special="NONE";
 			id=1940;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23159,7 +23159,7 @@ class Mission
 			special="NONE";
 			id=1942;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23214,7 +23214,7 @@ class Mission
 			special="NONE";
 			id=1947;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23280,7 +23280,7 @@ class Mission
 			special="NONE";
 			id=1953;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23291,7 +23291,7 @@ class Mission
 			special="NONE";
 			id=1954;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23302,7 +23302,7 @@ class Mission
 			special="NONE";
 			id=1955;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23346,7 +23346,7 @@ class Mission
 			special="NONE";
 			id=1959;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23368,7 +23368,7 @@ class Mission
 			special="NONE";
 			id=1961;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23390,7 +23390,7 @@ class Mission
 			special="NONE";
 			id=1963;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23423,7 +23423,7 @@ class Mission
 			special="NONE";
 			id=1966;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23434,7 +23434,7 @@ class Mission
 			special="NONE";
 			id=1967;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23500,7 +23500,7 @@ class Mission
 			special="NONE";
 			id=1973;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23533,7 +23533,7 @@ class Mission
 			special="NONE";
 			id=1976;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23544,7 +23544,7 @@ class Mission
 			special="NONE";
 			id=1977;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23632,7 +23632,7 @@ class Mission
 			special="NONE";
 			id=1985;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23643,7 +23643,7 @@ class Mission
 			special="NONE";
 			id=1986;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23869,7 +23869,7 @@ class Mission
 			special="NONE";
 			id=2006;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -23990,7 +23990,7 @@ class Mission
 			special="NONE";
 			id=2017;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -24257,7 +24257,7 @@ class Mission
 			special="NONE";
 			id=2041;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -24268,7 +24268,7 @@ class Mission
 			special="NONE";
 			id=2042;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
@@ -24587,7 +24587,7 @@ class Mission
 			special="NONE";
 			id=2071;
 			side="EMPTY";
-			vehicle="Land_Ind_TankSmall2";
+			vehicle="Land_Ind_TankSmall";
 			leader=1;
 			skill=0.60000002;
 		};
