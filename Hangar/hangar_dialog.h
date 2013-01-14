@@ -12,8 +12,6 @@ class HangarDialog
 	};
 	class controls
 	{
-	
-
 		class IGUIBack_2200: IGUIBack
 		{
 			idc = 2200;
@@ -332,6 +330,8 @@ class HangarDialog
 			y = 0.926084 * safezoneH + safezoneY;
 			w = 0.078776 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			onSliderPosChanged="_this call HW_efx_SliderSet_HangarWorkStds;";
 		};
 		class SL_Budget: RscSlider
 		{
@@ -340,6 +340,8 @@ class HangarDialog
 			y = 0.926084 * safezoneH + safezoneY;
 			w = 0.078776 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			onSliderPosChanged="_this call HW_efx_SliderSet_HangarWorkStds;";
 		};
 		class SL_Quality: RscSlider
 		{
@@ -348,32 +350,35 @@ class HangarDialog
 			y = 0.926084 * safezoneH + safezoneY;
 			w = 0.078776 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			onSliderPosChanged="_this call HW_efx_SliderSet_HangarWorkStds;";
 		};
+		
 		class RscText_1009: RscText
 		{
 			idc = 1009;
-			text = "Fast"; //--- ToDo: Localize;
+			text = "Slow   x   Fast"; //--- ToDo: Localize;
 			x = 0.392578 * safezoneW + safezoneX;
 			y = 0.953573 * safezoneH + safezoneY;
-			w = 0.0429688 * safezoneW;
+			w = 0.1 * safezoneW;
 			h = 0.0274893 * safezoneH;
 		};
 		class RscText_1010: RscText
 		{
 			idc = 1010;
-			text = "Cheap"; //--- ToDo: Localize;
+			text = "Costly x Cheap"; //--- ToDo: Localize;
 			x = 0.492839 * safezoneW + safezoneX;
 			y = 0.939828 * safezoneH + safezoneY;
-			w = 0.0458333 * safezoneW;
+			w = 0.1 * safezoneW;
 			h = 0.0549786 * safezoneH;
 		};
 		class RscText_1011: RscText
 		{
 			idc = 1011;
-			text = "Right"; //--- ToDo: Localize;
+			text = "Shoddy x Proper"; //--- ToDo: Localize;
 			x = 0.593099 * safezoneW + safezoneX;
 			y = 0.939828 * safezoneH + safezoneY;
-			w = 0.0458333 * safezoneW;
+			w = 0.1 * safezoneW;
 			h = 0.0549786 * safezoneH;
 		};
 

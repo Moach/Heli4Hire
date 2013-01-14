@@ -9,6 +9,8 @@ disableSerialization;
 _hangarDialog = findDisplay 9300;
 
 
+ctrlSetFocus (_hangarDialog displayCtrl 1701);
+
 _cam = "camera" camCreate [(getPos pad_A) select 0, ((getPos pad_A) select 1) + 8, 3];
 _cam cameraEffect ["External", "BACK"];
 _cam camSetTarget pad_A;
