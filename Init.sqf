@@ -49,15 +49,18 @@ HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 
 
+enableEndDialog;
 
 removeAllItems player;
 player addWeapon "ItemRadio";
 player addWeapon "ItemMap";
 
-_initDefs = player execVM "InitDefs.sqf";
-waitUntil { scriptDone _initDefs };
+_initRun = player execVM "InitDefs.sqf";
+waitUntil { scriptDone _initRun };
 
-enableEndDialog;
+
+_initRun = [] execVM "Hangar\HW_Hangar_Init.sqf";
+waitUntil { scriptDone _initRun };
 
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
@@ -71,7 +74,7 @@ setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65];
 
 if (!HW_DEBUG) then
 {
-	cutText ["Welcome!\nYour Helicopter is out on the pad!", "PLAIN DOWN"];
+	cutText ["Welcome!\nYour Helicopter is out on the pad, make sure to inspect it before flight!", "PLAIN DOWN"];
 	titleText ["", "BLACK FADED"];
 };
 
@@ -187,7 +190,7 @@ if (HW_DEBUG) then
 {
 	
 	[] execVM "AnimationViewer\init.sqf";
-	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use them for evil!";
+	hintSilent " - DEBUG MODE ACTIVE -\nwarning, you may have been given superpowers - do not use for evil!";
 };	
 
 
