@@ -59,6 +59,9 @@ _initRun = player execVM "InitDefs.sqf";
 waitUntil { scriptDone _initRun };
 
 
+_initRun = office_area execVM "Hangar\HW_Office_init.sqf";
+waitUntil { scriptDone _initRun };
+
 _initRun = [] execVM "Hangar\HW_Hangar_Init.sqf";
 waitUntil { scriptDone _initRun };
 

@@ -4,6 +4,7 @@ class HangarDialog
 {
 	idd = 9300;
 	movingEnable = 0;
+	enableSimulation = 1;
 	class controlsBackground { 
 	
 	};
@@ -268,6 +269,8 @@ class HangarDialog
 			y = 0.926083 * safezoneH + safezoneY;
 			w = 0.0572917 * safezoneW;
 			h = 0.05 * safezoneH;
+			
+			action="[_this] spawn HW_efx_Move2Hangar;";
 		};
 		class SB_MoveToHelipad: RscShortcutButton
 		{
@@ -277,6 +280,8 @@ class HangarDialog
 			y = 0.926083 * safezoneH + safezoneY;
 			w = 0.0572917 * safezoneW;
 			h = 0.05 * safezoneH;
+			
+			action="[_this] spawn HW_efx_Move2Helipad;";
 		};
 		class RscFrame_1805: RscFrame
 		{

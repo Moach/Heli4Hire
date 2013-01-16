@@ -1,4 +1,6 @@
 
+#define CAM_R_POS [-8,4,4]
+
 
 
 HW_Hangar_Active = true;
@@ -10,33 +12,114 @@ _hangarDialog = findDisplay 9300;
 
 ctrlSetFocus (_hangarDialog displayCtrl 1701);
 
-_cam = "camera" camCreate [(getPos pad_A) select 0, ((getPos pad_A) select 1) + 8, 3];
-_cam cameraEffect ["External", "BACK"];
-_cam camSetTarget pad_A;
-_cam camCommit 0; 
+
+ctrlSetText [1005, format ["$: %1", HW_Office_Funds]];
+
+
+
+ctrlSetText [1006, "Ready"];
+ctrlSetText [1007, "n/a"];
+ctrlSetText [1008, "n/a"];
+
+
+HW_hgr_cam = "camera" camCreate [(getPos pad_A) select 0, ((getPos pad_A) select 1) + 8, 3];
+HW_hgr_cam cameraEffect ["External", "BACK"];
+HW_hgr_cam camSetTarget pad_A;
+HW_hgr_cam camSetRelPos CAM_R_POS;
+HW_hgr_cam camCommit 0; 
+
 showCinemaBorder false;
 
 
-sliderSetPosition [1900, 5];
-sliderSetPosition [1901, 5];
-sliderSetPosition [1902, 10];
 
+
+sliderSetPosition [1900, (HW_Hgr_WorkStandards select 0)];
+sliderSetPosition [1901, (HW_Hgr_WorkStandards select 1)];
+sliderSetPosition [1902, (HW_Hgr_WorkStandards select 2)];
 
 HW_efx_SliderSet_HangarWorkStds = 
 {
 	_f = (sliderPosition 1900); // do it fast!
 	_c = (sliderPosition 1901); // do it cheap!
 	_r = (sliderPosition 1902); // do it right!
-	
 	_d = 20.0 - (_f + _c + _r);
 	
-	sliderSetPosition [1900, (_f + (_d * .5))];
-	sliderSetPosition [1901, (_c + (_d * .5))];
-	sliderSetPosition [1902, (_r + (_d * .5))];
+	sliderSetPosition [ 1900, (_f + (_d * .5)) ];
+	sliderSetPosition [ 1901, (_c + (_d * .5)) ];
+	sliderSetPosition [ 1902, (_r + (_d * .5)) ];
 	
 	(_this select 0) sliderSetPosition (_this select 1);
+	
+	HW_Hgr_WorkStandards set [0, (sliderPosition 1900)];
+	HW_Hgr_WorkStandards set [1, (sliderPosition 1901)];
+	HW_Hgr_WorkStandards set [2, (sliderPosition 1902)];
 };
 
+
+
+
+
+HW_efx_Move2Hangar = 
+{
+	if ( !isNull(HW_Hgr_HangarSlot select 0) ) exitWith
+	{
+		titleText ["The hangar is occupied!", "PLAIN"];
+	};
+	
+	
+	titleText ["Moving Into Hangar...", "BLACK OUT", 1];
+	
+	_heli = (HW_Hgr_Slots select HW_Hgr_Select);
+	HW_Hgr_HangarSlot = [_heli, HW_Hgr_Pads select HW_Hgr_Select];
+	
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "..."];
+	sleep 1;
+	
+	
+	_heli setPosATL (getPosATL hangar_area);
+	_heli setDir 70;
+	
+	HW_hgr_cam camSetTarget hangar_area;
+	HW_hgr_cam camSetRelPos CAM_R_POS;
+	HW_hgr_cam camCommit 0;
+	
+	
+	ctrlSetText [HW_slot_state_idcs select HW_Hgr_Select, "In Hangar"];
+	sleep 1;
+	
+	titleFadeOut 1;
+
+};
+
+
+HW_efx_Move2Helipad = 
+{
+	if ( isNull(HW_Hgr_HangarSlot select 0) || (HW_Hgr_HangarSlot select 0 != (HW_Hgr_Slots select HW_Hgr_Select)) ) exitWith
+	{
+		titleText ["This helicopter already out on the pad!", "PLAIN"];
+	};
+	
+
+	titleText ["Moving Out To Helipad...", "BLACK OUT", 1];
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "..."];
+	
+	sleep 1;
+	
+	_heli = (HW_Hgr_HangarSlot select 0);
+	_heli setPosATL (getPosATL (HW_Hgr_HangarSlot select 1));
+	_heli setDir 70;
+	
+	HW_hgr_cam camSetTarget (HW_Hgr_HangarSlot select 1);
+	HW_hgr_cam camSetRelPos CAM_R_POS;
+	HW_hgr_cam camCommit 0;
+	
+	HW_Hgr_HangarSlot = [objNull, objNull];
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "Ready"];
+	sleep 1;
+	
+	titleFadeOut 1;
+
+};
 
 
 
@@ -44,9 +127,9 @@ HW_efx_SliderSet_HangarWorkStds =
 
 waitUntil { !dialog };
 
-_cam cameraEffect ["Terminate","BACK"];
-_cam camCommit 0;
-camDestroy _cam;
+HW_hgr_cam cameraEffect ["Terminate", "BACK"];
+HW_hgr_cam camCommit 0;
+camDestroy HW_hgr_cam;
 
 
 HW_Hangar_Active = false;

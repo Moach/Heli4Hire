@@ -14,28 +14,9 @@ execVM "Hangar\HW_Office_functions.sqf";
 // 4 - repackable
 
 
-HW_Office_StoreItems = [	
-
-	["Map (Seattle)", 5.50, "A beautifully rendered foldout map of Seattle and the surrounding area. A must-have for map enthusiasts and the geographically challenged.\n\nNo refunds on this item.",	"#(argb,8,8,3)color(0.4,0.5,0.3,1)", 0.1, 0.1, 1, 0, 
-	 " 	if (player hasWeapon 'ItemMap') then
-		{
-			hint 'It seems you already have one of those. No point in unpacking this one.';
-		} else {
-			player addWeapon 'ItemMap';
-			hint 'Unpacked the map and added to Gear.';
-			_this set [11, false];
-			_this set [6, 0.8];	
-		}; ",  
-	 "	if (player hasWeapon 'ItemMap') then
-		{
-			player removeWeapon 'ItemMap';
-			hint 'Packed the map back neatly into its box.'; 
-			_this set [11, true];
-		} else {
-			hint 'You dont have the map with you. Did you drop it somewhere?';
-		}; ", false, true],
-		
-		
+HW_Office_StoreItems = 
+[	
+	
 	["GPS", 499.90, "The Armin BX300 Personal Satellite Signal Trilateration Processor and Chart Overlay Rendering Device may have a name that is longer than its list of features, but it is certainly much less deadly to use while flying than a foldout paper map.",	"#(argb,8,8,3)color(0.3,0.4,0.2,1)", 0.5, 0.1, 1, 0, 
 	 " 	if (player hasWeapon 'ItemGPS') then
 		{
@@ -114,7 +95,8 @@ HW_Office_StoreItems = [
 		}; ", true, true]
 ];
 
-HW_Office_Inventory = [
+HW_Office_Inventory = 
+[
 	
 ];
 
@@ -130,11 +112,13 @@ player addAction ["Access Office", "Hangar\HW_Office_Dialog.sqf", 1, 0, true, tr
 	"player distance office_area < 8 && !HW_Office_Active;",
 	"", -1, -1, 1+8];
 	
-if (HW_DEBUG) then {
+if (HW_DEBUG) then 
+{
 	player addAction ["Buddamus", "Hangar\HW_OfficeBuddamus.sqf", nil, 0, false, true, "", "!(player in chopper) && player distance office_area < 8 && !HW_Office_Active;"];
 };
 	
-HW_Office_OrdersUpdateDaemon = [] spawn {
+HW_Office_OrdersUpdateDaemon = [] spawn 
+{
 	while { true } do 
 	{
 		sleep 1;	
