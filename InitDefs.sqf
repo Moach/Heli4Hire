@@ -1,3 +1,6 @@
+
+
+
 LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
 PaxDefs_taxi = [

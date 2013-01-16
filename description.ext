@@ -1,7 +1,102 @@
+
+
 /*
-showGPS = 0;
-showCompass = 0;
+
+	this is a custom aircraft-definitions class - it will be used to ensure forward-compatibility with addons to come (which hopefully will, someday)
+	so in case a 3rd party helicopter is created, it may define it's own means of integration for use with our little mission here...
+	
+	this removes the necessity to manually adapt the mission itself to incorporate new aircraft, at least as far as we can go
+	within the general capabilities of the stock fleet...
+	
+	we'll begin by defining such rules for the stock lite, medium and heavy helicopters...
+	
 */
+
+
+class SimCopter_Airframe_Base
+{
+	airframeIdent="Whatdacopter";
+		
+	fuelMaxKg=1;
+	fuelTankCount=1;
+	engineCount=1;
+	payloadMaxKg=100;
+	
+	pilotClearanceLvl=1; // means you at least gotta be a pilot...
+	
+	class OwnershipCosts
+	{
+		purchaseNew=1000000;
+		purchaseUsed=800000;
+		
+		insuranceMin=100;
+		maintananceBase=500;
+	};
+	class Hardware {};
+	
+};
+
+
+class SimCopter_Hardware_Base
+{
+	ident="generic thingumabob";
+	variant="mk1";
+	picture="";
+	
+	basic=false;
+	
+	damageSources[] = {};
+	damageScalars[] = {};
+	
+	featureLinkage="";
+	
+	purchaseCostNew=1;
+	purchaseCostUsed=1;
+	
+};
+
+
+
+class CfgSimCopterFleet
+{
+	access = 1;
+	class Heli_Light01_H: SimCopter_Airframe_Base
+	{
+		airframeIdent="Wright LD-500";
+		
+		fuelMaxKg=183;
+		fuelTankCount=1;
+		engineCount=1;
+		payloadMaxKg=428;
+		
+		pilotClearanceLvl=1; // means you at least gotta be a pilot...
+		
+		class OwnershipCosts
+		{
+			purchaseNew=2000000; // two million gold!! -- estimated from averaged costs of some 2011 MD-500E found for sale online (presumably used, at 1.8M$)
+			purchaseUsed=1800000; // as long as there's no damage, few hours and all.... then it's downhill
+		
+			insuranceMin=200; // starts low, but just you wait 'til they learn what you're putting the bird through!
+			maintananceBase=500;
+		};
+		
+		class Hardware
+		{
+			
+			
+			
+			
+			
+			
+		};
+	};
+};
+
+
+
+
+
+
 
 
 class CfgIdentities

@@ -170,6 +170,8 @@ class HangarDialog
 			y = 0.774893 * safezoneH + safezoneY;
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			action="[0] spawn HW_efx_SelectActiveSlot;";
 		};
 		class SB_PadB: RscShortcutButton
 		{
@@ -179,6 +181,8 @@ class HangarDialog
 			y = 0.829871 * safezoneH + safezoneY;
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			action="[1] spawn HW_efx_SelectActiveSlot;";
 		};
 		class SB_PadC: RscShortcutButton
 		{
@@ -188,6 +192,8 @@ class HangarDialog
 			y = 0.88485 * safezoneH + safezoneY;
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
+			
+			action="[2] spawn HW_efx_SelectActiveSlot;";
 		};
 		class TT_PadState_A: RscText
 		{
@@ -195,7 +201,7 @@ class HangarDialog
 			text = "Landed"; //--- ToDo: Localize;
 			x = 0.227865 * safezoneW + safezoneX;
 			y = 0.747404 * safezoneH + safezoneY;
-			w = 0.0429688 * safezoneW;
+			w = 0.045 * safezoneW;
 			h = 0.0274893 * safezoneH;
 		};
 		class TT_PadState_B: RscText
@@ -204,7 +210,7 @@ class HangarDialog
 			text = "In Hangar"; //--- ToDo: Localize;
 			x = 0.227865 * safezoneW + safezoneX;
 			y = 0.802382 * safezoneH + safezoneY;
-			w = 0.0429688 * safezoneW;
+			w = 0.045 * safezoneW;
 			h = 0.0274893 * safezoneH;
 		};
 		class RscFrame_1804: RscFrame
@@ -231,7 +237,7 @@ class HangarDialog
 			text = "Empty"; //--- ToDo: Localize;
 			x = 0.227865 * safezoneW + safezoneX;
 			y = 0.857361 * safezoneH + safezoneY;
-			w = 0.0429688 * safezoneW;
+			w = 0.045 * safezoneW;
 			h = 0.0274893 * safezoneH;
 		};
 		class ST_Overview: RscStructuredText

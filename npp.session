@@ -1,0 +1,15 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="6">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="2450" startPos="1279" endPos="1279" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\Init.sqf" />
+            <File firstVisibleLine="82" xOffset="0" scrollWidth="5307" startPos="2129" endPos="2129" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\InitDefs.sqf" />
+            <File firstVisibleLine="253" xOffset="0" scrollWidth="1232" startPos="9179" endPos="9179" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\HW_Dispatch.sqf" />
+            <File firstVisibleLine="87" xOffset="0" scrollWidth="1162" startPos="2573" endPos="2591" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\HW_Utilities.sqf" />
+            <File firstVisibleLine="392" xOffset="0" scrollWidth="1785" startPos="1228" endPos="1228" selMode="0" lang="C++" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\description.ext" />
+            <File firstVisibleLine="79" xOffset="0" scrollWidth="2247" startPos="5261" endPos="5261" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\Hangar\HW_Office_init.sqf" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="287" startPos="145" endPos="145" selMode="0" lang="BIS" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\Hangar\HW_Refuel_Cancel.sqf" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="392" startPos="231" endPos="249" selMode="0" lang="C++" encoding="-1" filename="C:\Users\Guilherme\Documents\Take On Helicopters Other Profiles\Mayhem%20McAwesome\missions\M2.United_States_H\Hangar\hangar_dialog.h" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

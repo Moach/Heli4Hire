@@ -56,11 +56,36 @@ HW_efx_SliderSet_HangarWorkStds =
 };
 
 
+HW_efx_SelectActiveSlot = 
+{
+	if ((_this select 0) == HW_Hgr_Select) exitWith {};
+	
+	
+	HW_Hgr_Select = (_this select 0);
+	if ((HW_Hgr_Pads select HW_Hgr_Select) == (HW_Hgr_HangarSlot select 1)) then // selected slot chopper is in hangar
+	{
+		HW_hgr_cam camSetTarget hangar_area;
+		HW_hgr_cam camSetRelPos CAM_H_POS;
+		HW_hgr_cam camCommit 0;
+		
+	} else 
+	{ 
+		HW_hgr_cam camSetTarget (HW_Hgr_Pads select HW_Hgr_Select);
+		HW_hgr_cam camSetRelPos CAM_R_POS;
+		HW_hgr_cam camCommit 0;
+	};
+};
+
 
 
 
 HW_efx_Move2Hangar = 
 {
+	if ( isNull(HW_Hgr_Slots select HW_Hgr_Select) ) exitWith
+	{
+		titleText ["There's no helicopter in this pad!", "PLAIN"];
+	};
+	
 	if ( !isNull(HW_Hgr_HangarSlot select 0) ) exitWith
 	{
 		titleText ["The hangar is occupied!", "PLAIN"];
@@ -84,7 +109,7 @@ HW_efx_Move2Hangar =
 	HW_hgr_cam camCommit 0;
 	
 	
-	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select, "IN HANGAR"];
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "IN HANGAR"];
 	sleep 1;
 	
 	titleFadeOut 1;
@@ -94,6 +119,11 @@ HW_efx_Move2Hangar =
 
 HW_efx_Move2Helipad = 
 {
+	if ( isNull(HW_Hgr_Slots select HW_Hgr_Select) ) exitWith
+	{
+		titleText ["There's no helicopter in this pad!", "PLAIN"];
+	};
+	
 	if ( isNull(HW_Hgr_HangarSlot select 0) || (HW_Hgr_HangarSlot select 0 != (HW_Hgr_Slots select HW_Hgr_Select)) ) exitWith
 	{
 		titleText ["This helicopter already out on the pad!", "PLAIN"];
