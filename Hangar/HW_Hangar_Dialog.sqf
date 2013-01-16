@@ -1,6 +1,6 @@
 
-#define CAM_R_POS [-8,4,4]
-
+#define CAM_R_POS [8,4,4]
+#define CAM_H_POS [7,-2,3]
 
 
 HW_Hangar_Active = true;
@@ -17,9 +17,9 @@ ctrlSetText [1005, format ["$: %1", HW_Office_Funds]];
 
 
 
-ctrlSetText [1006, "Ready"];
-ctrlSetText [1007, "n/a"];
-ctrlSetText [1008, "n/a"];
+ctrlSetText [1006, "READY"];
+ctrlSetText [1007, "empty"];
+ctrlSetText [1008, "empty"];
 
 
 HW_hgr_cam = "camera" camCreate [(getPos pad_A) select 0, ((getPos pad_A) select 1) + 8, 3];
@@ -80,11 +80,11 @@ HW_efx_Move2Hangar =
 	_heli setDir 70;
 	
 	HW_hgr_cam camSetTarget hangar_area;
-	HW_hgr_cam camSetRelPos CAM_R_POS;
+	HW_hgr_cam camSetRelPos CAM_H_POS;
 	HW_hgr_cam camCommit 0;
 	
 	
-	ctrlSetText [HW_slot_state_idcs select HW_Hgr_Select, "In Hangar"];
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select, "IN HANGAR"];
 	sleep 1;
 	
 	titleFadeOut 1;
@@ -114,7 +114,7 @@ HW_efx_Move2Helipad =
 	HW_hgr_cam camCommit 0;
 	
 	HW_Hgr_HangarSlot = [objNull, objNull];
-	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "Ready"];
+	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "READY"];
 	sleep 1;
 	
 	titleFadeOut 1;

@@ -25,11 +25,10 @@ PaxDefs_cargo = [
 
 CargoDefs_Lite = 
 [
-	["FireSuppression_H",      240],
 	["Ventilation_H",          180],
+	["FireSuppression_H",      270],
 	["CargoCont_Net1_H",       350],
-	["Misc_Cargo_Cont_Tiny",   400], // this thing is heavy as balls! the LB is barely able to lift it (+2 pax aboard)
-	["PowerGenerator",         300]
+	["Misc_Cargo_Cont_Tiny",   400]
 ];
 
 
@@ -74,7 +73,7 @@ MoveDefs_Women_Group =
 	"Cwmn_GalkinaErc_talkCry",
 	"Cwmn_GalkinaErc_talkHappy1",
 	"Cwmn_GalkinaErc_talkHappy2",
-	"AidlPercMstpSnonWnonDnon_3greetR",
+//	"AidlPercMstpSnonWnonDnon_3greetR",
 	"CwmnPerc_diskuse1",
 	"CwmnPerc_ukazatDoleva",
 	"CwmnPerc_diskuse2",
