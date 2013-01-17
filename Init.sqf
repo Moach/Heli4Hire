@@ -34,9 +34,14 @@
 	Fs_   for functions that return their own success upon execution
 
 	the absense of such prefix usually denotes the definition of a variable, rather than a function...
+	other variants may appear at times, such as:
 	
+	efx_ for event initiated functions, i.e. handlers for UI dialog controls
+	fsp_ for functions that spawn internal execution logic and promptly return in an asynchronous fashion
 	
-	do note however - it's really a tough gig to enfore this stuff on this type of project, so things may not comply (at all) at various scripts...
+	and whatnot...
+	
+	do note however - it's really a tough gig to enforce stuff of this sort on this type of project, so things may not comply (even at all) at some various scripts...
 	
 	
 */
@@ -45,7 +50,7 @@
 
 
 
-HW_DEBUG = false; // master debug flag -- DO NOT commit to master when enabled
+HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 
 
@@ -170,7 +175,8 @@ sleep 1;
 
 
 	
-lzLogCount = count PosDefs_roofTops;	
+rtLogCount = count PosDefs_roofTops;	
+lzLogCount = count PosDefs_landings;	
 //
 
 

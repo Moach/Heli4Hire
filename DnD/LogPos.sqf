@@ -8,9 +8,9 @@ switch _mode do
 		_p = getPosATL player;
 
 
-		lzLogCount = lzLogCount +1;
+		rtLogCount = rtLogCount +1;
 
-		_id = "rt." + str(lzLogCount);
+		_id = "rt." + str(rtLogCount);
 		_mk = createMarker [_id, _p];
 		_mk setMarkerText _id;
 		_mk setMarkerType "Flag";

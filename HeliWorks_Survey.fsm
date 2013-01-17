@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Survey">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
+item0[] = {"START",0,4346,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
 item1[] = {"avail",4,218,-771.961426,1344.660034,-681.961304,1394.660034,0.000000,"avail"};
 item2[] = {"land",4,218,-772.595642,1523.999756,-682.595154,1573.999756,1.000000,"land"};
 item3[] = {"pickup",2,250,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
@@ -142,8 +142,8 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-435.756805,199.768158,2676.810059,1771.994873,590,840,1};
-window[] = {0,-1,-1,-1,-1,1015,97,1513,61,1,608};
+globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-1165.843628,-434.546753,2300.492676,1229.576660,590,864,1};
+window[] = {0,-1,-1,-1,-1,1049,157,1573,71,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -159,6 +159,14 @@ class FSM
        "PilotFail = false;" \n
        "" \n
        "//central sideRadio ""HW_Radio_Taxi_Commit"";" \n
+       "" \n
+       "" \n
+       "_pos = _this select 0;" \n
+       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDestination _pos;" \n
+       "" \n
+       "" \n
        "" \n
        "_t = time + 3 + (random 5);" \n
        ""/*%FSM</STATEINIT""">*/;
@@ -185,7 +193,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"hintSilent ""stand by..."";" \n
        "" \n
        "" \n
-       "_pos = _this select 0;" \n
+       "" \n
        "" \n
        "_pax =  [PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom, PaxDefs_taxi call bis_fnc_selectRandom];" \n
        "_pps =  [[6,-6,0],[7,-6,0],[6,-7,0]];" \n
@@ -202,9 +210,6 @@ class FSM
        "units _grp call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "" \n
-       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
-       "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_mkr = createMarker [""DP/AR"", _pos];" \n
        "_mkr setMarkerType ""hd_pickup"";" \n

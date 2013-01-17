@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Commute">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-321.440857,1068.792480,-231.441040,1118.792603,0.000000,"START"};
+item0[] = {"START",0,4346,-321.440857,1068.792480,-231.441040,1118.792603,0.000000,"START"};
 item1[] = {"avail",4,218,-323.048920,1146.401367,-233.048965,1196.401367,0.000000,"avail"};
 item2[] = {"land",4,218,-323.940704,1462.457397,-233.939972,1512.457397,1.000000,"land"};
 item3[] = {"pickup",2,250,-323.167450,1240.147705,-233.167419,1290.147705,0.000000,"pickup"};
@@ -72,8 +72,8 @@ link35[] = {29,30};
 link36[] = {29,31};
 link37[] = {30,26};
 link38[] = {31,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,105,0,1,-663.637573,-18.318361,2051.632080,1181.517090,666,898,1};
-window[] = {0,-1,-1,-32000,-32000,1032,110,1528,20,1,684};
+globals[] = {0.000000,0,0,0,0,640,480,1,105,0,1,-663.637573,-18.318361,1852.628052,1029.022461,666,850,1};
+window[] = {0,-1,-1,-1,-1,1008,333,1751,44,1,684};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -93,6 +93,10 @@ class FSM
        "" \n
        "_pos = _this select 0;" \n
        "" \n
+       "" \n
+       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
+       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_range = player distance _pos;" \n
        "_late = 0;" \n
@@ -145,9 +149,6 @@ class FSM
        "{ _x setDir ([_x, _pos] call bis_fnc_dirto); } foreach units _grp;" \n
        "units _grp call HW_Fx_Util_Animate_Idle;" \n
        "" \n
-       "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
-       "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_mkr = createMarker [""Departure"", _pos];" \n
        "_mkr setMarkerType ""hd_pickup"";" \n
