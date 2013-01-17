@@ -317,7 +317,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=2866;
+		items=2867;
 		class Item0
 		{
 			position[]={27907.23,4.1168747,29776.947};
@@ -34104,6 +34104,17 @@ class Mission
 			azimut=359.42499;
 			special="NONE";
 			id=2879;
+			side="EMPTY";
+			vehicle="Windsock_H";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item2866
+		{
+			position[]={39057.113,17,9340.5771};
+			azimut=359.42499;
+			special="NONE";
+			id=2880;
 			side="EMPTY";
 			vehicle="Windsock_H";
 			leader=1;
