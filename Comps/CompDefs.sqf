@@ -19,7 +19,7 @@ HW_Comp_Sling_Base =
 	["RoadCone_H",[16.1836,-1.14453,0],234.171], 
 	["FireExtinguisher_H",[1.92773,10.4766,0],234.171], 
 	["FireExtinguisher_H",[1.69141,10.0781,0],234.171], 
-	["Paleta2",[9.25586,4.93359,0],234.171], 
+	["Paleta2",[9.25586,4.93359,0],234.171],    // pallets will not appear without ArmA2 and Rearmed...  doesn't seem to cause any problems without, though...
 	["Paleta2",[11.6152,6.00977,0],167.153], 
 	["Paleta1",[-9.33398,-3.44531,0],234.171], 
 	["Paleta1",[8.85938,7.3125,0],234.171],
