@@ -51,9 +51,7 @@ HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 enableEndDialog;
 
-removeAllItems player;
-player addWeapon "ItemRadio";
-player addWeapon "ItemMap";
+// removeAllItems player;
 
 _initRun = player execVM "InitDefs.sqf";
 waitUntil { scriptDone _initRun };
@@ -125,9 +123,6 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
-	
-//	player addWeapon "ItemGps";
-	player addWeapon "ItemWatch";
 	
 	player addAction ["Test Hangar Screen", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false, true];
 	
