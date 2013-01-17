@@ -71,7 +71,7 @@ item66[] = {"where__from_",2,250,104.350143,2459.243652,179.914261,2494.143555,0
 item67[] = {"depart",4,218,94.396805,2212.429199,188.280624,2263.917969,0.000000,"depart"};
 item68[] = {"going_up",4,218,41.838890,2412.899170,120.265800,2454.797852,0.000000,"going" \n "up"};
 item69[] = {"going_down",4,218,170.579636,2408.152588,260.579956,2458.152588,0.000000,"going" \n "down"};
-item70[] = {"damage_control",2,4346,-261.423035,2672.474365,-171.423004,2722.474365,0.000000,"damage" \n "control"};
+item70[] = {"damage_control",2,250,-261.423035,2672.474365,-171.423004,2722.474365,0.000000,"damage" \n "control"};
 item71[] = {"close_in",4,218,509.313477,2081.166992,599.313232,2131.166992,0.000000,"close in"};
 item72[] = {"approach_cargo",2,250,511.915222,2197.206055,596.416931,2254.665771,0.000000,"approach" \n "cargo"};
 item73[] = {"far",4,218,202.212433,2200.818359,292.211945,2250.818604,0.000000,"far"};
@@ -84,6 +84,11 @@ item79[] = {"that_ain_t_gonna",2,250,-491.771698,2064.105469,-401.771484,2114.10
 item80[] = {"",7,210,-171.698318,1836.595093,-163.698334,1844.595093,0.000000,""};
 item81[] = {"",7,210,-123.227226,2181.000244,-115.227310,2189.000244,0.000000,""};
 item82[] = {"",7,210,357.279999,1990.996826,365.279999,1998.996826,0.000000,""};
+item83[] = {"",7,210,484.271027,2071.775391,492.271088,2079.775391,0.000000,""};
+item84[] = {"OMG__you_broke_it",4,4314,636.700806,2038.315186,753.964661,2113.100342,2.000000,"OMG!" \n "you broke it!"};
+item85[] = {"",7,210,-2.346583,2465.235596,5.653453,2473.235596,0.000000,""};
+item86[] = {"",7,210,691.928040,2546.208984,699.928040,2554.208984,0.000000,""};
+item87[] = {"",7,210,119.114037,2546.208984,127.114037,2554.208984,0.000000,""};
 link0[] = {0,2};
 link1[] = {1,31};
 link2[] = {1,82};
@@ -197,14 +202,20 @@ link109[] = {76,77};
 link110[] = {77,35};
 link111[] = {77,50};
 link112[] = {77,74};
-link113[] = {78,79};
-link114[] = {79,39};
-link115[] = {79,81};
-link116[] = {80,78};
-link117[] = {81,51};
-link118[] = {82,50};
-globals[] = {0.000000,0,0,0,0,640,480,1,229,6316128,1,-756.227051,97.628754,3071.588623,1992.188354,689,871,1};
-window[] = {0,-1,-1,-1,-1,1010,43,1546,25,1,707};
+link113[] = {77,83};
+link114[] = {78,79};
+link115[] = {79,39};
+link116[] = {79,81};
+link117[] = {80,78};
+link118[] = {81,51};
+link119[] = {82,50};
+link120[] = {83,84};
+link121[] = {84,86};
+link122[] = {85,53};
+link123[] = {86,87};
+link124[] = {87,85};
+globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-70.345657,827.212830,2737.416992,1602.770264,689,871,1};
+window[] = {0,-1,-1,-32000,-32000,998,27,1530,13,1,707};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1292,7 +1303,7 @@ class FSM
           priority = 1.000000;
           to="hold___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 150"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!RopeAttached && (_cgo distance _basePos) < 150 && ((getPosATL _cgo) select 2) < 2 // must not be dropped from the air!"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_cgo = ObjNull;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1829,7 +1840,8 @@ class FSM
     class you_need_a_loose
     {
       name = "you_need_a_loose";
-      init = /*%FSM<STATEINIT""">*/"hintSilent ""For safety reasons, you should always clear loads at the top before bringing up more from the ground\n detach this load and connect the rope only to the helicopter, leaving the other end free.\nMake sure you select the proper length for the job"";"/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"hintSilent ""For safety reasons, you should always clear loads at the top before bringing up more from the ground\n detach this load and connect the rope only to the helicopter, leaving the other end free.\nMake sure you select the proper length for the job"";" \n
+       "_cgo = SlingLoadCgo; // flag as 'current' load for compatibility with upgoing cargo logic!"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1840,6 +1852,16 @@ class FSM
           to="just_put_it_down";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "OMG__you_broke_it">*/
+        class OMG__you_broke_it
+        {
+          priority = 2.000000;
+          to="YOU_BROKE_IT_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!RopeAttached && ( ((_cgo distance _basePos) > 150) || (( (getPosATL _cgo) select 2 ) > 2) )"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/

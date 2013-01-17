@@ -7,16 +7,20 @@ PaxDefs_taxi = [
 	"Woman01_Random_H",
 	"Woman02_Random_H",
 	"Woman03_Random_H",
-	"Hooker1",
+	"Woman02_Random_H",
+	"Woman01_Random_H",
+	"Hooker1", // these rather stylish women are ArmA2-based content - if you have it, you get more passengers!
 	"Hooker4",
 	"Hooker2",
 	"Hooker3",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
+	"Citizen_Random_H",
 	"Journalist_H",
 	"Manager_H",
 	"Rocker_H",
+	"SeattleMan_Random_H",
 	"SeattleMan_Random_H"
 ];
 
@@ -31,11 +35,12 @@ CargoDefs_Lite =
 	["Ventilation_H",          180],
 	["FireSuppression_H",      270],
 	["CargoCont_Net1_H",       350],
-	["Misc_Cargo_Cont_Tiny",   400]
+	["CargoCont_Net1_H",       380]
+//	["Misc_Cargo_Cont_Tiny",   400]
 ];
 
 
-
+// alas, these only work if you have ArmA2 and Rearmed installed.... 
 MoveDefs_Men_Group = 
 [
 	"AmovPercMstpSnonWnonDnon_talking",

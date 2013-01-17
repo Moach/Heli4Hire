@@ -143,13 +143,13 @@ HW_Fx_Dispatch_Cargo =
 		_towerCargo = 1; // fallback to 'one coming down' in the off chance this happens...
 	};
 	
-	/*
+	
 	if (RadioCall_J) then // override for debug run!
 	{
 		_towerCargo = 2;
 		_baseCargo  = 2;
 	};
-	*/
+	
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
 	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 10000];
