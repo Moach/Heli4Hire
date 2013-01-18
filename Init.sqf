@@ -142,8 +142,8 @@ Heli_Has_Obstruction = false; // or is it?
 Heli_Hint_On_Fail = false;
 
 chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
-[service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
-
+/*[service_helipad, "pad_service_marker"] execVM "scripts\OSMO_service\OSMO_service_init.sqf";
+*/
 
 
 chopper enableCoPilot false;
