@@ -103,9 +103,9 @@ HW_Fx_Dispatch_Survey =
 	};
 	
 	//
-	_tsk = player createSimpleTask ["Area Survey"];
+	_tsk = player createSimpleTask ["Field Survey"];
 	_tsk setSimpleTaskDestination _p1;
-	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Area Survey", "Departing here"];
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Field Survey", "Departing here"];
 	
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];

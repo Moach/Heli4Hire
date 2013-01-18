@@ -317,7 +317,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=2979;
+		items=2981;
 		class Item0
 		{
 			position[]={27907.23,4.1168747,29776.947};
@@ -10868,7 +10868,7 @@ class Mission
 		};
 		class Item902
 		{
-			position[]={32214.623,21.998857,30079.803};
+			position[]={31277.977,11.988091,23686.248};
 			azimut=719.06451;
 			special="NONE";
 			id=913;
@@ -17244,8 +17244,8 @@ class Mission
 		};
 		class Item1434
 		{
-			position[]={27913.785,4.1999998,29760.725};
-			azimut=70;
+			position[]={27914.98,4.1999998,29759.213};
+			azimut=67.106552;
 			special="NONE";
 			id=1445;
 			side="EMPTY";
@@ -35456,6 +35456,30 @@ class Mission
 			azimut=381.50201;
 			special="NONE";
 			id=2992;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item2979
+		{
+			position[]={39451.52,11.383612,41615.762};
+			azimut=381.50201;
+			special="NONE";
+			id=2993;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item2980
+		{
+			position[]={18247.301,6.727942,27578.035};
+			azimut=178.70154;
+			special="NONE";
+			id=2994;
 			side="EMPTY";
 			vehicle="Helipad_Invisible_H";
 			leader=1;
