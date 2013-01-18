@@ -23,44 +23,16 @@ ctrlSetText [1008, "empty"];
 
 
 HW_hgr_cam = "camera" camCreate [(getPos pad_A) select 0, ((getPos pad_A) select 1) + 8, 3];
-HW_hgr_cam cameraEffect ["External", "BACK"];
-HW_hgr_cam camSetTarget pad_A;
-HW_hgr_cam camSetRelPos CAM_R_POS;
-HW_hgr_cam camCommit 0; 
+HW_hgr_cam cameraEffect ["External", "BACK"]; // will commit on selecting the active pad for the first time, shortly below
 
 showCinemaBorder false;
 
 
 
 
-sliderSetPosition [1900, (HW_Hgr_WorkStandards select 0)];
-sliderSetPosition [1901, (HW_Hgr_WorkStandards select 1)];
-sliderSetPosition [1902, (HW_Hgr_WorkStandards select 2)];
 
-HW_efx_SliderSet_HangarWorkStds = 
+HW_efx_SelectActiveSlot= 
 {
-	_f = (sliderPosition 1900); // do it fast!
-	_c = (sliderPosition 1901); // do it cheap!
-	_r = (sliderPosition 1902); // do it right!
-	_d = 20.0 - (_f + _c + _r);
-	
-	sliderSetPosition [ 1900, (_f + (_d * .5)) ];
-	sliderSetPosition [ 1901, (_c + (_d * .5)) ];
-	sliderSetPosition [ 1902, (_r + (_d * .5)) ];
-	
-	(_this select 0) sliderSetPosition (_this select 1);
-	
-	HW_Hgr_WorkStandards set [0, (sliderPosition 1900)];
-	HW_Hgr_WorkStandards set [1, (sliderPosition 1901)];
-	HW_Hgr_WorkStandards set [2, (sliderPosition 1902)];
-};
-
-
-HW_efx_SelectActiveSlot = 
-{
-	if ((_this select 0) == HW_Hgr_Select) exitWith {};
-	
-	
 	HW_Hgr_Select = (_this select 0);
 	if ((HW_Hgr_Pads select HW_Hgr_Select) == (HW_Hgr_HangarSlot select 1)) then // selected slot chopper is in hangar
 	{
@@ -74,7 +46,39 @@ HW_efx_SelectActiveSlot =
 		HW_hgr_cam camSetRelPos CAM_R_POS;
 		HW_hgr_cam camCommit 0;
 	};
+	
+	if (!isNull(HW_Hgr_Slots select HW_Hgr_Select)) then
+	{
+		_heli = (HW_Hgr_Slots select HW_Hgr_Select);
+		_cfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
+		
+		//
+		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];
+		{
+			lbAdd [1501, getText(missionConfigFile >> "cfgSimCopterHardware" >> (_x select 0) >> "ident")];
+		} foreach (_heli getVariable "HW_Hardware");
+		
+	} else
+	{
+		
+		(_hangarDialog displayCtrl 1100) ctrlSetStructuredText parseText "<br />";
+		
+	};
+	
+	
 };
+
+[0] call HW_efx_SelectActiveSlot;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -150,6 +154,35 @@ HW_efx_Move2Helipad =
 	titleFadeOut 1;
 
 };
+
+
+
+
+sliderSetPosition [1900, (HW_Hgr_WorkStandards select 0)];
+sliderSetPosition [1901, (HW_Hgr_WorkStandards select 1)];
+sliderSetPosition [1902, (HW_Hgr_WorkStandards select 2)];
+
+HW_efx_SliderSet_HangarWorkStds = 
+{
+	_f = (sliderPosition 1900); // do it fast!
+	_c = (sliderPosition 1901); // do it cheap!
+	_r = (sliderPosition 1902); // do it right!
+	_d = 20.0 - (_f + _c + _r);
+	
+	sliderSetPosition [ 1900, (_f + (_d * .5)) ];
+	sliderSetPosition [ 1901, (_c + (_d * .5)) ];
+	sliderSetPosition [ 1902, (_r + (_d * .5)) ];
+	
+	(_this select 0) sliderSetPosition (_this select 1);
+	
+	HW_Hgr_WorkStandards set [0, (sliderPosition 1900)];
+	HW_Hgr_WorkStandards set [1, (sliderPosition 1901)];
+	HW_Hgr_WorkStandards set [2, (sliderPosition 1902)];
+};
+
+
+
+
 
 
 

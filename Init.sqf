@@ -270,6 +270,8 @@ sleep 1;
 
 
 
+chopper call HW_Fx_InitChopper;
+
 // OSMO_SV_serviceMenArray call HW_Util_Animate_Idle;
 
 
