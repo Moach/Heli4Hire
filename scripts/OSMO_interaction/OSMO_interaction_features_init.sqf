@@ -43,7 +43,7 @@ if(!isDedicated) then
 
   // Customization
   OSMO_customize_opened = false;
-  _heli addAction ["Customize Helicopter", "scripts\OSMO_interaction\OSMO_interaction_customization_initial.sqf", nil, 0, false, true, "", "!(_this in _target) && !OSMO_customize_opened && ((_this distance _target) < 5)", "",-1, -1, 1+8, 0,"<t align='center'><img image='hsim\ui_h\data\ui_action_repair_ca' size='1.5' shadow='true' /></t>","Customize"];
+ //  _heli addAction ["Customize Helicopter", "scripts\OSMO_interaction\OSMO_interaction_customization_initial.sqf", nil, 0, false, true, "", "!(_this in _target) && !OSMO_customize_opened && ((_this distance _target) < 5)", "",-1, -1, 1+8, 0,"<t align='center'><img image='hsim\ui_h\data\ui_action_repair_ca' size='1.5' shadow='true' /></t>","Customize"];
 
   // Add actions for opening and closing the rear ramp  for heavy choppers
   if(_heli isKindOf "Heli_Heavy_Base_H") then
@@ -101,11 +101,11 @@ if(isServer) then
   if(_heli isKindOf "Heli_Light01_Base_H") then 
   { 
     // Add
-    _components  = ["AddMirror", "AddTread"];
-    {_heli animate [_x,1]} foreach _components;  
+ //   _components  = ["AddMirror", "AddTread"];
+ //   {_heli animate [_x,1]} foreach _components;  
       
     // Remove
-    _components = ["AddScreen1", "AddHoldingFrame"];
+    _components = ["AddBackseats", "AddMirror", "AddDoors", "AddScreen1", "AddHoldingFrame", "AddTread_Short", "AddTread"];
     {_heli animate [_x,0]} foreach _components;
   };
 };

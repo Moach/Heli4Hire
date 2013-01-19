@@ -28,6 +28,18 @@ HW_hgr_cam cameraEffect ["External", "BACK"]; // will commit on selecting the ac
 showCinemaBorder false;
 
 
+for "_i" from 0 to (count (missionConfigFile >> "cfgSimCopterHardware"))-1 do
+{
+	if (isClass ((missionConfigFile >> "cfgSimCopterHardware") select _i)) then
+	{
+		_idx = lbAdd [1500, getText( ((missionConfigFile >> "cfgSimCopterHardware") select _i) >> "ident" )];
+		//
+		
+	};
+};
+
+
+
 
 
 
@@ -47,15 +59,18 @@ HW_efx_SelectActiveSlot=
 		HW_hgr_cam camCommit 0;
 	};
 	
+	lbClear 1501;
+	
 	if (!isNull(HW_Hgr_Slots select HW_Hgr_Select)) then
 	{
 		_heli = (HW_Hgr_Slots select HW_Hgr_Select);
 		_cfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
 		
 		//
-		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];
+		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];		
 		{
-			lbAdd [1501, getText(missionConfigFile >> "cfgSimCopterHardware" >> (_x select 0) >> "ident")];
+			_idx = lbAdd [1501, getText(missionConfigFile >> "cfgSimCopterHardware" >> (_x select 0) >> "ident")];
+			
 		} foreach (_heli getVariable "HW_Hardware");
 		
 	} else

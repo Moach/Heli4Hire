@@ -22,6 +22,7 @@ HW_Hgr_HangarSlot = [objNull, objNull]; // chopper in hangar, reference to pad (
 HW_Fx_InitChopper = 
 {
 	// gets helicopter as only parameter - uses type name to locate matching fleet class!
+	
 	_cfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _this);
 	
 	_hdwr=[];

@@ -243,6 +243,7 @@ class HangarDialog
 		class ST_Overview: RscStructuredText
 		{
 			idc = 1100;
+		//	type = CT_LISTNBOX;
 			text = "insert crap here"; //--- ToDo: Localize;
 			x = 0.299479 * safezoneW + safezoneX;
 			y = 0.761148 * safezoneH + safezoneY;
@@ -252,6 +253,7 @@ class HangarDialog
 		class ST_Maintenance: RscStructuredText
 		{
 			idc = 1101;
+		//	type = CT_LISTNBOX;
 			text = "last maintenance was a shitload of hours ago"; //--- ToDo: Localize;
 			x = 0.60026 * safezoneW + safezoneX;
 			y = 0.761148 * safezoneH + safezoneY;
