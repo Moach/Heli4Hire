@@ -68,6 +68,9 @@ waitUntil { scriptDone _initRun };
 _initRun = [] execVM "Hangar\HW_Hangar_Init.sqf";
 waitUntil { scriptDone _initRun };
 
+chopper call HW_Fx_InitChopper;
+
+
 
 _HeliPort = nearestObject [(getPos player), "Land_Heliport_Small_H"];
 [(getPos _HeliPort), (getDir _HeliPort), "heliport_hangarDefault"] spawn BIS_fnc_ObjectsMapper;
@@ -253,9 +256,9 @@ waitUntil { scriptDone _initUtils };
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
 
-chopper addAction ["Attach 16m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
-chopper addAction ["Attach 24m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
-chopper addAction ["Attach 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
+chopper addAction ["Attach 16m Sling Rope (free)", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 16, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
+chopper addAction ["Attach 24m Sling Rope (free)", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 24, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
+chopper addAction ["Attach 32m Sling Rope (free)", "SlingLoad\HW_Attach_Sling_Loose_Action.sqf", 32, 0, false, true, "", "!RopeAttached && (player distance chopper) < 2.8 && !(player in chopper)", "", 3, 2];
 
 
 
@@ -269,8 +272,6 @@ test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo
 sleep 1;
 
 
-
-chopper call HW_Fx_InitChopper;
 
 // OSMO_SV_serviceMenArray call HW_Util_Animate_Idle;
 

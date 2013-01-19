@@ -25,21 +25,27 @@ HW_Fx_InitChopper =
 	
 	_cfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _this);
 	
-	_hdwr=[];
-	_i=0;
-	_hdwr resize count (_cfg >> "basicHardware");
+	_num = count (_cfg >> "Components");
+	_cmps=[];
+	_cmps resize _num;
+	_n=0;
+	for "_i" from 0 to (_num-1) do
 	{
-		_hdwr set [_i, [_x, 0]]; 
-		_i = _i+1;
-		//
+		_cp = ((_cfg >> "Components") select _i);
+		if (isClass (_cp) && getNumber (_cp >> "minimalSpec") > 0) then
+		{
+			_cmps set [_n, [_i, 0, 0]]; // components Nth index, damage, logged time
+			_n = _n+1;
+			//
+		};
 		
-	} foreach getArray(_cfg >> "basicHardware");
+	};
 	
-	_this setVariable ["HW_Hardware", _hdwr];
+	_this setVariable ["HW_Components", _cmps];
 	_this setVariable ["HW_PaxCap", 1];
 	_this lockCargo true;
 	
-	hint format ["%1", _hdwr];
+	hint format ["Chopper Init: %1 Basic Components", count _cmps];
 };
 
 

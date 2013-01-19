@@ -69,9 +69,11 @@ HW_efx_SelectActiveSlot=
 		//
 		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];		
 		{
-			_idx = lbAdd [1501, getText(missionConfigFile >> "cfgSimCopterHardware" >> (_x select 0) >> "ident")];
+			_cmp = (_cfg >> "Components") select (_x select 0);
+			_hdwr = missionConfigFile >> "cfgSimCopterHardware" >> (getText(_cmp >> "hardwareClass"));
+			_idx = lbAdd [1501, getText(_hdwr >> "ident")];
 			
-		} foreach (_heli getVariable "HW_Hardware");
+		} foreach (_heli getVariable "HW_Components");
 		
 	} else
 	{

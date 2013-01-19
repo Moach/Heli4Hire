@@ -8,197 +8,101 @@
 	
 */
 
-
-class HW_Airframe_Base
-{
-	airframeIdent="Whatdacopter";
-	desc="";
-		
-	fuelMaxKg=1;
-	fuelTankCount=1;
-	engineCount=1;
-	payloadMaxKg=100;
-	
-	pilotClearanceLvl=1;
-	
-	purchaseNew=1000000;
-	purchaseUsed=800000;
-	
-	insuranceMin=100;
-	maintananceBaseCost=100;
-	maintananceTimeFactor=1;
-	
-	hardware[]={};
-	basicHardware[]={};
-	
-	onAirframeCapsInit=""; // code to run at initialization time to setup the basic features needed to determine what this bird can do (runs before hardware init, defines basic-only capabilities)
-};
-
-
-class HW_Hardware_Base
-{
-	ident="generic thingumabob";                     // abbridged item name shown on inventory listings
-	fullName="general generics thingummabob pro";    // full item name with all the bells and whistles
-	desc="a thing that probably does something";	 // description of the thing (ideally make it kinda funny)
-	
-	icon="";                // icon shown on listings
-	picture="";             // larger image shown with expanded information
-	
-	featureLinkage="";      // connection to physical part on helicopter, namely a hitpoint e.g. 'hitEngine' - this assigns a particular source for component damage where applicable
-	//
-	onItemUnpack="";        // code executed on item being unpacked
-	onItemRepack="";        // code executed on it being packed back up (for refund, or sale)
-	onItemInstall="";       // code executed when item is installed onto helicopter
-	onItemRemove="";        // code executed when it is removed from said helicopter
-	onItemDamage="";        // code executed when item receves damage
-	onItemRepair="";        // same as above, but backwards...
-	
-	itemMass=1;             // physical mass in Kg. (affects flight dynamics* and shipping costs)  *FDs are only altered for non-basic components (those that do NOT come with the airframe)
-	itemVolume=1;           // approximate volume in Litres (affects shipping costs)
-	
-	itemAvailabity=0;       // factor of how frequently this item comes across the store - zero makes it fully unavailable
-	itemCostNew=1;          // these are kinda self-explaining, no?
-	itemCostUsed=1;         // ....we've all been there
-	
-	repairLevel=1;          // feasibility of maintenace work being peformed to such level of success - 1= fully repairable, .5= can be fix to half as good, 0= must replace
-	repairCost=2;           // cost of maintenance at full damage -- may exceed cost of new part, making it a total loss... then seen as a negative-valued item
-	repairFail=0;           // a point on damage scale where the feasibility of repair becomes zero (does NOT factor into cost)
-	
-	vulnerability=0;        // scalar determining how much damage from the hitpoint translates into more permanent component damage
-	wearFactor=0;           // scalar for wear-induced damage from flying hours (should be low) 
-};
+// this file turn into mayhem if not split - we're sorry for the inconvenience
+#include <cfgBaseClassDefs.h> 
 
 
 class CfgSimCopterHardware
 {
-	access = 1;
 	class HW_Gen_Battery: HW_Hardware_Base
 	{
 		ident="Aeonics BD-6G 12V Battery";
-		featureLinkage="hitBattery";
 	};
-	class HW_LD500_Engine: HW_Hardware_Base
+	class HW_Enroy520_Engine: HW_Hardware_Base
 	{
 		ident="Enroy M520 Turboshaft Engine";
-		featureLinkage="hitEngine";
 	};
-	class HW_LD500_Tranmission: HW_Hardware_Base
+	class HW_LD500_Transmission: HW_Hardware_Base
 	{
 		ident="Coyle TX-V1002E Transmission";
-		featureLinkage="hitTransmission";
 	};
 	class HW_LD500_MainRotor: HW_Hardware_Base
 	{
 		ident="Aesis-Wright CR-5 Main Rotor";
-		featureLinkage="hitHRotor";
 	};
 	class HW_LD500_TailRotor: HW_Hardware_Base
 	{
 		ident="Aesis-Wright STR-50 Tail Rotor";
-		featureLinkage="hitVRotor";
 	};
-	class HW_LD500_Hydraulics: HW_Hardware_Base
+	class HW_Fasko392_Hydraulics: HW_Hardware_Base
 	{
 		ident="Fasko MHD-392A Hydraulics System";
-		featureLinkage="hitHydraulics";
 	};
 	class HW_LD500_Starter: HW_Hardware_Base
 	{
 		ident="Enroy SL-P1 Starter Motor";
-		featureLinkage="hitStarter";
 	};
 	class HW_LD500_FuelTank: HW_Hardware_Base
 	{
 		ident="Airframe Integrated Fuel Tank";
-		featureLinkage="hitFuel";
 	};
 	class HW_LD500_Gear: HW_Hardware_Base
 	{
 		ident="LD500 Landing Skids";
-		featureLinkage="hitGear";
 	};
 	class HW_LD500_Avionics: HW_Hardware_Base
 	{
 		ident="Raycon VT.1260H Radio Pack";
-		featureLinkage="hitAvionics";
 	};
 	class HW_LD500_SearchLight: HW_Hardware_Base
 	{
 		ident="Luno PL-AV3 SuperBeam Light";
-		featureLinkage="hitLight";
 	};
 	
 	
 	class HW_LD500_Doors: HW_Hardware_Base
 	{
 		ident="LD500 Cabin Doors";
-		//
-		onItemInstall="_this animate ['addDoors', 1];";
-		onItemRemove="_this animate ['addDoors', 0];";
 	};
-	class HW_LD500_Mirror: HW_Hardware_Base
+	class HW_Rearview_Mirror: HW_Hardware_Base
 	{
 		ident="Miraline G2 AeroSport Mirror";
-		//
-		onItemInstall="_this animate ['addMirror', 1];";
-		onItemRemove="_this animate ['addMirror', 0];";
 	};
-	class HW_LD500_LCD: HW_Hardware_Base
+	class HW_Raycon_LCD: HW_Hardware_Base
 	{
 		ident="Raycon Evast 1026 LCD Panel";
-		//
-		onItemInstall="_this animate ['addScreen1', 1];";
-		onItemRemove="_this animate ['addScreen1', 0];";
 	};
 	class HW_LD500_LongStep: HW_Hardware_Base
 	{
 		ident="LD500 Gear Boarding Step (Long)";
-		//
-		onItemInstall="_this animate ['addTread', 1];";
-		onItemRemove="_this animate ['addTread', 0];";
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
 		ident="LD500 Gear Boarding Step (Short)";
-		//
-		onItemInstall="_this animate ['addTread_Short', 1];";
-		onItemRemove="_this animate ['addTread_Short', 0];";
 	};
-	class HW_LD500_BackSeats: HW_Hardware_Base
+	class HW_2Seat_BackSeats: HW_Hardware_Base
 	{
-		ident="LD500 Back Seats";
-		//
-		onItemInstall="_this animate ['addBackseats', 1];";
-		onItemRemove="_this animate ['addBackseats', 0];";
+		ident="Marano Pro SC 2-Seat Bench";
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
-		ident="LD500 Equipment Mount";
-		//
-		onItemInstall="_this animate ['AddHoldingFrame', 1];";
-		onItemRemove="_this animate ['AddHoldingFrame', 0];";
+		ident="Wright LD-Series R-Side Rig";
 	};
 	
-	class HW_LD500_SideCamera: HW_Hardware_Base
+	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
 		ident="EZ-Vue RotoCaster Air300 Camera";
-		//
-		onItemInstall="_this animate ['AddFlir2', 1];";
-		onItemRemove="_this animate ['AddFlir2', 0];";
+		
 	};
-	class HW_Gen_Flir: HW_Hardware_Base
+	class HW_Raycon7500_Flir: HW_Hardware_Base
 	{
 		ident="Raycon MIRNA Series FLIR 7500";
-		//
-		onItemInstall="_this animate ['AddFLIR', 1];";
-		onItemRemove="_this animate ['AddFLIR', 0];";
+		
 	};
 };
 
 class CfgSimCopterFleet
 {
-	access = 1;
-	
 	// class name here must match the respective helicopters class name in cfgVehicles
 	class Heli_Light01_HeliWorks: HW_Airframe_Base
 	{
@@ -225,46 +129,145 @@ class CfgSimCopterFleet
 		//	  this adds major flexibility for future addons, e.g. a bell jetranger uses the very same powerplant as the md500
 		//
 		
-		// this is a list of all hardware classes suited to this helicopter -- mind that a repeat entry may appear as some parts may exist in numbers greater than one (redundancy rule)
-		hardware[]={
-			"HW_Gen_Battery", 
-			"HW_LD500_Engine", 
-			"HW_LD500_Tranmission", 
-			"HW_LD500_MainRotor", 
-			"HW_LD500_TailRotor", 
-			"HW_LD500_Hydraulics", 
-			"HW_LD500_Starter",
-			"HW_LD500_FuelTank",
-			"HW_LD500_Avionics",
-			"HW_LD500_SearchLight",
-			"HW_LD500_Gear",
-			"HW_LD500_Doors",
-			"HW_LD500_LCD",
-			"HW_LD500_HoldingFrame",
-			"HW_LD500_LongStep",
-			"HW_LD500_ShortStep",
-			"HW_LD500_BackSeats",
-			"HW_LD500_Bracket",
-			"HW_LD500_SideCamera",
-			"HW_Gen_Flir",
-			"HW_LD500_Mirror"
+		// this is a list of all hardware bindings for this helicopter -- mind that a repeat entry may appear as some parts may exist in numbers greater than one (redundancy rule)
+		class Components
+		{	
+			class Battery : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_Gen_Battery";
+				damageSource="hitBattery";
+				minimalSpec=1;
+			};
+			class Engine : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_Enroy520_Engine";
+				damageSource="hitEngine";
+				minimalSpec=1;
+			};
+			class Transmission : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_LD500_Transmission";
+				damageSource="hitTransmission";
+				minimalSpec=1;
+			};
+			class MainRotor : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_LD500_MainRotor";
+				damageSource="hitHRotor";
+				minimalSpec=1;
+			};
+			class TailRotor : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_LD500_TailRotor";
+				damageSource="hitVRotor";
+				minimalSpec=1;
+			};
+			class Hydraulics : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_Fasko392_Hydraulics";
+				damageSource="hitHydraulics";
+				minimalSpec=1;
+			};
+			class Starter : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_LD500_Starter";
+				damageSource="hitStarter";
+				minimalSpec=1;
+			};
+			class FuelTank : HW_Hdwr_2_Heli_Base
+			{
+				hardwareClass="HW_LD500_FuelTank";
+				damageSource="hitFuel";
+				minimalSpec=1;
+			};
+			class Gear: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_Gear";
+				damageSource="hitGear";
+				minimalSpec=1;
+			};
+			class Avionics: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_Avionics";
+				damageSource="hitAvionics";
+				minimalSpec=1;
+				minimalSafe=1; // fly without radio? - sure, why not? - it's your funeral...
+			};
+			class Light: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_SearchLight";
+				damageSource="hitLight";
+				minimalSpec=1;
+				minimalSafe=1; // as long as you don't go out after dark....
+			};
+			
+			class Doors: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_Doors";
+				//
+				onItemInstall="_this animate ['addDoors', 1];";
+				onItemRemove="_this animate ['addDoors', 0];";	
+			};
+			class Mirror: HW_Hardware_Base
+			{
+				hardwareClass="HW_Rearview_Mirror";
+				//
+				onItemInstall="_this animate ['addMirror', 1];";
+				onItemRemove="_this animate ['addMirror', 0];";
+			};
+			class LCD: HW_Hardware_Base
+			{
+				hardwareClass="HW_Raycon_LCD";
+				//
+				onItemInstall="_this animate ['addScreen1', 1];";
+				onItemRemove="_this animate ['addScreen1', 0];";
+				
+				
+			};
+			class LongStep: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_LongStep";
+				//
+				onItemInstall="_this animate ['addTread', 1];";
+				onItemRemove="_this animate ['addTread', 0];";
+							
+			};
+			class ShortStep: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_ShortStep";
+				//
+				onItemInstall="_this animate ['addTread_Short', 1];";
+				onItemRemove="_this animate ['addTread_Short', 0];";
+				
+				
+			};
+			class BackSeats: HW_Hardware_Base
+			{
+				hardwareClass="HW_2Seat_BackSeats";
+				//
+				onItemInstall="_this animate ['addBackseats', 1];";
+				onItemRemove="_this animate ['addBackseats', 0];";
+				
+			};
+			class Camera: HW_Hardware_Base
+			{
+				hardwareClass="HW_Air300_RotoCamera";
+				//
+				onItemInstall="_this animate ['AddFlir2', 1];";
+				onItemRemove="_this animate ['AddFlir2', 0];";		
+
+			};
+			class Flir: HW_Hardware_Base
+			{
+				hardwareClass="HW_Raycon7500_Flir";
+				//
+				onItemInstall="_this animate ['AddFLIR', 1];";
+				onItemRemove="_this animate ['AddFLIR', 0];";
+				
+			};
 		};
 		
-		// this is the list of hardware listed above that MUST be present in the most basic version of the chopper - it also means you cannot fly with any of these missing (redundancy rule also applies)
-		basicHardware[]={
-			"HW_Gen_Battery", 
-			"HW_LD500_Engine", 
-			"HW_LD500_Tranmission", 
-			"HW_LD500_MainRotor", 
-			"HW_LD500_TailRotor", 
-			"HW_LD500_Hydraulics", 
-			"HW_LD500_Starter",
-			"HW_LD500_FuelTank",
-			"HW_LD500_Avionics",
-			"HW_LD500_SearchLight",
-			"HW_LD500_Gear"
-		};
-		
+
 		// more shall follow....
 	};
 };
