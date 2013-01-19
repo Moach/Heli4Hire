@@ -113,6 +113,8 @@ class HangarDialog
 		class LB_HangarInventory: RscListbox
 		{
 			idc = 1500;
+			sizeEx = 0.026;
+			rowHeight = .03;
 			x = 0.00585939 * safezoneW + safezoneX;
 			y = 0.0326822 * safezoneH + safezoneY;
 			w = 0.186198 * safezoneW;
@@ -121,6 +123,8 @@ class HangarDialog
 		class LB_HeliComponents: RscListbox
 		{
 			idc = 1501;
+			sizeEx = 0.026;
+			rowHeight = .03;
 			x = 0.800781 * safezoneW + safezoneX;
 			y = 0.0326822 * safezoneH + safezoneY;
 			w = 0.193359 * safezoneW;

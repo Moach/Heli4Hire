@@ -36,6 +36,8 @@ HW_Fx_InitChopper =
 	} foreach getArray(_cfg >> "basicHardware");
 	
 	_this setVariable ["HW_Hardware", _hdwr];
+	_this setVariable ["HW_PaxCap", 1];
+	_this lockCargo true;
 	
 	hint format ["%1", _hdwr];
 };

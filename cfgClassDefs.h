@@ -30,6 +30,8 @@ class HW_Airframe_Base
 	
 	hardware[]={};
 	basicHardware[]={};
+	
+	onAirframeCapsInit=""; // code to run at initialization time to setup the basic features needed to determine what this bird can do (runs before hardware init, defines basic-only capabilities)
 };
 
 
@@ -46,9 +48,7 @@ class HW_Hardware_Base
 	//
 	onItemUnpack="";        // code executed on item being unpacked
 	onItemRepack="";        // code executed on it being packed back up (for refund, or sale)
-	onItemPreInstall="";    // code executed before installation of this item, returning true or false determines possibility to install under given conditions
 	onItemInstall="";       // code executed when item is installed onto helicopter
-	onItemPreRemove="";     // code executed before attempting removal of this item, same as above, but the other way around....
 	onItemRemove="";        // code executed when it is removed from said helicopter
 	onItemDamage="";        // code executed when item receves damage
 	onItemRepair="";        // same as above, but backwards...
@@ -133,47 +133,65 @@ class CfgSimCopterHardware
 	{
 		ident="LD500 Cabin Doors";
 		//
+		onItemInstall="_this animate ['addDoors', 1];";
+		onItemRemove="_this animate ['addDoors', 0];";
 	};
 	class HW_LD500_Mirror: HW_Hardware_Base
 	{
 		ident="Miraline G2 AeroSport Mirror";
 		//
+		onItemInstall="_this animate ['addMirror', 1];";
+		onItemRemove="_this animate ['addMirror', 0];";
 	};
 	class HW_LD500_LCD: HW_Hardware_Base
 	{
 		ident="Raycon Evast 1026 LCD Panel";
 		//
+		onItemInstall="_this animate ['addScreen1', 1];";
+		onItemRemove="_this animate ['addScreen1', 0];";
 	};
 	class HW_LD500_LongStep: HW_Hardware_Base
 	{
 		ident="LD500 Gear Boarding Step (Long)";
 		//
+		onItemInstall="_this animate ['addTread', 1];";
+		onItemRemove="_this animate ['addTread', 0];";
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
 		ident="LD500 Gear Boarding Step (Short)";
 		//
+		onItemInstall="_this animate ['addTread_Short', 1];";
+		onItemRemove="_this animate ['addTread_Short', 0];";
 	};
 	class HW_LD500_BackSeats: HW_Hardware_Base
 	{
 		ident="LD500 Back Seats";
 		//
+		onItemInstall="_this animate ['addBackseats', 1];";
+		onItemRemove="_this animate ['addBackseats', 0];";
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
 		ident="LD500 Equipment Mount";
 		//
+		onItemInstall="_this animate ['AddHoldingFrame', 1];";
+		onItemRemove="_this animate ['AddHoldingFrame', 0];";
 	};
 	
 	class HW_LD500_SideCamera: HW_Hardware_Base
 	{
 		ident="EZ-Vue RotoCaster Air300 Camera";
 		//
+		onItemInstall="_this animate ['AddFlir2', 1];";
+		onItemRemove="_this animate ['AddFlir2', 0];";
 	};
 	class HW_Gen_Flir: HW_Hardware_Base
 	{
 		ident="Raycon MIRNA Series FLIR 7500";
 		//
+		onItemInstall="_this animate ['AddFLIR', 1];";
+		onItemRemove="_this animate ['AddFLIR', 0];";
 	};
 };
 
@@ -207,7 +225,7 @@ class CfgSimCopterFleet
 		//	  this adds major flexibility for future addons, e.g. a bell jetranger uses the very same powerplant as the md500
 		//
 		
-		// this is a list of all hardware classes suited to this helicopter
+		// this is a list of all hardware classes suited to this helicopter -- mind that a repeat entry may appear as some parts may exist in numbers greater than one (redundancy rule)
 		hardware[]={
 			"HW_Gen_Battery", 
 			"HW_LD500_Engine", 
@@ -232,7 +250,7 @@ class CfgSimCopterFleet
 			"HW_LD500_Mirror"
 		};
 		
-		// this is the list of hardware listed above that MUST be present in the most basic version of the chopper - it also means you cannot fly with any of these missing
+		// this is the list of hardware listed above that MUST be present in the most basic version of the chopper - it also means you cannot fly with any of these missing (redundancy rule also applies)
 		basicHardware[]={
 			"HW_Gen_Battery", 
 			"HW_LD500_Engine", 
