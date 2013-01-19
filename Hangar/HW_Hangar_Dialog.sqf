@@ -2,6 +2,10 @@
 #define CAM_R_POS [8,4,4]
 #define CAM_H_POS [7,-2,3]
 
+#define ITEM_CLR_RED [.8, .1, .1, 1]
+#define ITEM_CLR_BLUE [.2, .2, .7, 1]
+#define ITEM_CLR_WHITE [1, 1, 1, 1]
+
 
 HW_Hangar_Active = true;
 
@@ -32,7 +36,7 @@ showCinemaBorder false;
 {
 	
 	_idx = lbAdd [1500, _x select 8];
-	if (_x select 1) then { lbSetColor [1500, _idx, [.1, .1, .9, .8]]; }; // mark installed items in blue
+	if (_x select 1) then { lbSetColor [1500, _idx, ITEM_CLR_BLUE]; }; // mark installed items in blue
 	//
 	
 } foreach HW_Hgr_Inventory;
@@ -76,7 +80,7 @@ HW_efx_SelectActiveSpot=
 				_hdwr = _x select 1;
 				
 				_idx = lbAdd [1501, getText(_hdwr >> "ident")];
-				lbSetColor [1501, _idx, [.5, .1, .1, 1]]; // not installed...
+				lbSetColor [1501, _idx, ITEM_CLR_RED]; // not installed...
 			};
 			
 		} foreach (_heli getVariable "HW_ComponentSlots");
@@ -103,8 +107,10 @@ HW_efx_AttachComponent =
 	if ( isNull(_heli) ) exitWith { titleText ["There's no helicopter in this pad!", "PLAIN"]; };
 	
 	_curItem = (HW_Hgr_Inventory select (_this select 1)); 
+	
 	_checkCompatible=false; // just for feedback
 	_checkAttached=false;
+	
 	// check helicopter components...
 	{
 		if ((_x select 1) == (_curItem select 0)) then // compatible! -- config entries match
@@ -116,6 +122,10 @@ HW_efx_AttachComponent =
 			{
 				[_heli, _curItem, _x] call HW_Fx_AttachComponent;
 				_checkAttached=true;
+				
+				lbSetColor [1500, (_this select 1), ITEM_CLR_RED];
+				lbSetColor [1501, (_x select 4), ITEM_CLR_WHITE];
+				
 				exit;
 			};
 		};
@@ -125,7 +135,7 @@ HW_efx_AttachComponent =
 	
 	if (!_checkAttached) then
 	{
-		if(_checkCompatible) then
+		if(!_checkCompatible) then
 		{
 			_heliCfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
 			titleText [format ["This item is not certified for use on the %1", getText(_heliCfg >> "airframeIdent")], "PLAIN"];
