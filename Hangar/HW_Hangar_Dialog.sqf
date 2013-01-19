@@ -28,25 +28,22 @@ HW_hgr_cam cameraEffect ["External", "BACK"]; // will commit on selecting the ac
 showCinemaBorder false;
 
 
-for "_i" from 0 to (count (missionConfigFile >> "cfgSimCopterHardware"))-1 do
+// fill up the list with inventory items!
 {
-	if (isClass ((missionConfigFile >> "cfgSimCopterHardware") select _i)) then
-	{
-		_idx = lbAdd [1500, getText( ((missionConfigFile >> "cfgSimCopterHardware") select _i) >> "ident" )];
-		//
-		
-	};
-};
+	
+	_idx = lbAdd [1500, _x select 8];
+	if (_x select 1) then { lbSetColor [1500, _idx, [.1, .1, .9, .8]]; }; // mark installed items in blue
+	//
+	
+} foreach HW_Hgr_Inventory;
 
 
 
 
-
-
-HW_efx_SelectActiveSlot= 
+HW_efx_SelectActiveSpot= 
 {
 	HW_Hgr_Select = (_this select 0);
-	if ((HW_Hgr_Pads select HW_Hgr_Select) == (HW_Hgr_HangarSlot select 1)) then // selected slot chopper is in hangar
+	if ((HW_Hgr_Pads select HW_Hgr_Select) == (HW_Hgr_HangarSpot select 1)) then // selected slot chopper is in hangar
 	{
 		HW_hgr_cam camSetTarget hangar_area;
 		HW_hgr_cam camSetRelPos CAM_H_POS;
@@ -61,31 +58,93 @@ HW_efx_SelectActiveSlot=
 	
 	lbClear 1501;
 	
-	if (!isNull(HW_Hgr_Slots select HW_Hgr_Select)) then
+	if (!isNull(HW_Hgr_Spots select HW_Hgr_Select)) then
 	{
-		_heli = (HW_Hgr_Slots select HW_Hgr_Select);
+		_heli = (HW_Hgr_Spots select HW_Hgr_Select);
 		_cfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
 		
 		//
 		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];		
 		{
-			_cmp = (_cfg >> "Components") select (_x select 0);
-			_hdwr = missionConfigFile >> "cfgSimCopterHardware" >> (getText(_cmp >> "hardwareClass"));
-			_idx = lbAdd [1501, getText(_hdwr >> "ident")];
+			if (_x select 2) then
+			{
+				_item = _x select 3;
+				_idx = lbAdd [1501, _item select 8];
+				
+			} else
+			{
+				_hdwr = _x select 1;
+				
+				_idx = lbAdd [1501, getText(_hdwr >> "ident")];
+				lbSetColor [1501, _idx, [.5, .1, .1, 1]]; // not installed...
+			};
 			
-		} foreach (_heli getVariable "HW_Components");
+		} foreach (_heli getVariable "HW_ComponentSlots");
 		
 	} else
 	{
-		
-		(_hangarDialog displayCtrl 1100) ctrlSetStructuredText parseText "<br />";
+		// no helicopter!
 		
 	};
 	
 	
 };
 
-[0] call HW_efx_SelectActiveSlot;
+[0] call HW_efx_SelectActiveSpot;
+
+
+
+
+
+
+HW_efx_AttachComponent =
+{	
+	_heli = (HW_Hgr_Spots select HW_Hgr_Select);
+	if ( isNull(_heli) ) exitWith { titleText ["There's no helicopter in this pad!", "PLAIN"]; };
+	
+	_curItem = (HW_Hgr_Inventory select (_this select 1)); 
+	_checkCompatible=false; // just for feedback
+	_checkAttached=false;
+	// check helicopter components...
+	{
+		if ((_x select 1) == (_curItem select 0)) then // compatible! -- config entries match
+		{
+			// part matches a component for this helicopter, check if the slot is open
+			_checkCompatible=true; // so we can say at least that much
+			
+			if (!(_x select 2)) then
+			{
+				[_heli, _curItem, _x] call HW_Fx_AttachComponent;
+				_checkAttached=true;
+				exit;
+			};
+		};
+	} foreach (_heli getVariable "HW_ComponentSlots");
+	
+	// if we get this far, this component cannot be attached...
+	
+	if (!_checkAttached) then
+	{
+		if(_checkCompatible) then
+		{
+			_heliCfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
+			titleText [format ["This item is not certified for use on the %1", getText(_heliCfg >> "airframeIdent")], "PLAIN"];
+		} else
+		{
+			
+			titleText ["This Helicopter is fully equipped with that already!", "PLAIN"];
+		};
+	};
+};
+
+
+
+
+
+HW_efx_DetachComponent =
+{
+	
+};
 
 
 
@@ -102,12 +161,12 @@ HW_efx_SelectActiveSlot=
 
 HW_efx_Move2Hangar = 
 {
-	if ( isNull(HW_Hgr_Slots select HW_Hgr_Select) ) exitWith
+	if ( isNull(HW_Hgr_Spots select HW_Hgr_Select) ) exitWith
 	{
 		titleText ["There's no helicopter in this pad!", "PLAIN"];
 	};
 	
-	if ( !isNull(HW_Hgr_HangarSlot select 0) ) exitWith
+	if ( !isNull(HW_Hgr_HangarSpot select 0) ) exitWith
 	{
 		titleText ["The hangar is occupied!", "PLAIN"];
 	};
@@ -115,8 +174,8 @@ HW_efx_Move2Hangar =
 	
 	titleText ["Moving Into Hangar...", "BLACK OUT", 1];
 	
-	_heli = (HW_Hgr_Slots select HW_Hgr_Select);
-	HW_Hgr_HangarSlot = [_heli, HW_Hgr_Pads select HW_Hgr_Select];
+	_heli = (HW_Hgr_Spots select HW_Hgr_Select);
+	HW_Hgr_HangarSpot = [_heli, HW_Hgr_Pads select HW_Hgr_Select];
 	
 	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "..."];
 	sleep 1;
@@ -140,12 +199,12 @@ HW_efx_Move2Hangar =
 
 HW_efx_Move2Helipad = 
 {
-	if ( isNull(HW_Hgr_Slots select HW_Hgr_Select) ) exitWith
+	if ( isNull(HW_Hgr_Spots select HW_Hgr_Select) ) exitWith
 	{
 		titleText ["There's no helicopter in this pad!", "PLAIN"];
 	};
 	
-	if ( isNull(HW_Hgr_HangarSlot select 0) || (HW_Hgr_HangarSlot select 0 != (HW_Hgr_Slots select HW_Hgr_Select)) ) exitWith
+	if ( isNull(HW_Hgr_HangarSpot select 0) || (HW_Hgr_HangarSpot select 0 != (HW_Hgr_Spots select HW_Hgr_Select)) ) exitWith
 	{
 		titleText ["This helicopter already out on the pad!", "PLAIN"];
 	};
@@ -156,7 +215,7 @@ HW_efx_Move2Helipad =
 	
 	sleep 1;
 	
-	_heli = (HW_Hgr_HangarSlot select 0);
+	_heli = (HW_Hgr_HangarSpot select 0);
 	_heli setPosATL (getPosATL (HW_Hgr_HangarSlot select 1));
 	_heli setDir 70;
 	
@@ -164,7 +223,7 @@ HW_efx_Move2Helipad =
 	HW_hgr_cam camSetRelPos CAM_R_POS;
 	HW_hgr_cam camCommit 0;
 	
-	HW_Hgr_HangarSlot = [objNull, objNull];
+	HW_Hgr_HangarSpot = [objNull, objNull];
 	ctrlSetText [([1006, 1007, 1008] select HW_Hgr_Select), "READY"];
 	sleep 1;
 	

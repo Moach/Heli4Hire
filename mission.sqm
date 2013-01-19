@@ -317,7 +317,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=3002;
+		items=3044;
 		class Item0
 		{
 			position[]={27907.23,4.1168747,29776.947};
@@ -13041,7 +13041,7 @@ class Mission
 		};
 		class Item1083
 		{
-			position[]={15537.802,50.625732,39682.973};
+			position[]={15535.453,50.631889,39685.086};
 			azimut=178.70154;
 			special="NONE";
 			id=1094;
@@ -16849,7 +16849,7 @@ class Mission
 		};
 		class Item1401
 		{
-			position[]={17911.139,51.04052,33792.445};
+			position[]={17894.709,51.150864,33806.77};
 			azimut=178.70154;
 			special="NONE";
 			id=1412;
@@ -35730,6 +35730,510 @@ class Mission
 			azimut=531.94702;
 			special="NONE";
 			id=3015;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3002
+		{
+			position[]={9086.0215,68.538498,29182.113};
+			azimut=381.50201;
+			special="NONE";
+			id=3016;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3003
+		{
+			position[]={7325.5522,21.003702,30606.959};
+			azimut=381.50201;
+			special="NONE";
+			id=3017;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3004
+		{
+			position[]={7054.6187,10.685338,31332.371};
+			azimut=381.50201;
+			special="NONE";
+			id=3018;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3005
+		{
+			position[]={7247.6089,99.7323,48952.68};
+			azimut=381.50201;
+			special="NONE";
+			id=3019;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3006
+		{
+			position[]={6545.02,129.97871,50689.215};
+			azimut=381.50201;
+			special="NONE";
+			id=3020;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3007
+		{
+			position[]={8203.79,89.649277,50976.535};
+			azimut=381.50201;
+			special="NONE";
+			id=3021;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3008
+		{
+			position[]={8999.5264,74.045609,50424.027};
+			azimut=381.50201;
+			special="NONE";
+			id=3022;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3009
+		{
+			position[]={8613.6484,30.012234,48853.793};
+			azimut=381.50201;
+			special="NONE";
+			id=3023;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3010
+		{
+			position[]={8098.8774,31.625872,49124.02};
+			azimut=381.50201;
+			special="NONE";
+			id=3024;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3011
+		{
+			position[]={8372.916,33.894047,49556.984};
+			azimut=381.50201;
+			special="NONE";
+			id=3025;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3012
+		{
+			position[]={8339.3438,26.641457,45634.113};
+			azimut=381.50201;
+			special="NONE";
+			id=3026;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3013
+		{
+			position[]={6830.0659,116,48233.5};
+			azimut=381.50201;
+			special="NONE";
+			id=3027;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3014
+		{
+			position[]={7286.6709,92.794075,48464.633};
+			azimut=381.50201;
+			special="NONE";
+			id=3028;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3015
+		{
+			position[]={10468.911,104.98734,49160.004};
+			azimut=381.50201;
+			special="NONE";
+			id=3029;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3016
+		{
+			position[]={11869.509,98.957283,46673.004};
+			azimut=381.50201;
+			special="NONE";
+			id=3030;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3017
+		{
+			position[]={12602.076,97.907974,46618.609};
+			azimut=381.50201;
+			special="NONE";
+			id=3031;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3018
+		{
+			position[]={12607.104,130,47549.305};
+			azimut=381.50201;
+			special="NONE";
+			id=3032;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3019
+		{
+			position[]={11298.763,88,50586.566};
+			azimut=381.50201;
+			special="NONE";
+			id=3033;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3020
+		{
+			position[]={11392.977,80.360512,50140.465};
+			azimut=381.50201;
+			special="NONE";
+			id=3034;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3021
+		{
+			position[]={14332.716,10.804554,48472.93};
+			azimut=381.50201;
+			special="NONE";
+			id=3035;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3022
+		{
+			position[]={9199.9307,92,45803.418};
+			azimut=381.50201;
+			special="NONE";
+			id=3036;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3023
+		{
+			position[]={13876.033,105.76318,45186.91};
+			azimut=381.50201;
+			special="NONE";
+			id=3037;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3024
+		{
+			position[]={13989.534,86.349747,45672.691};
+			azimut=381.50201;
+			special="NONE";
+			id=3038;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3025
+		{
+			position[]={17051.332,26.197212,51663.078};
+			azimut=381.50201;
+			special="NONE";
+			id=3039;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3026
+		{
+			position[]={18170.912,85.045807,49801.211};
+			azimut=381.50201;
+			special="NONE";
+			id=3040;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3027
+		{
+			position[]={20142.895,37,48370.469};
+			azimut=381.50201;
+			special="NONE";
+			id=3041;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3028
+		{
+			position[]={19724.916,49,49740.258};
+			azimut=381.50201;
+			special="NONE";
+			id=3042;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3029
+		{
+			position[]={19427.057,35.46027,50391.648};
+			azimut=381.50201;
+			special="NONE";
+			id=3043;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3030
+		{
+			position[]={18712.313,74,50232.715};
+			azimut=381.50201;
+			special="NONE";
+			id=3044;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3031
+		{
+			position[]={17611.609,38.729458,51556.621};
+			azimut=381.50201;
+			special="NONE";
+			id=3045;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3032
+		{
+			position[]={16145.12,22.006586,52166.199};
+			azimut=381.50201;
+			special="NONE";
+			id=3046;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3033
+		{
+			position[]={15124.497,63.703133,52373.594};
+			azimut=381.50201;
+			special="NONE";
+			id=3047;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3034
+		{
+			position[]={14682.916,82.250565,52906.504};
+			azimut=381.50201;
+			special="NONE";
+			id=3048;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3035
+		{
+			position[]={12972.063,48.176945,52834.242};
+			azimut=381.50201;
+			special="NONE";
+			id=3049;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3036
+		{
+			position[]={13869.752,60.461239,53278.066};
+			azimut=381.50201;
+			special="NONE";
+			id=3050;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3037
+		{
+			position[]={17407.74,18.979355,53310.973};
+			azimut=381.50201;
+			special="NONE";
+			id=3051;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3038
+		{
+			position[]={20377.588,45.165588,48763.746};
+			azimut=381.50201;
+			special="NONE";
+			id=3052;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3039
+		{
+			position[]={16018.94,65.165703,47769.238};
+			azimut=381.50201;
+			special="NONE";
+			id=3053;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3040
+		{
+			position[]={13078.959,35.15723,42861.125};
+			azimut=381.50201;
+			special="NONE";
+			id=3054;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3041
+		{
+			position[]={14052.501,4.951807,43198.695};
+			azimut=381.50201;
+			special="NONE";
+			id=3055;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3042
+		{
+			position[]={15025.127,61.45042,41667.086};
+			azimut=381.50201;
+			special="NONE";
+			id=3056;
+			side="EMPTY";
+			vehicle="Helipad_Invisible_H";
+			leader=1;
+			skill=0.60000002;
+			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3043
+		{
+			position[]={13292.974,50,36931.434};
+			azimut=381.50201;
+			special="NONE";
+			id=3057;
 			side="EMPTY";
 			vehicle="Helipad_Invisible_H";
 			leader=1;

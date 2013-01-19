@@ -144,12 +144,12 @@ HW_Fx_Dispatch_Cargo =
 	};
 	
 	
-/*	if (RadioCall_J) then // override for debug run!
+	if (RadioCall_J) then // override for debug run!
 	{
 		_towerCargo = 2;
 		_baseCargo  = 2;
 	};
-*/	
+	
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
 	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 10000];

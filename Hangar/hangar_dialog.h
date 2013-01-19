@@ -119,6 +119,8 @@ class HangarDialog
 			y = 0.0326822 * safezoneH + safezoneY;
 			w = 0.186198 * safezoneW;
 			h = 0.94838 * safezoneH;
+			
+			onLBDblClick="_this call HW_efx_AttachComponent;";
 		};
 		class LB_HeliComponents: RscListbox
 		{
@@ -129,6 +131,8 @@ class HangarDialog
 			y = 0.0326822 * safezoneH + safezoneY;
 			w = 0.193359 * safezoneW;
 			h = 0.94838 * safezoneH;
+			
+			onLBDblClick="_this call HW_efx_DetachComponent;";
 		};
 		class TT_Selected: RscText
 		{
@@ -175,7 +179,7 @@ class HangarDialog
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
 			
-			action="[0] spawn HW_efx_SelectActiveSlot;";
+			action="[0] spawn HW_efx_SelectActiveSpot;";
 		};
 		class SB_PadB: RscShortcutButton
 		{
@@ -186,7 +190,7 @@ class HangarDialog
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
 			
-			action="[1] spawn HW_efx_SelectActiveSlot;";
+			action="[1] spawn HW_efx_SelectActiveSpot;";
 		};
 		class SB_PadC: RscShortcutButton
 		{
@@ -197,7 +201,7 @@ class HangarDialog
 			w = 0.0572917 * safezoneW;
 			h = 0.0274893 * safezoneH;
 			
-			action="[2] spawn HW_efx_SelectActiveSlot;";
+			action="[2] spawn HW_efx_SelectActiveSpot;";
 		};
 		class TT_PadState_A: RscText
 		{

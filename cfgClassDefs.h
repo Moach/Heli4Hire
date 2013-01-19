@@ -16,88 +16,106 @@ class CfgSimCopterHardware
 {
 	class HW_Gen_Battery: HW_Hardware_Base
 	{
-		ident="Aeonics BD-6G 12V Battery";
+		ident= "12V Battery";
+		fullName="Aeonics BD-6G 12V Battery";
 	};
 	class HW_Enroy520_Engine: HW_Hardware_Base
 	{
-		ident="Enroy M520 Turboshaft Engine";
+		ident= "M520 Engine";
+		fullName="Enroy M520 Turboshaft Engine";
 	};
 	class HW_LD500_Transmission: HW_Hardware_Base
 	{
-		ident="Coyle TX-V1002E Transmission";
+		ident= "TX-V500 Transmission";
+		fullName="Coyle TX-V5002E Transmission";
 	};
 	class HW_LD500_MainRotor: HW_Hardware_Base
 	{
-		ident="Aesis-Wright CR-5 Main Rotor";
+		ident= "CR-5 Main Rotor";
+		fullName="Aesis-Wright CR-5 Main Rotor";
 	};
 	class HW_LD500_TailRotor: HW_Hardware_Base
 	{
-		ident="Aesis-Wright STR-50 Tail Rotor";
+		ident= "STR-50 Tail Rotor";
+		fullName="Aesis-Wright STR-50 Tail Rotor";
 	};
 	class HW_Fasko392_Hydraulics: HW_Hardware_Base
 	{
-		ident="Fasko MHD-392A Hydraulics System";
+		ident= "MHD-392A Hydraulics";
+		fullName="Fasko MHD-392A Hydraulics System";
 	};
 	class HW_LD500_Starter: HW_Hardware_Base
 	{
-		ident="Enroy SL-P1 Starter Motor";
+		ident= "SL-P1 Starter";
+		fullName="Enroy SL-P1 Starter Motor";
 	};
 	class HW_LD500_FuelTank: HW_Hardware_Base
 	{
-		ident="Airframe Integrated Fuel Tank";
+		ident= "Int. Fuel Tank";
+		fullName="Airframe Integrated Fuel Tank";
 	};
 	class HW_LD500_Gear: HW_Hardware_Base
 	{
-		ident="LD500 Landing Skids";
+		ident= "Land. Skids";
+		fullName="LD500 Landing Skids";
 	};
 	class HW_LD500_Avionics: HW_Hardware_Base
 	{
-		ident="Raycon VT.1260H Radio Pack";
+		ident= "VT.1260H Avionics";
+		fullName="Raycon VT.1260H Radio Pack";
 	};
 	class HW_LD500_SearchLight: HW_Hardware_Base
 	{
-		ident="Luno PL-AV3 SuperBeam Light";
+		ident= "PL-AV3 Light";
+		fullName="Lunostat PL-AV3 SuperBeam Light";
 	};
 	
 	
 	class HW_LD500_Doors: HW_Hardware_Base
 	{
-		ident="LD500 Cabin Doors";
+		ident= "LD500 Doors";
+		fullName="Wright LD500 Cabin Doors";
 	};
 	class HW_Rearview_Mirror: HW_Hardware_Base
 	{
-		ident="Miraline G2 AeroSport Mirror";
+		ident= "AS Mirror G2";
+		fullName="Miraline G2 AeroSport Mirror";
 	};
 	class HW_Raycon_LCD: HW_Hardware_Base
 	{
-		ident="Raycon Evast 1026 LCD Panel";
+		ident= "E1026 LCD Panel";
+		fullName="Raycon Evest 1026 LCD Panel";
 	};
 	class HW_LD500_LongStep: HW_Hardware_Base
 	{
-		ident="LD500 Gear Boarding Step (Long)";
+		ident= "LD500 Long Step";
+		fullName="Wright LD500 Gear Boarding Step (Long)";
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
-		ident="LD500 Gear Boarding Step (Short)";
+		ident= "LD500 Short Step";
+		fullName="Wright LD500 Gear Boarding Step (Short)";
 	};
 	class HW_2Seat_BackSeats: HW_Hardware_Base
 	{
-		ident="Marano Pro SC 2-Seat Bench";
+		ident= "Back Seats";
+		fullName="Marano Pro-SC 2 Seat Bench";
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
-		ident="Wright LD-Series R-Side Rig";
+		ident= "LD Side Rig";
+		fullName="Wright LD-Series R-Side Rig";
 	};
 	
 	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
-		ident="EZ-Vue RotoCaster Air300 Camera";
-		
+		ident= "Air300 Camera";
+		fullName="EZ-Vue RotoCaster Air300 Camera";
 	};
 	class HW_Raycon7500_Flir: HW_Hardware_Base
 	{
-		ident="Raycon MIRNA Series FLIR 7500";
-		
+		ident= "FLIR 7500";
+		fullName="Raycon MIRNA Series FLIR 7500";
 	};
 };
 
@@ -238,8 +256,7 @@ class CfgSimCopterFleet
 				//
 				onItemInstall="_this animate ['addTread_Short', 1];";
 				onItemRemove="_this animate ['addTread_Short', 0];";
-				
-				
+
 			};
 			class BackSeats: HW_Hardware_Base
 			{
@@ -249,6 +266,15 @@ class CfgSimCopterFleet
 				onItemRemove="_this animate ['addBackseats', 0];";
 				
 			};
+			class Bracket: HW_Hardware_Base
+			{
+				hardwareClass="HW_LD500_Bracket";
+				//
+				onItemInstall="_this animate ['AddHoldingFrame', 1];";
+				onItemRemove="_this animate ['AddHoldingFrame', 0];";
+
+			};
+			
 			class Camera: HW_Hardware_Base
 			{
 				hardwareClass="HW_Air300_RotoCamera";
