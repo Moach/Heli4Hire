@@ -33,10 +33,8 @@ item28[] = {"",7,210,-584.435364,1946.165894,-576.435364,1954.165894,0.000000,""
 item29[] = {"go_",2,218,-745.002014,1704.530029,-655.002014,1754.530029,0.000000,"go!"};
 item30[] = {"approach",4,218,-817.921753,1800.217773,-727.921753,1850.217773,0.000000,"approach"};
 item31[] = {"",7,210,-704.729248,2035.896851,-696.729248,2043.897339,0.000000,""};
-item32[] = {"not_ok",4,218,-185.064972,922.740479,-82.110580,984.518066,1.000000,"not ok"};
-item33[] = {"cannot__comply",1,4346,-174.064392,851.947083,-84.064438,901.947083,0.000000,"cannot " \n "comply"};
-item34[] = {"go__1",0,250,-436.795868,928.591614,-346.795563,978.592285,0.000000,"go!"};
-item35[] = {"ok",8,218,-324.511078,994.752808,-234.511078,1044.752808,0.000000,"ok"};
+item32[] = {"go__1",0,250,-436.795868,928.591614,-346.795563,978.592285,0.000000,"go!"};
+item33[] = {"ok",8,218,-324.511078,994.752808,-234.511078,1044.752808,0.000000,"ok"};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -77,11 +75,9 @@ link36[] = {29,31};
 link37[] = {30,26};
 link38[] = {31,12};
 link39[] = {32,33};
-link40[] = {34,32};
-link41[] = {34,35};
-link42[] = {35,0};
+link40[] = {33,0};
 globals[] = {0.000000,0,0,0,0,640,480,1,109,0,1,-631.221008,23.570213,1714.444824,792.761108,579,815,1};
-window[] = {0,-1,-1,-1,-1,1100,1692,2935,171,1,597};
+window[] = {0,-1,-1,-32000,-32000,1100,1692,2935,171,1,597};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -842,19 +838,6 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "cannot__comply">*/
-    class cannot__comply
-    {
-      name = "cannot__comply";
-      init = /*%FSM<STATEINIT""">*/"hint ""CANNOT COMPLY!\n\nYou need more than one seat in order to take on passenger flights!\nYour helicopter isn't properly outfitted for the job.""; " \n
-       "" \n
-       "HW_CannotComply=true; // this is the insta-abort... it's like the mission never existed..."/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-      class Links
-      {
-      };
-    };
-    /*%FSM</STATE>*/
     /*%FSM<STATE "go__1">*/
     class go__1
     {
@@ -863,16 +846,6 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "not_ok">*/
-        class not_ok
-        {
-          priority = 1.000000;
-          to="cannot__comply";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"cargoLocked chopper 0;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
         /*%FSM<LINK "ok">*/
         class ok
         {
@@ -893,7 +866,6 @@ class FSM
     "clear",
     "you_fucked_it",
     "quit",
-    "cannot__comply",
   };
 };
 /*%FSM</COMPILE>*/

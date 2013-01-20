@@ -4,6 +4,18 @@ GigLineup = [];
 GigNumMax = 8; // maximum tasks presented to player at any one time...
 
 
+HW_CannotComply=false;
+
+
+// this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
+// should be reset to zero after use....
+PilotDecision = 0;
+PD_Armed = false; // indicates if pilot decisions are available
+PD_Actions = [];  // tracks menu action ids for pilot decisions
+
+
+
+
 /* GIG array format:
 	[0] task     task being requested
 	[1] string   filename for mission fsm
@@ -71,8 +83,8 @@ HW_Fx_Dispatch_Taxi =
 	_mkr setMarkerText ("Pax | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
 	_mkr setMarkerColor "ColorRed";
 	
-	gig = [_tsk, "HeliWorks_Commute.fsm", _mkID, time + 45 + random(320), [_p1, _p2]];
-	GigLineup set [ count GigLineup, gig ];
+	_gig = [_tsk, "HeliWorks_Commute.fsm", _mkID, time + 45 + random(320), [_p1, _p2]];
+	GigLineup set [count GigLineup, _gig];
 };
 
 
@@ -115,8 +127,8 @@ HW_Fx_Dispatch_Survey =
 	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
 	_mkr setMarkerColor "ColorRed";
 	
-	gig = [_tsk, "HeliWorks_Survey.fsm", _mkID, time + 60 + random(400), [_p1, _surveyPoints]];
-	GigLineup set [ count GigLineup, gig ];
+	_gig = [_tsk, "HeliWorks_Survey.fsm", _mkID, time + 60 + random(400), [_p1, _surveyPoints]];
+	GigLineup set [ count GigLineup, _gig ];
 };
 
 
@@ -170,10 +182,9 @@ HW_Fx_Dispatch_Cargo =
 	
 	_order = [_basePos, _twrPos, _baseCargo, _towerCargo];
 	
-	gig = [ _tsk, "HeliWorks_Cargo.fsm", _mkID, time + 60 + random(500), [_crewPos, _order] ];
-	GigLineup set [ count GigLineup, gig ];
+	_gig = [_tsk, "HeliWorks_Cargo.fsm", _mkID, time + 60 + random(500), [_crewPos, _order] ];
+	GigLineup set [ count GigLineup, _gig ];
 };
-
 
 
 
@@ -184,33 +195,26 @@ HW_Fx_Pilot_Task_Commit =
 		if ((_x select 0) == _tsk) then 
 		{ 
 			// we should have it by now.... i hope
-	
-			_tsk = _x select 0;
-			_fsm = _x select 1;
-			_mkr = _x select 2;
+			_fsm  = _x select 1;
+			_mkr  = _x select 2;
+			_pars = _x select 4;
 			
+			deleteMarker _mkr;
+			player RemoveSimpleTask _tsk;
 			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";
 			
+			HW_CannotComply=false;
+			
 			RadioCallDelay = time+30; // since dispatch man will call a report after acknowledging your commit, this counts for a non-repeat delay
 			_pars execFSM _fsm;
 			
-			[_tsk, _mkr] spawn 
+			[] spawn 
 			{ 
-				sleep 1; // if by then we don't have a no-comply, we should be safe...
-				if (HW_CannotComply) then
-				{
-					playSound "FX_Dispatch_Error";
-					player setCurrentTask taskNull;
-				} else
-				{
-					deleteMarker (_this select 1);
-					player RemoveSimpleTask (_this select 0);
-					
-					sleep (8+random(4)); 
-					playSound "FX_Dispatch_Beep";
-				};
+				//
+				sleep (8+random(4));
+				playSound "FX_Dispatch_Beep";
 			};
 			exit;
 		}; 
@@ -221,13 +225,6 @@ HW_Fx_Pilot_Task_Commit =
 
 
 
-// this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
-// should be reset to zero after use....
-PilotDecision = 0;
-PD_Armed = false; // indicates if pilot decisions are available
-PD_Actions = [];  // tracks menu action ids for pilot decisions
-
-HW_CannotComply=false;
 
 
 //

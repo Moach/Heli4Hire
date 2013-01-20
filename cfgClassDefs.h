@@ -262,25 +262,26 @@ class CfgSimCopterFleet
 				onItemInstall="_this animate ['addScreen1', 1];";
 				onItemRemove="_this animate ['addScreen1', 0];";
 				
-				
 			};
 			class LongStep: HW_Hardware_Base
 			{
-				slotIdent="Skid Step";
+				slotIdent="Skid Step (long)";
 				hardwareClass="HW_LD500_LongStep";
 				//
 				onItemInstall="_this animate ['addTread', 1];";
 				onItemRemove="_this animate ['addTread', 0];";
-							
+				
+				conflictItems[]={"ShortStep"};
 			};
 			class ShortStep: HW_Hardware_Base
 			{
-				slotIdent="Skid Step";
+				slotIdent="Skid Step (Short)";
 				hardwareClass="HW_LD500_ShortStep";
 				//
 				onItemInstall="_this animate ['addTread_Short', 1];";
 				onItemRemove="_this animate ['addTread_Short', 0];";
-
+				
+				conflictItems[]={"LongStep"};
 			};
 			class BackSeats: HW_Hardware_Base
 			{
