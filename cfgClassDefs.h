@@ -289,8 +289,6 @@ class CfgSimCopterFleet
 				//
 				onItemInstall="_this animate ['AddHoldingFrame', 1];";
 				onItemRemove="_this animate ['AddHoldingFrame', 0];";
-				
-				conflictItems[]={"Doors"};
 			};
 			
 			class Camera: HW_Hardware_Base
