@@ -70,6 +70,7 @@ class HW_Hdwr_2_Heli_Base
 	*/
 	
 	hardwareClass="";   // hardware item class this connects to
+	slotIdent="";       // slot name shown on components lisy
 	
 	requiredItems[]={}; // list of further parts that need to be installed for this to be physically assembled into the airframe (CANNOT EVER be reciprocal!)
 	conflictItems[]={}; // conversely, parts that must NOT be installed for this being assembled (MUST be reciprocal!)

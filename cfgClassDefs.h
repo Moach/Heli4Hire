@@ -152,67 +152,77 @@ class CfgSimCopterFleet
 		{	
 			class Battery : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Battery"; 
 				hardwareClass="HW_Gen_Battery";
 				damageSource="hitBattery";
 				minimalSpec=1;
 			};
 			class Engine : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Powerplant"; 
 				hardwareClass="HW_Enroy520_Engine";
 				damageSource="hitEngine";
 				minimalSpec=1;
 			};
 			class Transmission : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Transmission"; 
 				hardwareClass="HW_LD500_Transmission";
 				damageSource="hitTransmission";
 				minimalSpec=1;
 			};
 			class MainRotor : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Main Rotor"; 
 				hardwareClass="HW_LD500_MainRotor";
 				damageSource="hitHRotor";
 				minimalSpec=1;
 			};
 			class TailRotor : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Tail Rotor"; 
 				hardwareClass="HW_LD500_TailRotor";
 				damageSource="hitVRotor";
 				minimalSpec=1;
 			};
 			class Hydraulics : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Hydraulics"; 
 				hardwareClass="HW_Fasko392_Hydraulics";
 				damageSource="hitHydraulics";
 				minimalSpec=1;
 			};
 			class Starter : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Starter"; 
 				hardwareClass="HW_LD500_Starter";
 				damageSource="hitStarter";
 				minimalSpec=1;
 			};
 			class FuelTank : HW_Hdwr_2_Heli_Base
 			{
+				slotIdent="Fuel Tank"; 
 				hardwareClass="HW_LD500_FuelTank";
 				damageSource="hitFuel";
 				minimalSpec=1;
 			};
 			class Gear: HW_Hardware_Base
 			{
+				slotIdent="Gear"; 
 				hardwareClass="HW_LD500_Gear";
 				damageSource="hitGear";
 				minimalSpec=1;
 			};
 			class Avionics: HW_Hardware_Base
 			{
+				slotIdent="Avionics"; 
 				hardwareClass="HW_LD500_Avionics";
 				damageSource="hitAvionics";
 				minimalSpec=1;
-				minimalSafe=1; // fly without radio? - sure, why not? - it's your funeral...
 			};
 			class Light: HW_Hardware_Base
 			{
+				slotIdent="Light"; 
 				hardwareClass="HW_LD500_SearchLight";
 				damageSource="hitLight";
 				minimalSpec=1;
@@ -221,6 +231,7 @@ class CfgSimCopterFleet
 			
 			class Doors: HW_Hardware_Base
 			{
+				slotIdent="Cab Doors"; 
 				hardwareClass="HW_LD500_Doors";
 				//
 				onItemInstall="_this animate ['addDoors', 1];";
@@ -228,6 +239,7 @@ class CfgSimCopterFleet
 			};
 			class Mirror: HW_Hardware_Base
 			{
+				slotIdent="RV Mirror"; 
 				hardwareClass="HW_Rearview_Mirror";
 				//
 				onItemInstall="_this animate ['addMirror', 1];";
@@ -235,6 +247,7 @@ class CfgSimCopterFleet
 			};
 			class LCD: HW_Hardware_Base
 			{
+				slotIdent="Panel";
 				hardwareClass="HW_Raycon_LCD";
 				//
 				onItemInstall="_this animate ['addScreen1', 1];";
@@ -244,6 +257,7 @@ class CfgSimCopterFleet
 			};
 			class LongStep: HW_Hardware_Base
 			{
+				slotIdent="Skid Step";
 				hardwareClass="HW_LD500_LongStep";
 				//
 				onItemInstall="_this animate ['addTread', 1];";
@@ -252,6 +266,7 @@ class CfgSimCopterFleet
 			};
 			class ShortStep: HW_Hardware_Base
 			{
+				slotIdent="Skid Step";
 				hardwareClass="HW_LD500_ShortStep";
 				//
 				onItemInstall="_this animate ['addTread_Short', 1];";
@@ -260,6 +275,7 @@ class CfgSimCopterFleet
 			};
 			class BackSeats: HW_Hardware_Base
 			{
+				slotIdent="Back Seats";
 				hardwareClass="HW_2Seat_BackSeats";
 				//
 				onItemInstall="_this animate ['addBackseats', 1];";
@@ -268,28 +284,32 @@ class CfgSimCopterFleet
 			};
 			class Bracket: HW_Hardware_Base
 			{
+				slotIdent="Side Rig";
 				hardwareClass="HW_LD500_Bracket";
 				//
 				onItemInstall="_this animate ['AddHoldingFrame', 1];";
 				onItemRemove="_this animate ['AddHoldingFrame', 0];";
-
+				
+				conflictItems[]={"Doors"};
 			};
 			
 			class Camera: HW_Hardware_Base
 			{
+				slotIdent="Side Camera";
 				hardwareClass="HW_Air300_RotoCamera";
 				//
 				onItemInstall="_this animate ['AddFLIR', 1];";
 				onItemRemove="_this animate ['AddFLIR', 0];";
-				
+				requiredItems[]={"Bracket"};
+				conflictItems[]={"LongStep"};
 			};
 			class Flir: HW_Hardware_Base
 			{
+				slotIdent="Lower Camera";
 				hardwareClass="HW_Raycon7500_Flir";
 				//
 				onItemInstall="_this animate ['AddFlir2', 1];";
 				onItemRemove="_this animate ['AddFlir2', 0];";
-				
 			};
 		};
 		

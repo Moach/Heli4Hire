@@ -74,7 +74,7 @@ HW_efx_SelectActiveSpot=
 			if (_x select 2) then
 			{
 				_item = _x select 3;
-				_idx = lbAdd [1501, _item select 8];
+				_idx = lbAdd [1501, getText((_item select 0) >> "ident")];
 				
 			} else
 			{
