@@ -123,11 +123,18 @@ HW_efx_AttachComponent =
 			
 			if (!(_x select 2)) then
 			{
-				[_heli, _curItem, _x] call HW_Fx_AttachComponent;
-				_checkAttached=true;
+				_checkAttached=true; // -- true means the code below was called, not that the item is installed - as returned for _res
+				
+				_res = [_heli, _curItem, _x] call HW_Fs_AttachComponent;
+				if (_res != "ok") exitWith
+				{
+					titleText [_res, "PLAIN"];
+				};
 				
 				lbSetColor [1500, (_this select 1), ITEM_CLR_BLUE];
 				lbSetColor [1501, (_x select 4), ITEM_CLR_WHITE];
+				
+				titleText [format ["Helicopter has %1kg extra weight from components.", (_heli getVariable "HW_ExtraWeight")], "PLAIN"];
 				
 				exit;
 			};
@@ -163,10 +170,18 @@ HW_efx_DetachComponent =
 	_slot = (_heli getVariable "HW_ComponentSlots") select (_this select 1);
 	if ( _slot select 2 ) then
 	{
-		lbSetColor [1501, (_this select 1), ITEM_CLR_RED];
-		lbSetColor [1500, ((_slot select 3) select 9), ITEM_CLR_WHITE];
+		_rtIndex=((_slot select 3) select 9);
+		_res = [_heli, _slot] call HW_Fs_DetachComponent;
 		
-		[_heli, _slot] call HW_Fx_DetachComponent;
+		if (_res != "ok") exitWith
+		{
+			titleText [_res, "PLAIN"];
+		};
+		
+		lbSetColor [1501, (_this select 1), ITEM_CLR_RED];
+		lbSetColor [1500, _rtIndex, ITEM_CLR_WHITE];
+		
+		titleText [format ["Helicopter has %1kg extra weight from components.", (_heli getVariable "HW_ExtraWeight")], "PLAIN"];
  		
 	} else
 	{

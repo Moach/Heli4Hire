@@ -129,7 +129,7 @@ HW_Fx_InitChopper =
 	
 	_this setVariable ["HW_airframeCfg", _helicfg];
 	_this setVariable ["HW_ComponentSlots", _slots];
-	_this setVariable ["HW_PaxCap", 1];
+	_this setVariable ["HW_ExtraWeight", 0];
 	_this lockCargo true;
 	
 	hint format ["Chopper Init: %1 Components", count _slots];
@@ -137,11 +137,51 @@ HW_Fx_InitChopper =
 
 
 
-HW_Fx_AttachComponent = 
+HW_Fs_AttachComponent = 
 {
 	_heli = _this select 0;
 	_item = _this select 1;
 	_slot = _this select 2;
+	
+	// check for dependencies...
+	_fail=false;
+	_problems=[];
+	{
+		_dep = _x;
+		{
+			if ( !(_x select 2) && configName (_x select 0) == _dep ) then
+			{
+				// not clear! -- we have a missing dependency for this!
+				_fail=true;
+				_problems set [count _problems, getText((_x select 0) >> "slotIdent")];
+			};
+		} foreach (_heli getVariable "HW_ComponentSlots");
+		
+	} foreach getArray((_slot select 0) >> "requiredItems");
+	if (_fail) exitWith 
+	{
+		//
+		(format ["Item Installation Requires:\n%1", _problems])
+	};
+	
+	// we must be clear, then -- check for conflicts!
+	{
+		_con = _x;
+		{
+			if ( (_x select 2) && configName (_x select 0) == _con ) then
+			{
+				_fail=true;
+				_problems set [count _problems, getText((_x select 0) >> "slotIdent")];
+			};
+		} foreach (_heli getVariable "HW_ComponentSlots");
+	} foreach getArray((_slot select 0) >> "conflictItems");
+	if (_fail) exitWith 
+	{
+		//
+		(format ["Item Installation Conflicts with:\n%1", _problems])
+	};
+	
+	
 	
 	_item set [1, true];
 	_item set [2, _heli];
@@ -150,21 +190,51 @@ HW_Fx_AttachComponent =
 	_slot set [2, true]; // installed now!
 	_slot set [3, _item];
 	
+	_itemMass = getNumber((_item select 0) >> "itemMass");
+	_xtraMass = (_heli getVariable "HW_ExtraWeight") + _itemMass;
+	_heli setCustomWeightRTD _xtraMass;
+	_heli setVariable ["HW_ExtraWeight", _xtraMass];
+	
 	// ok, here we go...
 	_installCode = compile getText ((_slot select 0) >> "onItemInstall");
 	_heli call _installCode;
+	
+	("ok")
+	
 };
 
 
 
 
 
-HW_Fx_DetachComponent = 
+HW_Fs_DetachComponent = 
 {
 	_heli = _this select 0;
 	_slot = _this select 1;
-	
 	_item = _slot select 3;
+	
+	// look for components that may have this as a requirement
+	_fail=false;
+	_rqrdBy=[];
+	{
+		_cpSlot = _x;
+		if (_cpSlot select 2) then
+		{
+			{
+				if ( configName(_slot select 0) == _x ) then // something else needs this installed...
+				{
+					_fail=true;
+					_rqrdBy set [(count _rqrdBy), getText((_cpSlot select 0) >> "slotIdent")];
+				};
+			} foreach getArray((_cpSlot select 0) >> "requiredItems");
+		};
+	} foreach (_heli getVariable "HW_ComponentSlots");
+	if (_fail) exitWith 
+	{ 
+		(format ["This item is required by:\n%1", _rqrdBy])
+	};
+	
+	
 	_item set [1, false];
 	_item set [2, objNull];
 	_item set [3, -1];
@@ -172,8 +242,15 @@ HW_Fx_DetachComponent =
 	_slot set [2, false]; // ...and now it's out!
 	_slot set [3, []];
 	
+	_itemMass = getNumber((_item select 0) >> "itemMass");
+	_xtraMass = (_heli getVariable "HW_ExtraWeight") - _itemMass;
+	_heli setCustomWeightRTD _xtraMass;
+	_heli setVariable ["HW_ExtraWeight", _xtraMass];
+	
 	_removeCode = compile getText ((_slot select 0) >> "onItemRemove");
 	_heli call _removeCode;
+	
+	("ok")
 };
 
 

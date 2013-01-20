@@ -39,7 +39,7 @@ class HW_Hardware_Base
 	onItemUnpack="";        // code executed on item being unpacked
 	onItemRepack="";        // code executed on it being packed back up (for refund, or sale)
 	
-	itemMass=1;             // physical mass in Kg. (affects flight dynamics* and shipping costs)  *FDs are only altered for non-basic components (those that do NOT come with the airframe)
+	itemMass=0;             // physical mass in Kg. (affects flight dynamics and shipping costs) 
 	itemVolume=1;           // approximate volume in Litres (affects shipping costs)
 	
 	itemAvailabity=0;       // factor of how frequently this item comes across the store - zero makes it fully unavailable

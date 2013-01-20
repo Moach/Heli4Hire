@@ -181,6 +181,14 @@ class CfgSounds
 		sound[] = {"\sound\beepbeep.ogg", 1, 1};
 		titles[] = {};
 	};
+	class FX_Dispatch_Error
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_dispatch_error";
+		// filename, volume, pitch
+		sound[] = {"\sound\error.ogg", 1, 1};
+		titles[] = {};
+	};
 	
 	
 	

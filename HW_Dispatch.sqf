@@ -1,7 +1,16 @@
 ﻿
 
 GigLineup = [];
-GigNumMax = 6; // maximum tasks presented to player at any one time...
+GigNumMax = 8; // maximum tasks presented to player at any one time...
+
+
+/* GIG array format:
+	[0] task     task being requested
+	[1] string   filename for mission fsm
+	[2] string   ID of marker pointing task on map
+	[3] float    expiration time
+	[4] array    mission parameters (given to fsm)
+*/
 
 
 
@@ -62,15 +71,7 @@ HW_Fx_Dispatch_Taxi =
 	_mkr setMarkerText ("Pax | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
 	_mkr setMarkerColor "ColorRed";
 	
-	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
-	
-	gig setVariable ["p1", _p1];
-	gig setVariable ["p2", _p2];
-	gig setVariable ["exp", time + 45 + random(320)];
-	gig setVariable ["mkr", _mkID];
-	gig setVariable ["tsk", _tsk];
-	gig setVariable ["fsm", "HeliWorks_Commute.fsm"];
-	
+	gig = [_tsk, "HeliWorks_Commute.fsm", _mkID, time + 45 + random(320), [_p1, _p2]];
 	GigLineup set [ count GigLineup, gig ];
 };
 
@@ -114,16 +115,7 @@ HW_Fx_Dispatch_Survey =
 	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
 	_mkr setMarkerColor "ColorRed";
 	
-	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...
-	
-	gig setVariable ["p1", _p1];
-	gig setVariable ["p2", _surveyPoints];
-	gig setVariable ["exp", time + 60 + random(400)];
-	gig setVariable ["mkr", _mkID];
-	gig setVariable ["tsk", _tsk];
-	gig setVariable ["fsm", "HeliWorks_Survey.fsm"];
-	
-	
+	gig = [_tsk, "HeliWorks_Survey.fsm", _mkID, time + 60 + random(400), [_p1, _surveyPoints]];
 	GigLineup set [ count GigLineup, gig ];
 };
 
@@ -178,14 +170,7 @@ HW_Fx_Dispatch_Cargo =
 	
 	_order = [_basePos, _twrPos, _baseCargo, _towerCargo];
 	
-	gig = createGroup CIVILIAN; // since we can't seem to use setVariable with tasks.... we use an empty group instead...	
-	gig setVariable ["p1", _crewPos];
-	gig setVariable ["p2", _order]; // p2 holds our work order!
-	gig setVariable ["exp", time + 60 + random(500)];
-	gig setVariable ["mkr", _mkID];
-	gig setVariable ["tsk", _tsk];
-	gig setVariable ["fsm", "HeliWorks_Cargo.fsm"];
-	
+	gig = [ _tsk, "HeliWorks_Cargo.fsm", _mkID, time + 60 + random(500), [_crewPos, _order] ];
 	GigLineup set [ count GigLineup, gig ];
 };
 
@@ -194,29 +179,39 @@ HW_Fx_Dispatch_Cargo =
 
 HW_Fx_Pilot_Task_Commit = 
 {
-	_tsk = currentTask player; // well, as setVariable with tasks isn't working.....
+	_tsk = currentTask player; // find gig array with this task
 	{ 
-		if ((_x getVariable "tsk") == _tsk) then 
+		if ((_x select 0) == _tsk) then 
 		{ 
 			// we should have it by now.... i hope
 	
-			_p1  = _x getVariable "p1";
-			_p2  = _x getVariable "p2";
-			_mkr = _x getVariable "mkr";
-			_fsm = _x getVariable "fsm";
+			_tsk = _x select 0;
+			_fsm = _x select 1;
+			_mkr = _x select 2;
 			
-			deleteMarker _mkr;
-			player RemoveSimpleTask _tsk;
 			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";
 			
 			RadioCallDelay = time+30; // since dispatch man will call a report after acknowledging your commit, this counts for a non-repeat delay
-			[_p1, _p2] execFSM _fsm;
+			_pars execFSM _fsm;
 			
-			deleteGroup _x;
-			
-			[] spawn { sleep (8+random(4)); playSound "FX_Dispatch_Beep"; };
+			[_tsk, _mkr] spawn 
+			{ 
+				sleep 1; // if by then we don't have a no-comply, we should be safe...
+				if (HW_CannotComply) then
+				{
+					playSound "FX_Dispatch_Error";
+					player setCurrentTask taskNull;
+				} else
+				{
+					deleteMarker (_this select 1);
+					player RemoveSimpleTask (_this select 0);
+					
+					sleep (8+random(4)); 
+					playSound "FX_Dispatch_Beep";
+				};
+			};
 			exit;
 		}; 
 		
@@ -232,6 +227,7 @@ PilotDecision = 0;
 PD_Armed = false; // indicates if pilot decisions are available
 PD_Actions = [];  // tracks menu action ids for pilot decisions
 
+HW_CannotComply=false;
 
 
 //
