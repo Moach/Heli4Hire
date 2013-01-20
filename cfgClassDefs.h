@@ -279,16 +279,16 @@ class CfgSimCopterFleet
 			{
 				hardwareClass="HW_Air300_RotoCamera";
 				//
-				onItemInstall="_this animate ['AddFlir2', 1];";
-				onItemRemove="_this animate ['AddFlir2', 0];";		
-
+				onItemInstall="_this animate ['AddFLIR', 1];";
+				onItemRemove="_this animate ['AddFLIR', 0];";
+				
 			};
 			class Flir: HW_Hardware_Base
 			{
 				hardwareClass="HW_Raycon7500_Flir";
 				//
-				onItemInstall="_this animate ['AddFLIR', 1];";
-				onItemRemove="_this animate ['AddFLIR', 0];";
+				onItemInstall="_this animate ['AddFlir2', 1];";
+				onItemRemove="_this animate ['AddFlir2', 0];";
 				
 			};
 		};

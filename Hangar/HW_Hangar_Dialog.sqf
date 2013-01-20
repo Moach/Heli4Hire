@@ -36,6 +36,7 @@ showCinemaBorder false;
 {
 	
 	_idx = lbAdd [1500, _x select 8];
+	_x set [9, _idx];
 	if (_x select 1) then { lbSetColor [1500, _idx, ITEM_CLR_BLUE]; }; // mark installed items in blue
 	//
 	
@@ -123,7 +124,7 @@ HW_efx_AttachComponent =
 				[_heli, _curItem, _x] call HW_Fx_AttachComponent;
 				_checkAttached=true;
 				
-				lbSetColor [1500, (_this select 1), ITEM_CLR_RED];
+				lbSetColor [1500, (_this select 1), ITEM_CLR_BLUE];
 				lbSetColor [1501, (_x select 4), ITEM_CLR_WHITE];
 				
 				exit;
@@ -142,7 +143,7 @@ HW_efx_AttachComponent =
 		} else
 		{
 			
-			titleText ["This Helicopter is fully equipped with that already!", "PLAIN"];
+			titleText ["This Helicopter is fully equipped with this already!", "PLAIN"];
 		};
 	};
 };
@@ -153,6 +154,23 @@ HW_efx_AttachComponent =
 
 HW_efx_DetachComponent =
 {
+	_heli = (HW_Hgr_Spots select HW_Hgr_Select);
+	if ( isNull(_heli) ) exitWith { titleText ["There's no helicopter in this pad!", "PLAIN"]; };
+
+	// 
+	_slot = (_heli getVariable "HW_ComponentSlots") select (_this select 1);
+	if ( _slot select 2 ) then
+	{
+		lbSetColor [1501, (_this select 1), ITEM_CLR_RED];
+		lbSetColor [1500, ((_slot select 3) select 9), ITEM_CLR_WHITE];
+		
+		[_heli, _slot] call HW_Fx_DetachComponent;
+ 		
+	} else
+	{
+		//
+		titleText ["That item is not installed on this helicopter!", "PLAIN"];
+	};
 	
 };
 

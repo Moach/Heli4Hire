@@ -30,7 +30,7 @@ HW_Hgr_HangarSpot = [objNull, objNull]; // chopper in hangar, reference to pad (
 	[6] bool       is minimal spec item
 	[7] bool       is it safe to fly without
 	[8] string     unique part identification tag
-	[9] int 	   index of self in hangar array (mayc hange as parts get sold away, but for now that ain't gonna happen)
+	[9] int 	   index of self in hangar list (updated dynamically with list)
 	
 	
 	...later on we add cost and time for repairs to complete, making the notion of having spare parts around a very good idea for the chronologically-impaired
@@ -53,7 +53,7 @@ HW_Fn_getComponentItem =
 		false,
 		false,
 		format ["#%1%2  :  %3", getText (_hdwr >> "serialTag"), _sNum, getText( _hdwr >> "ident") ],
-		(count HW_Hgr_Inventory)
+		-1
 	]
 };
 
@@ -145,7 +145,7 @@ HW_Fx_AttachComponent =
 	
 	_item set [1, true];
 	_item set [2, _heli];
-	_item set [3, (_slot select 3)];
+	_item set [3, (_slot select 4)];
 	
 	_slot set [2, true]; // installed now!
 	_slot set [3, _item];
@@ -159,8 +159,22 @@ HW_Fx_AttachComponent =
 
 
 
-
-
+HW_Fx_DetachComponent = 
+{
+	_heli = _this select 0;
+	_slot = _this select 1;
+	
+	_item = _slot select 3;
+	_item set [1, false];
+	_item set [2, objNull];
+	_item set [3, -1];
+	
+	_slot set [2, false]; // ...and now it's out!
+	_slot set [3, []];
+	
+	_removeCode = compile getText ((_slot select 0) >> "onItemRemove");
+	_heli call _removeCode;
+};
 
 
 
