@@ -132,7 +132,7 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 	player setPos [getPos player select 0,  getPos player select 1, 0]; // make sure he's on ground level - if not we may start on a roof or something...
 	//
 	
-	player addAction ["Test Hangar Screen", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false, true];
+	player addAction ["Access Hangar", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false, true, "", "(player distance hangar_area) < 20 && !isEngineOn chopper && chopper distance hangar_area < 100"];
 	
 };
 

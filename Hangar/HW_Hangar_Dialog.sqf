@@ -51,12 +51,14 @@ HW_efx_SelectActiveSpot=
 	if ((HW_Hgr_Pads select HW_Hgr_Select) == (HW_Hgr_HangarSpot select 1)) then // selected slot chopper is in hangar
 	{
 		HW_hgr_cam camSetTarget hangar_area;
+		HW_hgr_cam camSetFocus [7, 2];
 		HW_hgr_cam camSetRelPos CAM_H_POS;
 		HW_hgr_cam camCommit 0;
 		
 	} else 
 	{ 
 		HW_hgr_cam camSetTarget (HW_Hgr_Pads select HW_Hgr_Select);
+		HW_hgr_cam camSetFocus [10, 2];
 		HW_hgr_cam camSetRelPos CAM_R_POS;
 		HW_hgr_cam camCommit 0;
 	};
@@ -244,10 +246,10 @@ HW_efx_Move2Helipad =
 	sleep 1;
 	
 	_heli = (HW_Hgr_HangarSpot select 0);
-	_heli setPosATL (getPosATL (HW_Hgr_HangarSlot select 1));
+	_heli setPosATL (getPosATL (HW_Hgr_HangarSpot select 1));
 	_heli setDir 70;
 	
-	HW_hgr_cam camSetTarget (HW_Hgr_HangarSlot select 1);
+	HW_hgr_cam camSetTarget (HW_Hgr_HangarSpot select 1);
 	HW_hgr_cam camSetRelPos CAM_R_POS;
 	HW_hgr_cam camCommit 0;
 	
