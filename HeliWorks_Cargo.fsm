@@ -1376,7 +1376,14 @@ class FSM
            "ropeSetCargoMass [SlingRope, _hookCgo, _hookWgt];" \n
            "SlingLoadCgo = _hookCgo;" \n
            "" \n
-           "if (!isNil ""SlingLogic"" && !scriptDone SlingLogic ) then { terminate SlingLogic; };" \n
+           "if (!isNil ""SlingLogic"" && !scriptDone SlingLogic ) then " \n
+           "{" \n
+           "	 terminate SlingLogic; " \n
+           "};" \n
+           "" \n
+           "" \n
+           "if (SlingRopeDiscn_Action_H > -1) then { chopper removeAvtion SlingRopeDiscn_Action_H; };" \n
+           "if (SlingRopeDiscn_Action_C > -1) then { SlingLoadCgo removeAvtion SlingRopeDiscn_Action_C; };" \n
            "" \n
            "SlingRopeDiscn_Action_H = chopper      addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 4 && (vehicle player != chopper)""];" \n
            "SlingRopeDiscn_Action_C = SlingLoadCgo addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 2 && (vehicle player != chopper)""];" \n
@@ -1394,6 +1401,8 @@ class FSM
            "			" \n
            "			chopper      removeAction SlingRopeDiscn_Action_H;" \n
            "			SlingLoadCgo removeAction SlingRopeDiscn_Action_C;" \n
+           "			SlingRopeDiscn_Action_H=-1;" \n
+           "			SlingRopeDiscn_Action_C=-1;" \n
            "			" \n
            "			chopper ropeDetach SlingRope;" \n
            "			ropeDestroy SlingRope;" \n

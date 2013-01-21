@@ -2,6 +2,9 @@
 	 chopper removeAction SlingRopeDiscn_Action_H;
 SlingLoadCgo removeAction SlingRopeDiscn_Action_C;
 
+SlingRopeDiscn_Action_H=-1;
+SlingRopeDiscn_Action_C=-1;
+
 chopper ropeDetach SlingRope;
 ropeDestroy SlingRope;
 SlingRope = nil;

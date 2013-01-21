@@ -148,6 +148,8 @@ player addAction ["Access Hangar", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false,
 RopeAttached = false;
 SlingLoadCgo = ObjNull;
 SlingLoadLen = 0;
+SlingRopeDiscn_Action_H=-1;
+SlingRopeDiscn_Action_C=-1;
 
 Heli_Has_Obstruction = false; // or is it?
 Heli_Hint_On_Fail = false;
