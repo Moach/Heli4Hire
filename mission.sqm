@@ -111,7 +111,7 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={27912.027,1.0027313,29825.523};
+					position[]={27911.842,0.56463385,29825.711};
 					id=2;
 					side="LOGIC";
 					vehicle="AmbientPlanes";
@@ -120,7 +120,7 @@ class Mission
 				};
 				class Item3
 				{
-					position[]={27878.629,2.2307301,29825.586};
+					position[]={27879.555,2.1551857,29825.771};
 					id=4;
 					side="LOGIC";
 					vehicle="AmbientPostprocess";
@@ -129,7 +129,7 @@ class Mission
 				};
 				class Item4
 				{
-					position[]={27890.211,0.44960058,29843.203};
+					position[]={27922.74,0.42340437,29825.838};
 					id=2880;
 					side="LOGIC";
 					vehicle="GenericConversations";
@@ -321,7 +321,7 @@ class Mission
 		items=3047;
 		class Item0
 		{
-			position[]={27907.23,4.1168747,29776.947};
+			position[]={27907.41,4.1129684,29777.039};
 			azimut=70;
 			id=3;
 			side="EMPTY";
@@ -5767,7 +5767,7 @@ class Mission
 		};
 		class Item456
 		{
-			position[]={27879.604,10.07007,29778.719};
+			position[]={27879.285,9.9839239,29778.961};
 			azimut=698.14941;
 			special="NONE";
 			id=467;
