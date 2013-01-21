@@ -1,4 +1,7 @@
 
+
+#include <arrayDefs.h>
+
 #define CAM_R_POS [8,4,4]
 #define CAM_H_POS [7,-2,3]
 
@@ -35,9 +38,9 @@ showCinemaBorder false;
 // fill up the list with inventory items!
 {
 	
-	_idx = lbAdd [1500, _x select 8];
-	_x set [9, _idx];
-	if (_x select 1) then { lbSetColor [1500, _idx, ITEM_CLR_BLUE]; }; // mark installed items in blue
+	_idx = lbAdd [1500, _x select ITEM_uniqueIdTag];
+	_x set [ITEM_hangarIndex, _idx];
+	if (_x select ITEM_isInstalled) then { lbSetColor [1500, _idx, ITEM_CLR_BLUE]; }; // mark installed items in blue
 	//
 	
 } foreach HW_Hgr_Inventory;
@@ -73,14 +76,14 @@ HW_efx_SelectActiveSpot=
 		//
 		ctrlSetText [1003, format ["Helicopter at Pad [%1]:  %2", (["A", "B", "C"] select HW_Hgr_Select), getText ( _cfg >> "airframeIdent" )]];		
 		{
-			if (_x select 2) then
+			if (_x select SLOT_isInstalled) then
 			{
-				_item = _x select 3;
-				_idx = lbAdd [1501, getText((_item select 0) >> "ident")];
+				_item = _x select SLOT_ITEM_struct;
+				_idx = lbAdd [1501, getText((_item select ITEM_HardwareCfg) >> "ident")];
 				
 			} else
 			{
-				_hdwr = _x select 1;
+				_hdwr = _x select SLOT_hardwareCfg;
 				
 				_idx = lbAdd [1501, getText(_hdwr >> "ident")];
 				lbSetColor [1501, _idx, ITEM_CLR_RED]; // not installed...
@@ -106,33 +109,41 @@ HW_efx_SelectActiveSpot=
 
 HW_efx_AttachComponent =
 {	
+	_itemIdx = _this select 1;
+	
 	_heli = (HW_Hgr_Spots select HW_Hgr_Select);
 	if ( isNull(_heli) ) exitWith { titleText ["There's no helicopter in this pad!", "PLAIN"]; };
 	
-	_curItem = (HW_Hgr_Inventory select (_this select 1)); 
+	_curItem = (HW_Hgr_Inventory select _itemIdx); 
 	
-	_checkCompatible=false; // just for feedback
-	_checkAttached=false;
+	
+	_checkFail=true; // just for feedback
+	_heliCfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
+	_checkFailMsg = format ["This item is not certified for use on the %1", getText(_heliCfg >> "airframeIdent")]; // default message for no-components-match-hardware scenario
+			
 	
 	// check helicopter components...
 	{
-		if ((_x select 1) == (_curItem select 0)) then // compatible! -- config entries match
+
+		if ((_x select SLOT_hardwareCfg) == (_curItem select ITEM_HardwareCfg)) then // compatible! -- config entries match
 		{
-			// part matches a component for this helicopter, check if the slot is open
-			_checkCompatible=true; // so we can say at least that much
+			// if a match exists, the contingency message is changed...
+			_checkFailMsg = "Helicopter already has this installed!";
 			
-			if (!(_x select 2)) then
+			// part matches a component for this helicopter, check if the slot is open			
+			if (!(_x select SLOT_isInstalled)) then
 			{
-				_checkAttached=true; // -- true means the code below was called, not that the item is installed - as returned for _res
 				
 				_res = [_heli, _curItem, _x] call HW_Fs_AttachComponent;
 				if (_res != "ok") exitWith
 				{
-					titleText [_res, "PLAIN"];
+					_checkFailMsg = _res;
 				};
 				
-				lbSetColor [1500, (_this select 1), ITEM_CLR_BLUE];
-				lbSetColor [1501, (_x select 4), ITEM_CLR_WHITE];
+				_checkFail = false; // we got this far!
+				
+				lbSetColor [1500, _itemIdx, ITEM_CLR_BLUE];
+				lbSetColor [1501, (_x select SLOT_installIndex), ITEM_CLR_WHITE];
 				
 				titleText [format ["Helicopter has %1kg extra weight from components.", (_heli getVariable "HW_ExtraWeight")], "PLAIN"];
 				
@@ -141,19 +152,12 @@ HW_efx_AttachComponent =
 		};
 	} foreach (_heli getVariable "HW_ComponentSlots");
 	
-	// if we get this far, this component cannot be attached...
 	
-	if (!_checkAttached) then
+	// if we get this far, this component could be attached for whatever reason...
+	if (_checkFail) then
 	{
-		if(!_checkCompatible) then
-		{
-			_heliCfg = missionConfigFile >> "cfgSimCopterFleet" >> (typeOf _heli);
-			titleText [format ["This item is not certified for use on the %1", getText(_heliCfg >> "airframeIdent")], "PLAIN"];
-		} else
-		{
-			
-			titleText ["This Helicopter is fully equipped with this already!", "PLAIN"];
-		};
+		//
+		titleText [_checkFailMsg, "PLAIN"];
 	};
 };
 
@@ -163,14 +167,16 @@ HW_efx_AttachComponent =
 
 HW_efx_DetachComponent =
 {
+	_compIdx = _this select 1;
+	
 	_heli = (HW_Hgr_Spots select HW_Hgr_Select);
 	if ( isNull(_heli) ) exitWith { titleText ["There's no helicopter in this pad!", "PLAIN"]; };
 
 	// 
-	_slot = (_heli getVariable "HW_ComponentSlots") select (_this select 1);
-	if ( _slot select 2 ) then
+	_slot = (_heli getVariable "HW_ComponentSlots") select (_compIdx);
+	if ( _slot select SLOT_isInstalled ) then
 	{
-		_rtIndex=((_slot select 3) select 9);
+		_hngrIdx=((_slot select SLOT_ITEM_struct) select ITEM_hangarIndex);
 		_res = [_heli, _slot] call HW_Fs_DetachComponent;
 		
 		if (_res != "ok") exitWith
@@ -178,8 +184,8 @@ HW_efx_DetachComponent =
 			titleText [_res, "PLAIN"];
 		};
 		
-		lbSetColor [1501, (_this select 1), ITEM_CLR_RED];
-		lbSetColor [1500, _rtIndex, ITEM_CLR_WHITE];
+		lbSetColor [1501, _compIdx, ITEM_CLR_RED];
+		lbSetColor [1500, _hngrIdx, ITEM_CLR_WHITE];
 		
 		titleText [format ["Helicopter has %1kg extra weight from components.", (_heli getVariable "HW_ExtraWeight")], "PLAIN"];
  		

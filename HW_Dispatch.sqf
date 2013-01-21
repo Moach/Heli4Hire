@@ -15,7 +15,6 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 
 
 
-
 /* GIG array format:
 	[0] task     task being requested
 	[1] string   filename for mission fsm
