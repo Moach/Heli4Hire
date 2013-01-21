@@ -214,7 +214,7 @@ link121[] = {84,86};
 link122[] = {85,53};
 link123[] = {86,87};
 link124[] = {87,85};
-globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-117.153687,602.356567,2603.300049,1700.283569,694,871,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-26.842382,718.302124,2642.933594,1707.744629,694,871,1};
 window[] = {0,-1,-1,-1,-1,1028,154,1657,43,1,712};
 *//*%FSM</HEAD>*/
 class FSM
@@ -1357,7 +1357,7 @@ class FSM
           priority = 0.000000;
           to="approach_cargo";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_off > (SlingLoadLen * .75) || _hgt > SlingLoadLen || _hgt < 4;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_off > (SlingLoadLen * .707) || _hgt > SlingLoadLen || _hgt < 4;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Hold! you're drifting a lot and the load couldn't be attached yet...\nMove in closer and hold it steady."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1372,9 +1372,14 @@ class FSM
            "" \n
            "[_topCrew] call HW_Fx_Util_Animate_Off;" \n
            "" \n
-           "SlingRope = ropeCreate [chopper, ""slingload0"", _hookCgo, [0, .32, 0], round(SlingLoadLen * 2)];" \n
+           "SlingRope = ropeCreate [chopper, ""slingload0"", _hookCgo, [0, .4, 0], round(SlingLoadLen * 2), SlingLoadLen];" \n
            "ropeSetCargoMass [SlingRope, _hookCgo, _hookWgt];" \n
            "SlingLoadCgo = _hookCgo;" \n
+           "" \n
+           "if (!isNil ""SlingLogic"" && !scriptDone SlingLogic ) then { terminate SlingLogic; };" \n
+           "" \n
+           "SlingRopeDiscn_Action_H = chopper      addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 4 && (vehicle player != chopper)""];" \n
+           "SlingRopeDiscn_Action_C = SlingLoadCgo addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 2 && (vehicle player != chopper)""];" \n
            "" \n
            "" \n
            "SlingLogic = [] spawn " \n
@@ -1827,7 +1832,7 @@ class FSM
           priority = 0.000000;
           to="hover__";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_off < (SlingLoadLen * .707) && _hgt < SlingLoadLen && _hgt > 5;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_off < (SlingLoadLen * .3) && _hgt < SlingLoadLen && _hgt > 5;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Hold it steady!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/

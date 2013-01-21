@@ -9,7 +9,7 @@ playSound "FX_Rope_Connect";
 
 sleep 2;
 
-SlingRope = ropeCreate [chopper, "slingload0", SlingLoadCgo, [0, .32, 0], round(SlingLoadLen * 3), SlingLoadLen, true];
+SlingRope = ropeCreate [chopper, "slingload0", SlingLoadCgo, [0, .35, 0], round(SlingLoadLen * 3), SlingLoadLen, true];
 ropeSetCargoMass [SlingRope, SlingLoadCgo, _mass];
 
 RopeAttached = true;

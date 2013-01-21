@@ -107,14 +107,13 @@ sleep 1;
 
 deleteVehicle nearestObject [(getPos start_here), "air"]; // remove medium helicopter in the hangar that comes with the object composition...
 
-_rtb = player createSimpleTask [" -- Return To Heliport"];
-_rtb setSimpleTaskDescription ["Set your heading back to base.", " -- Return To Heliport", "Your Heliport"];
-_rtb setSimpleTaskDestination (getPos pad_A);
+HW_defTsk_rtb = player createSimpleTask [" -- Return To Heliport"];
+HW_defTsk_rtb setSimpleTaskDescription ["Set your heading back to base.", " -- Return To Heliport", "Your Heliport"];
+HW_defTsk_rtb setSimpleTaskDestination (getPos pad_A);
 
 
-_clr = player createSimpleTask [" -- Clear Nav Data"];
-_clr setSimpleTaskDescription ["Reset to clear heading.", " -- Clear Nav Data", ""]; 
-
+HW_defTsk_clr = player createSimpleTask [" -- Clear Nav Data"];
+HW_defTsk_clr setSimpleTaskDescription ["Reset to clear heading.", " -- Clear Nav Data", ""]; 
 
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
