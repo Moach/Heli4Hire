@@ -69,10 +69,10 @@ class Mission
 		briefingName="Heli-4-Hire";
 		briefingDescription="SimCopter Take On Revival";
 		resistanceEast=1;
-		startWeather=0.21128482;
+		startWeather=0.38402176;
 		startFog=0.012360021;
 		startWind=0.073325947;
-		forecastWeather=0.38402176;
+		forecastWeather=0.52119511;
 		forecastFog=0.031721447;
 		forecastWind=0.16889454;
 		year=2013;
@@ -241,13 +241,14 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={27909.199,3.8298531,29783.391};
-					azimut=893.28473;
+					position[]={27911.428,3.7996063,29783.809};
+					azimut=893.28497;
 					id=194;
 					side="CIV";
 					vehicle="Instructor_H";
 					player="PLAYER COMMANDER";
 					leader=1;
+					rank="CAPTAIN";
 					skill=0.60000002;
 					init="this setIdentity ""hsim_Player"";";
 				};

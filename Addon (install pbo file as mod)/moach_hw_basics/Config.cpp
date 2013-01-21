@@ -67,6 +67,13 @@ class CfgPatches
 };
 
 class RotorLibHelicopterProperties;
+class SoundsExt;
+class AnimationSources;
+class AddBackseats;
+class AddScreen1;
+class AddTread_Short;
+class AddTread;
+class AddDoors;
 
 class CfgVehicles 
 {
@@ -77,10 +84,55 @@ class CfgVehicles
 		displayName = "HW Wright LD500";
 		faction = "HSim_Civ_US";
 		hiddenSelectionsTextures[] = {"HSim\Air_US_H\Helicopters_Light\Data\skins\Heli_light01_ext_blueline_co.paa"};
+		
+		
 		class RotorLibHelicopterProperties: RotorLibHelicopterProperties
 		{
 		//	RTDconfig = "moach_hw_basics\WrightLD500Sim.xml";
 			starterTime = 10;
 		};
+		
+		class AnimationSources: AnimationSources
+		{
+			class AddBackseats: AddBackseats
+			{
+				initPhase = 0;
+			};
+			class AddScreen1: AddScreen1
+			{
+				initPhase = 0;
+			};
+			class AddTread_Short: AddTread_Short
+			{
+				initPhase = 0;
+			};
+			class AddTread: AddTread
+			{
+				initPhase = 0;
+			};
+			class AddDoors: AddDoors
+			{
+				initPhase = 0;
+			};
+		};
+		
+		
+		
+		class SoundsExt: SoundsExt
+		{
+			class Starter
+			{
+				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.031622775,1.0};
+				startExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-start-noclick",1.0,1.0,300};
+				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.002,1.0};
+				stopExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-stop",0.1,1.0,300};
+				damageInt[] = {"HSim\Sounds_H\Air\Noises\damage_starter_int_light",1.0,1.0};
+				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
+			};
+		};
 	};
 };
+
+
+
+

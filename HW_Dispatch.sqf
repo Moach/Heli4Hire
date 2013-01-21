@@ -164,7 +164,7 @@ HW_Fx_Dispatch_Cargo =
 	
 	// most times, the load crew is already at the base site - if not, then picking them up is the first order of the day...
 	_crewPos = _basePos;
-	if (random(5) > 2) then 
+	if (random(10) > 2) then 
 	{
 		_near = nearestLocations [_basePos, LocDefs_taxi, 15000];
 		_crewPos = locationPosition (_near call BIS_fnc_selectRandom);

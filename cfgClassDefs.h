@@ -75,56 +75,56 @@ class CfgSimCopterHardware
 	{
 		ident= "LD500 Doors";
 		fullName="Wright LD500 Cabin Doors";
-		itemMass=42;
+		itemMass=32;
 	};
 	class HW_Rearview_Mirror: HW_Hardware_Base
 	{
 		ident= "AS Mirror G2";
 		fullName="Miraline G2 AeroSport Mirror";
-		itemMass=0.7;
+		itemMass=0.5;
 	};
 	class HW_Raycon_LCD: HW_Hardware_Base
 	{
 		ident= "E1026 LCD Panel";
 		fullName="Raycon Evest 1026 LCD Panel";
-		itemMass=.5;
+		itemMass=.3;
 	};
 	class HW_LD500_LongStep: HW_Hardware_Base
 	{
 		ident= "LD500 Long Step";
 		fullName="Wright LD500 Gear Boarding Step (Long)";
-		itemMass=20;
+		itemMass=12;
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
 		ident= "LD500 Short Step";
 		fullName="Wright LD500 Gear Boarding Step (Short)";
-		itemMass=14;
+		itemMass=8;
 	};
 	class HW_2Seat_BackSeats: HW_Hardware_Base
 	{
 		ident= "Back Seats";
 		fullName="Marano Pro-SC 2 Seat Bench";
-		itemMass=50;
+		itemMass=45;
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
 		ident= "LD Side Rig";
 		fullName="Wright LD-Series R-Side Rig";
-		itemMass=10;
+		itemMass=8;
 	};
 	
 	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
 		ident= "Air300 Camera";
 		fullName="EZ-Vue RotoCaster Air300 Camera";
-		itemMass=12;
+		itemMass=9;
 	};
 	class HW_Raycon7500_Flir: HW_Hardware_Base
 	{
 		ident= "FLIR 7500";
 		fullName="Raycon MIRNA Series FLIR 7500";
-		itemMass=25;
+		itemMass=16;
 	};
 };
 
