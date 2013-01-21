@@ -9,7 +9,7 @@ item4[] = {"land",4,218,-409.729675,2510.716797,-326.342010,2555.206299,1.000000
 item5[] = {"deboard",2,250,-13.834530,2586.281982,76.165344,2636.281982,0.000000,"deboard"};
 item6[] = {"away",4,218,-13.649254,2672.620117,76.350922,2722.620605,0.000000,"away"};
 item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
-item8[] = {"done",4,218,1.475136,2514.202881,59.517612,2550.979004,0.000000,"done"};
+item8[] = {"done",4,218,2.527821,2515.255615,60.570297,2552.031738,0.000000,"done"};
 item9[] = {"wait_for_it___",2,250,-132.780334,2518.878418,-50.257256,2548.174316,0.000000,"wait for it..."};
 item10[] = {"fail___abort",4,218,296.607452,2367.576660,425.687653,2440.486084,2.000000,"fail / abort"};
 item11[] = {"just_put_it_down",2,250,292.609100,2588.442871,427.908783,2636.284180,0.000000,"just put it down"};
@@ -45,7 +45,7 @@ item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,
 item41[] = {"steady__over_it",4,218,509.007446,2288.697266,600.282776,2338.697266,0.000000,"steady " \n "over it"};
 item42[] = {"complete_",4,218,-64.626053,1772.307983,28.023211,1825.003662,0.000000,"complete!"};
 item43[] = {"hover__",2,250,366.580719,2287.318359,437.829987,2337.724854,0.000000,"hover!!"};
-item44[] = {"attached_",4,218,190.486755,2287.652344,280.486328,2337.652344,0.000000,"attached!"};
+item44[] = {"attached_",4,4314,190.486755,2287.652344,280.486328,2337.652344,0.000000,"attached!"};
 item45[] = {"take_it_down",2,250,6.390173,2287.254395,96.390335,2337.254395,0.000000,"take it down"};
 item46[] = {"released_",4,218,130.944229,1910.584473,225.566528,1959.887207,1.000000,"released!"};
 item47[] = {"approach",4,218,6.669127,2192.389648,96.669037,2242.389648,0.000000,"approach"};
@@ -214,8 +214,8 @@ link121[] = {84,86};
 link122[] = {85,53};
 link123[] = {86,87};
 link124[] = {87,85};
-globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-407.442383,446.127502,2780.684082,1709.420898,694,871,1};
-window[] = {0,-1,-1,-1,-1,1015,25,1528,30,1,712};
+globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-117.153687,602.356567,2603.300049,1700.283569,694,871,1};
+window[] = {0,-1,-1,-1,-1,1028,154,1657,43,1,712};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1377,6 +1377,41 @@ class FSM
            "SlingLoadCgo = _hookCgo;" \n
            "" \n
            "" \n
+           "SlingLogic = [] spawn " \n
+           "{ " \n
+           "	" \n
+           "	while { RopeAttached } do" \n
+           "	{" \n
+           "		sleep .025;" \n
+           "		if ( (inputAction ""HeliRopeAction"") != 0 ) then" \n
+           "		{" \n
+           "			// hintSilent "" - Sling Rope Released! - "";" \n
+           "			" \n
+           "			chopper      removeAction SlingRopeDiscn_Action_H;" \n
+           "			SlingLoadCgo removeAction SlingRopeDiscn_Action_C;" \n
+           "			" \n
+           "			chopper ropeDetach SlingRope;" \n
+           "			ropeDestroy SlingRope;" \n
+           "			SlingRope = nil;" \n
+           "			" \n
+           "			playSound ""FX_Rope_Release"";" \n
+           "			" \n
+           "			" \n
+           "			sleep 2;" \n
+           "			" \n
+           "			SlingLoadCgo = objNull;" \n
+           "			RopeAttached = false;" \n
+           "			" \n
+           "			" \n
+           "			exit;" \n
+           "		};" \n
+           "	};" \n
+           "};" \n
+           "" \n
+           "" \n
+           "" \n
+           "" \n
+           "" \n
            "hint ""Ok! you're good to go!\n Take it away nice and easy!"" ;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1467,12 +1502,21 @@ class FSM
     class YOU_BROKE_IT_
     {
       name = "YOU_BROKE_IT_";
-      init = /*%FSM<STATEINIT""">*/"hint ""You damaged the load!! -- the whole job has been put on hold for today! -- try to land the crew near the area so they can see how bad it is!"";" \n
+      init = /*%FSM<STATEINIT""">*/"hint ""You damaged the load!! -- the whole job has been put on hold for today! -- try to land the crew near the area so they can see how bad it is!\n\nCAUTION: Do not land on unprepared rooftops, this is very dangerous! In such a case, it's best to approach on a low hover and let the crew hop down"";" \n
        "" \n
        "" \n
        "deleteMarker _baseMkr;" \n
        "deleteMarker _towrMkr;" \n
        "player removeSimpleTask _tsk;" \n
+       "" \n
+       "" \n
+       "" \n
+       "// command a get-out from the choper even before landing -- this should allow getting close-enough for the crew to jump off in impossible areas" \n
+       "" \n
+       "_grp leaveVehicle (vehicle player); " \n
+       "doGetOut units _grp;                   " \n
+       "units _grp allowGetIn false;          " \n
+       "" \n
        "" \n
        "" \n
        "[_topCrew] call HW_Fx_Util_Animate_Off;" \n
@@ -1499,8 +1543,11 @@ class FSM
           priority = 0.000000;
           to="damage_control";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(player distance _cgo < 500) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"terminate _steady;"/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!((leader _grp) in chopper)" \n
+           "// (player distance _cgo < 500) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"terminate _steady;" \n
+           "" \n
+           ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1705,10 +1752,6 @@ class FSM
        "" \n
        "Heli_Cabin_Condition = Heli_Cabin_Condition - (random .2); // passengers will eventually mess up the cabin as they go...." \n
        "" \n
-       "" \n
-       "_grp leaveVehicle (vehicle player);  // everyone out" \n
-       "doGetOut units _grp;                       // i mean it!" \n
-       "units _grp allowGetIn false;             // OUT! NOW!! - beat it!" \n
        "" \n
        "" \n
        "DisasterEvent = ""LoadWrecked""; // this is coming out of your pay!" \n

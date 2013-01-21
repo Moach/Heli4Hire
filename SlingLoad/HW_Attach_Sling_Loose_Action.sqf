@@ -37,6 +37,8 @@ SlingLogic = [] spawn
 			
 			sleep 2;
 			RopeAttached = false;
+			
+			exit;
 		};
 	};
 };

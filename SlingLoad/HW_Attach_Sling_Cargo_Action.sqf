@@ -46,6 +46,9 @@ SlingLogic = [] spawn
 			
 			SlingLoadCgo = objNull;
 			RopeAttached = false;
+			
+			
+			exit;
 		};
 	};
 };
