@@ -23,7 +23,6 @@ ctrlSetFocus (_hangarDialog displayCtrl 1701);
 ctrlSetText [1005, format ["$: %1", HW_Office_Funds]];
 
 
-
 ctrlSetText [1006, "READY"];
 ctrlSetText [1007, "empty"];
 ctrlSetText [1008, "empty"];

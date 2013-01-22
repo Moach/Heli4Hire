@@ -21,7 +21,9 @@ class HW_Airframe_Base
 	
 	class Components {};
 	
+	
 	onAirframeCapsInit=""; // code to run at initialization time to setup the basic features needed to determine what this bird can do (runs before hardware init, defines basic-only capabilities)
+	class Capabilities {};
 };
 
 
@@ -91,7 +93,5 @@ class HW_Hdwr_2_Heli_Base
 	wearFactor=0;       // scalar for wear-induced damage from flying hours (should be low) 
 	criticalWear=.5;    // level of damage where the component becomes critically impaired for use on this airframe (or maybe even at all...)
 };
-
-
 
 

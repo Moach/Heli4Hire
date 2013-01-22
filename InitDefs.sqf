@@ -9,10 +9,6 @@ PaxDefs_taxi = [
 	"Woman03_Random_H",
 	"Woman02_Random_H",
 	"Woman01_Random_H",
-	"Hooker1", // these rather stylish women are ArmA2-based content - if you have it, you get more passengers!
-	"Hooker4",
-	"Hooker2",
-	"Hooker3",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
 	"Citizen_Random_H",
@@ -36,7 +32,6 @@ CargoDefs_Lite =
 	["FireSuppression_H",      270],
 	["CargoCont_Net1_H",       350],
 	["CargoCont_Net1_H",       380]
-//	["Misc_Cargo_Cont_Tiny",   400]
 ];
 
 

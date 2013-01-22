@@ -55,10 +55,16 @@ HW_Fx_Dispatch_Taxi =
 {
 	//
 	//
-	_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
-	_p1 = locationPosition (_near call BIS_fnc_selectRandom);
+	_p1 = getPos pad_A;
+	_near=[];
+	if (!RadioCall_J) then // not a debug run!
+	{
+		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
+		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
+	};
 	
 	_near = nearestLocations [_p1, LocDefs_taxi, 25000];
+	
 	
 	_size = count _near;
 	_dmin = round(_size * .1); // remove the nearest 10% locations found - this culls out unreasonably close legs and the same-pad bug
@@ -82,7 +88,7 @@ HW_Fx_Dispatch_Taxi =
 	_mkr setMarkerText ("Pax | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance _p2) * .01)* .1) + "km");
 	_mkr setMarkerColor "ColorRed";
 	
-	_gig = [_tsk, "HeliWorks_Commute.fsm", _mkID, time + 45 + random(320), [_p1, _p2]];
+	_gig = [_tsk, "HeliWorks_Commute.fsm", _mkID, time + 45 + random(320), [_p1, _p2, RadioCall_J]];
 	GigLineup set [count GigLineup, _gig];
 };
 
@@ -91,15 +97,14 @@ HW_Fx_Dispatch_Taxi =
 HW_Fx_Dispatch_Survey = 
 {
 	//
-	_p1 = getPos service_helipad;
+	_p1 = getPos pad_A;
 	_num = 2;
 	
 	if (!RadioCall_J) then // not a debug run!
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = round(random 6);
-		_num = _num - round( ((random _num) - 1) max 0 );
+		_num = floor((random 3) + (random 3));
 	};
 	
 	//
@@ -287,6 +292,7 @@ player execFSM "HW_Dispatch_Gen.fsm";
 
 //
 //
+#include <Hangar\arrayDefs.h>
 
 if (HW_DEBUG) then // enabled only for debug!
 {
@@ -308,7 +314,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Fx_Dispatch_Cargo;
+		call HW_Fx_Dispatch_Taxi;
 		
 		RadioCall_J = false;
 	};
