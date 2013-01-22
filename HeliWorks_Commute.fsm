@@ -21,7 +21,7 @@ item16[] = {"you_re_late",2,250,-195.620239,1313.970581,-119.762047,1362.815552,
 item17[] = {"too_late",4,218,-79.117683,1314.196777,10.882305,1364.196777,2.000000,"too late"};
 item18[] = {"you_fucked_it",1,250,71.006248,1313.825562,161.006287,1363.825562,0.000000,"you fucked it"};
 item19[] = {"all_aboard",4,218,-474.442383,1520.594604,-384.441833,1570.594604,0.000000,"all aboard"};
-item20[] = {"go_fly_",2,4346,-439.359070,1696.978638,-375.423401,1761.706543,0.000000,"go fly!"};
+item20[] = {"go_fly_",2,250,-439.359070,1696.978638,-375.423401,1761.706543,0.000000,"go fly!"};
 item21[] = {"abort_pickup",4,218,-392.783752,1313.449097,-302.783997,1363.449097,2.000000,"abort" \n "pickup"};
 item22[] = {"quit",1,250,-528.910156,1313.438721,-438.909973,1363.438721,0.000000,"quit"};
 item23[] = {"simple_flight",8,218,-202.926117,1701.911255,-142.803421,1756.890869,0.000000,"simple" \n "flight"};
@@ -36,28 +36,29 @@ item31[] = {"",7,210,-703.906555,2035.560059,-695.906555,2043.560547,0.000000,""
 item32[] = {"go__1",0,250,-514.399780,992.344055,-424.399506,1042.345215,0.000000,"go!"};
 item33[] = {"ok",8,218,-320.521973,991.996033,-230.522003,1041.996094,0.000000,"ok"};
 item34[] = {"certified",4,218,-175.744293,1802.601685,-97.803055,1847.963745,0.000000,"certified"};
-item35[] = {"cat_in_hospital",4,218,176.094376,1656.154297,266.094116,1706.154297,0.000000,"cat in" \n "hospital"};
+item35[] = {"cat_in_hospital",4,218,176.094376,1656.154297,266.094116,1706.154297,1.000000,"cat in" \n "hospital"};
 item36[] = {"shit_happens",4,218,-297.757538,1654.710693,-202.866837,1707.156128,0.000000,"shit" \n "happens"};
 item37[] = {"what_is_it_",2,250,67.807655,1643.928345,141.911530,1718.505859,0.000000,"what is it?"};
-item38[] = {"kidney_stone",4,218,145.033539,1755.843018,235.033508,1805.843018,0.000000,"kidney" \n "stone"};
+item38[] = {"kidney_stone",4,218,137.691254,1754.794189,227.691223,1804.794189,2.000000,"kidney" \n "stone"};
 item39[] = {"",7,210,-665.021301,1676.596313,-657.021301,1684.596313,0.000000,""};
 item40[] = {"divert",8,218,-1.620945,1755.362305,88.379128,1805.362305,0.000000,"divert"};
-item41[] = {"loo",4,218,116.950897,1557.260254,206.951050,1607.260254,0.000000,"loo"};
+item41[] = {"loo",4,218,116.950897,1557.260254,206.951050,1607.260254,3.000000,"loo"};
 item42[] = {"LZ_type_",2,250,-117.123337,1756.396973,-66.773361,1804.720459,0.000000,"LZ" \n "type?"};
 item43[] = {"not",4,218,-133.127991,1854.322754,-50.548790,1903.395142,1.000000,"not"};
 item44[] = {"flying_to_it_",2,250,-685.562439,1855.527222,-625.005310,1902.295532,0.000000,"flying" \n "to it!"};
 item45[] = {"nearest_hospital",2,250,538.221680,1755.522949,628.221802,1805.522949,0.000000,"nearest" \n "hospital"};
 item46[] = {"specific_hospita",2,250,328.428741,1657.010254,418.428284,1707.010254,0.000000,"specific" \n "hospital"};
 item47[] = {"FAST_",2,250,245.021362,1557.399170,335.021240,1607.399170,0.000000,"FAST!"};
-item48[] = {"land_fast_",4,218,328.472534,1856.243286,418.472534,1906.243286,0.000000,"land" \n "fast!"};
-item49[] = {"too_long",4,218,467.099701,1858.208008,557.100037,1908.208008,0.000000,"too long"};
-item50[] = {"it_s_still_an__e",2,250,468.120575,2015.280273,558.120972,2065.279785,0.000000,"it's still an" \n " emergency"};
-item51[] = {"are_we_there_yet",4,218,238.940308,2011.234253,342.394440,2068.572754,0.000000,"are we" \n "there yet?"};
-item52[] = {"uber_fail",4,218,244.966766,1705.647339,334.966675,1755.647339,0.000000,"uber" \n "fail"};
-item53[] = {"omg___",2,250,255.655243,1816.475342,324.862457,1853.021118,0.000000,"omg..."};
+item48[] = {"land_fast_",4,218,328.472534,1901.012207,418.472534,1951.012207,0.000000,"land" \n "fast!"};
+item49[] = {"too_long",4,218,469.283539,1902.976929,559.283875,1952.976929,0.000000,"too long"};
+item50[] = {"it_s_still_an__e",2,250,469.268005,2016.427612,559.268311,2066.427246,0.000000,"it's still an" \n " emergency"};
+item51[] = {"are_we_there_yet",4,218,312.043762,2012.013062,415.497894,2069.351563,0.000000,"are we" \n "there yet?"};
+item52[] = {"uber_fail",4,218,244.966736,1799.459839,334.966705,1849.459839,0.000000,"uber" \n "fail"};
+item53[] = {"omg___",2,250,218.240143,1861.029175,287.447968,1897.574463,0.000000,"omg..."};
 item54[] = {"land_anywhere_",4,218,236.000381,1467.227783,351.685577,1536.797485,0.000000,"land" \n "anywhere!"};
 item55[] = {"out__then_back_in",2,250,23.384541,1477.751343,113.384567,1527.751343,0.000000,"out, then" \n "back in again" \n "shortly"};
 item56[] = {"where__were_we_",4,218,-31.266874,1562.073364,69.740860,1616.965820,0.000000,"where " \n "were we?"};
+item57[] = {"emergency_deboar",2,250,165.544189,2015.337646,255.544174,2065.336426,0.000000,"emergency" \n "deboard"};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -124,17 +125,18 @@ link62[] = {46,48};
 link63[] = {46,49};
 link64[] = {47,52};
 link65[] = {47,54};
-link66[] = {48,5};
+link66[] = {48,57};
 link67[] = {49,50};
 link68[] = {50,51};
-link69[] = {51,5};
+link69[] = {51,57};
 link70[] = {52,53};
 link71[] = {53,51};
 link72[] = {54,55};
 link73[] = {55,56};
 link74[] = {56,42};
-globals[] = {0.000000,0,0,0,0,640,480,1,150,0,1,-664.989807,530.286133,2707.123779,1210.841431,683,855,1};
-window[] = {0,-1,-1,-1,-1,1012,65,1561,43,1,701};
+link75[] = {57,6};
+globals[] = {0.000000,0,0,0,0,640,480,1,151,0,1,-556.297974,354.602844,1957.753906,817.461060,683,855,1};
+window[] = {0,-1,-1,-32000,-32000,1012,65,1561,43,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -324,6 +326,9 @@ class FSM
        "_grp leaveVehicle (vehicle player);  // everyone out" \n
        "doGetOut units _grp;                       // i mean it!" \n
        "units _grp allowGetIn false;             // OUT! NOW!! - beat it!" \n
+       "" \n
+       "// now, go somewhere, don't just stand around being idiots..." \n
+       "(units _grp) doMove [-100 + ((getPos chopper) select 0) *random 200,  -100 + ((getPos chopper) select 1) *random 200];" \n
        "" \n
        "" \n
        "1 setRadioMsg ""Rpt. Clear of Assignment"";" \n
@@ -1021,13 +1026,33 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "loo">*/
+        class loo
+        {
+          priority = 3.000000;
+          to="FAST_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "kidney_stone">*/
         class kidney_stone
         {
-          priority = 0.000000;
+          priority = 2.000000;
           to="nearest_hospital";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_diceRoll > 90"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "cat_in_hospital">*/
+        class cat_in_hospital
+        {
+          priority = 1.000000;
+          to="specific_hospita";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_diceRoll > 70"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1081,26 +1106,6 @@ class FSM
            "] spawn BIS_fnc_wpSteady;" \n
            "" \n
            ""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "loo">*/
-        class loo
-        {
-          priority = 0.000000;
-          to="FAST_";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-        /*%FSM<LINK "cat_in_hospital">*/
-        class cat_in_hospital
-        {
-          priority = 0.000000;
-          to="specific_hospita";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1176,7 +1181,29 @@ class FSM
     class nearest_hospital
     {
       name = "nearest_hospital";
-      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"_near = nearestLocations [getPos chopper, [""HeliportHospital"", ""HeliportTrauma""], 30000];" \n
+       "_pos = locationPosition (_near select 0);" \n
+       "" \n
+       "" \n
+       "hint ""Gasp, AARGH!!\nOMG! OMFG! I think i'm passing a kidney stone!!\n\n Hospital!... Hospital NOW!"";" \n
+       "" \n
+       "" \n
+       "_fieldMode=false;" \n
+       "_mkr setMarkerPos [_pos select 0, _pos select 1];" \n
+       "_mkr setMarkerText ""Hospital! NOW!"";" \n
+       "_mkr setMarkerColor ""Default"";" \n
+       "" \n
+       "_landRange=250;" \n
+       "" \n
+       "_t = time + 10 + (chopper distance _pos)* .016; // be VERY quick about it!" \n
+       "" \n
+       "[_pos, _tsk] spawn " \n
+       "{" \n
+       "	sleep 5;" \n
+       "	(_this select 1) setSimpleTaskDestination (_this select 0);	" \n
+       "};" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1186,18 +1213,18 @@ class FSM
           priority = 0.000000;
           to="it_s_still_an__e";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t && (chopper distance _pos) > 300;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""My God, Man! Where is this hospital already?!!\nWe're taking way too long, c'mon!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "land_fast_">*/
         class land_fast_
         {
           priority = 0.000000;
-          to="deboard";
+          to="emergency_deboar";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < _landRange) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .2);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Thanks, man! - I owe you one!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1207,7 +1234,29 @@ class FSM
     class specific_hospita
     {
       name = "specific_hospita";
-      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"_near = nearestLocations [getPos chopper, [""HeliportHospital"", ""HeliportTrauma""], 30000];" \n
+       "_pos = locationPosition (_near call BIS_fnc_selectRandom);" \n
+       "" \n
+       "" \n
+       "hint ""OMG! - I just got a text, and.. There's been an accident!! My Cat is in the hospital!! Forget our destination, we gotta get there right now!!"";" \n
+       "" \n
+       "" \n
+       "_fieldMode=false;" \n
+       "_mkr setMarkerPos [_pos select 0, _pos select 1];" \n
+       "_mkr setMarkerText ""This is the Hospital!"";" \n
+       "_mkr setMarkerColor ""Default"";" \n
+       "" \n
+       "_landRange=250;" \n
+       "" \n
+       "_t = time + 10 +  (chopper distance _pos)* .0165; // be quick about it!" \n
+       "" \n
+       "[_pos, _tsk] spawn " \n
+       "{" \n
+       "	sleep 7;" \n
+       "	(_this select 1) setSimpleTaskDestination (_this select 0);	" \n
+       "};" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1217,18 +1266,18 @@ class FSM
           priority = 0.000000;
           to="it_s_still_an__e";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t && (chopper distance _pos) > 300;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""My God, Man! Where is this hospital already?!!\nWe're taking way too long, c'mon!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "land_fast_">*/
         class land_fast_
         {
           priority = 0.000000;
-          to="deboard";
+          to="emergency_deboar";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < _landRange) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .2);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Thanks, man! - I owe you one!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1277,9 +1326,9 @@ class FSM
         class are_we_there_yet
         {
           priority = 0.000000;
-          to="deboard";
+          to="emergency_deboar";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < _landRange) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .2);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1298,9 +1347,9 @@ class FSM
         class are_we_there_yet
         {
           priority = 0.000000;
-          to="deboard";
+          to="emergency_deboar";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_go &&  (player distance _pos < _landRange) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .2);"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1322,6 +1371,38 @@ class FSM
           to="LZ_type_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "emergency_deboar">*/
+    class emergency_deboar
+    {
+      name = "emergency_deboar";
+      init = /*%FSM<STATEINIT""">*/"" \n
+       "_grp leaveVehicle (vehicle player);  // everyone out" \n
+       "doGetOut units _grp;                       // i mean it!" \n
+       "units _grp allowGetIn false;             // OUT! NOW!! - beat it!" \n
+       "" \n
+       "_grp setSpeedMode ""FULL"";" \n
+       "(units _grp) doMove [-100 + ((getPos chopper) select 0) *random 200,  -50 + ((getPos chopper) select 1) *random 200];" \n
+       "" \n
+       "1 setRadioMsg ""Rpt. Clear of Assignment"";" \n
+       "" \n
+       "deleteMarker _mkr;" \n
+       "player removeSimpleTask _tsk;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "away">*/
+        class away
+        {
+          priority = 0.000000;
+          to="clear";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (leader _grp) > 100)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
