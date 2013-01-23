@@ -112,9 +112,6 @@ HW_defTsk_rtb setSimpleTaskDescription ["Set your heading back to base.", " -- R
 HW_defTsk_rtb setSimpleTaskDestination (getPos pad_A);
 
 
-HW_defTsk_clr = player createSimpleTask [" -- Clear Nav Data"];
-HW_defTsk_clr setSimpleTaskDescription ["Reset to clear heading.", " -- Clear Nav Data", ""]; 
-
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 {
 	player setPos (getPos start_here);

@@ -32,7 +32,7 @@ class HW_Hardware_Base
 	ident="generic thingumabob";                     // abbridged item name shown on inventory listings
 	fullName="general generics thingummabob pro";    // full item name with all the bells and whistles
 	desc="a thing that probably does something";	 // description of the thing (ideally make it kinda funny)
-	serialTag="SN-";                                 // tag prefixing unique part designation strings
+	serialTag="SN-0";                                // tag prefixing unique part designation strings
 	
 	icon="";                // icon shown on listings
 	picture="";             // larger image shown with expanded information
