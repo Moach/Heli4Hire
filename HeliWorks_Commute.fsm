@@ -9,7 +9,7 @@ item4[] = {"land",4,218,-295.241730,1925.142578,-205.241913,1975.142578,1.000000
 item5[] = {"deboard",2,250,27.048214,2013.610107,117.048187,2063.609375,0.000000,"deboard"};
 item6[] = {"away",4,218,27.067078,2100.774414,117.067307,2150.775391,0.000000,"away"};
 item7[] = {"now_boarding___",2,250,-329.349762,1522.347046,-227.503113,1571.162354,0.000000,"now boarding..."};
-item8[] = {"clear",1,250,27.319611,2199.822266,117.319931,2249.822266,0.000000,"clear"};
+item8[] = {"clear",1,4346,27.319611,2199.822266,117.319931,2249.822266,0.000000,"clear"};
 item9[] = {"timeout",4,218,-425.687408,1492.168457,-335.687164,1542.168457,0.000000,"timeout"};
 item10[] = {"done",4,218,27.126804,1924.884888,117.126968,1974.884888,0.000000,"done"};
 item11[] = {"wait_for_it___",2,250,-128.765167,1926.277344,-35.657391,1973.799194,0.000000,"wait for it..."};
@@ -58,7 +58,7 @@ item53[] = {"omg___",2,250,218.240143,1861.029175,287.447968,1897.574463,0.00000
 item54[] = {"land_anywhere_",4,218,236.000381,1467.227783,351.685577,1536.797485,0.000000,"land" \n "anywhere!"};
 item55[] = {"out__then_back_in",2,250,23.384541,1477.751343,113.384567,1527.751343,0.000000,"out, then" \n "back in again" \n "shortly"};
 item56[] = {"where__were_we_",4,218,-31.266874,1562.073364,69.740860,1616.965820,0.000000,"where " \n "were we?"};
-item57[] = {"emergency_deboar",2,4346,165.544189,2015.337646,255.544174,2065.336426,0.000000,"emergency" \n "deboard"};
+item57[] = {"emergency_deboar",2,250,165.544189,2015.337646,255.544174,2065.336426,0.000000,"emergency" \n "deboard"};
 link0[] = {0,1};
 link1[] = {1,3};
 link2[] = {2,7};
@@ -135,8 +135,8 @@ link72[] = {54,55};
 link73[] = {55,56};
 link74[] = {56,42};
 link75[] = {57,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,151,0,1,-241.593445,309.876648,2388.482910,1698.135132,683,855,1};
-window[] = {0,-1,-1,-1,-1,988,74,1570,19,1,701};
+globals[] = {0.000000,0,0,0,0,640,480,1,151,0,1,-954.536743,541.758301,2533.652588,660.545410,683,855,1};
+window[] = {0,-1,-1,-1,-1,1007,38,1534,38,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -450,7 +450,10 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"{ deleteVehicle _x; } foreach units _grp;" \n
        "deleteGroup _grp;" \n
        "" \n
-       "" \n
+       "if (HW_DEBUG) then " \n
+       "{" \n
+       "	3 setRadioMsg ""NULL"";" \n
+       "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -651,18 +654,17 @@ class FSM
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
        "" \n
-       "if ((random 10) < 2.5) then // chance of something more interesing going on..." \n
+       "if ((random 10) > 8) then // chance of something more interesing going on..." \n
        "{" \n
        "	_d = chopper distance (_this select 1);" \n
        "	_r =  (_d) * .007;" \n
        "	_shT = time + 45 + (_r * (random 1)) + (_r * (random 1)); // you may be able to outspeed the event... with luck..." \n
        "	" \n
-       "/*	if (HW_DEBUG) then " \n
-       "	{" \n
-       "		titleText [ format [""Murphy Effect Timer Set to %1\n\n distance: %2\n delta: 45 -- %3 \n\nDEBUG: Call Code-C to expedite"", _shT - time, _d, _r], ""PLAIN DOWN""];" \n
-       "	};" \n
-       "*/" \n
        "" \n
+       "//	if (HW_DEBUG) then " \n
+       "//	{" \n
+       "//		titleText [ format [""Murphy Effect Timer Set to %1\n\n distance: %2\n delta: 45 -- %3 \n\nDEBUG: Call Code-C to expedite"", _shT - time, _d, _r], ""PLAIN DOWN""];" \n
+       "//	};" \n
        "};" \n
        "" \n
        "" \n

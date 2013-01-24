@@ -292,7 +292,6 @@ player execFSM "HW_Dispatch_Gen.fsm";
 
 //
 //
-#include <Hangar\arrayDefs.h>
 
 if (HW_DEBUG) then // enabled only for debug!
 {

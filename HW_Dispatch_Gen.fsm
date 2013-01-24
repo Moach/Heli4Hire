@@ -13,7 +13,7 @@ item8[] = {"able",4,250,-98.145470,1853.704956,-46.985928,1892.461670,0.000000,"
 item9[] = {"commit",4,250,-170.418686,1666.294556,-80.418716,1716.294434,1.000000,"commit"};
 item10[] = {"",7,250,26.274055,1355.922485,34.274055,1363.922485,0.000000,""};
 item11[] = {"clear_all_tasks",2,250,-272.346069,1331.603149,-182.345932,1381.603149,0.000000,"clear" \n "all tasks"};
-item12[] = {"enable__commit",4,4346,256.241119,1749.865234,363.828186,1817.277710,0.000000,"enable " \n "commit"};
+item12[] = {"enable__commit",4,250,256.241119,1749.865234,363.828186,1817.277710,0.000000,"enable " \n "commit"};
 item13[] = {"commited",2,250,-164.925919,1578.463745,-84.335121,1631.923462,0.000000,"commited"};
 item14[] = {"",7,250,-285.113708,1601.073730,-277.113708,1609.073730,0.000000,""};
 item15[] = {"",7,250,-285.499390,1771.990601,-277.499359,1779.990601,0.000000,""};
@@ -21,7 +21,7 @@ item16[] = {"",7,250,44.181416,1717.084961,52.181408,1725.084961,0.000000,""};
 item17[] = {"busy",4,250,-117.291153,2031.401123,-27.291138,2081.400879,0.000000,"busy"};
 item18[] = {"",7,250,-308.841949,2051.212891,-300.841949,2059.212402,0.000000,""};
 item19[] = {"",7,250,-308.643005,1676.538452,-300.643005,1684.538452,0.000000,""};
-item20[] = {"unfit",4,250,-14.722290,1239.299927,75.277405,1289.299927,0.000000,"unfit"};
+item20[] = {"unfit",4,4346,-14.722290,1239.299927,75.277405,1289.299927,0.000000,"unfit"};
 item21[] = {"unfit_fail",4,250,-162.388809,1485.063354,-86.336945,1521.795776,2.000000,"unfit" \n "fail"};
 item22[] = {"epic_un_fail",4,250,-107.594162,1412.468994,-17.594273,1454.678955,0.000000,"epic un-fail"};
 item23[] = {"go__",0,250,-208.633484,1182.004150,-118.633423,1232.004150,0.000000,"go!" \n ""};
@@ -82,7 +82,7 @@ link44[] = {30,31};
 link45[] = {31,0};
 link46[] = {32,30};
 globals[] = {0.000000,0,0,0,0,640,480,3,75,6316128,1,-505.455139,337.558044,2201.033936,1024.239380,591,825,1};
-window[] = {0,-1,-1,-1,-1,978,53,1471,39,1,609};
+window[] = {0,-1,-1,-1,-1,973,97,1515,34,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -298,11 +298,11 @@ class FSM
           priority = 0.000000;
           to="off_duty_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"RadioCall_A && _fail;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_A && _fail && !(chopper lockedCargo 0); // if cargo is locked, you cannot take passengers, so nobody cares if the cabin is filthy"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"RadioCall_A = false;" \n
            "_fail = true;" \n
            "" \n
-           "hint ""The state of your cabin is not up to standards for taking on assignments, clean it up first!"";"/*%FSM</ACTION""">*/;
+           "hint ""This dirty state of your cabin ain't up to standards for taking on assignments where people would sit in it!\nBack to base and clean it up first!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "epic_un_fail">*/
@@ -420,12 +420,12 @@ class FSM
           priority = 2.000000;
           to="clear_all_tasks";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"Heli_Cabin_Condition < .6;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"1 setRadioMsg ""NULL"";" \n
-           "2 setRadioMsg ""NULL"";" \n
-           "" \n
-           "_fail = true;" \n
+          condition=/*%FSM<CONDITION""">*/"Heli_Cabin_Condition < .6 && !(chopper lockedCargo 0);" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_fail = true;" \n
            "Pilot_Commited = false;" \n
+           "" \n
+           "" \n
            ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
