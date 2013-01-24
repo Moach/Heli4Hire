@@ -21,7 +21,9 @@ class HW_Airframe_Base
 	
 	class Components {};
 	
+	
 	onAirframeCapsInit=""; // code to run at initialization time to setup the basic features needed to determine what this bird can do (runs before hardware init, defines basic-only capabilities)
+	class Capabilities {};
 };
 
 
@@ -30,7 +32,7 @@ class HW_Hardware_Base
 	ident="generic thingumabob";                     // abbridged item name shown on inventory listings
 	fullName="general generics thingummabob pro";    // full item name with all the bells and whistles
 	desc="a thing that probably does something";	 // description of the thing (ideally make it kinda funny)
-	serialTag="SN-";                                 // tag prefixing unique part designation strings
+	serialTag="SN-0";                                // tag prefixing unique part designation strings
 	
 	icon="";                // icon shown on listings
 	picture="";             // larger image shown with expanded information
@@ -49,7 +51,6 @@ class HW_Hardware_Base
 	repairLevel=1;      // feasibility of maintenace work being peformed to such level of success - 1= fully repairable, .5= can be fix to half as good, 0= must replace
 	repairCost=2;       // cost of maintenance at full damage -- may exceed cost of new part, making it a total loss... then seen as a negative-valued item
 	repairFail=0;       // a point on damage scale where the feasibility of repair becomes zero (does NOT factor into cost)
-	
 };
 
 
@@ -90,9 +91,7 @@ class HW_Hdwr_2_Heli_Base
 	
 	vulnerability=0;    // scalar determining how much damage from the hitpoint translates into more permanent component damage (with unmanipulated value)
 	wearFactor=0;       // scalar for wear-induced damage from flying hours (should be low) 
-	
+	criticalWear=.5;    // level of damage where the component becomes critically impaired for use on this airframe (or maybe even at all...)
 };
-
-
 
 

@@ -50,7 +50,7 @@
 
 
 
-HW_DEBUG = false; // master debug flag -- DO NOT commit to master when enabled
+HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 
 
@@ -107,7 +107,9 @@ sleep 1;
 
 deleteVehicle nearestObject [(getPos start_here), "air"]; // remove medium helicopter in the hangar that comes with the object composition...
 
-
+HW_defTsk_rtb = player createSimpleTask [" -- Return To Heliport"];
+HW_defTsk_rtb setSimpleTaskDescription ["Set your heading back to base.", " -- Return To Heliport", "Your Heliport"];
+HW_defTsk_rtb setSimpleTaskDestination (getPos pad_A);
 
 
 if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
@@ -143,6 +145,8 @@ player addAction ["Access Hangar", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false,
 RopeAttached = false;
 SlingLoadCgo = ObjNull;
 SlingLoadLen = 0;
+SlingRopeDiscn_Action_H=-1;
+SlingRopeDiscn_Action_C=-1;
 
 Heli_Has_Obstruction = false; // or is it?
 Heli_Hint_On_Fail = false;

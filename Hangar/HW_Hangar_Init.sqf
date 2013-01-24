@@ -1,5 +1,5 @@
 
-
+#include <arrayDefs.h>
 
 HW_Hgr_WorkStandards = [5, 5, 10];
 //
@@ -27,10 +27,8 @@ HW_Hgr_HangarSpot = [objNull, objNull]; // chopper in hangar, reference to pad (
 	[3] int        index for installed component where attached- as found in _heli getVariable "HW_Components"; - irrelevant if part is in hangar...
 	[4] float      hours logged with this item
 	[5] float      damage sustained by item
-	[6] bool       is minimal spec item
-	[7] bool       is it safe to fly without
-	[8] string     unique part identification tag
-	[9] int 	   index of self in hangar list (updated dynamically with list)
+	[6] string     unique part identification tag
+	[7] int 	   index of self in hangar list (updated dynamically with list)
 	
 	
 	...later on we add cost and time for repairs to complete, making the notion of having spare parts around a very good idea for the chronologically-impaired
@@ -50,8 +48,6 @@ HW_Fn_getComponentItem =
 		-1, 
 		0.0, 
 		0.0,
-		false,
-		false,
 		format ["#%1%2  :  %3", getText (_hdwr >> "serialTag"), _sNum, getText( _hdwr >> "ident") ],
 		-1
 	]
@@ -99,31 +95,32 @@ HW_Fx_InitChopper =
 		
 		HW_Hgr_SerialTag = HW_Hgr_SerialTag+1;
 		_item = [_hdwr, HW_Hgr_SerialTag] call HW_Fn_getComponentItem;
-		
-		
 		HW_Hgr_Inventory set [(count HW_Hgr_Inventory), _item]; 
 		
 		if (getNumber(_cp >> "minimalSpec") > 0) then
 		{
-			_item set [6, true];
+			
 			//
-			_item set [1, true];
-			_item set [2, _this];
-			_item set [3, _n];
+			_item set [ITEM_isInstalled, true];
+			_item set [ITEM_installHeli, _this];
+			_item set [ITEM_instSlotIdx, _n];
 			
 			/*
 				component slots list has:     
 				
 				[0] config   ref to component binding cfg,
 				[1] config   bound hardware class
-				[2] bool     installed flag, 
-				[3] array    installed item data, 
-				[4] int 	 index of self in list
+				[2] bool     installed flag
+				[3] array    installed item data
+				[4] int 	 index of self in components list
+				[5] string   damage source
+				[6] bool     minimal spec (comes with helicopter)
+				[7] bool     safe to fly without or damaged
 			*/
-			_slots set [_n, [ _cp, _hdwr, true, _item, _n]]; 
+			_slots set [_n, [ _cp, _hdwr, true, _item, _n, getText( _cp >> "damageSource"), true, getNumber(_cp >> "minimalSafe") > 0]];
 		} else
 		{
-			_slots set [_n, [ _cp, _hdwr,false, [], _n]];
+			_slots set [_n, [ _cp, _hdwr, false, [], _n, getText( _cp >> "damageSource"),  false, getNumber(_cp >> "minimalSafe") > 0]];
 		};
 	};
 	
@@ -132,7 +129,7 @@ HW_Fx_InitChopper =
 	_this setVariable ["HW_ExtraWeight", 0];
 	_this lockCargo true;
 	
-	hint format ["Chopper Init: %1 Components", count _slots];
+    //	hint format ["Chopper Init: %1 Components", count _slots];
 };
 
 
@@ -149,11 +146,11 @@ HW_Fs_AttachComponent =
 	{
 		_dep = _x;
 		{
-			if ( !(_x select 2) && configName (_x select 0) == _dep ) then
+			if ( !(_x select SLOT_isInstalled) && configName (_x select SLOT_ComponentCfg) == _dep ) then
 			{
 				// not clear! -- we have a missing dependency for this!
 				_fail=true;
-				_problems set [count _problems, getText((_x select 0) >> "slotIdent")];
+				_problems set [count _problems, getText((_x select SLOT_ComponentCfg) >> "slotIdent")];
 			};
 		} foreach (_heli getVariable "HW_ComponentSlots");
 		
@@ -168,13 +165,13 @@ HW_Fs_AttachComponent =
 	{
 		_con = _x;
 		{
-			if ( (_x select 2) && configName (_x select 0) == _con ) then
+			if ( (_x select SLOT_isInstalled) && configName (_x select SLOT_ComponentCfg) == _con ) then
 			{
 				_fail=true;
-				_problems set [count _problems, getText((_x select 0) >> "slotIdent")];
+				_problems set [count _problems, getText((_x select SLOT_ComponentCfg) >> "slotIdent")];
 			};
 		} foreach (_heli getVariable "HW_ComponentSlots");
-	} foreach getArray((_slot select 0) >> "conflictItems");
+	} foreach getArray((_slot select SLOT_ComponentCfg) >> "conflictItems");
 	if (_fail) exitWith 
 	{
 		//
@@ -183,21 +180,33 @@ HW_Fs_AttachComponent =
 	
 	
 	
-	_item set [1, true];
-	_item set [2, _heli];
-	_item set [3, (_slot select 4)];
+	_item set [ITEM_isInstalled, true];
+	_item set [ITEM_installHeli, _heli];
+	_item set [ITEM_instSlotIdx, (_slot select SLOT_installIndex)];
 	
-	_slot set [2, true]; // installed now!
-	_slot set [3, _item];
+	_slot set [SLOT_isInstalled, true]; // installed now!
+	_slot set [SLOT_ITEM_struct, _item];
 	
-	_itemMass = getNumber((_item select 0) >> "itemMass");
+	_itemMass = getNumber((_item select ITEM_HardwareCfg) >> "itemMass");
 	_xtraMass = (_heli getVariable "HW_ExtraWeight") + _itemMass;
 	_heli setCustomWeightRTD _xtraMass;
 	_heli setVariable ["HW_ExtraWeight", _xtraMass];
 	
 	// ok, here we go...
-	_installCode = compile getText ((_slot select 0) >> "onItemInstall");
+	_installCode = compile getText ((_slot select SLOT_ComponentCfg) >> "onItemInstall");
 	_heli call _installCode;
+	
+	
+	
+	_item set [ITEM_damageLevel, 0]; // damage to zero on install... since we don't really have any better way to fix things yet...
+	if ((_slot select SLOT_damageSource) != "") then
+	{
+		_heli setHitpointDamage [(_slot select SLOT_damageSource), 0];
+	};
+	
+	
+	_repairCode = compile getText ((_slot select SLOT_ComponentCfg) >> "onItemRepair"); 
+	_heli call _repairCode;
 	
 	("ok")
 	
@@ -211,22 +220,22 @@ HW_Fs_DetachComponent =
 {
 	_heli = _this select 0;
 	_slot = _this select 1;
-	_item = _slot select 3;
+	_item = _slot select SLOT_ITEM_struct;
 	
 	// look for components that may have this as a requirement
 	_fail=false;
 	_rqrdBy=[];
 	{
 		_cpSlot = _x;
-		if (_cpSlot select 2) then
+		if (_cpSlot select SLOT_isInstalled) then
 		{
 			{
-				if ( configName(_slot select 0) == _x ) then // something else needs this installed...
+				if ( configName(_slot select SLOT_ComponentCfg) == _x ) then // something else needs this installed...
 				{
 					_fail=true;
-					_rqrdBy set [(count _rqrdBy), getText((_cpSlot select 0) >> "slotIdent")];
+					_rqrdBy set [(count _rqrdBy), getText((_cpSlot select SLOT_ComponentCfg) >> "slotIdent")];
 				};
-			} foreach getArray((_cpSlot select 0) >> "requiredItems");
+			} foreach getArray((_cpSlot select SLOT_ComponentCfg) >> "requiredItems");
 		};
 	} foreach (_heli getVariable "HW_ComponentSlots");
 	if (_fail) exitWith 
@@ -235,19 +244,19 @@ HW_Fs_DetachComponent =
 	};
 	
 	
-	_item set [1, false];
-	_item set [2, objNull];
-	_item set [3, -1];
+	_item set [ITEM_isInstalled, false];
+	_item set [ITEM_installHeli, objNull];
+	_item set [ITEM_instSlotIdx, -1];
 	
-	_slot set [2, false]; // ...and now it's out!
-	_slot set [3, []];
+	_slot set [SLOT_isInstalled, false]; // ...and now it's out!
+	_slot set [SLOT_ITEM_struct, []];
 	
-	_itemMass = getNumber((_item select 0) >> "itemMass");
+	_itemMass = getNumber((_item select ITEM_HardwareCfg) >> "itemMass");
 	_xtraMass = (_heli getVariable "HW_ExtraWeight") - _itemMass;
 	_heli setCustomWeightRTD _xtraMass;
 	_heli setVariable ["HW_ExtraWeight", _xtraMass];
 	
-	_removeCode = compile getText ((_slot select 0) >> "onItemRemove");
+	_removeCode = compile getText ((_slot select SLOT_ComponentCfg) >> "onItemRemove");
 	_heli call _removeCode;
 	
 	("ok")
@@ -256,7 +265,46 @@ HW_Fs_DetachComponent =
 
 
 
-
+HW_Fn_checkClear4Flight = 
+{
+	_fail=false;
+	_holdOn=[];
+	{
+		_item=(_x select SLOT_ITEM_struct);
+		if (_x select SLOT_isInstalled) then // item is installed...
+		{
+			_critical = getNumber((_x select SLOT_ComponentCfg) >> "criticalWear");
+			
+			if ((_item select ITEM_damageLevel) > _critical) then
+			{
+				if ((_x select SLOT_minimalSpec) || !(_x select SLOT_minimalSafe)) then // badly damaged critical and/or minimal-spec component
+				{
+					_fail=true;
+					_holdOn set [count _holdOn, format getText((_x select SLOT_ComponentCfg) >> "slotIdent")];
+				};
+			};
+			
+		} else 
+		{
+			// not installed
+			
+			if ((_x select SLOT_minimalSpec) || !(_x select SLOT_minimalSafe)) then // missing critical and/or minimal-spec component
+			{
+				_fail=true;
+				_holdOn set [count _holdOn, getText((_x select SLOT_ComponentCfg) >> "slotIdent")];
+			};
+		}
+		
+		
+	} foreach (_heli getVariable "HW_ComponentSlots");
+	
+	if (_fail) exitWith
+	{
+		(format ["Cannot fly with damaged/missing components:\n%1", _holdOn])
+	};
+	
+	("ok")
+};
 
 
 

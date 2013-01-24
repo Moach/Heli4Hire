@@ -28,6 +28,7 @@ SlingLogic = [] spawn
 			// hintSilent " - Sling Rope Released! - ";
 			
 			chopper removeAction SlingRopeDiscn_Action_H;
+			SlingRopeDiscn_Action_H=-1;
 			
 			chopper ropeDetach SlingRope;
 			ropeDestroy SlingRope;
@@ -37,6 +38,8 @@ SlingLogic = [] spawn
 			
 			sleep 2;
 			RopeAttached = false;
+			
+			exit;
 		};
 	};
 };

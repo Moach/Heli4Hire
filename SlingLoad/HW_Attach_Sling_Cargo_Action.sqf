@@ -9,7 +9,7 @@ playSound "FX_Rope_Connect";
 
 sleep 2;
 
-SlingRope = ropeCreate [chopper, "slingload0", SlingLoadCgo, [0, .32, 0], round(SlingLoadLen * 3), SlingLoadLen, true];
+SlingRope = ropeCreate [chopper, "slingload0", SlingLoadCgo, [0, .35, 0], round(SlingLoadLen * 3), SlingLoadLen, true];
 ropeSetCargoMass [SlingRope, SlingLoadCgo, _mass];
 
 RopeAttached = true;
@@ -35,6 +35,9 @@ SlingLogic = [] spawn
 			chopper      removeAction SlingRopeDiscn_Action_H;
 			SlingLoadCgo removeAction SlingRopeDiscn_Action_C;
 			
+			SlingRopeDiscn_Action_H=-1;
+			SlingRopeDiscn_Action_C=-1;
+			
 			chopper ropeDetach SlingRope;
 			ropeDestroy SlingRope;
 			SlingRope = nil;
@@ -46,6 +49,9 @@ SlingLogic = [] spawn
 			
 			SlingLoadCgo = objNull;
 			RopeAttached = false;
+			
+			
+			exit;
 		};
 	};
 };
