@@ -176,7 +176,7 @@ chopper addAction ["Tidy Up Cabin", "HW_Cabin_Cleanup.sqf", nil, 0, false, true,
 DisasterEvent = ""; // for now...
 
 
-
+chopper addAction ["DME Check", "HW_DMECheck.sqf", nil, 100, false, true, "MiniMap", "!isNull( currentTask player ) && player in chopper"];
 
 
 

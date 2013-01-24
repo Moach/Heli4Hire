@@ -214,8 +214,8 @@ link121[] = {84,86};
 link122[] = {85,53};
 link123[] = {86,87};
 link124[] = {87,85};
-globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-26.842382,718.302124,2642.933594,1707.744629,694,871,1};
-window[] = {0,-1,-1,-1,-1,1028,154,1657,43,1,712};
+globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-169.643860,575.501099,2557.036621,1621.847656,694,871,1};
+window[] = {0,-1,-1,-32000,-32000,989,235,1738,4,1,712};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1382,8 +1382,8 @@ class FSM
            "};" \n
            "" \n
            "" \n
-           "if (SlingRopeDiscn_Action_H > -1) then { chopper removeAvtion SlingRopeDiscn_Action_H; };" \n
-           "if (SlingRopeDiscn_Action_C > -1) then { SlingLoadCgo removeAvtion SlingRopeDiscn_Action_C; };" \n
+           "if (SlingRopeDiscn_Action_H > -1) then { chopper removeAction SlingRopeDiscn_Action_H; };" \n
+           "if (SlingRopeDiscn_Action_C > -1) then { SlingLoadCgo removeAction SlingRopeDiscn_Action_C; };" \n
            "" \n
            "SlingRopeDiscn_Action_H = chopper      addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 4 && (vehicle player != chopper)""];" \n
            "SlingRopeDiscn_Action_C = SlingLoadCgo addAction [""Disconnect Sling Rope"", ""SlingLoad\HW_Detach_Sling_Cargo_Action.sqf"", nil, 0, true, true, """", ""RopeAttached && (player distance _target) < 2 && (vehicle player != chopper)""];" \n
