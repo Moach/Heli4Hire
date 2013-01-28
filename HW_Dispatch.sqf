@@ -270,20 +270,21 @@ HW_Fx_Dispatch_MEDEVAC =
 {
 	//
 	_pos = [[[_p1, 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
+	_rpp = [(_pos select 0) + (random 500) -250, (_pos select 1) + (random 500) -250]; // report position - often differs from actual location....
 	_hospital = locationPosition ((nearestLocations [_pos, ["heliportHospital", "heliportTrauma"], 25000]) select 0);
 	
 	
 	_mkID = ("MV-"+str(round time));
-	_mkr = createMarker [_mkID, _pos];
+	_mkr = createMarker [_mkID, _rpp];
 	_mkr setMarkerType "hd_destroy";
 	_mkr setMarkerText ("MEDEVAC | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
 	_mkr setMarkerColor "ColorRed";
 	
 	_tsk = player createSimpleTask ["MEDEVAC"];
-	_tsk setSimpleTaskDestination _pos;
+	_tsk setSimpleTaskDestination _rpp;
 	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "MEDEVAC", "Pickup Paramedics"];
 
-	_gig = [_tsk, "HeliWorks_MEDEVAC.fsm", _mkr, time + 100 + random(300), [_hospital, _pos]];
+	_gig = [_tsk, "HeliWorks_MEDEVAC.fsm", _mkr, time + 100 + random(300), [_hospital, _pos, _rpp]];
 	GigLineup set [ count GigLineup, _gig ];
 };
 
