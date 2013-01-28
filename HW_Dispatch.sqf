@@ -230,14 +230,16 @@ HW_Fx_Dispatch_Cargo =
 
 HW_Fx_Dispatch_MSAR = 
 {
-	_zoneTrg = (units marine_area_logic) call bis_fnc_selectRandom; // select area at random...
+	_zoneTrg = ((synchronizedObjects marine_area_logic) call bis_fnc_selectRandom); // select area at random...
+	hint (vehicleVarName _zoneTrg);
+	
 	_area = triggerArea _zoneTrg;
 	_rpos = getPos _zoneTrg; // reference 'last known' position for search efforts
 	
-	_rpos set [0, (_pos select 0) + random ( ((triggerArea select 0)* 2) - (triggerArea select 0) )];
-	_rpos set [1, (_pos select 1) + random ( ((triggerArea select 1)* 2) - (triggerArea select 1) )];
+	_rpos set [0, (_pos select 0) + (random ((_area select 0)* 2) ) - (_area select 0)];
+	_rpos set [1, (_pos select 1) + (random ((_area select 1)* 2) ) - (_area select 1)];
 	
-	_mkID = ("M-"+str(round time));
+	_mkID = ("MS-"+str(round time));
 	_mkr = createMarker [_mkID, _rpos];
 	_mkr setMarkerType "mil_unknown";
 	_mkr setMarkerText ("SAR | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
@@ -248,8 +250,8 @@ HW_Fx_Dispatch_MSAR =
 	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Marine SAR", "Last known vessel location"];
 	
 	_pos = getPos _zoneTrg; // actual vessel location...
-	_pos set [0, (_pos select 0) + random ( ((triggerArea select 0)* 2) - (triggerArea select 0) )];
-	_pos set [1, (_pos select 1) + random ( ((triggerArea select 1)* 2) - (triggerArea select 1) )];
+	_pos set [0, (_pos select 0) + (random ((_area select 0)* 2) ) - (_area select 0)];
+	_pos set [1, (_pos select 1) + (random ((_area select 1)* 2) ) - (_area select 1)];
 	
 	_gig = [_tsk, "HeliWorks_MarineSAR.fsm", _mkr, time + 100 + random(300), [_rpos, _pos]];
 	GigLineup set [ count GigLineup, _gig ];
@@ -259,6 +261,43 @@ HW_Fx_Dispatch_MSAR =
 
 
 
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // MEDEVAC
+
+HW_Fx_Dispatch_MEDEVAC = 
+{
+	//
+	_pos = [[[_p1, 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
+	_hospital = locationPosition ((nearestLocations [_pos, ["heliportHospital", "heliportTrauma"], 25000]) select 0);
+	
+	
+	_mkID = ("MV-"+str(round time));
+	_mkr = createMarker [_mkID, _pos];
+	_mkr setMarkerType "hd_destroy";
+	_mkr setMarkerText ("MEDEVAC | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	_mkr setMarkerColor "ColorRed";
+	
+	_tsk = player createSimpleTask ["MEDEVAC"];
+	_tsk setSimpleTaskDestination _pos;
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "MEDEVAC", "Pickup Paramedics"];
+
+	_gig = [_tsk, "HeliWorks_MEDEVAC.fsm", _mkr, time + 100 + random(300), [_hospital, _pos]];
+	GigLineup set [ count GigLineup, _gig ];
+};
+
+
+
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // ...and the rest of it...
 
 
 HW_Fx_Pilot_Task_Commit = 
@@ -382,7 +421,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Fx_Dispatch_MSAR;
+		call HW_Fx_Dispatch_MEDEVAC;
 		
 		RadioCall_J = false;
 	};

@@ -66,6 +66,27 @@ class CfgPatches
 	};
 };
 
+
+class Empty;
+class CfgLocationTypes
+{
+	class HW_Area_MSAR : Empty {};
+	class HW_Area_LSAR : Empty {};
+	
+	class HW_HPad_Police : Empty {};
+	class HW_HPad_FireDept : Empty {};
+	class HW_HPad_Medical : Empty {};
+	//
+	class HW_HPad_Emergency : Empty {};
+	
+	class HW_Cargo_Tower : Empty {};
+	class HW_Cargo_Base : Empty {};
+};
+
+
+
+
+
 class RotorLibHelicopterProperties;
 class SoundsExt;
 class AnimationSources;
