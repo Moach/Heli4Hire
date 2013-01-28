@@ -329,7 +329,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					text="MSAR_logic_hub";
+					text="marine_area_logic";
 				};
 			};
 		};

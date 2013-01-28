@@ -214,7 +214,7 @@ HW_Fx_Dispatch_Cargo =
 	
 	_order = [_basePos, _twrPos, _baseCargo, _towerCargo];
 	
-	_gig = [_tsk, "HeliWorks_Cargo.fsm", _mkID, time + 60 + random(500), [_crewPos, _order] ];
+	_gig = [_tsk, "HeliWorks_Cargo.fsm", _mkID, time + 90 + random(500), [_crewPos, _order] ];
 	GigLineup set [ count GigLineup, _gig ];
 };
 
@@ -230,12 +230,29 @@ HW_Fx_Dispatch_Cargo =
 
 HW_Fx_Dispatch_MSAR = 
 {
+	_zoneTrg = (units marine_area_logic) call bis_fnc_selectRandom; // select area at random...
+	_area = triggerArea _zoneTrg;
+	_rpos = getPos _zoneTrg; // reference 'last known' position for search efforts
 	
+	_rpos set [0, (_pos select 0) + random ( ((triggerArea select 0)* 2) - (triggerArea select 0) )];
+	_rpos set [1, (_pos select 1) + random ( ((triggerArea select 1)* 2) - (triggerArea select 1) )];
 	
+	_mkID = ("M-"+str(round time));
+	_mkr = createMarker [_mkID, _rpos];
+	_mkr setMarkerType "mil_unknown";
+	_mkr setMarkerText ("SAR | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	_mkr setMarkerColor "ColorRed";
 	
+	_tsk = player createSimpleTask ["Marine SAR"];
+	_tsk setSimpleTaskDestination _rpos;
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Marine SAR", "Last known vessel location"];
 	
+	_pos = getPos _zoneTrg; // actual vessel location...
+	_pos set [0, (_pos select 0) + random ( ((triggerArea select 0)* 2) - (triggerArea select 0) )];
+	_pos set [1, (_pos select 1) + random ( ((triggerArea select 1)* 2) - (triggerArea select 1) )];
 	
-	
+	_gig = [_tsk, "HeliWorks_MarineSAR.fsm", _mkr, time + 100 + random(300), [_rpos, _pos]];
+	GigLineup set [ count GigLineup, _gig ];
 };
 
 
@@ -365,7 +382,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Fx_Dispatch_Cargo;
+		call HW_Fx_Dispatch_MSAR;
 		
 		RadioCall_J = false;
 	};
