@@ -83,7 +83,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
 			side="LOGIC";
@@ -312,6 +312,24 @@ class Mission
 					skill=0.60000002;
 					text="hangar_area";
 					init="this setposATL [getpos this select 0, getpos this select 1, 0]; ";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={23497.582,0.33786002,31771};
+					id=3077;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					text="MSAR_logic_hub";
 				};
 			};
 		};
@@ -36491,7 +36509,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=12;
+		items=53;
 		class Item0
 		{
 			position[]={27903.102,0.27171862,29898.475};
@@ -36678,6 +36696,576 @@ class Mission
 			name="comp_setup_area";
 			expCond="this && HW_DEBUG";
 			expActiv="player addAction [""Copy Composition Data"", ""Comps\Compilationer.sqf"", [this, 30]];";
+			class Effects
+			{
+			};
+		};
+		class Item12
+		{
+			position[]={22399.307,0.38221222,41189.738};
+			a=3000;
+			b=3000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_1";
+			class Effects
+			{
+			};
+		};
+		class Item13
+		{
+			position[]={24290.396,0.088489383,44996.18};
+			a=3000;
+			b=3000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_2";
+			class Effects
+			{
+			};
+		};
+		class Item14
+		{
+			position[]={23163.779,0.62125325,32234.563};
+			a=3000;
+			b=3000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1";
+			class Effects
+			{
+			};
+		};
+		class Item15
+		{
+			position[]={23391.574,0.55858135,23112.998};
+			a=2500;
+			b=2500;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3";
+			class Effects
+			{
+			};
+		};
+		class Item16
+		{
+			position[]={22576.443,0.53642088,26300.955};
+			a=2500;
+			b=2500;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_1";
+			class Effects
+			{
+			};
+		};
+		class Item17
+		{
+			position[]={24790.229,0.62040454,18317.59};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2";
+			class Effects
+			{
+			};
+		};
+		class Item18
+		{
+			position[]={26425.932,0.15525019,15643.96};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_1";
+			class Effects
+			{
+			};
+		};
+		class Item19
+		{
+			position[]={26506.975,0.66406858,12179.42};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_2";
+			class Effects
+			{
+			};
+		};
+		class Item20
+		{
+			position[]={27884.688,0.43652636,10153.377};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_3";
+			class Effects
+			{
+			};
+		};
+		class Item21
+		{
+			position[]={24531.08,0.21587303,21028.645};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4";
+			class Effects
+			{
+			};
+		};
+		class Item22
+		{
+			position[]={23082.959,0.093427412,29684.443};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_5";
+			class Effects
+			{
+			};
+		};
+		class Item23
+		{
+			position[]={21392.408,0.11064104,36206.578};
+			a=1800;
+			b=1800;
+			interruptable=1;
+			age="UNKNOWN";
+			name="msar_1_3_2_6";
+			class Effects
+			{
+			};
+		};
+		class Item24
+		{
+			position[]={22029.422,0.088005453,38882.684};
+			a=1800;
+			b=1800;
+			interruptable=1;
+			age="UNKNOWN";
+			name="msar_1_3_2_7";
+			class Effects
+			{
+			};
+		};
+		class Item25
+		{
+			position[]={19861.555,0.22619422,44251.707};
+			a=1800;
+			b=1800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_8";
+			class Effects
+			{
+			};
+		};
+		class Item26
+		{
+			position[]={17430.297,0.46814573,44393.527};
+			a=1400;
+			b=1400;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_9";
+			class Effects
+			{
+			};
+		};
+		class Item27
+		{
+			position[]={23646.643,0.40197369,50014.254};
+			a=2500;
+			b=2500;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_2_1";
+			class Effects
+			{
+			};
+		};
+		class Item28
+		{
+			position[]={20414.377,0.419254,21486.754};
+			a=800;
+			b=800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1";
+			class Effects
+			{
+			};
+		};
+		class Item29
+		{
+			position[]={19443.738,0.65779948,26067.027};
+			a=1200;
+			b=1200;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_1";
+			class Effects
+			{
+			};
+		};
+		class Item30
+		{
+			position[]={17728.381,0.41750723,25253.555};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_2";
+			class Effects
+			{
+			};
+		};
+		class Item31
+		{
+			position[]={17410.164,0.44846806,23398.102};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_3";
+			class Effects
+			{
+			};
+		};
+		class Item32
+		{
+			position[]={36393.563,0.53962922,30049.631};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_4";
+			class Effects
+			{
+			};
+		};
+		class Item33
+		{
+			position[]={36970.855,0.45655105,33023.27};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_5";
+			class Effects
+			{
+			};
+		};
+		class Item34
+		{
+			position[]={36702.691,0.37056911,31664.154};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_6";
+			class Effects
+			{
+			};
+		};
+		class Item35
+		{
+			position[]={37051.426,0.3677808,34249.699};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_7";
+			class Effects
+			{
+			};
+		};
+		class Item36
+		{
+			position[]={37251.574,0.41399509,35617.355};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_8";
+			class Effects
+			{
+			};
+		};
+		class Item37
+		{
+			position[]={38071.559,0.56715751,37142.5};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_9";
+			class Effects
+			{
+			};
+		};
+		class Item38
+		{
+			position[]={39284.113,0.23526587,38552.379};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_10";
+			class Effects
+			{
+			};
+		};
+		class Item39
+		{
+			position[]={37665.398,0.35062337,31353.367};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_11";
+			class Effects
+			{
+			};
+		};
+		class Item40
+		{
+			position[]={20828.287,0.66790414,30431.98};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_12";
+			class Effects
+			{
+			};
+		};
+		class Item41
+		{
+			position[]={23403.641,0.34781325,35472.086};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_13";
+			class Effects
+			{
+			};
+		};
+		class Item42
+		{
+			position[]={25017.242,0.41232693,29920.727};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_14";
+			class Effects
+			{
+			};
+		};
+		class Item43
+		{
+			position[]={11851.477,0.24190705,39046.418};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_15";
+			class Effects
+			{
+			};
+		};
+		class Item44
+		{
+			position[]={27212.68,0.14637642,17345.229};
+			a=1400;
+			b=1400;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_16";
+			class Effects
+			{
+			};
+		};
+		class Item45
+		{
+			position[]={19436.955,0.022455141,18098.385};
+			a=800;
+			b=800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_17";
+			class Effects
+			{
+			};
+		};
+		class Item46
+		{
+			position[]={4605.9277,0.38035592,32591.439};
+			a=800;
+			b=800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_18";
+			class Effects
+			{
+			};
+		};
+		class Item47
+		{
+			position[]={4781.2393,0.33358184,33834.559};
+			a=800;
+			b=800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_18_1";
+			class Effects
+			{
+			};
+		};
+		class Item48
+		{
+			position[]={23672.4,0.44225907,54704.477};
+			a=2800;
+			b=2800;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_2_1_1";
+			class Effects
+			{
+			};
+		};
+		class Item49
+		{
+			position[]={21621.459,0.094417572,22028.434};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_19";
+			class Effects
+			{
+			};
+		};
+		class Item50
+		{
+			position[]={21480.914,0.26334715,52057.844};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_13_1";
+			class Effects
+			{
+			};
+		};
+		class Item51
+		{
+			position[]={25811.541,0.29162571,47601.438};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_13_2";
+			class Effects
+			{
+			};
+		};
+		class Item52
+		{
+			position[]={25236.518,0.57213229,52093.789};
+			a=1000;
+			b=1000;
+			activationBy="VEHICLE";
+			interruptable=1;
+			age="UNKNOWN";
+			idVehicle=3077;
+			name="msar_1_3_2_4_1_13_3";
 			class Effects
 			{
 			};
