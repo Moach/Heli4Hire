@@ -94,6 +94,23 @@ MoveDefs_Women_Idle =
 ];
 
 
+
+
+MoveDefs_Men_Victim = 
+[
+	"AdthPercMstpSnonWnonDnon_1",
+	"AdthPercMstpSnonWnonDnon_2",
+	"AdthPercMstpSnonWnonDnon_3"
+];
+
+
+MoveDefs_Women_Victim = 
+[
+	"AdthPsitMstp_Death1",
+	"AdthPsitMstp_Death2",
+	"AdthPsitMstp_Death3"
+];
+
 /*
 	
 ["NavigationHeli"]

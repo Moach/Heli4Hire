@@ -183,7 +183,6 @@ chopper addAction ["DME Check", "HW_DMECheck.sqf", nil, 100, false, true, "MiniM
 sleep 1;
 
 
-
 	
 rtLogCount = count PosDefs_roofTops;	
 lzLogCount = count PosDefs_landings;	

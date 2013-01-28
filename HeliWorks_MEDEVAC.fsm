@@ -7,13 +7,13 @@ item2[] = {"avail",4,218,-65.980400,1358.546631,24.019554,1408.546631,0.000000,"
 item3[] = {"land",4,218,-66.343620,1658.146484,23.657112,1708.146484,1.000000,"land"};
 item4[] = {"pickup",2,250,-65.794060,1454.439941,24.205971,1504.439941,0.000000,"pickup"};
 item5[] = {"now_boarding___",2,250,-71.976372,1736.639282,29.870277,1785.454590,0.000000,"now boarding..."};
-item6[] = {"timeout",4,218,-168.314026,1706.460693,-78.313774,1756.460693,0.000000,"timeout"};
+item6[] = {"timeout",4,218,-168.314026,1706.460693,-78.313774,1758.390503,0.000000,"timeout"};
 item7[] = {"running_late",4,218,54.459038,1454.678955,144.459015,1504.678955,1.000000,"running late"};
 item8[] = {"you_re_late",2,250,61.753151,1528.262817,137.611343,1577.107788,0.000000,"you're late"};
 item9[] = {"too_late",4,218,178.255707,1528.489014,268.255707,1578.489014,2.000000,"too late"};
 item10[] = {"you_fucked_it",1,250,328.379639,1528.117798,418.379669,1578.117798,0.000000,"you fucked it"};
 item11[] = {"all_aboard",4,218,-217.069000,1734.886841,-127.068443,1784.886841,0.000000,"all aboard"};
-item12[] = {"go_fly_",2,4346,-182.952255,1856.176880,-119.016579,1920.904785,0.000000,"go fly!"};
+item12[] = {"go_fly_",2,250,-182.952255,1856.176880,-119.016579,1920.904785,0.000000,"go fly!"};
 item13[] = {"abort_pickup",4,218,-135.410370,1527.741333,-45.410606,1577.741333,2.000000,"abort" \n "pickup"};
 item14[] = {"quit",1,250,-271.536774,1527.730957,-181.536591,1577.730957,0.000000,"quit"};
 item15[] = {"_",8,218,-65.777061,1172.329956,24.222921,1222.329956,0.000000,""};
@@ -24,14 +24,19 @@ item19[] = {"clear",1,250,256.783844,2329.244385,346.784180,2379.244385,0.000000
 item20[] = {"fail___abort",4,218,-223.588440,2129.282471,-77.243401,2204.452393,2.000000,"fail / abort"};
 item21[] = {"just_put__it_dow",2,250,-58.466545,2144.084961,22.239462,2192.901123,0.000000,"just put " \n "it down"};
 item22[] = {"land_ASAP",4,218,105.779160,2143.582031,195.779037,2193.578857,0.000000,"land ASAP"};
-item23[] = {"deploy__paramedi",2,250,198.101379,1863.258789,288.101257,1913.258789,0.000000,"deploy " \n "paramedic"};
-item24[] = {"close_enough",4,218,313.122101,1862.292236,403.122101,1912.292603,0.000000,"close" \n "enough"};
-item25[] = {"medic_away_",2,250,313.324707,1933.317261,403.324707,1983.317261,0.000000,"medic away!"};
-item26[] = {"medic_on__scene",4,218,424.849365,1928.797241,530.594971,1988.487061,0.000000,"medic on " \n "scene"};
-item27[] = {"back_to_chopper",2,250,558.421753,1932.597412,648.421753,1982.597900,0.000000,"back to" \n "chopper!"};
+item23[] = {"get_to__accident",2,4346,198.101379,1863.258789,288.101257,1913.258789,0.000000,"get to " \n "accident" \n "area"};
+item24[] = {"close",4,218,313.122101,1862.292236,403.122101,1912.292603,0.000000,"close"};
+item25[] = {"deploy_rescuer",2,250,313.324707,1933.317261,403.324707,1983.317261,0.000000,"deploy" \n "rescuer"};
+item26[] = {"medic_on__scene",4,218,551.798950,1851.229248,657.544495,1910.919067,0.000000,"medic on " \n "scene"};
+item27[] = {"hold_on_",2,250,559.442383,1961.175049,649.442383,2011.175537,0.000000,"hold on!"};
 item28[] = {"all_aboard",4,218,558.804749,2034.618164,648.805298,2084.618164,0.000000,"all aboard"};
-item29[] = {"to_hospital_",2,250,566.772339,2140.924316,656.772339,2190.924316,0.000000,"to hospital!"};
+item29[] = {"to_hospital_",2,250,558.258362,2142.140625,648.258362,2192.140625,0.000000,"to hospital!"};
 item30[] = {"land",4,218,409.941376,2143.063721,499.941376,2193.063721,0.000000,"land"};
+item31[] = {"far",4,218,197.428619,1934.930908,287.428589,1984.930908,0.000000,"far"};
+item32[] = {"away_",4,218,313.780579,2006.375854,403.780579,2056.375977,0.000000,"away!"};
+item33[] = {"stick_around__medic",2,250,429.111877,1932.890381,519.111938,1982.890137,0.000000,"stick around" \n "(medic on" \n " the way)"};
+item34[] = {"tricky_",4,218,709.296936,1961.661499,799.296936,2011.661499,0.000000,"tricky!"};
+item35[] = {"this_is_gonna_be",2,250,709.656616,2229.293945,799.656616,2279.293945,0.000000,"this is gonna" \n "be a while"};
 link0[] = {0,15};
 link1[] = {1,2};
 link2[] = {2,4};
@@ -61,14 +66,21 @@ link25[] = {22,17};
 link26[] = {23,20};
 link27[] = {23,24};
 link28[] = {24,25};
-link29[] = {25,26};
-link30[] = {26,27};
-link31[] = {27,28};
-link32[] = {28,29};
-link33[] = {29,30};
-link34[] = {30,17};
-globals[] = {0.000000,0,0,0,0,640,480,1,34,0,1,-602.336975,804.969238,2739.426025,977.717346,683,855,1};
-window[] = {0,-1,-1,-1,-1,1018,184,1680,49,1,701};
+link29[] = {25,31};
+link30[] = {25,32};
+link31[] = {26,27};
+link32[] = {27,28};
+link33[] = {27,34};
+link34[] = {28,29};
+link35[] = {29,30};
+link36[] = {30,17};
+link37[] = {31,23};
+link38[] = {32,33};
+link39[] = {33,26};
+link40[] = {34,35};
+link41[] = {35,18};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,0,1,-169.643616,757.871948,2702.034912,1540.942749,683,855,1};
+window[] = {0,-1,-1,-1,-1,980,124,1620,11,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -146,9 +158,12 @@ class FSM
        "" \n
        "" \n
        "_grp = [ _pos, side player, [""Rescuer_H""], [[6,-6,0]] ] call BIS_fnc_spawnGroup;" \n
+       "// _pad = nearestObject [_pos, ""Land_Rooftop_Landing_hospital_H""];" \n
        "" \n
        "" \n
-       "{ _x setDir ([_x, _pos] call bis_fnc_dirto); } foreach units _grp;" \n
+       "(leader _grp) setDir ([(leader _grp), _pos] call bis_fnc_dirto);" \n
+       "// (leader _grp) setPosATL (_pad buildingPos 0);" \n
+       "" \n
        "units _grp call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "" \n
@@ -160,8 +175,8 @@ class FSM
        "_t = time + 60 + (_range * .05);" \n
        "" \n
        "_eta =  [daytime + ((_t - time)*28e-5), ""HH:MM""] call bis_fnc_timeToString;" \n
-       "hint format[ ""Got %1 waiting for you, go pick 'em up!\n\n you're %2km's out, arrival expected by %3"", " \n
-       "	count units _grp, round(_range*.01)*.1, _eta];" \n
+       "hintSilent format [ ""Rescue crew on standby!\n\n you're %1km's out, arrival expected by %2"", " \n
+       "	round(_range*.01)*.1, _eta];" \n
        "" \n
        "" \n
        "" \n
@@ -169,10 +184,14 @@ class FSM
        "" \n
        "" \n
        "_vcms = [_this select 1, side player, [(paxDefs_taxi call bis_fnc_SelectRandom)] ] call bis_fnc_spawnGroup;" \n
+       "" \n
+       "" \n
        "{" \n
        "	_x disableAI ""MOVE"";" \n
        "	_x setDamage .25 + (random .65); // somewhere half way to dead " \n
+       "	" \n
        "} foreach (units _vcms);" \n
+       "" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -227,16 +246,20 @@ class FSM
        "_go = false;" \n
        "" \n
        "" \n
-       "// if you're landed at terrain level (not on a rooftop or anything) we can use the regular AI to board the chopper, " \n
-       "// otherwise it's best to warp 'em in lest we get all sorts of pathfinding nonsense..." \n
-       "//" \n
        "" \n
        "PaxBoarded = 0;     // this is used to check passengers boarding without being forced to..." \n
        "(units _grp) call HW_Fx_Util_Animate_Off;" \n
        "" \n
        "" \n
-       "// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader..." \n
-       "// anything over 1m is too much for this - then we use a shorter timeout and don't even bother telling AI to get in..." \n
+       "" \n
+       "" \n
+       "{" \n
+       "	_x assignAsCargo (vehicle player);" \n
+       "} foreach units _grp;" \n
+       "" \n
+       "(leader _grp) assignAsTurret [(vehicle player),[0]]; // override leader to seat in the front" \n
+       "units _grp orderGetIn true;" \n
+       "" \n
        "" \n
        "if ( abs((getPosASL (leader _grp) select 2) - (getPosASL (vehicle player) select 2)) > 1 ) then " \n
        "{" \n
@@ -244,23 +267,6 @@ class FSM
        "" \n
        "} else" \n
        "{" \n
-       "	// put everyone aboard by telling them to like normal people..." \n
-       "	" \n
-       "	{" \n
-       "		_x assignAsCargo (vehicle player);" \n
-       "	} foreach units _grp;" \n
-       "" \n
-       " 	(leader _grp) assignAsTurret [(vehicle player),[0]]; // override leader to seat in the front" \n
-       "	units _grp orderGetIn true;" \n
-       "" \n
-       "	 (vehicle player) addEventHandler [""GetIn"", " \n
-       "	{ " \n
-       "		if (_this select 2 != player) then // YOU don't count!" \n
-       "		{" \n
-       "			PaxBoarded = PaxBoarded +1;" \n
-       "		};" \n
-       "	 }];" \n
-       "" \n
        "	_t = time + 30; // if pax aren't aboard in 30 seconds, that's usually due to some problem, so we force them in" \n
        "};" \n
        "" \n
@@ -402,6 +408,8 @@ class FSM
        "bis_genericSentenceMode =1;" \n
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
+       "_appRange = 1500 + random 1000;" \n
+       "" \n
        "" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -421,10 +429,27 @@ class FSM
         class approach
         {
           priority = 0.000000;
-          to="deploy__paramedi";
+          to="get_to__accident";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _pos < 500;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Ok, we're getting close, the incident was reported at somewhere around this area..."";" \n
+           "" \n
+           "{" \n
+           "	if (_x isKindOf ""Man_Base_H"") then" \n
+           "	{" \n
+           "		_x switchMove ""AinjPpneMstpSnonWnonDnon"";" \n
+           "	} else" \n
+           "	{" \n
+           "		_x switchMove ""AdthPercMstpSnonWnonDnon_1"";" \n
+           "	};" \n
+           "	" \n
+           "} foreach (units _vcms);" \n
+           "" \n
+           "" \n
+           "" \n
+           "   " \n
+           "" \n
+           ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -557,13 +582,10 @@ class FSM
     class clear
     {
       name = "clear";
-      init = /*%FSM<STATEINIT""">*/"{ deleteVehicle _x; } foreach units _grp;" \n
+      init = /*%FSM<STATEINIT""">*/"{ deleteVehicle _x; } foreach (units _grp + units _vcms);" \n
        "deleteGroup _grp;" \n
+       "deleteGroup _vcms;" \n
        "" \n
-       "if (HW_DEBUG) then " \n
-       "{" \n
-       "	3 setRadioMsg ""NULL"";" \n
-       "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -575,8 +597,7 @@ class FSM
     class just_put__it_dow
     {
       name = "just_put__it_dow";
-      init = /*%FSM<STATEINIT""">*/"terminate _steady;" \n
-       "terminate _enrouteLogic;" \n
+      init = /*%FSM<STATEINIT""">*/"" \n
        "2 setRadioMsg ""NULL"";" \n
        "" \n
        "PilotFailFurther = false; // yep - you CAN still make it worse!" \n
@@ -621,10 +642,10 @@ class FSM
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "deploy__paramedi">*/
-    class deploy__paramedi
+    /*%FSM<STATE "get_to__accident">*/
+    class get_to__accident
     {
-      name = "deploy__paramedi";
+      name = "get_to__accident";
       init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -639,55 +660,89 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "close_enough">*/
-        class close_enough
+        /*%FSM<LINK "close">*/
+        class close
         {
           priority = 0.000000;
-          to="medic_away_";
+          to="deploy_rescuer";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _pos < 250;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"// paramedics out!" \n
+           "//" \n
+           "" \n
+           "units _grp orderGetIn false;                      " \n
+           "units _grp allowGetIn false;" \n
+           "" \n
+           "" \n
+           "hintSilent ""Ok, this is close enough!\nSee if you can land somewhere around this area!"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "medic_away_">*/
-    class medic_away_
+    /*%FSM<STATE "deploy_rescuer">*/
+    class deploy_rescuer
     {
-      name = "medic_away_";
-      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      name = "deploy_rescuer";
+      init = /*%FSM<STATEINIT""">*/"" \n
+       "" \n
+       "setRadioMsg 2 ""NULL"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "medic_on__scene">*/
-        class medic_on__scene
+        /*%FSM<LINK "away_">*/
+        class away_
         {
           priority = 0.000000;
-          to="back_to_chopper";
+          to="stick_around__medic";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!((leader _grp) in chopper)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "far">*/
+        class far
+        {
+          priority = 0.000000;
+          to="get_to__accident";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _pos > 400;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "" \n
+           "units _grp allowGetIn true;" \n
+           "units _grp orderGetIn true;" \n
+           "" \n
+           "hintSilent ""Hold on! we're too far away now!\n Try to land closer to the rescue site..."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
     };
     /*%FSM</STATE>*/
-    /*%FSM<STATE "back_to_chopper">*/
-    class back_to_chopper
+    /*%FSM<STATE "hold_on_">*/
+    class hold_on_
     {
-      name = "back_to_chopper";
+      name = "hold_on_";
       init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
+        /*%FSM<LINK "tricky_">*/
+        class tricky_
+        {
+          priority = 0.000000;
+          to="this_is_gonna_be";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
         /*%FSM<LINK "all_aboard">*/
         class all_aboard
         {
           priority = 0.000000;
           to="to_hospital_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"false;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -709,6 +764,53 @@ class FSM
           to="deboard";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "stick_around__medic">*/
+    class stick_around__medic
+    {
+      name = "stick_around__medic";
+      init = /*%FSM<STATEINIT""">*/"hintSilent ""Ok, now stick around - Once the patient is secure, you'll be directed to the evac LZ"";" \n
+       "" \n
+       "(leader _grp) doMove getPos (leader _vcms);"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "medic_on__scene">*/
+        class medic_on__scene
+        {
+          priority = 0.000000;
+          to="hold_on_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(leader _grp) distance (leader _vcms) < 5;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "this_is_gonna_be">*/
+    class this_is_gonna_be
+    {
+      name = "this_is_gonna_be";
+      init = /*%FSM<STATEINIT""">*/"1 setRadioMsg ""Rpt. Clear of Assignment"";" \n
+       "" \n
+       "" \n
+       "hint ""Ok, this looks like it'll be a while...\nGood job, though. Land rescue crews are on the way, you're clear for now!"""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "away">*/
+        class away
+        {
+          priority = 0.000000;
+          to="clear";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (leader _grp) > 100)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
