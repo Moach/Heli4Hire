@@ -6,7 +6,7 @@ item1[] = {"comply_",2,250,-65.806694,1276.643799,24.193336,1326.643799,0.000000
 item2[] = {"avail",4,218,-65.980400,1358.546631,24.019554,1408.546631,0.000000,"avail"};
 item3[] = {"land",4,218,-64.909645,1613.693237,25.091084,1663.693237,1.000000,"land"};
 item4[] = {"pickup",2,250,-65.794060,1454.439941,24.205971,1504.439941,0.000000,"pickup"};
-item5[] = {"now_boarding___",2,250,-71.976372,1736.639282,29.870277,1785.454590,0.000000,"now boarding..."};
+item5[] = {"now_boarding___",2,250,-71.249527,1733.850586,30.597149,1782.665894,0.000000,"now boarding..."};
 item6[] = {"timeout",4,218,-168.314026,1706.460693,-78.313774,1758.390503,0.000000,"timeout"};
 item7[] = {"running_late",4,218,54.459038,1454.678955,144.459015,1504.678955,1.000000,"running late"};
 item8[] = {"you_re_late",2,250,61.753151,1528.262817,137.611343,1577.107788,0.000000,"you're late"};
@@ -17,28 +17,31 @@ item12[] = {"go_fly_",2,250,-182.952255,1856.176880,-119.016579,1920.904785,0.00
 item13[] = {"abort_pickup",4,218,-169.825668,1527.741333,-79.825905,1577.741333,2.000000,"abort" \n "pickup"};
 item14[] = {"quit",1,250,-305.951965,1527.730957,-215.951889,1577.730957,0.000000,"quit"};
 item15[] = {"_",8,218,-65.777061,1172.329956,24.222921,1222.329956,0.000000,""};
-item16[] = {"approach",4,218,81.889824,1863.635254,171.889862,1913.635254,0.000000,"approach"};
+item16[] = {"approach",4,218,-58.625076,1863.498657,31.375130,1913.498657,0.000000,"approach"};
 item17[] = {"deboard",2,250,256.512451,2143.032227,346.512421,2193.031494,0.000000,"deboard"};
 item18[] = {"away",4,218,256.531311,2230.196533,346.531555,2280.197510,0.000000,"away"};
 item19[] = {"clear",1,250,256.783844,2329.244385,346.784180,2379.244385,0.000000,"clear"};
-item20[] = {"fail___abort",4,218,-225.222015,2129.282471,-78.876976,2204.452393,2.000000,"fail / abort"};
-item21[] = {"just_put__it_dow",2,250,-58.466545,2144.084961,22.239462,2192.901123,0.000000,"just put " \n "it down"};
-item22[] = {"land_ASAP",4,218,105.779160,2143.582031,195.779037,2193.578857,0.000000,"land ASAP"};
+item20[] = {"fail___abort",4,218,-224.067291,2131.591797,-77.722252,2206.761719,2.000000,"fail / abort"};
+item21[] = {"just_put__it_dow",2,250,-17.595573,2144.084717,63.110435,2192.900879,0.000000,"just put " \n "it down"};
+item22[] = {"land_ASAP",4,218,120.104347,2143.582031,210.104233,2193.578857,0.000000,"land ASAP"};
 item23[] = {"get_to__accident",2,250,198.101379,1863.258789,288.101257,1913.258789,0.000000,"get to " \n "accident" \n "area"};
-item24[] = {"close",4,218,313.122101,1862.292236,403.122101,1912.292603,0.000000,"close"};
+item24[] = {"found_him_",4,218,315.078949,1863.270630,405.078949,1913.270996,0.000000,"found him!"};
 item25[] = {"get_down__there",2,250,313.324707,1933.317261,403.324707,1983.317261,0.000000,"get down" \n " there"};
-item26[] = {"medic_on__scene",4,218,551.798950,1839.406372,657.544495,1899.096191,0.000000,"medic on " \n "scene"};
+item26[] = {"medic_on__scene",4,218,551.440002,1834.947754,657.185547,1894.637573,0.000000,"medic on " \n "scene"};
 item27[] = {"hold_on_",2,250,559.442383,1961.175049,649.442383,2011.175537,0.000000,"hold on!"};
-item28[] = {"all_aboard",4,218,558.804749,2034.618164,648.805298,2084.618164,0.000000,"all aboard"};
-item29[] = {"to_hospital_",2,250,558.258362,2143.302490,648.258362,2193.302490,0.000000,"to hospital!"};
+item28[] = {"all_aboard",4,218,559.773071,2049.143066,649.773621,2099.143066,0.000000,"all aboard"};
+item29[] = {"to_hospital_",2,250,559.612915,2143.292236,649.612915,2193.292236,0.000000,"to hospital!"};
 item30[] = {"land",4,218,409.941376,2143.063721,499.941376,2193.063721,0.000000,"land"};
 item31[] = {"far",4,218,199.932114,1932.427368,289.932068,1982.427368,0.000000,"far"};
-item32[] = {"away_",4,218,429.775879,2021.396851,519.775635,2071.396484,0.000000,"away!"};
+item32[] = {"away_",4,218,429.631012,2022.344727,519.630615,2072.344727,0.000000,"away!"};
 item33[] = {"stick_around__medic",2,250,429.111877,1932.890381,519.111938,1982.890137,0.000000,"stick around" \n "(medic on" \n " the way)"};
-item34[] = {"tricky_",4,218,709.296936,1961.661499,799.296936,2011.661499,0.000000,"tricky!"};
-item35[] = {"this_is_gonna_be",2,250,709.656616,2230.456055,799.656616,2280.456055,0.000000,"this is gonna" \n "be a while"};
-item36[] = {"land_or_hover",4,218,185.182632,2021.633057,275.182678,2071.633301,0.000000,"land or" \n "hover"};
+item34[] = {"tricky_",4,218,709.296936,1960.861450,799.296936,2010.861450,0.000000,"tricky!"};
+item35[] = {"this_is_gonna_be",2,4346,709.656616,2230.456055,799.656616,2280.456055,0.000000,"this is gonna" \n "be a while"};
+item36[] = {"land_or_hover",4,218,182.667511,2022.715332,272.667603,2072.715576,0.000000,"land or" \n "hover"};
 item37[] = {"deploy_medic",2,250,312.026398,2022.467529,402.026398,2072.467285,0.000000,"deploy" \n "medic"};
+item38[] = {"stray",4,218,197.214798,1764.587891,287.214813,1814.587891,0.000000,"stray"};
+item39[] = {"too_far",2,250,56.675179,1763.037231,146.675171,1813.037231,0.000000,"too far"};
+item40[] = {"back",4,218,56.506348,1910.148193,146.506378,1960.148193,0.000000,"back"};
 link0[] = {0,15};
 link1[] = {1,2};
 link2[] = {2,4};
@@ -67,24 +70,29 @@ link24[] = {21,22};
 link25[] = {22,17};
 link26[] = {23,20};
 link27[] = {23,24};
-link28[] = {24,25};
-link29[] = {25,31};
-link30[] = {25,36};
-link31[] = {26,27};
-link32[] = {27,28};
-link33[] = {27,34};
-link34[] = {28,29};
-link35[] = {29,30};
-link36[] = {30,17};
-link37[] = {31,23};
-link38[] = {32,33};
-link39[] = {33,26};
-link40[] = {34,35};
-link41[] = {35,18};
-link42[] = {36,37};
-link43[] = {37,32};
-globals[] = {0.000000,0,0,0,0,640,480,1,41,0,1,-91.071381,917.970520,2743.231445,1480.082275,683,855,1};
-window[] = {0,-1,-1,-1,-1,980,124,1620,11,1,701};
+link28[] = {23,38};
+link29[] = {24,25};
+link30[] = {25,31};
+link31[] = {25,36};
+link32[] = {26,27};
+link33[] = {27,28};
+link34[] = {27,34};
+link35[] = {28,29};
+link36[] = {29,30};
+link37[] = {30,17};
+link38[] = {31,23};
+link39[] = {32,33};
+link40[] = {33,26};
+link41[] = {34,35};
+link42[] = {35,18};
+link43[] = {36,37};
+link44[] = {37,32};
+link45[] = {38,39};
+link46[] = {39,20};
+link47[] = {39,40};
+link48[] = {40,23};
+globals[] = {0.000000,0,0,0,0,640,480,1,44,0,1,-131.532013,812.266296,2708.743164,1527.267700,683,855,1};
+window[] = {0,-1,-1,-32000,-32000,980,124,1620,11,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -440,7 +448,7 @@ class FSM
           priority = 0.000000;
           to="get_to__accident";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"chopper distance _rpp < 500;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _rpp < 550;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"hintSilent ""Ok, we're getting close, the accident was reported near this area...\nTake us around so I can confirm the actual place!"";" \n
            "" \n
            "{" \n
@@ -669,13 +677,23 @@ class FSM
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "close">*/
-        class close
+        /*%FSM<LINK "stray">*/
+        class stray
+        {
+          priority = 0.000000;
+          to="too_far";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _rpp > 600;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "found_him_">*/
+        class found_him_
         {
           priority = 0.000000;
           to="get_down__there";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"chopper distance _pos < 100;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _pos < 150;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
            "" \n
            "hintSilent ""Ok, this is it!\nSee if you can land somewhere around here!"";"/*%FSM</ACTION""">*/;
@@ -701,7 +719,7 @@ class FSM
           to="deploy_medic";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"((getPosATL chopper) select 2 < 5)"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"hintSilent ""We're almost there!\nTake 'er down slowly now..."";"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Almost there!\nTake 'er down slowly now..."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "far">*/
@@ -710,9 +728,9 @@ class FSM
           priority = 0.000000;
           to="get_to__accident";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"chopper distance _pos > 500;"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _pos > 300;"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"" \n
-           "hintSilent ""Hold on! we're too far away now!\n Try to land closer to the rescue site..."";"/*%FSM</ACTION""">*/;
+           "hintSilent ""Hold on! we're too far away now!\n Try to land closer to the accident..."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -815,7 +833,11 @@ class FSM
        "deleteMarker _mkr;" \n
        "player removeSimpleTask _tsk;" \n
        "" \n
-       "hint ""Ok, this looks like it'll be a while...\nGood job, then. Specialized rescue crews are on the way, you're clear for now!"";"/*%FSM</STATEINIT""">*/;
+       "hint ""Ok, this looks like it'll be a while...\nGood job, then. Specialized rescue crews are on the way, you're clear for now!"";" \n
+       "" \n
+       "Heli_Cabin_Condition = Heli_Cabin_Condition - (random .12); // passengers will eventually mess up the cabin as they go...." \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -853,6 +875,37 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"!((leader _grp) in chopper)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "too_far">*/
+    class too_far
+    {
+      name = "too_far";
+      init = /*%FSM<STATEINIT""">*/"hintSilent ""No, this is way too far out.\nOur victim can't be any further from the reported area..."";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "fail___abort">*/
+        class fail___abort
+        {
+          priority = 2.000000;
+          to="just_put__it_dow";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotFail || RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "back">*/
+        class back
+        {
+          priority = 0.000000;
+          to="get_to__accident";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"chopper distance _rpp < 500;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Alright, now let's keep looking..."";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };

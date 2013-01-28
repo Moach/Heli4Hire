@@ -270,8 +270,10 @@ HW_Fx_Dispatch_MEDEVAC =
 {
 	//
 	_pos = [[[_p1, 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
+	
+	
 	_rpp = [(_pos select 0) + (random 500) -250, (_pos select 1) + (random 500) -250]; // report position - often differs from actual location....
-	_hospital = locationPosition ((nearestLocations [_pos, ["heliportHospital", "heliportTrauma"], 25000]) select 0);
+	_hospital = locationPosition ((nearestLocations [_pos, ["heliportHospital", "heliportTrauma"], 35000]) select 0);
 	
 	
 	_mkID = ("MV-"+str(round time));
