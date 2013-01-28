@@ -75,7 +75,7 @@ class CfgSimCopterHardware
 	{
 		ident= "LD500 Doors";
 		fullName="Wright LD500 Cabin Doors";
-		itemMass=32;
+		itemMass=28;
 	};
 	class HW_Rearview_Mirror: HW_Hardware_Base
 	{
@@ -93,38 +93,38 @@ class CfgSimCopterHardware
 	{
 		ident= "LD500 Long Step";
 		fullName="Wright LD500 Gear Boarding Step (Long)";
-		itemMass=12;
+		itemMass=8;
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
 		ident= "LD500 Short Step";
 		fullName="Wright LD500 Gear Boarding Step (Short)";
-		itemMass=8;
+		itemMass=5;
 	};
 	class HW_2Seat_BackSeats: HW_Hardware_Base
 	{
 		ident= "Back Seats";
 		fullName="Marano Pro-SC 2 Seat Bench";
-		itemMass=45;
+		itemMass=30;
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
 		ident= "LD Side Rig";
 		fullName="Wright LD-Series R-Side Rig";
-		itemMass=8;
+		itemMass=6;
 	};
 	
 	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
 		ident= "Air300 Camera";
 		fullName="EZ-Vue RotoCaster Air300 Camera";
-		itemMass=9;
+		itemMass=6;
 	};
 	class HW_Raycon7500_Flir: HW_Hardware_Base
 	{
 		ident= "FLIR 7500";
 		fullName="Raycon MIRNA Series FLIR 7500";
-		itemMass=16;
+		itemMass=12;
 	};
 };
 
