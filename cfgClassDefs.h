@@ -270,8 +270,8 @@ class CfgSimCopterFleet
 				slotIdent="Cab Doors"; 
 				hardwareClass="HW_LD500_Doors";
 				//
-				onItemInstall="_this animate ['addDoors', 1];";
-				onItemRemove="_this animate ['addDoors', 0];";	
+				onItemInstall="_this animate ['addDoors', 1]; if (((_this animationPhase 'addTread') > .5) || ((_this animationPhase 'addTread_Short') > .5)) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addDoors', 0]; _this setVariable ['HW_PAXCOM', 1];";
 				
 				conflictItems[]={"Benches"};
 			};
@@ -280,8 +280,8 @@ class CfgSimCopterFleet
 				slotIdent="Benches"; 
 				hardwareClass="HW_LD500_Benches";
 				//
-				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo false;";
-				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo true;";	
+				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo false; _this setVariable ['HW_PAXCAP', 5]; _this setVariable ['HW_TACCAP', 1];";
+				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo true; _this setVariable ['HW_PAXCAP', 1]; _this setVariable ['HW_TACCAP', 0];";	
 				
 				conflictItems[]={"Doors", "Bracket", "BackSeats"};
 			};
@@ -309,8 +309,8 @@ class CfgSimCopterFleet
 				slotIdent="Skid Step (long)";
 				hardwareClass="HW_LD500_LongStep";
 				//
-				onItemInstall="_this animate ['addTread', 1];";
-				onItemRemove="_this animate ['addTread', 0];";
+				onItemInstall="_this animate ['addTread', 1]; if ((_this animationPhase 'addDoors') > .5) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addTread', 0]; _this setVariable ['HW_PAXCOM', 1];";
 				
 				conflictItems[]={"ShortStep"};
 			};
@@ -319,8 +319,8 @@ class CfgSimCopterFleet
 				slotIdent="Skid Step (Short)";
 				hardwareClass="HW_LD500_ShortStep";
 				//
-				onItemInstall="_this animate ['addTread_Short', 1];";
-				onItemRemove="_this animate ['addTread_Short', 0];";
+				onItemInstall="_this animate ['addTread_Short', 1]; if ((_this animationPhase 'addDoors') > .5) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addTread_Short', 0]; _this setVariable ['HW_PAXCOM', 1];";
 				
 				conflictItems[]={"LongStep"};
 			};
@@ -329,8 +329,8 @@ class CfgSimCopterFleet
 				slotIdent="Back Seats";
 				hardwareClass="HW_2Seat_BackSeats";
 				//
-				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo false;";
-				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo true;";
+				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo false; _this setVariable ['HW_PAXCAP', 3];";
+				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo true; _this setVariable ['HW_PAXCAP', 1];";
 				
 				conflictItems[]={"Benches"};
 			};
@@ -350,8 +350,8 @@ class CfgSimCopterFleet
 				slotIdent="Side Camera";
 				hardwareClass="HW_Air300_RotoCamera";
 				//
-				onItemInstall="_this animate ['AddFLIR', 1];";
-				onItemRemove="_this animate ['AddFLIR', 0];";
+				onItemInstall="_this animate ['AddFLIR', 1]; _this setVariable ['HW_CAMERA', 1];";
+				onItemRemove="_this animate ['AddFLIR', 0]; _this setVariable ['HW_CAMERA', 0];";
 				requiredItems[]={"Bracket"};
 				conflictItems[]={"LongStep"};
 			};
@@ -360,8 +360,8 @@ class CfgSimCopterFleet
 				slotIdent="Lower Camera";
 				hardwareClass="HW_Raycon7500_Flir";
 				//
-				onItemInstall="_this animate ['AddFlir2', 1];";
-				onItemRemove="_this animate ['AddFlir2', 0];";
+				onItemInstall="_this animate ['AddFlir2', 1]; _this setVariable ['HW_FLIR', 1];";
+				onItemRemove="_this animate ['AddFlir2', 0]; _this setVariable ['HW_FLIR', 0];";
 			};
 		};
 		
