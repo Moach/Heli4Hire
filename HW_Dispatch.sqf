@@ -75,7 +75,7 @@ HW_Fx_Dispatch_Taxi =
 	
 	
 	_size = count _near;
-	_dmin = round(_size * .1); // remove the nearest 10% locations found - this culls out unreasonably close legs and the same-pad bug
+	_dmin = round(_size * .2); // remove the nearest 20% locations found - this culls out unreasonably close legs and the same-pad bug
 	for "_i" from 0 to _size-_dmin do 
 	{ 
 		_near set [_i, _near select _i+_dmin]; 
@@ -189,7 +189,7 @@ HW_Fx_Dispatch_Cargo =
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
 	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 10000];
-	if (count _near > 3) then { _near resize 3; }; // allow only the few closest sites for supply - it's incoherent to have miles-long trips to sling loads over
+	if (count _near > 2) then { _near resize 2; }; // allow only the few closest sites for supply - it's incoherent to have miles-long trips to sling loads over
 	//
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	

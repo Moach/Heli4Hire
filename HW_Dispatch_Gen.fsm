@@ -212,7 +212,7 @@ class FSM
        "	HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi," \n
        "	HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey," \n
        "	HW_Fx_Dispatch_Cargo, HW_Fx_Dispatch_Cargo," \n
-       "	HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC" \n
+       "	HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC" \n
        "" \n
        "] call BIS_fnc_selectRandom;" \n
        "" \n
