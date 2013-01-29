@@ -113,6 +113,13 @@ class CfgSimCopterHardware
 		fullName="Wright LD-Series R-Side Rig";
 		itemMass=6;
 	};
+	class HW_LD500_Benches: HW_Hardware_Base
+	{
+		ident= "LD Mil. Benches";
+		fullName="Wright LD-Series Military Spec Benches";
+		itemMass=27;
+	};
+	
 	
 	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
@@ -151,6 +158,26 @@ class CfgSimCopterFleet
 		maintananceBaseCost=500;
 		maintananceTimeFactor=10;
 		
+		onAirframeCapsInit="_this lockCargo true;"; // no cargo capacity without extra equipment, except for copilot seat...
+		class Capabilities: Capabilities  
+		{
+			HW_PAXCAP = 1; // number of passengers it may carry
+			HW_PAXCOM = 1; // degree to which passengers get to ride comfortably   0: emergency / cargo only | 1: ok for 'heavy work' | 2: passenger-friendly | 3: VIP
+			HW_CGOCAP = 1; // level of cargo capacity  0: none | 1: lite | 2: medium | 3: heavy
+			HW_MEDCAP = 1; // level of medical/emergency readyness  0: none | 1: limited/makeshift | 2: air ambulance
+			HW_TACCAP = 0; // level of tactical operations capability 0: none | 1: fast landing | 2: fast rope
+			
+			HW_SLING_OPS = 1; // flag defining a toggle for slingload capabilities
+			
+			HW_INTCGO = 1;    // cargo capacity inside airframe  0: none, e.g. schweizer 300, R22 | 1: lite/med, e.g. JetRanger, MD500, AS350, Bell 407 | 2: big, e.g. EH101, AS532 | 3: huge, e.g. MI26, CH-47
+			HW_CABVIS = 1;    // passenger visibility from inside cabin  0: unfit for observation flight | 1: clear, best to side opposite of pilot | 2: clear, either side but not front
+			HW_PILOTSIDE = 1; // side where pilot sits - affects side visibility for front seat passengers
+			
+			HW_WATERBOMB = 0; // ability to operate as a water bomber 0: none | 1: using bucket | 2: internal tank (water cannon??)
+			HW_SPOTLIGHT = 1; // type of spotlight installed  0:  none |  1: fixed  |  2: spotting searchlight
+			HW_CAMERA = 0;    // equipped with a camera  0: not | 1: fixed camera | 2: full rotating unit
+			HW_FLIR = 0;      // defines if a FLIR unit is available or not
+		};
 		
 		// hardware get assigned IN from chopper definition, rather than having the components identify suitable airframes -- meaning that common parts can be reused even across models
 		//	  this adds major flexibility for future addons, e.g. a bell jetranger uses the very same powerplant as the md500
@@ -245,7 +272,21 @@ class CfgSimCopterFleet
 				//
 				onItemInstall="_this animate ['addDoors', 1];";
 				onItemRemove="_this animate ['addDoors', 0];";	
+				
+				conflictItems[]={"Benches"};
 			};
+			class Benches: HW_Hardware_Base
+			{
+				slotIdent="Benches"; 
+				hardwareClass="HW_LD500_Benches";
+				//
+				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo false;";
+				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo true;";	
+				
+				conflictItems[]={"Doors", "Bracket", "BackSeats"};
+			};
+			
+			
 			class Mirror: HW_Hardware_Base
 			{
 				slotIdent="RV Mirror"; 
@@ -291,6 +332,7 @@ class CfgSimCopterFleet
 				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo false;";
 				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo true;";
 				
+				conflictItems[]={"Benches"};
 			};
 			class Bracket: HW_Hardware_Base
 			{
@@ -299,6 +341,8 @@ class CfgSimCopterFleet
 				//
 				onItemInstall="_this animate ['AddHoldingFrame', 1];";
 				onItemRemove="_this animate ['AddHoldingFrame', 0];";
+				
+				conflictItems[]={"Benches"};
 			};
 			
 			class Camera: HW_Hardware_Base

@@ -95,11 +95,13 @@ class AddScreen1;
 class AddTread_Short;
 class AddTread;
 class AddDoors;
+class AddBenches;
 
 class CfgVehicles 
 {
-	class Heli_Light01_H;
-	class Heli_Light01_HeliWorks: Heli_Light01_H
+//	class Heli_Light01_H;
+	class Heli_Light01_ION_H; //: Heli_Light01_H;
+	class Heli_Light01_HeliWorks: Heli_Light01_ION_H
 	{
 		enableGPS = 0;
 		displayName = "HW Wright LD500";
@@ -134,6 +136,10 @@ class CfgVehicles
 				initPhase = 0;
 			};
 			class AddDoors: AddDoors
+			{
+				initPhase = 0;
+			};
+			class AddBenches: AddBenches
 			{
 				initPhase = 0;
 			};

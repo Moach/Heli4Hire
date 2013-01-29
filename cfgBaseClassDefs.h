@@ -4,6 +4,9 @@ class HW_Airframe_Base
 {
 	airframeIdent="Whatdacopter";
 	desc="";
+	
+	icon="";                // icon shown on listings
+	picture="";             // larger image shown with expanded information
 		
 	fuelMaxKg=1;
 	fuelTankCount=1;
@@ -23,7 +26,32 @@ class HW_Airframe_Base
 	
 	
 	onAirframeCapsInit=""; // code to run at initialization time to setup the basic features needed to determine what this bird can do (runs before hardware init, defines basic-only capabilities)
-	class Capabilities {};
+	class Capabilities  // capabilities for any airframe to comply with missions - these are default settings (and very unproductive, really) - apply to individual aircraft via setVariable by config names as follows:
+	{
+		HW_PAXCAP = 1; // number of passengers it may carry
+		HW_PAXCOM = 1; // degree to which passengers get to ride comfortably   0: emergency / cargo only | 1: ok for 'heavy work' | 2: passenger-friendly | 3: VIP
+		HW_CGOCAP = 1; // level of cargo capacity  0: none | 1: lite | 2: medium | 3: heavy
+		HW_MEDCAP = 1; // level of medical/emergency readyness  0: none | 1: limited/makeshift | 2: air ambulance
+		HW_TACCAP = 1; // level of tactical operations capability 0: none | 1: fast landing | 2: fast rope
+		
+		HW_SLING_OPS = 0; // flag defining a toggle for slingload capabilities
+		HW_WINCH_OPS = 0; // flag defining a toggle for winch capabilities
+		HW_FRIES_OPS = 0; // flag defining a toggle for fast-rope-insertion-extraction system capabilities
+		
+		HW_INTCGO = 0;    // cargo capacity inside airframe  0: none, e.g. schweizer 300, R22 | 1: lite/med, e.g. JetRanger, MD500, AS350, Bell 407 | 2: big, e.g. EH101, AS532 | 3: huge, e.g. MI26, CH-47
+		HW_CABVIS = 1;    // passenger visibility from inside cabin  0: unfit for observation flight | 1: clear, best to side opposite of pilot | 2: clear, either side but not front
+		HW_PILOTSIDE = 0; // side where pilot sits - affects side visibility for front seat passengers
+		
+		HW_AIRDROP = 0;   // ability to drop objects from the air  0: cannot | 1: small stuff | 2: larger stuff
+		
+		HW_WATERBOMB = 0; // ability to operate as a water bomber 0: none | 1: using bucket | 2: internal tank (water cannon??)
+		HW_SPOTLIGHT = 1; // type of spotlight installed  0:  none |  1: fixed  |  2: spotting searchlight
+		HW_CAMERA = 0;    // equipped with a camera  0: not | 1: fixed camera | 2: full rotating unit
+		HW_FLIR = 0;      // defines if a FLIR unit is available or not
+		
+		HW_COPILOT = 0;   // level to which copilot is required  0: not  |  1:  for advanced ops only  |  2:  always		
+		HW_GUNSHIP = 0;   // having too much fun, are you?
+	};
 };
 
 
