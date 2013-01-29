@@ -99,15 +99,24 @@ class AddBenches;
 
 class CfgVehicles 
 {
-//	class Heli_Light01_H;
-	class Heli_Light01_ION_H; //: Heli_Light01_H;
-	class Heli_Light01_HeliWorks: Heli_Light01_ION_H
+	class Heli_Light01_H;
+	class Heli_Light01_HeliWorks: Heli_Light01_H
 	{
 		enableGPS = 0;
 		displayName = "HW Wright LD500";
 		faction = "HSim_Civ_US";
 		hiddenSelectionsTextures[] = {"HSim\Air_US_H\Helicopters_Light\Data\skins\Heli_light01_ext_blueline_co.paa"};
 		
+		cargoPreciseGetInOut[] = {0};
+		memoryPointsGetInCargoPrecise[] = {"GetIn_Cargo","GetIn_Cargo2","GetIn_Cargo3","GetIn_Cargo4","GetIn_Cargo5","GetIn_Cargo6"};
+		
+		cargoGetInAction[] = {"Chopperlight_C_LIn_H","Chopperlight_C_RIn_H","GetInLow","GetInLow","GetInLow","GetInLow"};
+		cargoGetOutAction[] = {"Chopperlight_C_LOut_H","Chopperlight_C_ROut_H","GetOutLow","GetOutLow","GetOutLow","GetOutLow"};
+		
+		cargoAction[] = {"ChopperLight_C_L_static_H","ChopperLight_C_R_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H"};
+		
+		transportSoldier = 4;
+		ejectDeadCargo = 1;
 		
 		class RotorLibHelicopterProperties: RotorLibHelicopterProperties
 		{

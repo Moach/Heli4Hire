@@ -158,7 +158,7 @@ class CfgSimCopterFleet
 		maintananceBaseCost=500;
 		maintananceTimeFactor=10;
 		
-		onAirframeCapsInit="_this lockCargo true;"; // no cargo capacity without extra equipment, except for copilot seat...
+		onAirframeCapsInit="_this lockCargo [0, true]; _this lockCargo [1, true]; _this lockCargo [2, true]; _this lockCargo [3, true]; _this lockCargo [4, true]; _this lockCargo [5, true];"; 
 		class Capabilities: Capabilities  
 		{
 			HW_PAXCAP = 1; // number of passengers it may carry
@@ -280,8 +280,8 @@ class CfgSimCopterFleet
 				slotIdent="Benches"; 
 				hardwareClass="HW_LD500_Benches";
 				//
-				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo false; _this setVariable ['HW_PAXCAP', 5]; _this setVariable ['HW_TACCAP', 1];";
-				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo true; _this setVariable ['HW_PAXCAP', 1]; _this setVariable ['HW_TACCAP', 0];";	
+				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo [2, false]; _this lockCargo [3, false]; _this lockCargo [4, false]; _this lockCargo [5, false]; _this setVariable ['HW_PAXCAP', 5]; _this setVariable ['HW_TACCAP', 1];";
+				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo [2, true]; _this lockCargo [3, true]; _this lockCargo [4, true]; _this lockCargo [5, true];  _this setVariable ['HW_PAXCAP', 1]; _this setVariable ['HW_TACCAP', 0];";	
 				
 				conflictItems[]={"Doors", "Bracket", "BackSeats"};
 			};
@@ -300,8 +300,8 @@ class CfgSimCopterFleet
 				slotIdent="Panel";
 				hardwareClass="HW_Raycon_LCD";
 				//
-				onItemInstall="_this animate ['addScreen1', 1];";
-				onItemRemove="_this animate ['addScreen1', 0];";
+				onItemInstall="_this animate ['addScreen1', 1]; if ((_this animationPhase 'AddFLIR') > .5) then { _this setVariable ['HW_CAMERA', 1]; }; if ((_this animationPhase 'AddFlir2') > .5) then { _this setVariable ['HW_FLIR', 1]; };";
+				onItemRemove="_this animate ['addScreen1', 0]; _this setVariable ['HW_CAMERA', 0]; _this setVariable ['HW_FLIR', 0];";
 				
 			};
 			class LongStep: HW_Hardware_Base
@@ -329,8 +329,8 @@ class CfgSimCopterFleet
 				slotIdent="Back Seats";
 				hardwareClass="HW_2Seat_BackSeats";
 				//
-				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo false; _this setVariable ['HW_PAXCAP', 3];";
-				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo true; _this setVariable ['HW_PAXCAP', 1];";
+				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo [0, false]; _this lockCargo [1, false]; _this setVariable ['HW_PAXCAP', 3];";
+				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo [0, true]; _this lockCargo [1, true]; _this setVariable ['HW_PAXCAP', 1];";
 				
 				conflictItems[]={"Benches"};
 			};
@@ -350,7 +350,7 @@ class CfgSimCopterFleet
 				slotIdent="Side Camera";
 				hardwareClass="HW_Air300_RotoCamera";
 				//
-				onItemInstall="_this animate ['AddFLIR', 1]; _this setVariable ['HW_CAMERA', 1];";
+				onItemInstall="_this animate ['AddFLIR', 1]; if ((_this animationPhase 'addScreen1') > .5) then { _this setVariable ['HW_CAMERA', 1]; };";
 				onItemRemove="_this animate ['AddFLIR', 0]; _this setVariable ['HW_CAMERA', 0];";
 				requiredItems[]={"Bracket"};
 				conflictItems[]={"LongStep"};
@@ -360,7 +360,7 @@ class CfgSimCopterFleet
 				slotIdent="Lower Camera";
 				hardwareClass="HW_Raycon7500_Flir";
 				//
-				onItemInstall="_this animate ['AddFlir2', 1]; _this setVariable ['HW_FLIR', 1];";
+				onItemInstall="_this animate ['AddFlir2', 1];  if ((_this animationPhase 'addScreen1') > .5) then { _this setVariable ['HW_FLIR', 1]; };";
 				onItemRemove="_this animate ['AddFlir2', 0]; _this setVariable ['HW_FLIR', 0];";
 			};
 		};
