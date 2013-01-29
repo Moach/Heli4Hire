@@ -110,7 +110,9 @@ class CfgVehicles
 		class RotorLibHelicopterProperties: RotorLibHelicopterProperties
 		{
 		//	RTDconfig = "moach_hw_basics\WrightLD500Sim.xml";
-			starterTime = 10;
+			starterTime = 8;
+			throttleOffToIdle = 12;
+			throttleIdleToOff = 16;
 		};
 		
 		class AnimationSources: AnimationSources
