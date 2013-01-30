@@ -69,13 +69,37 @@ class CfgSimCopterHardware
 		ident= "PL-AV3 Light";
 		fullName="Lunostat PL-AV3 SuperBeam Light";
 	};
-	
+	class HW_LD500_StabHR: HW_Hardware_Base
+	{
+		ident= "LD500 H-Stab R";
+		fullName="Wright LD500 Right Horizontal Stabilizer";
+	};
+	class HW_LD500_StabHL: HW_Hardware_Base
+	{
+		ident= "LD500 H-Stab L";
+		fullName="Wright LD500 Left Horizontal Stabilizer";
+	};
+	class HW_LD500_StabV: HW_Hardware_Base
+	{
+		ident= "LD500 V-Stab";
+		fullName="Wright LD500 Vertical Stabilizer";
+	};
+	class HW_LD500_Pitot: HW_Hardware_Base
+	{
+		ident= "LD500 Pitot Tubes";
+		fullName="Wright LD500 Pitot Tube Set";
+	};
+	class HW_LD500_StaticPort: HW_Hardware_Base
+	{
+		ident= "LD500 Static Ports";
+		fullName="Wright LD500 Static Ports Set";
+	};
 	
 	class HW_LD500_Doors: HW_Hardware_Base
 	{
 		ident= "LD500 Doors";
 		fullName="Wright LD500 Cabin Doors";
-		itemMass=32;
+		itemMass=28;
 	};
 	class HW_Rearview_Mirror: HW_Hardware_Base
 	{
@@ -93,38 +117,45 @@ class CfgSimCopterHardware
 	{
 		ident= "LD500 Long Step";
 		fullName="Wright LD500 Gear Boarding Step (Long)";
-		itemMass=12;
+		itemMass=8;
 	};
 	class HW_LD500_ShortStep: HW_Hardware_Base
 	{
 		ident= "LD500 Short Step";
 		fullName="Wright LD500 Gear Boarding Step (Short)";
-		itemMass=8;
+		itemMass=5;
 	};
 	class HW_2Seat_BackSeats: HW_Hardware_Base
 	{
 		ident= "Back Seats";
 		fullName="Marano Pro-SC 2 Seat Bench";
-		itemMass=45;
+		itemMass=30;
 	};
 	class HW_LD500_Bracket: HW_Hardware_Base
 	{
 		ident= "LD Side Rig";
 		fullName="Wright LD-Series R-Side Rig";
-		itemMass=8;
+		itemMass=6;
 	};
+	class HW_LD500_Benches: HW_Hardware_Base
+	{
+		ident= "LD Mil. Benches";
+		fullName="Wright LD-Series Military Spec Benches";
+		itemMass=27;
+	};
+	
 	
 	class HW_Air300_RotoCamera: HW_Hardware_Base
 	{
 		ident= "Air300 Camera";
 		fullName="EZ-Vue RotoCaster Air300 Camera";
-		itemMass=9;
+		itemMass=6;
 	};
 	class HW_Raycon7500_Flir: HW_Hardware_Base
 	{
 		ident= "FLIR 7500";
 		fullName="Raycon MIRNA Series FLIR 7500";
-		itemMass=16;
+		itemMass=12;
 	};
 };
 
@@ -151,6 +182,26 @@ class CfgSimCopterFleet
 		maintananceBaseCost=500;
 		maintananceTimeFactor=10;
 		
+		onAirframeCapsInit="_this lockCargo [0, true]; _this lockCargo [1, true]; _this lockCargo [2, true]; _this lockCargo [3, true]; _this lockCargo [4, true]; _this lockCargo [5, true];"; 
+		class Capabilities: Capabilities  
+		{
+			HW_PAXCAP = 1; // number of passengers it may carry
+			HW_PAXCOM = 1; // degree to which passengers get to ride comfortably   0: emergency / cargo only | 1: ok for 'heavy work' | 2: passenger-friendly | 3: VIP
+			HW_CGOCAP = 1; // level of cargo capacity  0: none | 1: lite | 2: medium | 3: heavy
+			HW_MEDCAP = 1; // level of medical/emergency readyness  0: none | 1: limited/makeshift | 2: air ambulance
+			HW_TACCAP = 0; // level of tactical operations capability 0: none | 1: fast landing | 2: fast rope
+			
+			HW_SLING_OPS = 1; // flag defining a toggle for slingload capabilities
+			
+			HW_INTCGO = 1;    // cargo capacity inside airframe  0: none, e.g. schweizer 300, R22 | 1: lite/med, e.g. JetRanger, MD500, AS350, Bell 407 | 2: big, e.g. EH101, AS532 | 3: huge, e.g. MI26, CH-47
+			HW_CABVIS = 1;    // passenger visibility from inside cabin  0: unfit for observation flight | 1: clear, best to side opposite of pilot | 2: clear, either side but not front
+			HW_PILOTSIDE = 1; // side where pilot sits - affects side visibility for front seat passengers
+			
+			HW_WATERBOMB = 0; // ability to operate as a water bomber 0: none | 1: using bucket | 2: internal tank (water cannon??)
+			HW_SPOTLIGHT = 1; // type of spotlight installed  0:  none |  1: fixed  |  2: spotting searchlight
+			HW_CAMERA = 0;    // equipped with a camera  0: not | 1: fixed camera | 2: full rotating unit
+			HW_FLIR = 0;      // defines if a FLIR unit is available or not
+		};
 		
 		// hardware get assigned IN from chopper definition, rather than having the components identify suitable airframes -- meaning that common parts can be reused even across models
 		//	  this adds major flexibility for future addons, e.g. a bell jetranger uses the very same powerplant as the md500
@@ -237,15 +288,64 @@ class CfgSimCopterFleet
 				minimalSpec=1;
 				minimalSafe=1; // as long as you don't go out after dark....
 			};
+			class StabilizerHL: HW_Hardware_Base
+			{
+				slotIdent="Left H Stabilizer"; 
+				hardwareClass="HW_LD500_StabHL";
+				damageSource="HitHStabilizerL1";
+				minimalSpec=1;
+			};
+			class StabilizerHR: HW_Hardware_Base
+			{
+				slotIdent="Right H Stabilizer"; 
+				hardwareClass="HW_LD500_StabHR";
+				damageSource="HitHStabilizerR1";
+				minimalSpec=1;
+			};
+			class StabilizerV: HW_Hardware_Base
+			{
+				slotIdent="V Stabilizer"; 
+				hardwareClass="HW_LD500_StabV";
+				damageSource="HitVStabilizer1";
+				minimalSpec=1;
+			};
+			class Pitot: HW_Hardware_Base
+			{
+				slotIdent="Pitot"; 
+				hardwareClass="HW_LD500_Pitor";
+				damageSource="HitPitotTube";
+				minimalSpec=1;
+			};
+			class StaticPort: HW_Hardware_Base
+			{
+				slotIdent="Static Ports"; 
+				hardwareClass="HW_LD500_StaticPort";
+				damageSource="HitStaticPort";
+				minimalSpec=1;
+			};
 			
 			class Doors: HW_Hardware_Base
 			{
 				slotIdent="Cab Doors"; 
 				hardwareClass="HW_LD500_Doors";
 				//
-				onItemInstall="_this animate ['addDoors', 1];";
-				onItemRemove="_this animate ['addDoors', 0];";	
+				onItemInstall="_this animate ['addDoors', 1]; if (((_this animationPhase 'addTread') > .5) || ((_this animationPhase 'addTread_Short') > .5)) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addDoors', 0]; _this setVariable ['HW_PAXCOM', 1];";
+				
+				conflictItems[]={"Benches"};
 			};
+			class Benches: HW_Hardware_Base
+			{
+				slotIdent="Benches"; 
+				hardwareClass="HW_LD500_Benches";
+				//
+				onItemInstall="_this animate ['addBenches', 1]; _this lockCargo [2, false]; _this lockCargo [3, false]; _this lockCargo [4, false]; _this lockCargo [5, false]; _this setVariable ['HW_PAXCAP', 5]; _this setVariable ['HW_TACCAP', 1];";
+				onItemRemove="_this animate ['addBenches', 0]; _this lockCargo [2, true]; _this lockCargo [3, true]; _this lockCargo [4, true]; _this lockCargo [5, true];  _this setVariable ['HW_PAXCAP', 1]; _this setVariable ['HW_TACCAP', 0];";	
+				
+				conflictItems[]={"Doors", "Bracket", "BackSeats"};
+			};
+			
+			
 			class Mirror: HW_Hardware_Base
 			{
 				slotIdent="RV Mirror"; 
@@ -259,8 +359,8 @@ class CfgSimCopterFleet
 				slotIdent="Panel";
 				hardwareClass="HW_Raycon_LCD";
 				//
-				onItemInstall="_this animate ['addScreen1', 1];";
-				onItemRemove="_this animate ['addScreen1', 0];";
+				onItemInstall="_this animate ['addScreen1', 1]; if ((_this animationPhase 'AddFLIR') > .5) then { _this setVariable ['HW_CAMERA', 1]; }; if ((_this animationPhase 'AddFlir2') > .5) then { _this setVariable ['HW_FLIR', 1]; };";
+				onItemRemove="_this animate ['addScreen1', 0]; _this setVariable ['HW_CAMERA', 0]; _this setVariable ['HW_FLIR', 0];";
 				
 			};
 			class LongStep: HW_Hardware_Base
@@ -268,8 +368,8 @@ class CfgSimCopterFleet
 				slotIdent="Skid Step (long)";
 				hardwareClass="HW_LD500_LongStep";
 				//
-				onItemInstall="_this animate ['addTread', 1];";
-				onItemRemove="_this animate ['addTread', 0];";
+				onItemInstall="_this animate ['addTread', 1]; if ((_this animationPhase 'addDoors') > .5) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addTread', 0]; _this setVariable ['HW_PAXCOM', 1];";
 				
 				conflictItems[]={"ShortStep"};
 			};
@@ -278,8 +378,8 @@ class CfgSimCopterFleet
 				slotIdent="Skid Step (Short)";
 				hardwareClass="HW_LD500_ShortStep";
 				//
-				onItemInstall="_this animate ['addTread_Short', 1];";
-				onItemRemove="_this animate ['addTread_Short', 0];";
+				onItemInstall="_this animate ['addTread_Short', 1]; if ((_this animationPhase 'addDoors') > .5) then { _this setVariable ['HW_PAXCOM', 2]; };";
+				onItemRemove="_this animate ['addTread_Short', 0]; _this setVariable ['HW_PAXCOM', 1];";
 				
 				conflictItems[]={"LongStep"};
 			};
@@ -288,9 +388,10 @@ class CfgSimCopterFleet
 				slotIdent="Back Seats";
 				hardwareClass="HW_2Seat_BackSeats";
 				//
-				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo false;";
-				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo true;";
+				onItemInstall="_this animate ['addBackseats', 1]; _this lockCargo [0, false]; _this lockCargo [1, false]; _this setVariable ['HW_PAXCAP', 3];";
+				onItemRemove="_this animate ['addBackseats', 0]; _this lockCargo [0, true]; _this lockCargo [1, true]; _this setVariable ['HW_PAXCAP', 1];";
 				
+				conflictItems[]={"Benches"};
 			};
 			class Bracket: HW_Hardware_Base
 			{
@@ -299,6 +400,8 @@ class CfgSimCopterFleet
 				//
 				onItemInstall="_this animate ['AddHoldingFrame', 1];";
 				onItemRemove="_this animate ['AddHoldingFrame', 0];";
+				
+				conflictItems[]={"Benches"};
 			};
 			
 			class Camera: HW_Hardware_Base
@@ -306,8 +409,8 @@ class CfgSimCopterFleet
 				slotIdent="Side Camera";
 				hardwareClass="HW_Air300_RotoCamera";
 				//
-				onItemInstall="_this animate ['AddFLIR', 1];";
-				onItemRemove="_this animate ['AddFLIR', 0];";
+				onItemInstall="_this animate ['AddFLIR', 1]; if ((_this animationPhase 'addScreen1') > .5) then { _this setVariable ['HW_CAMERA', 1]; };";
+				onItemRemove="_this animate ['AddFLIR', 0]; _this setVariable ['HW_CAMERA', 0];";
 				requiredItems[]={"Bracket"};
 				conflictItems[]={"LongStep"};
 			};
@@ -316,13 +419,13 @@ class CfgSimCopterFleet
 				slotIdent="Lower Camera";
 				hardwareClass="HW_Raycon7500_Flir";
 				//
-				onItemInstall="_this animate ['AddFlir2', 1];";
-				onItemRemove="_this animate ['AddFlir2', 0];";
+				onItemInstall="_this animate ['AddFlir2', 1];  if ((_this animationPhase 'addScreen1') > .5) then { _this setVariable ['HW_FLIR', 1]; };";
+				onItemRemove="_this animate ['AddFlir2', 0]; _this setVariable ['HW_FLIR', 0];";
 			};
 		};
 		
 
-		// more shall follow....
+		// more may follow....
 	};
 };
 

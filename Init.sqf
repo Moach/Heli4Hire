@@ -50,7 +50,7 @@
 
 
 
-HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
+HW_DEBUG = false; // master debug flag -- DO NOT commit to master when enabled
 
 
 
@@ -181,7 +181,6 @@ chopper addAction ["DME Check", "HW_DMECheck.sqf", nil, 100, false, true, "MiniM
 
 
 sleep 1;
-
 
 
 	

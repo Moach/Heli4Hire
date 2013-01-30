@@ -16,6 +16,7 @@ PaxDefs_taxi = [
 	"Journalist_H",
 	"Manager_H",
 	"Rocker_H",
+	"Doctor_H",
 	"SeattleMan_Random_H",
 	"SeattleMan_Random_H"
 ];
@@ -59,15 +60,13 @@ MoveDefs_Men_Group =
 	"UnaErcVelitelProslov5",
 	"LHD_hiDeck",
 	"LHD_krajPaluby",
-//	"LHD_midDeck",
-	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small tribute to the simcopter gay sims prank that had EA going mad for a little while
+	"ActsPercMstpSnonWnonDnon_DancingStefan" // this one is an easter egg... a small tribute to the simcopter gay sims prank that had EA going mad for a little while (lolz!)
 ];
 
 MoveDefs_Men_Idle = 
 [
 	"LHD_hiDeck",
 	"LHD_krajPaluby"
-//	"LHD_midDeck"
 ];
 
 
@@ -76,7 +75,6 @@ MoveDefs_Women_Group =
 	"Cwmn_GalkinaErc_talkCry",
 	"Cwmn_GalkinaErc_talkHappy1",
 	"Cwmn_GalkinaErc_talkHappy2",
-//	"AidlPercMstpSnonWnonDnon_3greetR",
 	"CwmnPerc_diskuse1",
 	"CwmnPerc_ukazatDoleva",
 	"CwmnPerc_diskuse2",
@@ -94,13 +92,22 @@ MoveDefs_Women_Idle =
 ];
 
 
-/*
-	
-["NavigationHeli"]
-
-*/
 
 
+MoveDefs_Men_Victim = 
+[
+	"AdthPercMstpSnonWnonDnon_1",
+	"AdthPercMstpSnonWnonDnon_2",
+	"AdthPercMstpSnonWnonDnon_3"
+];
+
+
+MoveDefs_Women_Victim = 
+[
+	"AdthPsitMstp_Death1",
+	"AdthPsitMstp_Death2",
+	"AdthPsitMstp_Death3"
+];
 
 
 

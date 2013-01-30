@@ -66,6 +66,27 @@ class CfgPatches
 	};
 };
 
+
+class Empty;
+class CfgLocationTypes
+{
+	class HW_Area_MSAR : Empty {};
+	class HW_Area_LSAR : Empty {};
+	
+	class HW_HPad_Police : Empty {};
+	class HW_HPad_FireDept : Empty {};
+	class HW_HPad_Medical : Empty {};
+	//
+	class HW_HPad_Emergency : Empty {};
+	
+	class HW_Cargo_Tower : Empty {};
+	class HW_Cargo_Base : Empty {};
+};
+
+
+
+
+
 class RotorLibHelicopterProperties;
 class SoundsExt;
 class AnimationSources;
@@ -74,6 +95,8 @@ class AddScreen1;
 class AddTread_Short;
 class AddTread;
 class AddDoors;
+class AddBenches;
+class AddMirror;
 
 class CfgVehicles 
 {
@@ -85,11 +108,23 @@ class CfgVehicles
 		faction = "HSim_Civ_US";
 		hiddenSelectionsTextures[] = {"HSim\Air_US_H\Helicopters_Light\Data\skins\Heli_light01_ext_blueline_co.paa"};
 		
+	/*	cargoPreciseGetInOut[] = {0};
+		memoryPointsGetInCargoPrecise[] = {"GetIn_Cargo","GetIn_Cargo2","GetIn_Cargo3","GetIn_Cargo4","GetIn_Cargo5","GetIn_Cargo6"};
 		
+		cargoGetInAction[] = {"Chopperlight_C_LIn_H","Chopperlight_C_RIn_H","GetInLow","GetInLow","GetInLow","GetInLow"};
+		cargoGetOutAction[] = {"Chopperlight_C_LOut_H","Chopperlight_C_ROut_H","GetOutLow","GetOutLow","GetOutLow","GetOutLow"};
+		
+		cargoAction[] = {"ChopperLight_C_L_static_H","ChopperLight_C_R_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H","ChopperLight_CB_static_H"};
+		
+		transportSoldier = 4;
+		ejectDeadCargo = 1;
+	*/	
 		class RotorLibHelicopterProperties: RotorLibHelicopterProperties
 		{
 		//	RTDconfig = "moach_hw_basics\WrightLD500Sim.xml";
-			starterTime = 10;
+			starterTime = 8;
+			throttleOffToIdle = 16;
+			throttleIdleToOff = 20;
 		};
 		
 		class AnimationSources: AnimationSources
@@ -114,15 +149,26 @@ class CfgVehicles
 			{
 				initPhase = 0;
 			};
+			class AddBenches: AddBenches
+			{
+				initPhase = 0;
+			};
+			class AddMirror: AddMirror
+			{
+				initPhase = 0;
+			};
 		};
 		
 		
 		
 		class SoundsExt: SoundsExt
 		{
+			starterClickInt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2_int",0.02,1.0};
+			starterClickExt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2",1.0,1.0,100};
+			
 			class Starter
 			{
-				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.031622775,1.0};
+				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.02,1.0};
 				startExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-start-noclick",1.0,1.0,300};
 				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.002,1.0};
 				stopExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-stop",0.1,1.0,300};

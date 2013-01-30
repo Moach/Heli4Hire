@@ -127,9 +127,19 @@ HW_Fx_InitChopper =
 	_this setVariable ["HW_airframeCfg", _helicfg];
 	_this setVariable ["HW_ComponentSlots", _slots];
 	_this setVariable ["HW_ExtraWeight", 0];
-	_this lockCargo true;
 	
-    //	hint format ["Chopper Init: %1 Components", count _slots];
+	_caps = (_heliCfg >> "Capabilities");
+	_num = count _caps;
+	
+	for "_n" from 0 to (_num-1) do
+	{
+		_this setvariable [configName(_caps select _n), getNumber(_caps select _n)];
+		//
+	};
+	
+	
+	_this call (compile getText( _heliCfg >> "onAirframeCapsInit" ));
+  //  hint format ["Chopper Init: %1", _caps];
 };
 
 

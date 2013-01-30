@@ -51,6 +51,14 @@ HW_Fx_Disptach_Radio_Update =
 	};
 };
 
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // Passenger Flight
+
 HW_Fx_Dispatch_Taxi = 
 {
 	//
@@ -67,7 +75,7 @@ HW_Fx_Dispatch_Taxi =
 	
 	
 	_size = count _near;
-	_dmin = round(_size * .1); // remove the nearest 10% locations found - this culls out unreasonably close legs and the same-pad bug
+	_dmin = round(_size * .2); // remove the nearest 20% locations found - this culls out unreasonably close legs and the same-pad bug
 	for "_i" from 0 to _size-_dmin do 
 	{ 
 		_near set [_i, _near select _i+_dmin]; 
@@ -92,6 +100,15 @@ HW_Fx_Dispatch_Taxi =
 	GigLineup set [count GigLineup, _gig];
 };
 
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // General-Purpose Point Survey
 
 
 HW_Fx_Dispatch_Survey = 
@@ -137,6 +154,17 @@ HW_Fx_Dispatch_Survey =
 
 
 
+
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // Cargo SlingLoad
+
 HW_Fx_Dispatch_Cargo = 
 {
 	// locate tower (the high point requiring helicopter cargo)
@@ -161,7 +189,7 @@ HW_Fx_Dispatch_Cargo =
 	
 	// select base from our beloved list of possible locations -- note that this is only the CARGO set, it does NOT allow above-ground pads, so unhandly those can be...
 	_near = nearestLocations [_twrPos, ["ConstructionSupply"], 10000];
-	if (count _near > 3) then { _near resize 3; }; // allow only the few closest sites for supply - it's incoherent to have miles-long trips to sling loads over
+	if (count _near > 2) then { _near resize 2; }; // allow only the few closest sites for supply - it's incoherent to have miles-long trips to sling loads over
 	//
 	_basePos = locationPosition (_near call BIS_fnc_selectRandom);
 	
@@ -186,10 +214,93 @@ HW_Fx_Dispatch_Cargo =
 	
 	_order = [_basePos, _twrPos, _baseCargo, _towerCargo];
 	
-	_gig = [_tsk, "HeliWorks_Cargo.fsm", _mkID, time + 60 + random(500), [_crewPos, _order] ];
+	_gig = [_tsk, "HeliWorks_Cargo.fsm", _mkID, time + 90 + random(500), [_crewPos, _order] ];
 	GigLineup set [ count GigLineup, _gig ];
 };
 
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // Marine Search-N-Rescue 
+
+HW_Fx_Dispatch_MSAR = 
+{
+	_zoneTrg = ((synchronizedObjects marine_area_logic) call bis_fnc_selectRandom); // select area at random...
+	hint (vehicleVarName _zoneTrg);
+	
+	_area = triggerArea _zoneTrg;
+	_rpos = getPos _zoneTrg; // reference 'last known' position for search efforts
+	
+	_rpos set [0, (_pos select 0) + (random ((_area select 0)* 2) ) - (_area select 0)];
+	_rpos set [1, (_pos select 1) + (random ((_area select 1)* 2) ) - (_area select 1)];
+	
+	_mkID = ("MS-"+str(round time));
+	_mkr = createMarker [_mkID, _rpos];
+	_mkr setMarkerType "mil_unknown";
+	_mkr setMarkerText ("SAR | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	_mkr setMarkerColor "ColorRed";
+	
+	_tsk = player createSimpleTask ["Marine SAR"];
+	_tsk setSimpleTaskDestination _rpos;
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Marine SAR", "Last known vessel location"];
+	
+	_pos = getPos _zoneTrg; // actual vessel location...
+	_pos set [0, (_pos select 0) + (random ((_area select 0)* 2) ) - (_area select 0)];
+	_pos set [1, (_pos select 1) + (random ((_area select 1)* 2) ) - (_area select 1)];
+	
+	_gig = [_tsk, "HeliWorks_MarineSAR.fsm", _mkr, time + 100 + random(300), [_rpos, _pos]];
+	GigLineup set [ count GigLineup, _gig ];
+};
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // MEDEVAC
+
+HW_Fx_Dispatch_MEDEVAC = 
+{
+	//
+	_pos = [[[(getPos chopper), 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
+	
+	
+	_rpp = [(_pos select 0) + (random 500) -250, (_pos select 1) + (random 500) -250]; // report position - often differs from actual location....
+	_hospital = locationPosition ((nearestLocations [_pos, ["heliportHospital", "heliportTrauma"], 35000]) select 0);
+	
+	
+	_mkID = ("MV-"+str(round time));
+	_mkr = createMarker [_mkID, _rpp];
+	_mkr setMarkerType "hd_destroy";
+	_mkr setMarkerText ("MEDEVAC | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
+	_mkr setMarkerColor "ColorRed";
+	
+	_tsk = player createSimpleTask ["MEDEVAC"];
+	_tsk setSimpleTaskDestination _rpp;
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "MEDEVAC", "Reported Accident Site"];
+
+	_gig = [_tsk, "HeliWorks_MEDEVAC.fsm", _mkr, time + 100 + random(300), [_hospital, _pos, _rpp]];
+	GigLineup set [ count GigLineup, _gig ];
+};
+
+
+
+
+
+
+
+
+
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
+// //////////////////////////////////////////// // //////////////////////////////////////////// // ...and the rest of it...
 
 
 HW_Fx_Pilot_Task_Commit = 
@@ -313,7 +424,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in available
 		
 		sleep 1;
-		call HW_Fx_Dispatch_Cargo;
+		call HW_Fx_Dispatch_MEDEVAC;
 		
 		RadioCall_J = false;
 	};
