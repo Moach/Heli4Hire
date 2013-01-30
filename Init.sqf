@@ -50,7 +50,7 @@
 
 
 
-HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
+HW_DEBUG = false; // master debug flag -- DO NOT commit to master when enabled
 
 
 

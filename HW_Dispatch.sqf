@@ -284,7 +284,7 @@ HW_Fx_Dispatch_MEDEVAC =
 	
 	_tsk = player createSimpleTask ["MEDEVAC"];
 	_tsk setSimpleTaskDestination _rpp;
-	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "MEDEVAC", "Pickup Paramedics"];
+	_tsk setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "MEDEVAC", "Reported Accident Site"];
 
 	_gig = [_tsk, "HeliWorks_MEDEVAC.fsm", _mkr, time + 100 + random(300), [_hospital, _pos, _rpp]];
 	GigLineup set [ count GigLineup, _gig ];

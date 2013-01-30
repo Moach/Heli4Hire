@@ -108,7 +108,7 @@ class CfgVehicles
 		faction = "HSim_Civ_US";
 		hiddenSelectionsTextures[] = {"HSim\Air_US_H\Helicopters_Light\Data\skins\Heli_light01_ext_blueline_co.paa"};
 		
-		cargoPreciseGetInOut[] = {0};
+	/*	cargoPreciseGetInOut[] = {0};
 		memoryPointsGetInCargoPrecise[] = {"GetIn_Cargo","GetIn_Cargo2","GetIn_Cargo3","GetIn_Cargo4","GetIn_Cargo5","GetIn_Cargo6"};
 		
 		cargoGetInAction[] = {"Chopperlight_C_LIn_H","Chopperlight_C_RIn_H","GetInLow","GetInLow","GetInLow","GetInLow"};
@@ -118,13 +118,13 @@ class CfgVehicles
 		
 		transportSoldier = 4;
 		ejectDeadCargo = 1;
-		
+	*/	
 		class RotorLibHelicopterProperties: RotorLibHelicopterProperties
 		{
 		//	RTDconfig = "moach_hw_basics\WrightLD500Sim.xml";
 			starterTime = 8;
-			throttleOffToIdle = 12;
-			throttleIdleToOff = 16;
+			throttleOffToIdle = 16;
+			throttleIdleToOff = 20;
 		};
 		
 		class AnimationSources: AnimationSources
@@ -163,13 +163,14 @@ class CfgVehicles
 		
 		class SoundsExt: SoundsExt
 		{
-			starterClickInt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2_int",0.03,1.0};
+			starterClickInt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2_int",0.02,1.0};
 			starterClickExt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2",1.0,1.0,100};
+			
 			class Starter
 			{
-				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.025,1.0};
+				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.02,1.0};
 				startExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-start-noclick",1.0,1.0,300};
-				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.003,1.0};
+				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.002,1.0};
 				stopExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-stop",0.1,1.0,300};
 				damageInt[] = {"HSim\Sounds_H\Air\Noises\damage_starter_int_light",1.0,1.0};
 				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
