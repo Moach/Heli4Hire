@@ -96,6 +96,7 @@ class AddTread_Short;
 class AddTread;
 class AddDoors;
 class AddBenches;
+class AddMirror;
 
 class CfgVehicles 
 {
@@ -152,17 +153,23 @@ class CfgVehicles
 			{
 				initPhase = 0;
 			};
+			class AddMirror: AddMirror
+			{
+				initPhase = 0;
+			};
 		};
 		
 		
 		
 		class SoundsExt: SoundsExt
 		{
+			starterClickInt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2_int",0.03,1.0};
+			starterClickExt[] = {"HSim\Sounds_H\Air\heli_light\starter_click2",1.0,1.0,100};
 			class Starter
 			{
-				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.031622775,1.0};
+				startInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-start-noclick",0.025,1.0};
 				startExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-start-noclick",1.0,1.0,300};
-				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.002,1.0};
+				stopInt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_int_starter-stop",0.003,1.0};
 				stopExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-stop",0.1,1.0,300};
 				damageInt[] = {"HSim\Sounds_H\Air\Noises\damage_starter_int_light",1.0,1.0};
 				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
