@@ -69,7 +69,31 @@ class CfgSimCopterHardware
 		ident= "PL-AV3 Light";
 		fullName="Lunostat PL-AV3 SuperBeam Light";
 	};
-	
+	class HW_LD500_StabHR: HW_Hardware_Base
+	{
+		ident= "LD500 H-Stab R";
+		fullName="Wright LD500 Right Horizontal Stabilizer";
+	};
+	class HW_LD500_StabHL: HW_Hardware_Base
+	{
+		ident= "LD500 H-Stab L";
+		fullName="Wright LD500 Left Horizontal Stabilizer";
+	};
+	class HW_LD500_StabV: HW_Hardware_Base
+	{
+		ident= "LD500 V-Stab";
+		fullName="Wright LD500 Vertical Stabilizer";
+	};
+	class HW_LD500_Pitot: HW_Hardware_Base
+	{
+		ident= "LD500 Pitot Tubes";
+		fullName="Wright LD500 Pitot Tube Set";
+	};
+	class HW_LD500_StaticPort: HW_Hardware_Base
+	{
+		ident= "LD500 Static Ports";
+		fullName="Wright LD500 Static Ports Set";
+	};
 	
 	class HW_LD500_Doors: HW_Hardware_Base
 	{
@@ -264,6 +288,41 @@ class CfgSimCopterFleet
 				minimalSpec=1;
 				minimalSafe=1; // as long as you don't go out after dark....
 			};
+			class StabilizerHL: HW_Hardware_Base
+			{
+				slotIdent="Left H Stabilizer"; 
+				hardwareClass="HW_LD500_StabHL";
+				damageSource="HitHStabilizerL1";
+				minimalSpec=1;
+			};
+			class StabilizerHR: HW_Hardware_Base
+			{
+				slotIdent="Right H Stabilizer"; 
+				hardwareClass="HW_LD500_StabHR";
+				damageSource="HitHStabilizerR1";
+				minimalSpec=1;
+			};
+			class StabilizerV: HW_Hardware_Base
+			{
+				slotIdent="V Stabilizer"; 
+				hardwareClass="HW_LD500_StabV";
+				damageSource="HitVStabilizer1";
+				minimalSpec=1;
+			};
+			class Pitot: HW_Hardware_Base
+			{
+				slotIdent="Pitot"; 
+				hardwareClass="HW_LD500_Pitor";
+				damageSource="HitPitotTube";
+				minimalSpec=1;
+			};
+			class StaticPort: HW_Hardware_Base
+			{
+				slotIdent="Static Ports"; 
+				hardwareClass="HW_LD500_StaticPort";
+				damageSource="HitStaticPort";
+				minimalSpec=1;
+			};
 			
 			class Doors: HW_Hardware_Base
 			{
@@ -366,7 +425,7 @@ class CfgSimCopterFleet
 		};
 		
 
-		// more shall follow....
+		// more may follow....
 	};
 };
 
