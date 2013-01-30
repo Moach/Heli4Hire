@@ -311,8 +311,8 @@ class CfgSimCopterFleet
 			};
 			class Pitot: HW_Hardware_Base
 			{
-				slotIdent="Pitot"; 
-				hardwareClass="HW_LD500_Pitor";
+				slotIdent="Pitot Tubes"; 
+				hardwareClass="HW_LD500_Pitot";
 				damageSource="HitPitotTube";
 				minimalSpec=1;
 			};
