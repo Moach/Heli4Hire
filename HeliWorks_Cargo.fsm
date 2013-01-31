@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Cargo">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
+item0[] = {"START",0,4346,-198.141617,1014.463989,-108.141159,1064.464111,0.000000,"START"};
 item1[] = {"get_to__cargo_ba",2,250,316.117645,1683.599365,406.117584,1733.599365,0.000000,"get to " \n "cargo base"};
 item2[] = {"avail",4,218,-198.493408,1108.035400,-108.493408,1158.035400,0.000000,"avail"};
 item3[] = {"where_s_the__cargo",2,250,-199.340088,1197.545898,-109.340271,1247.545898,0.000000,"where's the " \n "cargo crew?"};
@@ -45,7 +45,7 @@ item40[] = {"sling_it_up",2,250,-264.803467,2191.665527,-166.007111,2243.431885,
 item41[] = {"steady__over_it",4,218,509.007446,2288.697266,600.282776,2338.697266,0.000000,"steady " \n "over it"};
 item42[] = {"complete_",4,218,-64.626053,1772.307983,28.023211,1825.003662,0.000000,"complete!"};
 item43[] = {"hover__",2,250,366.580719,2287.318359,437.829987,2337.724854,0.000000,"hover!!"};
-item44[] = {"attached_",4,4314,190.486755,2287.652344,280.486328,2337.652344,0.000000,"attached!"};
+item44[] = {"attached_",4,218,190.486755,2287.652344,280.486328,2337.652344,0.000000,"attached!"};
 item45[] = {"take_it_down",2,250,6.390173,2287.254395,96.390335,2337.254395,0.000000,"take it down"};
 item46[] = {"released_",4,218,130.944229,1910.584473,225.566528,1959.887207,1.000000,"released!"};
 item47[] = {"approach",4,218,6.669127,2192.389648,96.669037,2242.389648,0.000000,"approach"};
@@ -214,8 +214,8 @@ link121[] = {84,86};
 link122[] = {85,53};
 link123[] = {86,87};
 link124[] = {87,85};
-globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-169.643860,575.501099,2557.036621,1621.847656,694,871,1};
-window[] = {0,-1,-1,-32000,-32000,989,235,1738,4,1,712};
+globals[] = {0.000000,0,0,0,0,640,480,1,234,6316128,1,-366.130463,379.014679,1855.909912,920.721680,694,871,1};
+window[] = {0,-1,-1,-1,-1,1243,2148,3651,258,1,712};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -257,7 +257,7 @@ class FSM
        "(units _grp) call HW_Fx_Util_Animate_Idle;" \n
        "" \n
        "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDescription [""Cargo SlingLoad Transport Operations."", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "" \n

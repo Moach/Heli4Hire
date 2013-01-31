@@ -134,11 +134,10 @@ if (!HW_DEBUG) then // this will enable a REAL need to inspect before flight
 
 };
 
-
-
+HW_Dispatch_Avail=false;
 
 player addAction ["Access Hangar", "Hangar\HW_Hangar_Dialog.sqf", nil, 0, false, true, "", 
-	"(HW_DEBUG || (player distance hangar_area) < 20 && !isEngineOn chopper) && chopper distance hangar_area < 100"];
+	"!HW_Dispatch_Avail && (HW_DEBUG || (player distance hangar_area) < 20 && !isEngineOn chopper) && chopper distance hangar_area < 100"];
 
 
 

@@ -1,0 +1,30 @@
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_MEDEVAC">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",0,4346,-28.653183,1729.530518,61.346817,1779.530518,0.000000,""};
+globals[] = {0.000000,0,0,0,0,640,480,3,2,6316128,1,-406.310944,415.369141,2316.219727,1169.205078,591,825,1};
+window[] = {0,-1,-1,-32000,-32000,988,1939,3357,49,1,609};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "HW_MEDEVAC";
+  class States
+  {
+    /*%FSM<STATE "_">*/
+    class _
+    {
+      name = "_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="_";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
