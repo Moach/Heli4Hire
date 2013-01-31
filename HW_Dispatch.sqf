@@ -97,7 +97,7 @@ HW_Fx_Gig_Tasks_Update =
 
 	_down = false;
 	{
-		if (time < (_x select 3)) then
+		if (time > (_x select GIG_EXP_TIME)) then
 		{
 			// run expiration code now!
 			_exp = _x call (_x select GIG_EXP_CODE);
@@ -123,6 +123,13 @@ HW_Fx_Gig_Tasks_Update =
 
 
 
+HW_Fx_All_Gigs_AbleCheck =
+{
+	{
+		_x call (_x select GIG_ABLE_CODE);
+		//
+	} foreach GigLineup;
+};
 
 
 
@@ -139,11 +146,32 @@ HW_Fx_Pilot_Task_Commit =
 			
 			_x call (_x select GIG_CALL_CODE); // run the call code!
 			
-			exit;
-		}; 
+			
+		} else // as well as searching for our requested gig, this loop will reset all others so they are disabled until second notice
+		{
+			_x call (_x select GIG_ABLE_CODE); // since this function is called by the fsm right after setting the commit flag on, gigs should update themselves accordingly...
+			
+		};
 		
 	} foreach GigLineup;
 };
+
+
+
+
+HW_Fx_Clear_All_Tasks =
+{
+	{
+		player RemoveSimpleTask (_x select GIG_TASKREF);
+		deleteMarker (_x select GIG_MARKER);
+		_x = nil;
+		
+	} foreach GigLineup;
+
+	GigLineup = [];	
+};
+
+
 
 
 
@@ -229,10 +257,10 @@ if (HW_DEBUG) then // enabled only for debug!
 		chopper setFuel 1;
 		chopper setDamage 0;
 		
-		RadioCall_A = true; // auto call in available
+		RadioCall_A = true; // auto call in as available
 		
-		sleep 1;
-		call HW_Fx_Dispatch_MEDEVAC;
+	//	sleep 1;
+	//	call HW_Fx_Dispatch_MEDEVAC;
 		
 		RadioCall_J = false;
 	};

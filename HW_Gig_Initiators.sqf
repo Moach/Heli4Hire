@@ -84,16 +84,26 @@ HW_Fx_Dispatch_Taxi =
 	
 	_ableCode =
 	{
-		if ((chopper getVariable "HW_PAXCOM") > 1 && (chopper getVariable "HW_PAXCAP") > 1) then
+		if (HW_PilotCommited) exitWith
 		{
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Your helicopter is not equipped for passenger operations!\nRegulation requires that you have all cabin comfort and safety items such as doors, seats and boarding steps installed.", "Shuttle Passengers", "Departing here"];
+			(_this select GIG_TASKREF) setTaskState "Canceled";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Shuttle Passengers", "Departing here"];
+			(_this select GIG_MARKER) setMarkerColor "ColorRed";
+			_this set [GIG_ABLE_FLAG, false];
+		};
+		
+		if ((chopper getVariable "HW_PAXCOM") < 2 || (chopper getVariable "HW_PAXCAP") < 3) then
+		{
+			(_this select GIG_TASKREF) setTaskState "Canceled";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for passenger operations! Regulation requires that you have a minimum 3 seats, plus all cabin comfort and safety items such as doors, seats and boarding steps installed.", "Shuttle Passengers", "Departing here"];
 			
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
 			
 		} else
 		{
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Shuttle Passengers", "Departing here"];
+			(_this select GIG_TASKREF) setTaskState "Created";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept.", "Shuttle Passengers", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorGreen";
 			_this set [GIG_ABLE_FLAG, true];
 		};
@@ -187,9 +197,18 @@ HW_Fx_Dispatch_Survey =
 	
 	_ableCode =
 	{
-		if ((chopper getVariable "HW_PAXCOM") > 0 && (chopper getVariable "HW_PAXCAP") > 1) then
+		if (HW_PilotCommited) exitWith
 		{
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Your helicopter is not equipped for observation flights!\nRegulation requires that you have a minimum of 3 seats and all basic safety items installed.", 
+			(_this select GIG_TASKREF) setTaskState "Canceled";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Field Survey", "Departing here"];
+			(_this select GIG_MARKER) setMarkerColor "ColorRed";
+			_this set [GIG_ABLE_FLAG, false];
+		};
+		
+		if ((chopper getVariable "HW_PAXCOM") < 1 || (chopper getVariable "HW_PAXCAP") < 3) then
+		{
+			(_this select GIG_TASKREF) setTaskState "Canceled";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for observation flights! Regulation requires that you have a minimum of 3 seats and all basic safety items installed.", 
 			 "Field Survey", "Departing here"];
 			
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
@@ -197,6 +216,7 @@ HW_Fx_Dispatch_Survey =
 			
 		} else
 		{
+			(_this select GIG_TASKREF) setTaskState "Created";
 			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Field Survey", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorGreen";
 			_this set [GIG_ABLE_FLAG, true];
@@ -282,7 +302,6 @@ HW_Fx_Dispatch_Cargo =
 	_mkr = createMarker [_mkID, _crewPos];
 	_mkr setMarkerType "hd_join";
 	_mkr setMarkerText ("Cargo | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
-	_mkr setMarkerColor "ColorRed";
 	
 	_tsk = player createSimpleTask ["Cargo SlingLoad"];
 	_tsk setSimpleTaskDestination _crewPos;
@@ -306,6 +325,15 @@ HW_Fx_Dispatch_Cargo =
 	
 	_ableCode =
 	{
+		
+		if (HW_PilotCommited) exitWith
+		{
+			(_this select GIG_TASKREF) setTaskState "Canceled";
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Cargo SlingLoad", "Departing here"];
+			(_this select GIG_MARKER) setMarkerColor "ColorRed";
+			_this set [GIG_ABLE_FLAG, false];
+		};
+		
 		
 		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Cargo SlingLoad", "Meet Logistics Crew here"];
 		(_this select GIG_MARKER) setMarkerColor "ColorGreen";
@@ -397,7 +425,6 @@ HW_Fx_Dispatch_MEDEVAC =
 	
 	_gig call _ableCode;
 	_gig execFSM "Emergency\MEDEVAC.fsm";
-	
 	
 	
 	GigLineup set [count GigLineup, _gig];

@@ -1,12 +1,12 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Survey">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
+item0[] = {"START",0,4346,-771.685425,1258.684448,-681.685425,1308.684570,0.000000,"START"};
 item1[] = {"avail",4,218,-771.961426,1344.660034,-681.961304,1394.660034,0.000000,"avail"};
 item2[] = {"land",4,218,-772.595642,1523.999756,-682.595154,1573.999756,1.000000,"land"};
 item3[] = {"pickup",2,250,-772.173706,1403.910278,-682.173584,1453.910278,0.000000,"pickup"};
 item4[] = {"land_",4,218,42.049801,2065.103516,121.209686,2118.498779,1.000000,"land" \n ""};
-item5[] = {"deboard",2,4346,38.058102,2253.112793,128.058136,2303.113037,0.000000,"deboard"};
+item5[] = {"deboard",2,250,38.058102,2253.112793,128.058136,2303.113037,0.000000,"deboard"};
 item6[] = {"away",4,218,39.097061,2323.200439,129.097290,2373.200928,0.000000,"away"};
 item7[] = {"now_boarding___",2,250,-625.913147,1599.736816,-532.392883,1641.415039,0.000000,"now boarding..."};
 item8[] = {"clear",1,250,37.422394,2391.902100,127.422539,2441.902100,0.000000,"clear"};
@@ -142,8 +142,8 @@ link84[] = {50,4};
 link85[] = {50,12};
 link86[] = {51,52};
 link87[] = {52,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-417.072083,208.838226,2897.602539,1981.015137,590,864,1};
-window[] = {0,-1,-1,-1,-1,996,253,1669,18,1,608};
+globals[] = {0.000000,0,0,0,0,640,480,1,195,6316128,1,-1098.146240,-472.236389,1970.411865,1053.822632,590,864,1};
+window[] = {0,-1,-1,-1,-1,1217,2129,3545,239,1,608};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -163,7 +163,7 @@ class FSM
        "" \n
        "_pos = _this select 0;" \n
        "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDescription [""Survey Flight Operations."", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "" \n

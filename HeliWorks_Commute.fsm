@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_Commute">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"comply_",2,250,-323.180084,1062.351563,-233.180054,1112.351563,0.000000,"comply!"};
+item0[] = {"comply_",2,4346,-323.180084,1062.351563,-233.180054,1112.351563,0.000000,"comply!"};
 item1[] = {"avail",4,218,-323.353790,1144.254395,-233.353836,1194.254395,0.000000,"avail"};
 item2[] = {"land",4,218,-323.717010,1443.854248,-233.716278,1493.854248,1.000000,"land"};
 item3[] = {"pickup",2,250,-323.167450,1240.147705,-233.167419,1290.147705,0.000000,"pickup"};
@@ -9,7 +9,7 @@ item4[] = {"land",4,218,-295.241730,1925.142578,-205.241913,1975.142578,1.000000
 item5[] = {"deboard",2,250,27.048214,2013.610107,117.048187,2063.609375,0.000000,"deboard"};
 item6[] = {"away",4,218,27.067078,2100.774414,117.067307,2150.775391,0.000000,"away"};
 item7[] = {"now_boarding___",2,250,-329.349762,1522.347046,-227.503113,1571.162354,0.000000,"now boarding..."};
-item8[] = {"clear",1,4346,27.319611,2199.822266,117.319931,2249.822266,0.000000,"clear"};
+item8[] = {"clear",1,250,27.319611,2199.822266,117.319931,2249.822266,0.000000,"clear"};
 item9[] = {"timeout",4,218,-425.687408,1492.168457,-335.687164,1542.168457,0.000000,"timeout"};
 item10[] = {"done",4,218,27.126804,1924.884888,117.126968,1974.884888,0.000000,"done"};
 item11[] = {"wait_for_it___",2,250,-128.765167,1926.277344,-35.657391,1973.799194,0.000000,"wait for it..."};
@@ -136,7 +136,7 @@ link73[] = {55,56};
 link74[] = {56,42};
 link75[] = {57,6};
 globals[] = {0.000000,0,0,0,0,640,480,1,151,0,1,-954.536743,541.758301,2533.652588,660.545410,683,855,1};
-window[] = {0,-1,-1,-1,-1,1007,38,1534,38,1,701};
+window[] = {0,-1,-1,-1,-1,1040,312,1808,71,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -160,7 +160,7 @@ class FSM
        "_shitHappens=false;" \n
        "" \n
        "_tsk = player createSimpleTask [""-CURRENT ASSIGNMENT-""];" \n
-       "_tsk setSimpleTaskDescription [""You are currently assigned (i.e. not 'Able') and cannot request another task until clear"", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
+       "_tsk setSimpleTaskDescription [""Passenger Flight Operations."", ""-CURRENT ASSIGNMENT-"", ""Current Destination""];" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
        "_range = player distance _pos;" \n
