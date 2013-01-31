@@ -104,7 +104,7 @@ HW_Fx_Dispatch_Taxi =
 		{
 			(_this select GIG_TASKREF) setTaskState "Created";
 			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept.", "Shuttle Passengers", "Departing here"];
-			(_this select GIG_MARKER) setMarkerColor "ColorGreen";
+			(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 			_this set [GIG_ABLE_FLAG, true];
 		};
 	};
@@ -218,7 +218,7 @@ HW_Fx_Dispatch_Survey =
 		{
 			(_this select GIG_TASKREF) setTaskState "Created";
 			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Field Survey", "Departing here"];
-			(_this select GIG_MARKER) setMarkerColor "ColorGreen";
+			(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 			_this set [GIG_ABLE_FLAG, true];
 		};
 	};
@@ -336,7 +336,7 @@ HW_Fx_Dispatch_Cargo =
 		
 		
 		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Cargo SlingLoad", "Meet Logistics Crew here"];
-		(_this select GIG_MARKER) setMarkerColor "ColorGreen";
+		(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 		_this set [GIG_ABLE_FLAG, true];
 	};
 	
@@ -399,7 +399,7 @@ HW_Fx_Dispatch_MEDEVAC =
 	_ableCode =
 	{
 		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to request paramedics assistance from the hospital nearest to your position.", "MEDEVAC", "Reported Accident Site"];
-		(_this select GIG_MARKER) setMarkerColor "ColorGreen";
+		(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 		_this set [GIG_ABLE_FLAG, true];
 	};
 	
