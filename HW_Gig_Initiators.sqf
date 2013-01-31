@@ -334,7 +334,7 @@ HW_Fx_Dispatch_Cargo =
 			_this set [GIG_ABLE_FLAG, false];
 		};
 		
-		
+		(_this select GIG_TASKREF) setTaskState "Created";
 		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Cargo SlingLoad", "Meet Logistics Crew here"];
 		(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 		_this set [GIG_ABLE_FLAG, true];
