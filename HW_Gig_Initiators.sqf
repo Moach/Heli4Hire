@@ -18,7 +18,7 @@
 
 
 
-
+#include <Emergency\MEDEVAC.sqf>
 
 
 
@@ -72,7 +72,7 @@ HW_Fx_Dispatch_Taxi =
 		deleteMarker (_this select GIG_MARKER);
 		player RemoveSimpleTask (_this select GIG_TASKREF);
 		
-		(_this select GIG_DATA_ARRAY) execFSM "HeliWorks_Commute.fsm";
+		(_this select GIG_DATA_ARRAY) execFSM "Gigs\Commute.fsm";
 		
 		[] spawn 
 		{ 
@@ -87,7 +87,7 @@ HW_Fx_Dispatch_Taxi =
 		if (HW_PilotCommited) exitWith
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Shuttle Passengers", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Passenger Shuttle", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
 		};
@@ -95,7 +95,7 @@ HW_Fx_Dispatch_Taxi =
 		if ((chopper getVariable "HW_PAXCOM") < 2 || (chopper getVariable "HW_PAXCAP") < 3) then
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for passenger operations! Regulation requires that you have a minimum 3 seats, plus all cabin comfort and safety items such as doors, seats and boarding steps installed.", "Shuttle Passengers", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for passenger operations! Regulation requires that you have a minimum 3 seats, plus all cabin comfort and safety items such as doors, seats and boarding steps installed.", "Passenger Shuttle", "Departing here"];
 			
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
@@ -103,7 +103,7 @@ HW_Fx_Dispatch_Taxi =
 		} else
 		{
 			(_this select GIG_TASKREF) setTaskState "Created";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept.", "Shuttle Passengers", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept.", "Passenger Shuttle", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 			_this set [GIG_ABLE_FLAG, true];
 		};
@@ -170,14 +170,14 @@ HW_Fx_Dispatch_Survey =
 	};
 	
 	//
-	_tsk = player createSimpleTask ["Field Survey"];
+	_tsk = player createSimpleTask ["Location Scouting"];
 	_tsk setSimpleTaskDestination _p1;
 	
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];
 	_mkr setMarkerType "hd_start";
 	_mkr setMarkerDir ((AreaCenter select 0) - (_p1 select 0)) atan2 ((AreaCenter select 1) - (_p1 select 1));
-	_mkr setMarkerText ("Survey | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
+	_mkr setMarkerText ("Scout | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
 	
 	
 	_callCode =
@@ -185,7 +185,7 @@ HW_Fx_Dispatch_Survey =
 		deleteMarker (_this select GIG_MARKER);
 		player RemoveSimpleTask (_this select GIG_TASKREF);
 		
-		(_this select GIG_DATA_ARRAY) execFSM "HeliWorks_Survey.fsm";
+		(_this select GIG_DATA_ARRAY) execFSM "Gigs\Survey.fsm";
 		
 		[] spawn 
 		{ 
@@ -200,7 +200,7 @@ HW_Fx_Dispatch_Survey =
 		if (HW_PilotCommited) exitWith
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Field Survey", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Location Scouting", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
 		};
@@ -209,7 +209,7 @@ HW_Fx_Dispatch_Survey =
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
 			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for observation flights! Regulation requires that you have a minimum of 3 seats and all basic safety items installed.", 
-			 "Field Survey", "Departing here"];
+			 "Location Scouting", "Departing here"];
 			
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
@@ -217,7 +217,7 @@ HW_Fx_Dispatch_Survey =
 		} else
 		{
 			(_this select GIG_TASKREF) setTaskState "Created";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Field Survey", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Location Scouting", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 			_this set [GIG_ABLE_FLAG, true];
 		};
@@ -313,7 +313,7 @@ HW_Fx_Dispatch_Cargo =
 		deleteMarker (_this select GIG_MARKER);
 		player RemoveSimpleTask (_this select GIG_TASKREF);
 		
-		(_this select GIG_DATA_ARRAY) execFSM "HeliWorks_Cargo.fsm";
+		(_this select GIG_DATA_ARRAY) execFSM "Gigs\Cargo.fsm";
 		
 		[] spawn 
 		{ 
@@ -370,67 +370,11 @@ HW_Fx_Dispatch_Cargo =
 
 
 
-// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
-// //////////////////////////////////////////// // //////////////////////////////////////////// // //////////////////////////////////////////// 
-// //////////////////////////////////////////// // //////////////////////////////////////////// // MEDEVAC
 
-HW_Fx_Dispatch_MEDEVAC = 
-{
-	//
-	_pos = [[[(getPos chopper), 25000], survey_safe_zone], ["water","out"], {(_this distance player) < 30000}] call BIS_fnc_randomPos;
-	_rpp = [(_pos select 0) + (random 500) -250, (_pos select 1) + (random 500) -250]; // report position - often differs from actual location....
-	
-	
-	_mkID = ("MV-"+str(round time));
-	_mkr = createMarker [_mkID, _rpp];
-	_mkr setMarkerType "hd_destroy";
-	_mkr setMarkerText ("MEDEVAC | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString));
-	_mkr setMarkerColor "ColorRed";
-	
-	_tsk = player createSimpleTask ["MEDEVAC"];
-	_tsk setSimpleTaskDestination _rpp;
-	
-	_callCode =
-	{
-		
-		
-	};
-	
-	_ableCode =
-	{
-		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to request paramedics assistance from the hospital nearest to your position.", "MEDEVAC", "Reported Accident Site"];
-		(_this select GIG_MARKER) setMarkerColor "ColorBlue";
-		_this set [GIG_ABLE_FLAG, true];
-	};
-	
-	_expCode = 
-	{		
-		deleteMarker (_this select GIG_MARKER);
-		player RemoveSimpleTask (_this select GIG_TASKREF);
-		
-		// simple expiration by timeout...
-		(false)
-	};
-	
-	
-	_gig = []; _gig resize GIG_STRUCT_SIZE;
-	
-	_gig set [GIG_TASKREF,    _tsk];
-	_gig set [GIG_MARKER,     _mkID];
-	_gig set [GIG_EXP_TIME,   time + 250 + random(300)];
-	_gig set [GIG_DATA_ARRAY, [_pos, _rpp]];
-	_gig set [GIG_CALL_CODE,  _callCode];
-	_gig set [GIG_ABLE_CODE,  _ableCode];
-	_gig set [GIG_EXP_CODE,   _expCode];
-	
-	_gig call _ableCode;
-	_gig execFSM "Emergency\MEDEVAC.fsm";
-	
-	
-	GigLineup set [count GigLineup, _gig];
-	
-	
-};
+
+
+
+
 
 
 

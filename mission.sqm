@@ -318,7 +318,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=3118;
+		items=3119;
 		class Item0
 		{
 			position[]={27907.41,4.1129684,29777.039};
@@ -37108,6 +37108,16 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			init="loc = createLocation [""FlatArea"", getPos this, 100, 100];";
+		};
+		class Item3118
+		{
+			position[]={27914.342,4.1999998,29758.928};
+			azimut=68.546501;
+			id=3132;
+			side="EMPTY";
+			vehicle="Heli_Medium01_Medic_H";
+			skill=0.60000002;
+			text="heli_2";
 		};
 	};
 	class Markers
