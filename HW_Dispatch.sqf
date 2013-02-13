@@ -73,7 +73,7 @@ HW_Fx_Gig_Generator =
 	
 	_random_fnc_dispatchGig =
 	 [
-		HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi,
+		HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi,
 		HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey,
 		HW_Fx_Dispatch_Cargo, HW_Fx_Dispatch_Cargo
 	//	HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC
@@ -260,7 +260,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in as available
 		
 	//	sleep 1;
-	//	call HW_Fx_Dispatch_MEDEVAC;
+		call HW_Fx_Dispatch_Taxi;
 		
 		RadioCall_J = false;
 	};
