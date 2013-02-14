@@ -12,7 +12,7 @@ item7[] = {"now_boarding___",2,250,-329.349762,1522.347046,-227.503113,1571.1623
 item8[] = {"clear",1,250,27.319611,2199.822266,117.319931,2249.822266,0.000000,"clear"};
 item9[] = {"all_aboard_",4,218,-452.003418,1521.917358,-362.003418,1571.917358,0.000000,"all aboard!"};
 item10[] = {"done",4,218,27.126804,1924.884888,117.126968,1974.884888,0.000000,"done"};
-item11[] = {"wait_for_it___",2,4346,-128.765167,1926.277344,-35.657391,1973.799194,0.000000,"wait for it..."};
+item11[] = {"wait_for_it___",2,250,-128.765167,1926.277344,-35.657391,1973.799194,0.000000,"wait for it..."};
 item12[] = {"fail___abort",4,218,-492.734589,2001.514038,-346.389557,2076.683838,2.000000,"fail / abort"};
 item13[] = {"just_put__it_dow",2,250,-287.930786,2014.662842,-207.224777,2063.479004,0.000000,"just put " \n "it down"};
 item14[] = {"land_ASAP",4,218,-123.685081,2014.159790,-33.685204,2064.156738,0.000000,"land ASAP"};
@@ -20,7 +20,7 @@ item15[] = {"running_late",4,218,-202.914352,1240.386719,-112.914383,1290.386719
 item16[] = {"you_re_late",2,250,-195.620239,1313.970581,-119.762047,1362.815552,0.000000,"you're late"};
 item17[] = {"too_late",4,218,-79.117683,1314.196777,10.882305,1364.196777,2.000000,"too late"};
 item18[] = {"you_fucked_it",1,250,71.006248,1313.825562,161.006287,1363.825562,0.000000,"you fucked it"};
-item19[] = {"go_fly_",2,250,-439.359070,1696.978638,-375.423401,1761.706543,0.000000,"go fly!"};
+item19[] = {"go_fly_",2,4346,-439.359070,1696.978638,-375.423401,1761.706543,0.000000,"go fly!"};
 item20[] = {"abort_pickup",4,218,-392.783752,1313.449097,-302.783997,1363.449097,2.000000,"abort" \n "pickup"};
 item21[] = {"quit",1,250,-528.910156,1313.438721,-438.909973,1363.438721,0.000000,"quit"};
 item22[] = {"simple_flight",8,218,-202.926117,1701.911255,-142.803421,1756.890869,0.000000,"simple" \n "flight"};
@@ -132,8 +132,8 @@ link70[] = {53,54};
 link71[] = {54,55};
 link72[] = {55,41};
 link73[] = {56,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,152,0,1,-313.617950,333.623810,2273.950684,1493.090942,683,824,1};
-window[] = {0,-1,-1,-32000,-32000,1003,2032,3528,34,1,701};
+globals[] = {0.000000,0,0,0,0,640,480,1,152,0,1,-800.299133,35.592651,2424.171875,1415.716919,683,824,1};
+window[] = {0,-1,-1,-1,-1,1119,2070,3566,150,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -595,11 +595,11 @@ class FSM
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
        "" \n
-       "if ((random 10) > 8) then // chance of something more interesing going on..." \n
+       "if ((random 100) < 15) then // percent chance of something more interesing going on..." \n
        "{" \n
        "	_d = chopper distance (_this select 1);" \n
-       "	_r =  (_d) * .007;" \n
-       "	_shT = time + 45 + (_r * (random 1)) + (_r * (random 1)); // you may be able to outspeed the event... with luck..." \n
+       "	_r =  _d * .014;" \n
+       "	_shT = time + 45 + ( random _r ); // time to event is randomized evenly over estimated time of trip" \n
        "	" \n
        "" \n
        "//	if (HW_DEBUG) then " \n
@@ -1137,7 +1137,7 @@ class FSM
        "" \n
        "_landRange=250;" \n
        "" \n
-       "_t = time + 10 + (chopper distance _pos)* .016; // be VERY quick about it!" \n
+       "_t = time + 15 + (chopper distance _pos)* .016; // be VERY quick about it!" \n
        "" \n
        "[_pos, _tsk] spawn " \n
        "{" \n
@@ -1190,7 +1190,7 @@ class FSM
        "" \n
        "_landRange=250;" \n
        "" \n
-       "_t = time + 10 +  (chopper distance _pos)* .0165; // be quick about it!" \n
+       "_t = time + 20 +  (chopper distance _pos)* .0165; // be quick about it!" \n
        "" \n
        "[_pos, _tsk] spawn " \n
        "{" \n

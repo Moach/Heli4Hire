@@ -260,7 +260,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in as available
 		
 	//	sleep 1;
-		call HW_Fx_Dispatch_Taxi;
+		call HW_Fx_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};

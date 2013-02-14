@@ -10,7 +10,7 @@ item5[] = {"deboard",2,250,-13.295601,2584.332031,76.704376,2634.331299,0.000000
 item6[] = {"away",4,218,-13.649254,2672.620117,76.350922,2722.620605,0.000000,"away"};
 item7[] = {"clear",1,250,-12.878273,2753.820068,77.121750,2803.820068,0.000000,"clear"};
 item8[] = {"done",4,218,2.527821,2515.255615,60.570297,2552.031738,0.000000,"done"};
-item9[] = {"wait_for_it___",2,4346,-132.780334,2518.878418,-50.257256,2548.174316,0.000000,"wait for it..."};
+item9[] = {"wait_for_it___",2,250,-132.780334,2518.878418,-50.257256,2548.174316,0.000000,"wait for it..."};
 item10[] = {"fail___abort",4,218,296.607452,2367.576660,425.687653,2440.486084,2.000000,"fail / abort"};
 item11[] = {"just_put_it_down",2,250,292.609100,2588.442871,427.908783,2636.284180,0.000000,"just put it down"};
 item12[] = {"land_ASAP",4,218,143.069733,2586.264404,233.070175,2636.264893,0.000000,"land ASAP"};
@@ -30,7 +30,7 @@ item25[] = {"abort_pickup",4,218,257.276489,1308.259399,347.276398,1358.259399,2
 item26[] = {"quit",1,250,274.362823,1231.638062,364.362885,1281.638062,0.000000,"quit"};
 item27[] = {"land",4,218,-36.447037,1536.110962,53.553764,1586.110962,1.000000,"land"};
 item28[] = {"now_boarding____1",2,250,-43.835674,1619.883545,59.000057,1668.698853,0.000000,"now boarding..."};
-item29[] = {"and_then____",2,250,40.941536,1808.422363,145.309372,1875.663818,0.000000,"and then?..."};
+item29[] = {"and_then____",2,4346,40.941536,1808.422363,145.309372,1875.663818,0.000000,"and then?..."};
 item30[] = {"land",4,218,190.286224,1683.340210,280.286316,1733.340210,1.000000,"land"};
 item31[] = {"cargo__going_up",4,218,-129.634003,1808.854248,-17.603416,1875.139038,1.000000,"cargo " \n "going up"};
 item32[] = {"cargo__coming_do",4,218,187.069107,1807.200073,292.371918,1877.666260,2.000000,"cargo " \n "coming" \n "down"};
@@ -208,8 +208,8 @@ link117[] = {82,84};
 link118[] = {83,51};
 link119[] = {84,85};
 link120[] = {85,83};
-globals[] = {0.000000,0,0,0,0,640,480,1,238,6316128,1,-345.642883,441.452942,3115.493408,2162.812500,694,840,1};
-window[] = {0,-1,-1,-32000,-32000,1011,132,1635,26,1,712};
+globals[] = {0.000000,0,0,0,0,640,480,1,238,6316128,1,-601.707703,482.875732,2553.613525,1240.862549,694,840,1};
+window[] = {0,-1,-1,-1,-1,1023,377,1880,38,1,712};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -328,6 +328,24 @@ class FSM
        "_pos = _basePos;" \n
        "_tsk setSimpleTaskDestination _pos;" \n
        "" \n
+       "deleteMarker _crewMkr;" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "_baseMkr = createMarker [""cargo_base"",   _basePos];" \n
+       "_baseMkr setMarkerText ""Cargo Base"";" \n
+       "_baseMkr setMarkerType ""hd_pickup"";" \n
+       "" \n
+       "_towrMkr = createMarker [""cargo_tower"",  _towerPos];" \n
+       "_towrMkr setMarkerText ""Cargo Tower"";" \n
+       "_towrMkr setMarkerType ""hd_objective"";" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
        "[_pos] call HW_Fx_Util_Clear_Cranes;" \n
        "" \n
        "_steady = [" \n
@@ -445,6 +463,12 @@ class FSM
       name = "deboard";
       init = /*%FSM<STATEINIT""">*/"" \n
        "Heli_Cabin_Condition = Heli_Cabin_Condition - (random .12); // passengers will eventually mess up the cabin as they go...." \n
+       "" \n
+       "" \n
+       "" \n
+       "deleteMarker _baseMkr;" \n
+       "deleteMarker _towrMkr;" \n
+       "player removeSimpleTask _tsk;" \n
        "" \n
        "" \n
        "if (PilotFail) then  " \n
@@ -739,8 +763,6 @@ class FSM
        "};" \n
        "" \n
        "" \n
-       "_baseMkr setMarkerText ""Cargo Base"";" \n
-       "_baseMkr setMarkerType ""hd_pickup"";" \n
        "" \n
        "2 setRadioMsg ""NULL"";" \n
        "_go = false;" \n
@@ -905,16 +927,6 @@ class FSM
        "	hintSilent ""OMG! Finally....\nWaiting for your clearance to board chopper...\n\n[Pilot Decision Available!]"";" \n
        "};" \n
        "" \n
-       "deleteMarker _crewMkr;" \n
-       "" \n
-       "" \n
-       "_baseMkr = createMarker [""cargo_base"",   _this select 0];" \n
-       "_baseMkr setMarkerText ""Cargo Base"";" \n
-       "_baseMkr setMarkerType ""hd_pickup"";" \n
-       "" \n
-       "_towrMkr = createMarker [""cargo_tower"",  _order select 1];" \n
-       "_towrMkr setMarkerText ""Cargo Tower"";" \n
-       "_towrMkr setMarkerType ""hd_objective"";" \n
        "" \n
        "" \n
        "2 setRadioMsg ""NULL"";" \n

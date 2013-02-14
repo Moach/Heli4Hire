@@ -97,6 +97,7 @@ class AddTread;
 class AddDoors;
 class AddBenches;
 class AddMirror;
+class Sounds;
 
 class CfgVehicles 
 {
@@ -174,6 +175,22 @@ class CfgVehicles
 				stopExt[] = {"HSim\Sounds_H\Air\heli_light\new-heli-light_ext_starter-stop",0.1,1.0,300};
 				damageInt[] = {"HSim\Sounds_H\Air\Noises\damage_starter_int_light",1.0,1.0};
 				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
+			};
+			
+			class Sounds: Sounds;
+			{
+				class WindIAS
+				{
+					sound[] = {"moach_hw_basics\wind_ias",1.0,1};
+					frequency = "";
+					volume = "";
+				};
+				class WindSkid
+				{
+					sound[] = {"moach_hw_basics\wind_skid",1.0,1};
+					frequency = "";
+					volume = "";
+				};
 			};
 		};
 	};
