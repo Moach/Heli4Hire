@@ -177,21 +177,21 @@ class CfgVehicles
 				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
 			};
 			
-			class Sounds: Sounds;
+		/*		class Sounds: Sounds
 			{
-				class WindIAS
+				class WindIASInt
 				{
-					sound[] = {"moach_hw_basics\wind_ias",1.0,1};
-					frequency = "";
-					volume = "";
+					sound[] = {"moach_hw_basics\wind1",1.0,1.0};
+					frequency = "1";//".7 + (.3 * (speed factor [5, 100]))";
+					volume = "1";//"(1-camPos)*(speed factor [5, 100])";
 				};
-				class WindSkid
+			class WindSkidInt
 				{
-					sound[] = {"moach_hw_basics\wind_skid",1.0,1};
-					frequency = "";
-					volume = "";
+					sound[] = {"moach_hw_basics\wind2",1.0,1.0};
+					frequency = ".7 + (.3 * (speed factor [5, 100]))";
+					volume = "(1-camPos)*((speed factor [5, 100]))";
 				};
-			};
+			};*/
 		};
 	};
 };

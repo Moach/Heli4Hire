@@ -13,7 +13,8 @@ sleep 1;
 PilotDecision=0;
 [["PD: Safe for deboarding!"]] call HW_Fx_PD_Prompt;
 
-waitUntil { PilotDecision == 1 };
+_t = time + 30; // if after this long you haven't cleared deboarding - ppl will decide for themselves
+waitUntil { PilotDecision == 1 || time > _t; };
 
 call HW_Fx_PD_Clear;
 

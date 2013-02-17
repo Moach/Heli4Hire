@@ -23,8 +23,8 @@ HW_Fx_Dispatch_MEDEVAC =
 	
 	_callCode =
 	{
-		
-		
+		_dat = _this select GIG_DATA_ARRAY;
+		_dat set [2, true];
 	};
 	
 	_ableCode =
@@ -49,12 +49,13 @@ HW_Fx_Dispatch_MEDEVAC =
 	_gig set [GIG_TASKREF,    _tsk];
 	_gig set [GIG_MARKER,     _mkID];
 	_gig set [GIG_EXP_TIME,   time + 250 + random(300)];
-	_gig set [GIG_DATA_ARRAY, [_pos, _rpp]];
+	_gig set [GIG_DATA_ARRAY, [_pos, _rpp, false, false]]; // position | reported position | expired flag | call-4-medic flag 
 	_gig set [GIG_CALL_CODE,  _callCode];
 	_gig set [GIG_ABLE_CODE,  _ableCode];
 	_gig set [GIG_EXP_CODE,   _expCode];
 	
 	_gig call _ableCode;
+	
 	_gig execFSM "Emergency\MEDEVAC.fsm";
 	
 	
@@ -63,8 +64,3 @@ HW_Fx_Dispatch_MEDEVAC =
 	
 };
 
-
-HW_Fx_MEDEVAC_SpawnVictim = 
-{
-
-};

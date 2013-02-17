@@ -16,8 +16,19 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 
 
 
-#include <HW_Gig_Initiators.sqf>
+#include <Gigs.h>
 //
+
+
+#include <Gigs\Commute.sqf>
+#include <Gigs\Survey.sqf>
+#include <Gigs\Cargo.sqf>
+
+
+#include <Emergency\MEDEVAC.sqf>
+
+
+
 
 
 //
@@ -112,6 +123,11 @@ HW_Fx_Gig_Tasks_Update =
 		{
 			// still good - keep it!
 			GigLineup set [count GigLineup, _x];
+			
+			// update pilot information...
+			
+			
+			
 		};
 	} foreach _GigCycleCheck;
 	
@@ -135,11 +151,14 @@ HW_Fx_All_Gigs_AbleCheck =
 
 HW_Fx_Pilot_Task_Commit = 
 {
+	
 	_tsk = currentTask player; // find gig array with this task
 	{ 
 		if ((_x select GIG_TASKREF) == _tsk) then 
 		{ 
 			// we should have it by now.... i hope
+			HW_PilotCommited = true;
+			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";	
 			RadioCallDelay = time+30; // since dispatch man will call a report after acknowledging your commit, this counts for a non-repeat delay
