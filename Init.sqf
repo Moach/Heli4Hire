@@ -83,7 +83,7 @@ setCamShakeDefParams [1.25, 2, 2, 4, 5, .5, .65];
 
 if (!HW_DEBUG) then
 {
-	cutText ["Welcome!\nYour Helicopter is out on the pad, make sure to inspect it before flight!", "PLAIN DOWN"];
+	cutText ["Welcome aboard, Captain!", "PLAIN DOWN"];
 	titleText ["", "BLACK FADED"];
 };
 
@@ -155,6 +155,10 @@ chopper execVM "scripts\OSMO_interaction\OSMO_interaction_init.sqf";
 */
 
 
+
+
+
+
 chopper enableCoPilot false;
 chopper setFuel .2 + random .65;
 chopper enableAutoStartUpRTD false; // doesn't work... dunno why - these do nothing...
@@ -179,6 +183,8 @@ chopper addAction ["DME Check", "HW_DMECheck.sqf", nil, 100, false, true, "MiniM
 
 
 
+
+
 sleep 1;
 
 
@@ -192,6 +198,8 @@ chopper addAction ["D+D: Log Position (RT)", "DnD\LogPos.sqf", 0, 0, false,   tr
 chopper addAction ["D+D: Log Position (LZ)", "DnD\LogPos.sqf", 1, 0, false,   true, "", "HW_DEBUG"];
 chopper addAction ["D+D: Magic Teleport", "DnD\WarpDrive.sqf", nil, 0, false, true, "", "HW_DEBUG"];
 chopper addAction ["D+D: Force Fail", "DnD\ForceFailure.sqf",  nil, 0, false, true, "", "HW_DEBUG"];
+chopper addAction ["D+D: Start Emergency", "DnD\StartEmergency.sqf",  nil, 0, false, true, "", "HW_DEBUG"];
+chopper addAction ["D+D: WX Shuffle", "HW_AdvWeatherModel.sqf",  nil, 0, false, true, "", "HW_DEBUG"];
 //
 //
 
@@ -257,6 +265,9 @@ HW_Fx_DD_IdentCargoBases =
 _initUtils = player execVM "HW_Utilities.sqf";
 waitUntil { scriptDone _initUtils };
 
+player execVM "HW_AdvWeatherModel.sqf";
+
+
 
 player execVM "HW_Dispatch.sqf";
 chopper execVM "HW_AdvFailureModel.sqf";
@@ -275,6 +286,12 @@ test_cargo addAction ["Connect 32m Sling Rope", "SlingLoad\HW_Attach_Sling_Cargo
 
 
 sleep 1;
+
+
+// init default helicopter to startup specs (beyond airframe minimal)...
+[chopper, HW_Hgr_Inventory select 16, (chopper getVariable "HW_ComponentSlots") select 16] call HW_Fs_AttachComponent; // doors
+[chopper, HW_Hgr_Inventory select 20, (chopper getVariable "HW_ComponentSlots") select 20] call HW_Fs_AttachComponent; // long boarding step
+[chopper, HW_Hgr_Inventory select 22, (chopper getVariable "HW_ComponentSlots") select 22] call HW_Fs_AttachComponent; // back seats
 
 
 

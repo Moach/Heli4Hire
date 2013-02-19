@@ -97,6 +97,7 @@ class AddTread;
 class AddDoors;
 class AddBenches;
 class AddMirror;
+class Sounds;
 
 class CfgVehicles 
 {
@@ -175,6 +176,22 @@ class CfgVehicles
 				damageInt[] = {"HSim\Sounds_H\Air\Noises\damage_starter_int_light",1.0,1.0};
 				damageOut[] = {"HSim\Sounds_H\Air\Noises\damage_starter_ext_light",1.0,1.0,300};
 			};
+			
+		/*		class Sounds: Sounds
+			{
+				class WindIASInt
+				{
+					sound[] = {"moach_hw_basics\wind1",1.0,1.0};
+					frequency = "1";//".7 + (.3 * (speed factor [5, 100]))";
+					volume = "1";//"(1-camPos)*(speed factor [5, 100])";
+				};
+			class WindSkidInt
+				{
+					sound[] = {"moach_hw_basics\wind2",1.0,1.0};
+					frequency = ".7 + (.3 * (speed factor [5, 100]))";
+					volume = "(1-camPos)*((speed factor [5, 100]))";
+				};
+			};*/
 		};
 	};
 };

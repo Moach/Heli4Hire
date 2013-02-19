@@ -16,8 +16,17 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 
 
 
-#include <HW_Gig_Initiators.sqf>
+#include <Gigs.h>
 //
+
+
+#include <Gigs\Commute.sqf>
+#include <Gigs\Survey.sqf>
+#include <Gigs\Cargo.sqf>
+
+
+
+
 
 
 //
@@ -73,7 +82,7 @@ HW_Fx_Gig_Generator =
 	
 	_random_fnc_dispatchGig =
 	 [
-		HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi,
+		HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi, HW_Fx_Dispatch_Taxi,
 		HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey, HW_Fx_Dispatch_Survey,
 		HW_Fx_Dispatch_Cargo, HW_Fx_Dispatch_Cargo
 	//	HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC, HW_Fx_Dispatch_MEDEVAC
@@ -112,6 +121,11 @@ HW_Fx_Gig_Tasks_Update =
 		{
 			// still good - keep it!
 			GigLineup set [count GigLineup, _x];
+			
+			// update pilot information...
+			
+			
+			
 		};
 	} foreach _GigCycleCheck;
 	
@@ -135,11 +149,14 @@ HW_Fx_All_Gigs_AbleCheck =
 
 HW_Fx_Pilot_Task_Commit = 
 {
+	
 	_tsk = currentTask player; // find gig array with this task
 	{ 
 		if ((_x select GIG_TASKREF) == _tsk) then 
 		{ 
 			// we should have it by now.... i hope
+			HW_PilotCommited = true;
+			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";	
 			RadioCallDelay = time+30; // since dispatch man will call a report after acknowledging your commit, this counts for a non-repeat delay
@@ -260,7 +277,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in as available
 		
 	//	sleep 1;
-	//	call HW_Fx_Dispatch_MEDEVAC;
+		call HW_Fx_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};

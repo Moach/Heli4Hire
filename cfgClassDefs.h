@@ -157,6 +157,11 @@ class CfgSimCopterHardware
 		fullName="Raycon MIRNA Series FLIR 7500";
 		itemMass=12;
 	};
+	
+	
+	
+	
+	
 };
 
 class CfgSimCopterFleet

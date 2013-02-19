@@ -1,0 +1,818 @@
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HW_MEDEVAC">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"medevac_",0,250,-42.082748,1637.803345,50.886147,1714.524658,0.000000,"medevac!"};
+item1[] = {"yep_",4,218,-41.182705,1812.260498,48.817265,1862.260498,0.000000,"yep!"};
+item2[] = {"what_are_you__gonna",2,250,-40.354012,1924.998047,49.646004,1974.998047,0.000000,"what are you " \n "gonna do?"};
+item3[] = {"too_late_",4,218,204.669373,1922.135132,313.329895,1977.967896,0.000000,"too" \n "late!"};
+item4[] = {"approach",4,218,-41.310349,2023.671021,48.689552,2073.671143,0.000000,"approach"};
+item5[] = {"call_medic",4,218,-337.522644,2135.632568,-247.522827,2185.632324,0.000000,"call" \n "medic"};
+item6[] = {"found_it_",4,218,-42.176250,2224.896484,47.823895,2274.896484,0.000000,"found it!"};
+item7[] = {"too_far_",4,218,-319.222595,1925.628540,-229.222046,1975.629028,0.000000,"too far!"};
+item8[] = {"whadda__we_got_",2,250,-32.701622,2419.537598,39.948555,2488.126465,0.000000,"whadda " \n "we got?"};
+item9[] = {"go_get_him_",2,250,-338.728546,2290.651855,-248.728577,2340.651855,0.000000,"go get him!"};
+item10[] = {"land_at_hospital",4,218,-338.813599,2397.479248,-248.813568,2447.479248,0.000000,"land at" \n "hospital"};
+item11[] = {"",7,210,254.974152,2311.095703,262.974121,2319.095703,0.000000,""};
+item12[] = {"looks_bad_",4,218,-175.357300,2429.041504,-85.357399,2479.041504,0.000000,"looks" \n "bad!"};
+item13[] = {"easy_enough",4,218,165.527206,2429.446289,255.527588,2479.446289,0.000000,"easy" \n "enough"};
+item14[] = {"get_medic_or_give",2,250,-175.144211,2350.134521,-85.144211,2400.134521,0.000000,"get medic" \n "or give up"};
+item15[] = {"",7,210,-134.156647,2311.661865,-126.156631,2319.661865,0.000000,""};
+item16[] = {"go_get_it_",2,250,214.331604,2522.377686,304.331696,2572.377686,0.000000,"go get it!"};
+item17[] = {"aboard_",4,218,213.761353,2674.256348,303.761353,2724.256348,0.000000,"aboard!"};
+item18[] = {"fly_to_accident",2,250,-338.728149,2512.479004,-248.728134,2562.479004,0.000000,"fly to" \n "accident"};
+item19[] = {"approach",4,218,-338.644684,2609.225586,-248.644684,2659.225586,0.000000,"approach"};
+item20[] = {"locate_victim",2,250,-64.732147,2609.291748,25.267769,2659.291748,0.000000,"locate victim"};
+item21[] = {"",7,210,63.002041,2533.479004,71.002060,2541.479004,0.000000,""};
+item22[] = {"standing_by",2,250,345.471710,2007.950073,432.768280,2040.377075,0.000000,"standing by"};
+item23[] = {"deploy_medic",4,218,-209.203491,2775.082275,-119.203484,2825.082275,0.000000,"deploy" \n "medic"};
+item24[] = {"don_t_go_too_far",2,250,-64.425621,2773.688232,25.574396,2823.688232,0.000000,"don't go" \n "too far " \n "now..."};
+item25[] = {"far_away",4,218,103.154137,3167.318848,193.154144,3217.318848,0.000000,"far" \n "away"};
+item26[] = {"clear",1,250,102.699730,3251.214355,190.067947,3324.899902,0.000000,"clear"};
+item27[] = {"medic_on_scene",4,218,-67.998016,2867.419678,29.314388,2925.776855,0.000000,"medic" \n "on scene"};
+item28[] = {"what_then_",2,250,-64.095306,2969.009766,25.904755,3019.009766,0.000000,"what then?"};
+item29[] = {"to_hospital_",2,250,213.725616,2758.933105,303.725647,2808.933105,0.000000,"to hospital!"};
+item30[] = {"land",4,218,213.725601,2878.665283,303.725586,2928.665283,0.000000,"land"};
+item31[] = {"emergency_deboar",2,250,213.635178,2997.415039,303.635193,3047.415039,0.000000,"emergency" \n "deboard"};
+item32[] = {"clear",4,218,212.943283,3089.864746,302.943329,3139.864746,0.000000,"clear"};
+item33[] = {"no_more_moves_",4,218,-67.389313,3086.437256,28.416569,3144.178467,0.000000,"no more" \n "moves!"};
+item34[] = {"that_s_that",2,250,101.987602,3090.083252,191.987610,3140.083252,0.000000,"that's that"};
+item35[] = {"commited_otherwi",4,218,329.386322,2121.854736,447.435883,2200.943115,1.000000,"commited" \n "otherwise"};
+item36[] = {"nope___",1,250,519.889404,1906.882446,625.483948,1992.324951,0.000000,"nope..."};
+item37[] = {"can_walk_",4,218,71.186821,2968.831787,161.186798,3018.831787,0.000000,"can walk!"};
+item38[] = {"to_chopper",2,250,71.454803,2674.515625,161.454834,2724.515625,0.000000,"to" \n "chopper"};
+item39[] = {"got_it_",4,218,153.691055,2589.159424,243.691116,2639.159424,0.000000,"got it!"};
+item40[] = {"able_",4,218,343.206818,1860.243408,433.206879,1910.243042,0.000000,"able!"};
+item41[] = {"",7,210,1.148276,1881.571411,9.148277,1889.571411,0.000000,""};
+item42[] = {"board_medic",2,250,-460.466766,2396.290039,-370.466766,2446.290039,0.000000,"board medic"};
+item43[] = {"go_",4,218,-460.466797,2512.759766,-370.466797,2562.759766,0.000000,"go!"};
+item44[] = {"search_",2,250,-42.041096,2135.734375,47.958942,2185.734375,0.000000,"search!"};
+item45[] = {"your_call_",2,250,433.772369,2430.319336,493.606201,2480.319336,0.000000,"your call!"};
+item46[] = {"PD__go_for__it_",4,218,329.159424,2515.440430,434.803589,2576.391357,0.000000,"PD:" \n "go for " \n "it!"};
+item47[] = {"PD__report_position",4,218,398.679626,2597.197998,528.218018,2680.054199,0.000000,"PD:" \n "report position 'n" \n "declare unable" \n ""};
+item48[] = {"out_",2,250,418.775879,3167.667236,508.775787,3217.667236,0.000000,"out!"};
+item49[] = {"found",4,218,-63.913692,2681.240967,26.086315,2731.240967,0.000000,"found"};
+item50[] = {"get_down_there",2,250,-208.675949,2682.619873,-118.675926,2732.619873,0.000000,"get down" \n "there"};
+link0[] = {0,1};
+link1[] = {1,41};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {2,5};
+link5[] = {2,35};
+link6[] = {3,36};
+link7[] = {4,44};
+link8[] = {5,9};
+link9[] = {6,8};
+link10[] = {7,2};
+link11[] = {8,12};
+link12[] = {8,13};
+link13[] = {9,10};
+link14[] = {9,15};
+link15[] = {10,42};
+link16[] = {11,3};
+link17[] = {11,35};
+link18[] = {12,14};
+link19[] = {13,45};
+link20[] = {14,5};
+link21[] = {14,15};
+link22[] = {15,11};
+link23[] = {16,11};
+link24[] = {16,39};
+link25[] = {17,29};
+link26[] = {18,19};
+link27[] = {18,21};
+link28[] = {19,20};
+link29[] = {20,21};
+link30[] = {20,49};
+link31[] = {21,11};
+link32[] = {22,3};
+link33[] = {22,40};
+link34[] = {23,24};
+link35[] = {24,27};
+link36[] = {25,26};
+link37[] = {27,28};
+link38[] = {28,33};
+link39[] = {28,37};
+link40[] = {29,30};
+link41[] = {30,31};
+link42[] = {31,32};
+link43[] = {32,34};
+link44[] = {33,34};
+link45[] = {34,25};
+link46[] = {35,22};
+link47[] = {37,38};
+link48[] = {38,17};
+link49[] = {39,38};
+link50[] = {40,41};
+link51[] = {41,2};
+link52[] = {42,43};
+link53[] = {43,18};
+link54[] = {44,3};
+link55[] = {44,5};
+link56[] = {44,6};
+link57[] = {44,7};
+link58[] = {44,35};
+link59[] = {45,46};
+link60[] = {45,47};
+link61[] = {46,16};
+link62[] = {47,48};
+link63[] = {48,25};
+link64[] = {49,50};
+link65[] = {50,23};
+globals[] = {0.000000,0,0,0,0,640,480,3,83,6316128,1,-747.170288,968.673584,3435.468994,1539.010010,741,819,1};
+window[] = {0,-1,-1,-32000,-32000,975,177,1821,36,1,759};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "HW_MEDEVAC";
+  class States
+  {
+    /*%FSM<STATE "medevac_">*/
+    class medevac_
+    {
+      name = "medevac_";
+      init = /*%FSM<STATEINIT""">*/"_t = time + 5; // lead-in time..." \n
+       "" \n
+       "_dat = _this select 3; // gig data array..." \n
+       "" \n
+       "_pos = _dat select 0; // actual victim position" \n
+       "_rep = _dat select 1; // reported victim position" \n
+       "_tsk = _this select 0; // task reference for gig..." \n
+       "" \n
+       "_involved = false; // pilot may not be commited, but can find himself involved in this situation anyhow..." \n
+       "" \n
+       "_grp = [_pos, side player, [""SeattleMan_Random_H""]] call BIS_fnc_spawnGroup;" \n
+       "" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "yep_">*/
+        class yep_
+        {
+          priority = 0.000000;
+          to="what_are_you__gonna";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "what_are_you__gonna">*/
+    class what_are_you__gonna
+    {
+      name = "what_are_you__gonna";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "call_medic">*/
+        class call_medic
+        {
+          priority = 0.000000;
+          to="go_get_him_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 3 // call medic flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "approach">*/
+        class approach
+        {
+          priority = 0.000000;
+          to="search_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(chopper distance _rep) < 700"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "whadda__we_got_">*/
+    class whadda__we_got_
+    {
+      name = "whadda__we_got_";
+      init = /*%FSM<STATEINIT""">*/"_involved = true;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "easy_enough">*/
+        class easy_enough
+        {
+          priority = 0.000000;
+          to="your_call_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "looks_bad_">*/
+        class looks_bad_
+        {
+          priority = 0.000000;
+          to="get_medic_or_give";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "go_get_him_">*/
+    class go_get_him_
+    {
+      name = "go_get_him_";
+      init = /*%FSM<STATEINIT""">*/"_scanLocs = nearestLocations [getPos chopper, [""HeliportHospital"", ""HeliportTrauma""], 30000];" \n
+       "_nrstHospital = locationPosition (_scanLocs select 0);" \n
+       "" \n
+       "_med = [_nrstHospital, side player, [""Rescuer_H""], [1,-6,0]] call BIS_fnc_spawnGroup;" \n
+       "" \n
+       "_med setSpeedMode ""FULL""; // run, bitch! run!" \n
+       "" \n
+       "_involved = true;" \n
+       "" \n
+       "" \n
+       "hint ""A medic is on standby at the nearest hospital to your location!\n\nCheck your map!"";" \n
+       "" \n
+       "_mdMkr = createMarker [""MEDEVAC_PICKUP"", [_nrstHospital select 0, _nrstHospital select 1]];" \n
+       "_mdMkr setMarkerType ""hd_join"";" \n
+       "_mdMkr setMarkerText ""Pickup Medic!"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "land_at_hospital">*/
+        class land_at_hospital
+        {
+          priority = 0.000000;
+          to="board_medic";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance (leader _med) < 250) && (speed (vehicle player) < 1) && (isTouchingGround (vehicle player)) && (collectiveRTD (vehicle player) <= .01);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "get_medic_or_give">*/
+    class get_medic_or_give
+    {
+      name = "get_medic_or_give";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "call_medic">*/
+        class call_medic
+        {
+          priority = 0.000000;
+          to="go_get_him_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 3 // call medic flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "go_get_it_">*/
+    class go_get_it_
+    {
+      name = "go_get_it_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "got_it_">*/
+        class got_it_
+        {
+          priority = 0.000000;
+          to="to_chopper";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "fly_to_accident">*/
+    class fly_to_accident
+    {
+      name = "fly_to_accident";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "approach">*/
+        class approach
+        {
+          priority = 0.000000;
+          to="locate_victim";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "locate_victim">*/
+    class locate_victim
+    {
+      name = "locate_victim";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "found">*/
+        class found
+        {
+          priority = 0.000000;
+          to="get_down_there";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "standing_by">*/
+    class standing_by
+    {
+      name = "standing_by";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "able_">*/
+        class able_
+        {
+          priority = 0.000000;
+          to="what_are_you__gonna";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!HW_PilotCommited"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "don_t_go_too_far">*/
+    class don_t_go_too_far
+    {
+      name = "don_t_go_too_far";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "medic_on_scene">*/
+        class medic_on_scene
+        {
+          priority = 0.000000;
+          to="what_then_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "clear">*/
+    class clear
+    {
+      name = "clear";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "what_then_">*/
+    class what_then_
+    {
+      name = "what_then_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "can_walk_">*/
+        class can_walk_
+        {
+          priority = 0.000000;
+          to="to_chopper";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "no_more_moves_">*/
+        class no_more_moves_
+        {
+          priority = 0.000000;
+          to="that_s_that";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "to_hospital_">*/
+    class to_hospital_
+    {
+      name = "to_hospital_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "land">*/
+        class land
+        {
+          priority = 0.000000;
+          to="emergency_deboar";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "emergency_deboar">*/
+    class emergency_deboar
+    {
+      name = "emergency_deboar";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "clear">*/
+        class clear
+        {
+          priority = 0.000000;
+          to="that_s_that";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "that_s_that">*/
+    class that_s_that
+    {
+      name = "that_s_that";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "far_away">*/
+        class far_away
+        {
+          priority = 0.000000;
+          to="clear";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "nope___">*/
+    class nope___
+    {
+      name = "nope___";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "to_chopper">*/
+    class to_chopper
+    {
+      name = "to_chopper";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "aboard_">*/
+        class aboard_
+        {
+          priority = 0.000000;
+          to="to_hospital_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "board_medic">*/
+    class board_medic
+    {
+      name = "board_medic";
+      init = /*%FSM<STATEINIT""">*/"" \n
+       "deleteMarker _mdMkr;" \n
+       "_boarding = [_grp, (vehicle player)] execVM ""HW_SafeBoarding.sqf"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "go_">*/
+        class go_
+        {
+          priority = 0.000000;
+          to="fly_to_accident";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"scriptDone _boarding;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "search_">*/
+    class search_
+    {
+      name = "search_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "commited_otherwi">*/
+        class commited_otherwi
+        {
+          priority = 1.000000;
+          to="standing_by";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_PilotCommited && !_involved"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "found_it_">*/
+        class found_it_
+        {
+          priority = 0.000000;
+          to="whadda__we_got_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((chopper distance _pos) < 150) && (speed chopper < 70) && (abs((getPosATL chopper select 2)-(getPosATL _pos select 2)) < 100 )"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_far_">*/
+        class too_far_
+        {
+          priority = 0.000000;
+          to="what_are_you__gonna";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(chopper distance _rep) > 800"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"hintSilent ""Leaving MEDEVAC report area!"";"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "call_medic">*/
+        class call_medic
+        {
+          priority = 0.000000;
+          to="go_get_him_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 3 // call medic flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_late_">*/
+        class too_late_
+        {
+          priority = 0.000000;
+          to="nope___";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_dat select 2 // expired flag for this event"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "your_call_">*/
+    class your_call_
+    {
+      name = "your_call_";
+      init = /*%FSM<STATEINIT""">*/"[[""PD: Take On MEDEVAC (alone)"", ""PD: Report Position""]] call HW_Fx_PD_Prompt;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "PD__report_position">*/
+        class PD__report_position
+        {
+          priority = 0.000000;
+          to="out_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotDecision==2"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"call HW_Fx_PD_Clear;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "PD__go_for__it_">*/
+        class PD__go_for__it_
+        {
+          priority = 0.000000;
+          to="go_get_it_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"PilotDecision==1"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"call HW_Fx_PD_Clear;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "out_">*/
+    class out_
+    {
+      name = "out_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "far_away">*/
+        class far_away
+        {
+          priority = 0.000000;
+          to="clear";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "get_down_there">*/
+    class get_down_there
+    {
+      name = "get_down_there";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "deploy_medic">*/
+        class deploy_medic
+        {
+          priority = 0.000000;
+          to="don_t_go_too_far";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="medevac_";
+  finalStates[] =
+  {
+    "clear",
+    "nope___",
+  };
+};
+/*%FSM</COMPILE>*/

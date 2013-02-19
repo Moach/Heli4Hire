@@ -1,0 +1,30 @@
+/*%FSM<COMPILE "E:\Bohemia Interactive Tools\FSM Editor Personal Edition\scriptedFSM.cfg, HeliWorks_MarineSAR">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"GO_",0,250,-232.767685,1590.720703,-142.767685,1640.720703,0.000000,"GO!"};
+globals[] = {0.000000,0,0,0,0,640,480,1,2,0,1,-518.877136,106.098183,1988.280518,1205.917480,683,855,1};
+window[] = {0,-1,-1,-1,-1,1016,189,1685,47,1,701};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "HeliWorks_MarineSAR";
+  class States
+  {
+    /*%FSM<STATE "GO_">*/
+    class GO_
+    {
+      name = "GO_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="GO_";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
