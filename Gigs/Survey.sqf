@@ -14,7 +14,7 @@ HW_Fx_Dispatch_Survey =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
-		_num = floor((random 3) + (random 3));
+		_num = floor((random 2) + (random 2));
 	};
 	
 	//

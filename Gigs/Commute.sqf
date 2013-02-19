@@ -16,11 +16,11 @@ HW_Fx_Dispatch_Taxi =
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
 	};
 	
-	_near = nearestLocations [_p1, LocDefs_taxi, 25000];
+	_near = nearestLocations [_p1, LocDefs_taxi, 30000];
 	
 	
 	_size = count _near;
-	_dmin = round(_size * .2); // remove the nearest 20% locations found - this culls out unreasonably close legs and the same-pad bug
+	_dmin = round(_size * .3); // remove the given nearest percentage of locations found - this culls out unreasonably close legs and the same-pad bug
 	for "_i" from 0 to _size-_dmin do 
 	{ 
 		_near set [_i, _near select _i+_dmin]; 

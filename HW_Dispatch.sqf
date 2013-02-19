@@ -25,8 +25,6 @@ PD_Actions = [];  // tracks menu action ids for pilot decisions
 #include <Gigs\Cargo.sqf>
 
 
-#include <Emergency\MEDEVAC.sqf>
-
 
 
 

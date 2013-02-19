@@ -15,6 +15,10 @@ HW_Hgr_Spots = [chopper, objNull, objNull]; // for pads a,b and c rspectively
 HW_Hgr_HangarSpot = [objNull, objNull]; // chopper in hangar, reference to pad (as seen above) to which it belongs
 
 
+HW_Hgr_Inventory = [];  // this is ALL your owned unpacked stuff... regardless of being in the hangar or on some bird out there - you'll find it here!
+HW_Hgr_SerialTag = 0;
+
+
 /*  
 	load up hangar inventory with startup crap...
 	actually... let's just add stuff that isn't basic equipment for now... buying replacemens will be added soon later on...
@@ -53,27 +57,6 @@ HW_Fn_getComponentItem =
 	]
 };
 
-
-
-
-HW_Hgr_Inventory = [];  // this is ALL your owned unpacked stuff... regardless of being in the hangar or on some bird out there - you'll find it here!
-HW_Hgr_SerialTag = 0;
-
-/*
-for "_i" from 0 to (count (missionConfigFile >> "cfgSimCopterHardware"))-1 do
-{
-	if (isClass ((missionConfigFile >> "cfgSimCopterHardware") select _i)) then
-	{
-		_hdwr = ((missionConfigFile >> "cfgSimCopterHardware") select _i);
-		if (getNumber (_hdwr >> "minimalSpec")) > 0 then 
-		{
-			//
-			HW_Hgr_SerialTag = HW_Hgr_SerialTag+1;
-			HW_Hgr_Inventory set [(count HW_Hgr_Inventory), [_hdwr, HW_Hgr_SerialTag] call HW_Fn_getComponentItem]; 
-		};
-	};
-};
-*/
 
 
 
@@ -315,6 +298,15 @@ HW_Fn_checkClear4Flight =
 	
 	("ok")
 };
+
+
+
+
+
+
+
+
+
 
 
 
