@@ -289,9 +289,13 @@ sleep 1;
 
 
 // init default helicopter to startup specs (beyond airframe minimal)...
-[chopper, HW_Hgr_Inventory select 16, (chopper getVariable "HW_ComponentSlots") select 16] call HW_Fs_AttachComponent; // doors
-[chopper, HW_Hgr_Inventory select 20, (chopper getVariable "HW_ComponentSlots") select 20] call HW_Fs_AttachComponent; // long boarding step
-[chopper, HW_Hgr_Inventory select 22, (chopper getVariable "HW_ComponentSlots") select 22] call HW_Fs_AttachComponent; // back seats
+_slots = (chopper getVariable "HW_ComponentSlots");
+
+[chopper, HW_Hgr_Inventory select 16, _slots select 16] call HW_Fs_AttachComponent; // doors
+sleep .2; // delay needed for animation phase update
+[chopper, HW_Hgr_Inventory select 20, _slots select 20] call HW_Fs_AttachComponent; // long boarding step
+sleep .2;
+[chopper, HW_Hgr_Inventory select 22, _slots select 22] call HW_Fs_AttachComponent; // back seats
 
 
 
