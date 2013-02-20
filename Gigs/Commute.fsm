@@ -132,8 +132,8 @@ link70[] = {53,54};
 link71[] = {54,55};
 link72[] = {55,41};
 link73[] = {56,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,152,0,1,-800.299133,35.592651,2424.171875,1415.716919,683,824,1};
-window[] = {0,-1,-1,-1,-1,1119,2070,3566,150,1,701};
+globals[] = {0.000000,0,0,0,0,640,480,1,152,0,1,-518.812683,317.079346,2490.261230,1481.806152,683,849,1};
+window[] = {0,-1,-1,-1,-1,1010,249,1745,41,1,701};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -594,25 +594,16 @@ class FSM
        "bis_genericSentenceMode =1;" \n
        "[""AmbienceHeliportGreeting"", (leader _grp) ] call BIS_fnc_genericSentence;" \n
        "" \n
-       "" \n
+       "_shT=0;" \n
        "if ((random 100) < 15) then // percent chance of something more interesing going on..." \n
        "{" \n
        "	_d = chopper distance (_this select 1);" \n
        "	_r =  _d * .014;" \n
        "	_shT = time + 45 + ( random _r ); // time to event is randomized evenly over estimated time of trip" \n
        "	" \n
-       "" \n
-       "//	if (HW_DEBUG) then " \n
-       "//	{" \n
-       "//		titleText [ format [""Murphy Effect Timer Set to %1\n\n distance: %2\n delta: 45 -- %3 \n\nDEBUG: Call Code-C to expedite"", _shT - time, _d, _r], ""PLAIN DOWN""];" \n
-       "//	};" \n
        "};" \n
        "" \n
-       "" \n
-       "if (HW_DEBUG) then " \n
-       "{" \n
-       "	3 setRadioMsg ""DEBUG: Murphy Effect!"";" \n
-       "};"/*%FSM</STATEINIT""">*/;
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -803,7 +794,7 @@ class FSM
           priority = 0.000000;
           to="what_is_it_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"((_shT > 0) && (time > _shT)) || (HW_Debug && RadioCall_C)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_shT > 0) && (time > _shT)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"if (HW_DEBUG) then " \n
            "{" \n
            "	RadioCall_C=false;" \n
@@ -851,7 +842,7 @@ class FSM
           priority = 0.000000;
           to="what_is_it_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"((_shT > 0) && (time > _shT)) || (HW_Debug && RadioCall_C)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_shT > 0) && (time > _shT)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"if (HW_DEBUG) then " \n
            "{" \n
            "	RadioCall_C=false;" \n
@@ -909,7 +900,7 @@ class FSM
           priority = 0.000000;
           to="what_is_it_";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"((_shT > 0) && (time > _shT)) || (HW_Debug && RadioCall_C)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_shT > 0) && (time > _shT)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"if (HW_DEBUG) then " \n
            "{" \n
            "	RadioCall_C=false;" \n
