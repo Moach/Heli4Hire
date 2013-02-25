@@ -14,10 +14,31 @@ HW_Fx_Dispatch_Taxi =
 	{
 		_near = nearestLocations [getPos chopper, LocDefs_taxi, 6000];
 		_p1 = locationPosition (_near call BIS_fnc_selectRandom);
+	} else
+	{
+		hint "Magic Taxi Enabled!\n\n Click map to dispatch a commuter flight departing from the nearest LZ to the selected point!";
+
+		HW_Magic_Taxi_Click = false;
+		HW_Magic_Taxi_Pos = getPos player;
+
+		onMapSingleClick "HW_Magic_Taxi_Click=true; HW_Magic_Taxi_Pos=_pos;";
+		openMap true;
+
+		waitUntil { HW_Magic_Taxi_Click };
+
+		openMap false; 
+		onMapSingleClick "";
+		
+		_near = nearestLocations [HW_Magic_Taxi_Pos, LocDefs_taxi, 6000];
+		_p1 = locationPosition (_near select 0);
+
+		HW_Magic_Taxi_Click = nil;
+		HW_Magic_Taxi_Pos   = nil;
 	};
 	
-	_near = nearestLocations [_p1, LocDefs_taxi, 30000];
 	
+	// now, for destination...
+	_near = nearestLocations [_p1, LocDefs_taxi, 30000];	
 	
 	_size = count _near;
 	_dmin = round(_size * .3); // remove the given nearest percentage of locations found - this culls out unreasonably close legs and the same-pad bug

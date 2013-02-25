@@ -1,7 +1,7 @@
 
 
 
-LocDefs_taxi = ["FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Heliport", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
+LocDefs_taxi = ["Heliport", "Heliport", "Heliport", "FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
 PaxDefs_taxi = [
 	"Woman01_Random_H",

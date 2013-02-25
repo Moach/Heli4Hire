@@ -22,61 +22,78 @@ call HW_Fx_PD_Clear;
 [player, "greet"] call BIS_fnc_helicopterSeatMove;
 hintSilent "Now boarding...";
 
-_t = time + 45; // if pax ain't aboard after this long, we oughta do something about it...
-
-
 sleep 2; // small delay so it doesn't feel like passengers are unnaturally aware of your signal, real people take some time to react
 
 (units _grp) call HW_Fx_Util_Animate_Off;
  
-
-sleep 1; // failsafe
-
-
-// we decide if boarding is ok to do without forcing by checking for a vertical distance between the chopper and the group leader...
-// anything more than a few meters is already too much for this - then we use a shorter timeout and don't even bother telling AI to get in...
-
-if ( abs((getPosASL (leader _grp) select 2) - (getPosASL _heli select 2)) > 2 ) then 
 {
-	_t = (time + 3) + (random 7); // wait a little while...
+	_x assignAsCargo _heli;
+} foreach units _grp;
+
+(leader _grp) assignAsTurret [_heli,[0]]; // override leader to seat in the front
+units _grp orderGetIn true;
+
+sleep 1;
+_tMax=60; // time before forced boarding takes on...
+
+// landing on rooftops may cause problems with pathfinding....
+if ( ((getPosATL _heli) select 2) > 2 ) then 
+{	
+	sleep 2;
 	
-	sleep _t;
+	// so we bring ppl to a position near the helicopter - provided there's a pad around...
+	_tMax = 30; // less time for such cases - they have a very annoying tendency to become stuck...
 	
-	// then force averyone aboard...
+	_pad = nearestObject [_heli, "RooftopLanding_Base_H"];
+	if (!isNull(_pad)) then
 	{
-		_x moveInCargo _heli;
-	} foreach units _grp;
-
-	(leader _grp) moveInTurret [_heli,[0]]; // override leader to seat in the front
-	units _grp orderGetIn true;
-
-
-} else
-{
-	// put everyone aboard by telling them to like normal people...
-	
-	{
-		_x assignAsCargo _heli;
-	} foreach units _grp;
-
- 	(leader _grp) assignAsTurret [_heli,[0]]; // override leader to seat in the front
-	units _grp orderGetIn true;
-
-	waitUntil 
-	{
-		sleep 1; // check once per second...
-		
-		_allIn=true;
+		_bdp = _pad buildingPos 1;
 		{
-			if (!(_x in _heli)) then
-			{
-				_allIn=false;
-			};
-		} foreach (units _grp);
-		(_allIn)
+			//
+			_x setPos _bdp;
+			sleep 3;
+
+		} foreach units _grp;
 	};
 };
 
-sleep 3 + random 5;
+
+_failsafe = [_heli, _grp, _tMax] spawn
+{
+	sleep (_this select 2);
+	
+	_heli = _this select 0;
+	_grp = _this select 1;
+	{
+		if (_x == leader _grp) then
+		{
+			_x moveInTurret [_heli,[0]];
+		} else
+		{
+			_x moveInCargo _heli;
+		};
+	} foreach (units _grp);
+};
+
+waitUntil 
+{
+	sleep 1; // check once per second...
+	_allIn=true;
+	
+	{
+		if (!(_x in _heli)) then
+		{
+			_allIn=false;
+		};
+	} foreach (units _grp);
+	
+	(_allIn)
+};
+
+terminate _failsafe;
+playSound "FX_Seatbelts";
+
+// lead-out delay, it feels more natural when takeoff isn't directed right away after boarding...
+sleep 5 + random 3;
 	
 

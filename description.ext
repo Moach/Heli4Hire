@@ -233,6 +233,15 @@ class CfgSounds
 		titles[] = {};
 	};
 	
+	class FX_Seatbelts
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "hw_fx_seatbelts";
+		// filename, volume, pitch
+		sound[] = {"\sound\Seatbelts.ogg", 1, 1};
+		titles[] = {};
+	};
+	
 	class FX_Fail_Engine_Bad
 	{
 		// how the sound is referred to in the editor (e.g. trigger effects)
@@ -256,7 +265,7 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "hw_fx_fail_clunk";
 		// filename, volume, pitch
-		sound[] = {"\sound\fx_fail_clunk.ogg", 1, 1};
+		sound[] = {"\sound\fx_fail_growl.ogg", 1, 1};
 		titles[] = {};
 	};
 	

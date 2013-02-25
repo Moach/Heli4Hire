@@ -30,14 +30,14 @@ HW_Fx_Dispatch_Survey =
 	};
 	
 	//
-	_tsk = player createSimpleTask ["Location Scouting"];
+	_tsk = player createSimpleTask ["Location Scout"];
 	_tsk setSimpleTaskDestination _p1;
 	
 	_mkID = ("S-"+str(round time));
 	_mkr = createMarker [_mkID, _p1];
 	_mkr setMarkerType "hd_start";
 	_mkr setMarkerDir ((AreaCenter select 0) - (_p1 select 0)) atan2 ((AreaCenter select 1) - (_p1 select 1));
-	_mkr setMarkerText ("Scout | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
+	_mkr setMarkerText ("Scout | " + "x" + str(count _surveyPoints) + " | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + str(round((_p1 distance AreaCenter) * .01)* .1) + "km");
 	
 	
 	_callCode =
@@ -60,7 +60,7 @@ HW_Fx_Dispatch_Survey =
 		if (HW_PilotCommited) exitWith
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Location Scouting", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Location Scout", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
 		};
@@ -69,7 +69,7 @@ HW_Fx_Dispatch_Survey =
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
 			(_this select GIG_TASKREF) setSimpleTaskDescription ["UNABLE: Your helicopter is not equipped for observation flights! Regulation requires that you have a minimum of 3 seats and all basic safety items installed.", 
-			 "Location Scouting", "Departing here"];
+			 "Location Scout", "Departing here"];
 			
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
@@ -77,7 +77,7 @@ HW_Fx_Dispatch_Survey =
 		} else
 		{
 			(_this select GIG_TASKREF) setTaskState "Created";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Location Scouting", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Location Scout", "Departing here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 			_this set [GIG_ABLE_FLAG, true];
 		};

@@ -19,6 +19,7 @@ waitUntil { PilotDecision == 1 || time > _t; };
 call HW_Fx_PD_Clear;
 
 
+playSound "FX_Seatbelts";
 
 
 

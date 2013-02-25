@@ -81,19 +81,26 @@ while {true} do
 			
 			if Heli_Hint_On_Fail then { hintSilent "The helicopter feels like it's getting worse as it goes....\ndid you properly inspect it?!"; };
 			
-			_dmg = chopper getHitPointDamage "HitEngine";       chopper setHitPointDamage ["HitEngine",       _dmg + random (1-_dmg) * .1 * _dmg];
+			_dmg = chopper getHitPointDamage "HitEngine";       chopper setHitPointDamage ["HitEngine",       _dmg + random (1-_dmg) * .25 * _dmg];
 			_engDmg = chopper getHitPointDamage "HitEngine"; // engine damage drives further problems proportionally
 			
 			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .2 * _engDmg];		
 			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];
 			_dmg = chopper getHitPointDamage "HitBattery";      chopper setHitPointDamage ["HitBattery",      _dmg + random (1-_dmg)* .5 * _engDmg];
 			
-			if (_engDmg < .3) then
+			if (_engDmg < .4) then
 			{			
 				playSound "FX_Fail_Clunk";
 			} else
 			{
-				if (_engDmg > .6 && !_uberFail_set) then { playSound "FX_Fail_Engine_Bad"; _uberFail_set = true; } else { playSound "FX_Fail_Surge"; };
+				if (_engDmg > .6 && !_uberFail_set) then 
+				{ 
+					playSound "FX_Fail_Engine_Bad"; 
+					_uberFail_set = true; 
+				} else 
+				{
+					playSound "FX_Fail_Surge"; 
+				};
 			};
 		};
 		

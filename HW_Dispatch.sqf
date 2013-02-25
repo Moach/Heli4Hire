@@ -5,7 +5,9 @@ GigNumMax = 8; // maximum tasks presented to player at any one time...
 
 
 HW_CannotComply=false;
-Pilot_Commited=false;
+
+HW_PilotCommited = false;
+HW_GigTerminated = true;
 
 // this is used for missions where a decision is prompted to the pilot, zero sets the "expecting answer" state, higher values correspond to specific options
 // should be reset to zero after use....
@@ -146,7 +148,6 @@ HW_Fx_All_Gigs_AbleCheck =
 };
 
 
-
 HW_Fx_Pilot_Task_Commit = 
 {
 	
@@ -156,6 +157,7 @@ HW_Fx_Pilot_Task_Commit =
 		{ 
 			// we should have it by now.... i hope
 			HW_PilotCommited = true;
+			HW_GigTerminated = false;
 			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";	

@@ -4,36 +4,43 @@
 item0[] = {"standby",2,250,-117.438744,1760.338013,-27.438709,1810.338013,0.000000,"standby"};
 item1[] = {"time_for_new_gig",4,250,2.773048,1822.903198,92.773041,1912.545654,1.000000,"time for" \n "new gig" \n "-clear-"};
 item2[] = {"gig_generator",2,250,2.753155,1948.887573,92.753128,1998.887451,0.000000,"gig" \n "generator"};
-item3[] = {"call_in",4,250,-15.346231,1579.841553,74.653732,1629.841553,1.000000,"call-in"};
-item4[] = {"call_out",4,250,-261.682007,1751.779419,-193.426971,1818.407715,2.000000,"call-out"};
+item3[] = {"call_in",4,250,-6.607489,1582.549805,83.392502,1632.549805,1.000000,"call-in"};
+item4[] = {"call_out",4,250,-256.051208,1756.317871,-199.057770,1812.810791,2.000000,"call-out"};
 item5[] = {"off_duty_",2,250,-108.009804,1334.885376,-18.009850,1384.885376,0.000000,"off duty" \n ""};
 item6[] = {"check_and_update",4,250,-231.571167,1829.035278,-141.594849,1915.666748,1.000000,"check" \n "and update" \n "gigs"};
 item7[] = {"bottomless_hole",2,250,-229.247986,1948.857910,-139.247971,1998.858032,0.000000,"bottomless" \n "hole of lost" \n "opportunities"};
 item8[] = {"able",4,250,-98.145470,1853.704956,-46.985928,1892.461670,0.000000,"able"};
-item9[] = {"commit",4,4346,-170.418686,1666.294556,-80.418716,1716.294434,1.000000,"commit"};
-item10[] = {"",7,250,26.274055,1355.922485,34.274055,1363.922485,0.000000,""};
-item11[] = {"clear_all_tasks",2,250,-272.346069,1331.603149,-182.345932,1381.603149,0.000000,"clear" \n "all tasks"};
-item12[] = {"enable__commit",4,250,256.241119,1749.865234,363.828186,1817.277710,0.000000,"enable " \n "commit"};
+item9[] = {"commit",4,250,-170.418686,1655.032959,-80.418716,1705.032837,1.000000,"commit"};
+item10[] = {"",7,250,35.012794,1355.922485,43.012798,1363.922485,0.000000,""};
+item11[] = {"clear_all_tasks",2,4346,-272.346069,1331.603149,-182.345932,1381.603149,0.000000,"clear" \n "all tasks"};
+item12[] = {"enable__commit",4,250,263.887512,1753.142212,371.474579,1820.554688,0.000000,"enable " \n "commit"};
 item13[] = {"commited",2,250,-164.925919,1578.463745,-84.335121,1631.923462,0.000000,"commited"};
-item14[] = {"",7,250,-285.113708,1601.073730,-277.113708,1609.073730,0.000000,""};
-item15[] = {"",7,250,-285.499390,1771.990601,-277.499359,1779.990601,0.000000,""};
-item16[] = {"",7,250,44.181416,1717.084961,52.181408,1725.084961,0.000000,""};
+item14[] = {"",7,250,-285.113708,1666.540649,-277.113708,1674.540649,0.000000,""};
+item15[] = {"",7,250,-284.223114,1773.266846,-276.223083,1781.266846,0.000000,""};
+item16[] = {"",7,250,42.905151,1718.361206,50.905144,1726.361206,0.000000,""};
 item17[] = {"busy",4,250,-117.291153,2031.401123,-27.291138,2081.400879,0.000000,"busy"};
-item18[] = {"",7,250,-308.841949,2051.212891,-300.841949,2059.212402,0.000000,""};
-item19[] = {"",7,250,-308.643005,1676.538452,-300.643005,1684.538452,0.000000,""};
-item20[] = {"unfit",4,250,-14.722290,1239.299927,75.277405,1289.299927,0.000000,"unfit"};
-item21[] = {"unfit_fail",4,250,-162.388809,1485.063354,-86.336945,1521.795776,2.000000,"unfit" \n "fail"};
-item22[] = {"epic_un_fail",4,250,-107.594162,1412.468994,-17.594273,1454.678955,0.000000,"epic un-fail"};
+item18[] = {"and___",2,250,-335.071228,2029.021362,-280.301178,2083.689453,0.000000,"and..."};
+item19[] = {"at_work",4,218,-413.045837,1580.077393,-323.045837,1630.077393,0.000000,"at work"};
+item20[] = {"unfit",4,250,-4.891203,1241.484619,85.108490,1291.484619,0.000000,"unfit"};
+item21[] = {"unfit_fail",4,250,-320.158905,1475.637573,-244.106750,1512.369995,2.000000,"unfit" \n "fail"};
+item22[] = {"epic_un_fail",4,250,-108.720322,1263.815918,-18.720432,1306.025879,0.000000,"epic un-fail"};
 item23[] = {"go__",0,250,-208.633484,1182.004150,-118.633423,1232.004150,0.000000,"go!" \n ""};
 item24[] = {"_",8,250,-171.012238,1345.669556,-156.367966,1374.085083,0.000000,""};
 item25[] = {"",7,250,-76.565742,1969.813599,-68.565742,1977.813599,0.000000,""};
 item26[] = {"atc_off__",4,250,67.391815,1337.520996,138.713440,1384.272705,3.000000,"atc off!?"};
 item27[] = {"atc_off__",4,250,187.454453,1575.880615,285.803345,1644.986572,3.000000,"atc off!?"};
 item28[] = {"too_many_gigs_",4,250,255.384827,1622.641235,361.467834,1696.701660,0.000000,"too many" \n "gigs!"};
-item29[] = {"",7,250,123.985672,1780.428345,132.871384,1787.542603,0.000000,""};
+item29[] = {"",7,250,126.170357,1782.613037,135.056076,1789.727295,0.000000,""};
 item30[] = {"",7,250,117.122078,1655.901733,125.122101,1663.901733,0.000000,""};
-item31[] = {"",7,250,-3.425159,1655.901733,4.574831,1663.901733,0.000000,""};
+item31[] = {"",7,250,0.944212,1654.809448,8.944202,1662.809448,0.000000,""};
 item32[] = {"disble_commit",4,218,180.213104,1805.726685,293.661743,1872.038818,0.000000,"disble" \n "commit"};
+item33[] = {"done_",4,218,-160.206970,1532.164795,-93.856331,1567.524658,0.000000,"done!"};
+item34[] = {"post_gig_limbo",2,250,-169.979309,1469.241943,-79.979286,1519.241943,0.000000,"post-gig" \n "limbo"};
+item35[] = {"call_out",4,218,-166.037750,1407.866211,-83.920807,1455.613892,0.000000,"call" \n "out"};
+item36[] = {"",7,210,-191.118271,1523.854248,-183.118271,1531.854248,0.000000,""};
+item37[] = {"",7,210,-191.481247,1717.164551,-183.481247,1725.164551,0.000000,""};
+item38[] = {"not_quite",4,218,-353.046509,1538.532837,-263.046509,1588.532837,0.000000,"not quite"};
+item39[] = {"",7,210,-312.614868,1664.713135,-304.614868,1672.713135,0.000000,""};
 link0[] = {0,1};
 link1[] = {0,4};
 link2[] = {0,6};
@@ -54,18 +61,18 @@ link16[] = {10,20};
 link17[] = {10,26};
 link18[] = {11,24};
 link19[] = {12,30};
-link20[] = {13,3};
-link21[] = {13,14};
-link22[] = {13,16};
-link23[] = {13,21};
+link20[] = {13,14};
+link21[] = {13,16};
+link22[] = {13,21};
+link23[] = {13,33};
 link24[] = {14,15};
 link25[] = {15,6};
 link26[] = {16,1};
 link27[] = {17,18};
-link28[] = {18,19};
+link28[] = {18,39};
 link29[] = {19,13};
 link30[] = {20,5};
-link31[] = {21,11};
+link31[] = {21,34};
 link32[] = {22,5};
 link33[] = {23,24};
 link34[] = {24,5};
@@ -81,8 +88,19 @@ link43[] = {29,32};
 link44[] = {30,31};
 link45[] = {31,0};
 link46[] = {32,30};
-globals[] = {0.000000,0,0,0,0,640,480,3,75,6316128,1,-406.310944,415.369141,2316.219727,1169.205078,591,794,1};
-window[] = {0,-1,-1,-1,-1,976,2042,3460,37,1,609};
+link47[] = {33,34};
+link48[] = {34,3};
+link49[] = {34,35};
+link50[] = {34,36};
+link51[] = {35,11};
+link52[] = {36,37};
+link53[] = {37,6};
+link54[] = {37,16};
+link55[] = {38,34};
+link56[] = {39,19};
+link57[] = {39,38};
+globals[] = {0.000000,0,0,0,0,640,480,3,85,6316128,1,-533.597290,95.852554,2117.422363,1271.765137,591,794,1};
+window[] = {0,-1,-1,-32000,-32000,1033,262,1680,94,1,609};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -217,7 +235,7 @@ class FSM
         class busy
         {
           priority = 0.000000;
-          to="commited";
+          to="and___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"HW_PilotCommited"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -325,7 +343,7 @@ class FSM
         class busy
         {
           priority = 0.000000;
-          to="commited";
+          to="and___";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"HW_PilotCommited"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -348,7 +366,10 @@ class FSM
     class clear_all_tasks
     {
       name = "clear_all_tasks";
-      init = /*%FSM<STATEINIT""">*/"call HW_Fx_Clear_All_Tasks;"/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"call HW_Fx_Clear_All_Tasks;" \n
+       "" \n
+       "HW_GigTerminated = true;" \n
+       "HW_PilotCommited = false;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -377,16 +398,17 @@ class FSM
         class unfit_fail
         {
           priority = 2.000000;
-          to="clear_all_tasks";
+          to="post_gig_limbo";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"Heli_Cabin_Condition < .6 && !(chopper lockedCargo 0) && RadioCall_A;" \n
+          condition=/*%FSM<CONDITION""">*/"Heli_Cabin_Condition < .6 && !(chopper lockedCargo 0) && HW_GigTerminated;" \n
            "" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_fail = true;" \n
-           "HW_PilotCommited = false;" \n
+           "" \n
+           "call HW_Fx_Clear_All_Tasks;" \n
            "" \n
            "RadioCall_A = false;" \n
-           "1 setRadioMsg ""Call back in"";" \n
+           "1 setRadioMsg ""NULL"";" \n
            ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -410,6 +432,105 @@ class FSM
           action=/*%FSM<ACTION""">*/" // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
            "" \n
            "_tNew = time + 20 + (random 30) + (random 30)  + (random 60); // probability distribution for delay between events "/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "done_">*/
+        class done_
+        {
+          priority = 0.000000;
+          to="post_gig_limbo";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_GigTerminated"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "and___">*/
+    class and___
+    {
+      name = "and___";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "not_quite">*/
+        class not_quite
+        {
+          priority = 0.000000;
+          to="post_gig_limbo";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"HW_GigTerminated"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "at_work">*/
+        class at_work
+        {
+          priority = 0.000000;
+          to="commited";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!HW_GigTerminated"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "go__">*/
+    class go__
+    {
+      name = "go__";
+      init = /*%FSM<STATEINIT""">*/"_fail = false;" \n
+       "Pilot_Commited = false;" \n
+       "Commit_Enabled=false;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="off_duty_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "post_gig_limbo">*/
+    class post_gig_limbo
+    {
+      name = "post_gig_limbo";
+      init = /*%FSM<STATEINIT""">*/"" \n
+       "RadioCall_B = false;  " \n
+       "2 setRadioMsg ""Report Back and Sign Out"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "time_for_new_gig">*/
+        class time_for_new_gig
+        {
+          priority = 1.000000;
+          to="gig_generator";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup < GigNumMax) && (time > _tNew);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/" // time to create next new gig (ideally should be tuned against expiry rate for gameplay adjustment)" \n
+           "" \n
+           "_tNew = time + 20 + (random 30) + (random 30)  + (random 60); // probability distribution for delay between events "/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "check_and_update">*/
+        class check_and_update
+        {
+          priority = 1.000000;
+          to="bottomless_hole";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(count GigLineup) > 0 && (time > _tExp);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "call_in">*/
@@ -440,27 +561,20 @@ class FSM
            ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-      };
-    };
-    /*%FSM</STATE>*/
-    /*%FSM<STATE "go__">*/
-    class go__
-    {
-      name = "go__";
-      init = /*%FSM<STATEINIT""">*/"_fail = false;" \n
-       "Pilot_Commited = false;" \n
-       "Commit_Enabled=false;"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-      class Links
-      {
-        /*%FSM<LINK "_">*/
-        class _
+        /*%FSM<LINK "call_out">*/
+        class call_out
         {
           priority = 0.000000;
-          to="off_duty_";
+          to="clear_all_tasks";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+          condition=/*%FSM<CONDITION""">*/"RadioCall_B;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"" \n
+           "central sideRadio ""HW_Radio_See_You_Later"";" \n
+           "" \n
+           "RadioCall_B = false;  " \n
+           "" \n
+           "1 setRadioMsg ""Call back in"";" \n
+           "2 setRadioMsg ""NULL"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
