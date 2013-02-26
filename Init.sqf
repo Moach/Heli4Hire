@@ -53,7 +53,7 @@
 HW_DEBUG = true; // master debug flag -- DO NOT commit to master when enabled
 
 
-
+setDate [2013, 3, 9, 7 + random 12, 0];
 enableEndDialog;
 
 // removeAllItems player;

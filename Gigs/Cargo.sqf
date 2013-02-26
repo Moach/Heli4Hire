@@ -49,7 +49,7 @@ HW_Fx_Dispatch_Cargo =
 	_mkID = ("C-"+str(round time));
 	_mkr = createMarker [_mkID, _crewPos];
 	_mkr setMarkerType "hd_join";
-	_mkr setMarkerText ("Cargo | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + (format ["%1/%2", _baseCargo, _towerCargo]));
+	_mkr setMarkerText ("Cargo | " + ([daytime, "HH:MM"] call BIS_fnc_timeToString) + " | " + (format ["%1/%2", _towerCargo, _baseCargo]));
 	
 	_tsk = player createSimpleTask ["Cargo SlingLoad"];
 	_tsk setSimpleTaskDestination _crewPos;
@@ -73,11 +73,10 @@ HW_Fx_Dispatch_Cargo =
 	
 	_ableCode =
 	{
-		
 		if (HW_PilotCommited) exitWith
 		{
 			(_this select GIG_TASKREF) setTaskState "Canceled";
-			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.",  "Cargo SlingLoad", "Departing here"];
+			(_this select GIG_TASKREF) setSimpleTaskDescription ["You cannot request this task while engaged in another.", "Cargo SlingLoad", "Meet Logistics Crew here"];
 			(_this select GIG_MARKER) setMarkerColor "ColorRed";
 			_this set [GIG_ABLE_FLAG, false];
 		};
@@ -86,7 +85,6 @@ HW_Fx_Dispatch_Cargo =
 		(_this select GIG_TASKREF) setSimpleTaskDescription ["Set task as current and call dispatch by radio to accept", "Cargo SlingLoad", "Meet Logistics Crew here"];
 		(_this select GIG_MARKER) setMarkerColor "ColorBlue";
 		_this set [GIG_ABLE_FLAG, true];
-		
 	};
 	
 	_expCode = 

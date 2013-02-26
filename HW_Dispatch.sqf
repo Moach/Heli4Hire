@@ -150,14 +150,14 @@ HW_Fx_All_Gigs_AbleCheck =
 
 HW_Fx_Pilot_Task_Commit = 
 {
-	
+	HW_PilotCommited = true;
+	HW_GigTerminated = false;
+			
 	_tsk = currentTask player; // find gig array with this task
 	{ 
 		if ((_x select GIG_TASKREF) == _tsk) then 
 		{ 
 			// we should have it by now.... i hope
-			HW_PilotCommited = true;
-			HW_GigTerminated = false;
 			
 			1 setRadioMsg "NULL";
 			2 setRadioMsg "NULL";	
@@ -279,7 +279,7 @@ if (HW_DEBUG) then // enabled only for debug!
 		RadioCall_A = true; // auto call in as available
 		
 	//	sleep 1;
-		call HW_Fx_Dispatch_Taxi;
+		call HW_Fx_Dispatch_Cargo;
 		
 		RadioCall_J = false;
 	};

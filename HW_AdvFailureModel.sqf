@@ -18,17 +18,12 @@ while {true} do
 		//
 		if ( random 50 < ((10 * (chopper getHitPointDamage "HitHRotor")) + (10 * (chopper getHitPointDamage "HitVRotor"))) ) then
 		{
-			
-			
-			
 			// hintSilent "damaged rotors affect transmission!";
 			
 			_rtrDmg = ((chopper getHitPointDamage "HitHRotor") * .75) + ((chopper getHitPointDamage "HitVRotor") * .25);
 			
 			// it just may cause damage to the transmission!
 			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg) * .6 * _rtrDmg];
-			
-			
 			
 		};
 		
@@ -66,7 +61,7 @@ while {true} do
 			// hintSilent "damaged fuel tank affects engine";
 			
 			_dmg = chopper getHitPointDamage "HitFuel"; // potential for damage is proportional to severity of the cause!
-			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitFuel") * .15];	
+			chopper setHitPointDamage ["HitEngine", _dmg + random (1-_dmg) * (chopper getHitPointDamage "HitFuel") * .15];
 			
 			playSound "FX_Fail_Crackling";
 		};
@@ -84,7 +79,7 @@ while {true} do
 			_dmg = chopper getHitPointDamage "HitEngine";       chopper setHitPointDamage ["HitEngine",       _dmg + random (1-_dmg) * .25 * _dmg];
 			_engDmg = chopper getHitPointDamage "HitEngine"; // engine damage drives further problems proportionally
 			
-			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .2 * _engDmg];		
+			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .2 * _engDmg];
 			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];
 			_dmg = chopper getHitPointDamage "HitBattery";      chopper setHitPointDamage ["HitBattery",      _dmg + random (1-_dmg)* .5 * _engDmg];
 			
@@ -113,10 +108,10 @@ while {true} do
 			_dmg = chopper getHitPointDamage "HitEngine";       chopper setHitPointDamage ["HitEngine",       _dmg + random (1-_dmg) * _dmg];
 			_engDmg = chopper getHitPointDamage "HitEngine"; // engine damage drives further problems proportionally
 			
-			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .6 * _engDmg];		
-			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];			
-			_dmg = chopper getHitPointDamage "HitFuel";         chopper setHitPointDamage ["HitFuel",         _dmg + random (1-_dmg)* .8 * _engDmg];			
-			_dmg = chopper getHitPointDamage "HitBattery";      chopper setHitPointDamage ["HitBattery",      _dmg + random (1-_dmg)* _engDmg];		
+			_dmg = chopper getHitPointDamage "HitTransmission"; chopper setHitPointDamage ["HitTransmission", _dmg + random (1-_dmg)* .6 * _engDmg];
+			_dmg = chopper getHitPointDamage "HitHydraulics";   chopper setHitPointDamage ["HitHydraulics",   _dmg + random (1-_dmg)* .5 * _engDmg];
+			_dmg = chopper getHitPointDamage "HitFuel";         chopper setHitPointDamage ["HitFuel",         _dmg + random (1-_dmg)* .8 * _engDmg];
+			_dmg = chopper getHitPointDamage "HitBattery";      chopper setHitPointDamage ["HitBattery",      _dmg + random (1-_dmg)* _engDmg];
 			_dmg = chopper getHitPointDamage "HitAvionics";     chopper setHitPointDamage ["HitAvionics",     _dmg + random (1-_dmg)* _engDmg];
 			
 			if (_engDmg > .6 && !_uberFail_set) then 

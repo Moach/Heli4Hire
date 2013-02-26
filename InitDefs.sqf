@@ -1,7 +1,7 @@
 
+HW_FuelLitreCost = .845; // based on cost index as of feb/2013
 
-
-LocDefs_taxi = ["Heliport", "Heliport", "Heliport", "FlatAreaCity", "FlatAreaCitySmall", "FlatArea", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
+LocDefs_taxi = ["Heliport", "Heliport", "Heliport", "FlatArea", "FlatArea", "FlatAreaCity", "FlatAreaCitySmall", "Airport", "ConstructionSupply", "ConstructionSite", "SummerCamp"];
 
 PaxDefs_taxi = [
 	"Woman01_Random_H",
